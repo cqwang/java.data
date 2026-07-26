@@ -17,6 +17,8 @@
 从“算法池”中选取一种算法，实现接口PredictionAlgorithm。
 功能描述：基于历史数据historicalData，生成并返回预测数据
 代码目录：algorithm/impl/
+将实现类注册到AlgorithmPoolFactory类的ALGORITHMS字段中，格式参考new AlgorithmRegistry("XGBoost", XGBoostAlgorithm.class)
+
 
 ### 补充说明
 要求提供 25种PredictionAlgorithm的实现类，每种实现类对应“算法池”中的一种算法，不可重复。

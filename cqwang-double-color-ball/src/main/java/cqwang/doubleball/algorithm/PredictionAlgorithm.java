@@ -18,6 +18,25 @@ public interface PredictionAlgorithm {
      */
     DoubleColorBallItem predict(List<DoubleColorBallItem> historicalData);
 
+    /**
+     * 获取要预测位序红球的范围
+     * @param result
+     * @param predictIndex
+     * @return
+     */
+    default Range<Integer> getRedRange(DoubleColorBallItem result, int predictIndex) {
+        var redBallDetail = RedBallDataPreload.redBallData().getRedBallDetail(predictIndex);
+        if (CollectionUtils.isEmpty(result.getRedValueList())) {
+            return Range.between(redBallDetail.getMin(), redBallDetail.getMax());
+        }
+
+        var lastRed = result.getRedValueList().getLast();
+        if (lastRed <= redBallDetail.getMin()) {
+            return Range.between(redBallDetail.getMin(), redBallDetail.getMax());
+        }
+
+        return Range.between(lastRed + 1, redBallDetail.getMax());
+    }
 
     /**
      * 校验生成的红色球数值是否合法
