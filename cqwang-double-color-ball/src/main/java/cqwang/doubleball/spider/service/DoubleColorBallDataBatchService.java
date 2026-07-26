@@ -1,6 +1,8 @@
-package cqwang.doubleball.spider;
+package cqwang.doubleball.spider.service;
 
-import cqwang.doubleball.model.DoubleColorBallProcessor;
+import cqwang.doubleball.spider.DoubleColorBallContext;
+import cqwang.doubleball.spider.DoubleColorBallPipeline;
+import cqwang.doubleball.spider.DoubleColorBallProcessor;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Spider;
 
