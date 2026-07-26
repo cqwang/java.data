@@ -1,0 +1,21 @@
+pom.xml
+  s_a035ec748da2ae::t_4775895e550a2a 19-20
+  s_a035ec748da2ae::t_edb4dc7957eac1 55
+  s_a035ec748da2ae::t_b6f60e6f98894f 47-54,56-69,71-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "e0c4188d0dbcc80fe0be1a44b613515eec36af34",
+  "prompts": {},
+  "sessions": {
+    "s_a035ec748da2ae": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b3cccd68-a586-41cc-85d8-fc6e68c93a63",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
