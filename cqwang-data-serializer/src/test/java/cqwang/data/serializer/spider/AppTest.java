@@ -1,4 +1,4 @@
-package cqwang.java.data.spider;
+package cqwang.data.serializer.spider;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
