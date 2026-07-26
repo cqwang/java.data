@@ -24,7 +24,7 @@ public class RedBallDataPreload {
         }
     }
 
-    public RedBallData redBallData() {
+    public static RedBallData redBallData() {
         return redBallData;
     }
 }

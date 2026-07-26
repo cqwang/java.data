@@ -8,8 +8,16 @@ import java.util.List;
 
 @Data
 public class DoubleColorBallItem {
+    /**
+     * 期数，唯一标识
+     */
     private String code;
+
+    /**
+     * 日期字段，也是唯一标识
+     */
     private String date;
+
     /**
      * 红色
      */
@@ -19,7 +27,15 @@ public class DoubleColorBallItem {
      * 蓝色
      */
     private String blue;
+
+    /**
+     * 红色球列表
+     */
     private List<Integer> redValueList;
+
+    /**
+     * 蓝色球
+     */
     private Integer blueValue;
 
     public void formatData() {

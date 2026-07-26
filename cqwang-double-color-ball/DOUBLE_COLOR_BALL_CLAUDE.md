@@ -1,22 +1,3 @@
-## 数据定义
-
-### 全量数据，注意：这个数据序列的排序问题是对的，不要瞎搞
-1.通过反序列化获取所有数据：
-List<DoubleColorBallItem> originalData = FileProvider.readFile("/DoubleColorBallData.json", new TypeReference<List<DoubleColorBallItem>>() { });
-
-2.取originalData位序为[0,99]的所有元素，逐个添加到latestOriginalData列表中
-3.定义allData = originalData.reversed(), 元素按照DoubleColorBallItem.date日期字段正序
-4.定义latestData = latestOriginalData.reversed()，元素按照DoubleColorBallItem.date日期字段正序
-
-5.取originalData位序为[0,199]的所有元素，逐个添加到verifyOriginalData列表中
-6.定义verifyData = verifyOriginalData.reversed(),元素按照DoubleColorBallItem.date日期字段正序
-
-
-### DoubleColorBallItem对象字段说明
-1.code字段：唯一标识
-2.date字段：日期字段，也是唯一标识
-3.redValueList字段：红色球列表
-4.blueValue字段：蓝色球
 
 
 ### 可选算法池

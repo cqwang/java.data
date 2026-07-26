@@ -22,8 +22,8 @@ public class RedBallDetail {
      */
     private Map<Integer, Integer> dataFrequencyMap;
 
+    // 全局约束 初始值
     private int max = 1;
-
     private int min = 33;
 
     public RedBallDetail() {
