@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 实时加载，用于算法挑选时的数据回归验证
  */
-public class RedBallDataRealtimeLoad {
+public class SampleDataRealtimeLoad {
 
     @Getter
     private RedBallData redBallData;

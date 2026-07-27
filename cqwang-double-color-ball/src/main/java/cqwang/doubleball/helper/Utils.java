@@ -1,7 +1,7 @@
 package cqwang.doubleball.helper;
 
 import cqwang.doubleball.model.DoubleColorBallItem;
-import cqwang.doubleball.preload.RedBallDataPreload;
+import cqwang.doubleball.preload.SampleDataPreload;
 import org.apache.commons.collections4.CollectionUtils;
 
 public class Utils {
@@ -29,7 +29,7 @@ public class Utils {
             return false;
         }
 
-        var redBallDetail = RedBallDataPreload.redBallData().getRedBallDetail(predictIndex);
+        var redBallDetail = SampleDataPreload.redBallData().getRedBallDetail(predictIndex);
         // 数值区间约束
         if (predictValue > redBallDetail.getMax() || predictValue < redBallDetail.getMin()) {
             return false;

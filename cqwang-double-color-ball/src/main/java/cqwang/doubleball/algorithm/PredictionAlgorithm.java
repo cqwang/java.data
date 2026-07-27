@@ -3,11 +3,9 @@ package cqwang.doubleball.algorithm;
 import cqwang.doubleball.model.BallDataDetail;
 import cqwang.doubleball.model.DoubleColorBallItem;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
-import cqwang.doubleball.preload.RedBallDataPreload;
+import cqwang.doubleball.preload.SampleDataRealtimeLoad;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;
-
-import java.util.List;
 
 /**
  * 预测算法接口
@@ -19,21 +17,24 @@ public interface PredictionAlgorithm {
      * @return
      */
     default DoubleColorBallItem predict(int targetIndex) {
-//        // 前序样本
-//        var preSampleList = DoubleColorBallDataPreload.allData().subList(sampleStartIndex, preSampleNum);
-//        // 目标数据
-//        var target = DoubleColorBallDataPreload.allData().get(targetDoubleColorBallIndex);
+        // 获取样本数据
+        var sampleDataRealtimeLoad = new SampleDataRealtimeLoad();
+        sampleDataRealtimeLoad.execute(targetIndex);
+
+        // 目标数据
+        var target = DoubleColorBallDataPreload.allData().get(targetIndex);
 
         // 预测结果
         var predictResult = new DoubleColorBallItem(true);
+        // 红色
         for (int redIndex = 0; redIndex < 6; redIndex++) {
-            var redBallDetail = RedBallDataPreload.redBallData().getRedBallDetail(redIndex);
+            var redBallDetail = sampleDataRealtimeLoad.getRedBallData().getRedBallDetail(redIndex);
             var redRange = getRedRange(predictResult, redBallDetail);
             var predictRed = predictRed(redBallDetail, redRange);
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = predictBlue(RedBallDataPreload.blueBallDetail());
+        var blueValue = predictBlue(sampleDataRealtimeLoad.getBlueBallDetail());
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
