@@ -13,6 +13,7 @@ import org.apache.commons.lang3.Range;
 public interface PredictionAlgorithm {
     /**
      * 生成预测结果
+     *
      * @param targetIndex 要预测的目标数据位序
      * @return
      */
@@ -34,14 +35,14 @@ public interface PredictionAlgorithm {
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = predictBlue(sampleDataRealtimeLoad.getBlueBallDetail());
+        var blueValue = predictBlue(sampleDataRealtimeLoad.getBlueBallDetail(), Range.between(1, 16));
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
 
     int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange);
 
-    int predictBlue(BallDataDetail redBallDataDetail);
+    int predictBlue(BallDataDetail blueBallDataDetail, Range<Integer> blueRange);
 
 
     /**

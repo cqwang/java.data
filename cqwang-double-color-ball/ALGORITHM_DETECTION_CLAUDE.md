@@ -16,18 +16,19 @@
 ### 提供PredictionAlgorithm的实现类
 从“算法池”中选取一种算法，实现接口PredictionAlgorithm
 
-1.实现predictRed方法，基于redBallDataDetail.
+1.predictRed方法：
+功能描述：基于时间有序的历史样本数据redBallDataDetail.dataList和每个数据出现的频率redBallDataDetail.dataFrequencyMap，以及数值区间限制redRange（包含左边界、包含右边界），来生成一个预测数值。
+每个实现类的算法，都要在严格遵守此“功能描述”的约束前提下，实现自己差异化的预测数值生成策略。
 
-1.只需要实现predictRed和predictBlue方法
+2.predictBlue方法：
+功能描述：基于时间有序的历史样本数据blueBallDataDetail.dataList和每个数据出现的频率blueBallDataDetail.dataFrequencyMap，以及数值区间限制redRange（包含左边界、包含右边界），来生成一个预测数值。
+每个实现类的算法，都要在严格遵守此“功能描述”的约束前提下，实现自己差异化的预测数值生成策略。
 
-功能描述：基于历史数据historicalData，生成并返回预测数据
-代码目录：algorithm/impl/
-将实现类注册到AlgorithmPoolFactory类的ALGORITHMS字段中，格式参考new AlgorithmRegistry("XGBoost", XGBoostAlgorithm.class)
-要求实现类生成红球时，
+
+3.代码目录：algorithm/impl/
+4.将实现类注册到AlgorithmPoolFactory类的ALGORITHMS字段中，格式参考new AlgorithmRegistry("XGBoost", XGBoostAlgorithm.class)
+
 
 ### 补充说明
 要求提供 25种PredictionAlgorithm的实现类，每种实现类对应“算法池”中的一种算法，不可重复。
 
-
-
-这些算法从算法池中选取
