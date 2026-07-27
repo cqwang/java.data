@@ -3,8 +3,10 @@ package cqwang.data.serializer;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
 
 public class JSON {
+    @Getter
     private static final ObjectMapper mapper = new ObjectMapper();
 
     static {
