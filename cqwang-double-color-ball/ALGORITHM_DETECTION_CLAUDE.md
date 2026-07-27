@@ -16,7 +16,9 @@
 ### 提供PredictionAlgorithm的实现类
 从“算法池”中选取一种算法，实现接口PredictionAlgorithm
 
-1.实现predict方法
+1.实现predictRed方法，基于redBallDataDetail.
+
+1.只需要实现predictRed和predictBlue方法
 
 功能描述：基于历史数据historicalData，生成并返回预测数据
 代码目录：algorithm/impl/

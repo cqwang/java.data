@@ -15,22 +15,14 @@ import java.util.List;
 public interface PredictionAlgorithm {
     /**
      * 生成预测结果
-     *
-     * @param preSampleNum               前置样本量
-     * @param targetDoubleColorBallIndex 要预测的目标数据
+     * @param targetIndex 要预测的目标数据位序
      * @return
      */
-    default DoubleColorBallItem predict(int preSampleNum, int targetDoubleColorBallIndex) {
-
-        var sampleStartIndex = targetDoubleColorBallIndex - preSampleNum;
-        if (sampleStartIndex < 0) {
-            return null; // 样本不足，不预测
-        }
-
-        // 前序样本
-        var preSampleList = DoubleColorBallDataPreload.allData().subList(sampleStartIndex, preSampleNum);
-        // 目标数据
-        var target = DoubleColorBallDataPreload.allData().get(targetDoubleColorBallIndex);
+    default DoubleColorBallItem predict(int targetIndex) {
+//        // 前序样本
+//        var preSampleList = DoubleColorBallDataPreload.allData().subList(sampleStartIndex, preSampleNum);
+//        // 目标数据
+//        var target = DoubleColorBallDataPreload.allData().get(targetDoubleColorBallIndex);
 
         // 预测结果
         var predictResult = new DoubleColorBallItem(true);
@@ -40,7 +32,9 @@ public interface PredictionAlgorithm {
             var predictRed = predictRed(redBallDetail, redRange);
             predictResult.getRedValueList().add(predictRed);
         }
-        predictResult.setBlueValue(predictBlue(RedBallDataPreload.blueBallDetail()));
+
+        var blueValue = predictBlue(RedBallDataPreload.blueBallDetail());
+        predictResult.setBlueValue(blueValue);
         return predictResult;
     }
 
@@ -67,36 +61,5 @@ public interface PredictionAlgorithm {
         }
 
         return Range.between(lastRed + 1, redBallDetail.getMax());
-    }
-
-    /**
-     * 校验生成的红色球数值是否合法
-     *
-     * @param result
-     * @param predictIndex
-     * @param predictValue
-     */
-    default boolean validateRed(DoubleColorBallItem result, int predictIndex, int predictValue) {
-        if (CollectionUtils.isEmpty(result.getRedValueList())) {
-            return true;
-        }
-
-        // 不能重复
-        if (result.getRedValueList().contains(predictValue)) {
-            return false;
-        }
-
-        // 数值只能按照位序变大
-        var lastRed = result.getRedValueList().get(result.getRedValueList().size() - 1);
-        if (predictValue <= lastRed) {
-            return false;
-        }
-
-        var redBallDetail = RedBallDataPreload.redBallData().getRedBallDetail(predictIndex);
-        // 数值区间约束
-        if (predictValue > redBallDetail.getMax() || predictValue < redBallDetail.getMin()) {
-            return false;
-        }
-        return true;
     }
 }

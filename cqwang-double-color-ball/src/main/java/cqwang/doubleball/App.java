@@ -11,17 +11,17 @@ import org.apache.commons.lang3.Range;
 public class App {
     public static void main(String[] args) {
         PreloadManager.execute();
-        new PredictionAlgorithm() {
-            @Override
-            public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
-                return 0;
-            }
-
-            @Override
-            public int predictBlue(BallDataDetail redBallDataDetail) {
-                return 0;
-            }
-        }.predict(100,100);
+//        new PredictionAlgorithm() {
+//            @Override
+//            public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
+//                return 0;
+//            }
+//
+//            @Override
+//            public int predictBlue(BallDataDetail redBallDataDetail) {
+//                return 0;
+//            }
+//        }.predict(100,100);
     }
 }
 
