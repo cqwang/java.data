@@ -1,0 +1,76 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/XGBoostSimulationAlgorithm.java
+  s_1caf748efb5192::t_993206085fc6d8 1-40
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/AverageAlgorithm.java
+  s_1caf748efb5192::t_8135dff9197254 1-29
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/FourierAnalysisAlgorithm.java
+  s_1caf748efb5192::t_0445810fa46e2e 1-41
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/GaussianMixtureAlgorithm.java
+  s_1caf748efb5192::t_8dd8d418e850b6 1-39
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/LightGBMSimulationAlgorithm.java
+  s_1caf748efb5192::t_e9e6ee2596ec01 1-40
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/DifferentialSmoothingAlgorithm.java
+  s_1caf748efb5192::t_403e65cd811679 1-38
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/KNearestNeighborsAlgorithm.java
+  s_1caf748efb5192::t_504506f2c1bed8 1-42
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/LSTMSimulationAlgorithm.java
+  s_1caf748efb5192::t_2a985ead33923c 1-42
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/CosineSimilarityAlgorithm.java
+  s_1caf748efb5192::t_7caf88727ac9d0 1-49
+cqwang-double-color-ball/ALGORITHM_DETECTION_CLAUDE.md
+  s_1caf748efb5192::t_e4fb9e49c1b410 27,29-30
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/FrequencyAnalysisAlgorithm.java
+  s_1caf748efb5192::t_bbed487f95bc2f 1-34
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/SpectralClusteringAlgorithm.java
+  s_1caf748efb5192::t_774440bb431348 1-50
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/MissingValueCompensationAlgorithm.java
+  s_1caf748efb5192::t_eed5fa28feb762 1-34
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/HiddenMarkovModelAlgorithm.java
+  s_1caf748efb5192::t_71ca051300d9a0 1-38
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/IntervalDistributionAlgorithm.java
+  s_1caf748efb5192::t_3b47971e569722 1-24
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/QuartileAlgorithm.java
+  s_1caf748efb5192::t_cd8b7816032d98 1-31,34,37-42
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/VarianceWeightedAlgorithm.java
+  s_1caf748efb5192::t_14eb7bde39caf4 1-37
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/ExponentialSmoothingAlgorithm.java
+  s_1caf748efb5192::t_166121f0e5f3fa 1-37
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/LogisticRegressionSimulationAlgorithm.java
+  s_1caf748efb5192::t_f5bf4bf7d553a7 1-39
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/MedianAlgorithm.java
+  s_1caf748efb5192::t_825db588f3b05e 1-22,25-26,29-31
+  s_1caf748efb5192::t_efda64578b2769 23-24,28
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/MinMaxScalingAlgorithm.java
+  s_1caf748efb5192::t_ab8c934b3723ac 1-38
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/RandomForestSimulationAlgorithm.java
+  s_1caf748efb5192::t_d43ad81ff0cae3 1-35
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/ProbabilityDistributionAlgorithm.java
+  s_1caf748efb5192::t_4bdd5a9cf7813a 1-40
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/SeasonalMovingAverageAlgorithm.java
+  s_1caf748efb5192::t_b2e33f26f10610 1-44
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/WeightedMovingAverageAlgorithm.java
+  s_1caf748efb5192::t_d6e45fbb4a7386 1-40
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/SVMSimulationAlgorithm.java
+  s_1caf748efb5192::t_2d79b6488428ea 1-37
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/AlgorithmPoolFactory.java
+  s_1caf748efb5192::t_efa7d92fd2fbab 3-4,8,12-38,43-54
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/RecentFrequencyAlgorithm.java
+  s_1caf748efb5192::t_038ff2ed9eab4a 1-49
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/impl/CyclicFrequencyAlgorithm.java
+  s_1caf748efb5192::t_f70e502bb0c51f 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "a671e97c89addf90c355524a497c1269904b7170",
+  "prompts": {},
+  "sessions": {
+    "s_1caf748efb5192": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7368f1ce-5110-4b33-93dd-7986c78522f8",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
