@@ -24,9 +24,10 @@
 功能描述：基于时间有序的历史样本数据blueBallDataDetail.dataList和每个数据出现的频率blueBallDataDetail.dataFrequencyMap，以及数值区间限制redRange（包含左边界、包含右边界），来生成一个预测数值。
 每个实现类的算法，都要在严格遵守此“功能描述”的约束前提下，实现自己差异化的预测数值生成策略。
 
+3.算法不要改变入参redBallDataDetail.dataList和blueBallDataDetail.dataList的原始顺序
 
-3.代码目录：algorithm/impl/
-4.将实现类注册到AlgorithmPoolFactory类的ALGORITHMS字段中，格式参考new AlgorithmRegistry("XGBoost", XGBoostAlgorithm.class)
+4.代码目录：algorithm/impl/
+5.将实现类注册到AlgorithmPoolFactory类的ALGORITHMS字段中，格式参考new AlgorithmRegistry("XGBoost", XGBoostAlgorithm.class)
 
 
 ### 补充说明
