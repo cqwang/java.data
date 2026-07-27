@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DoubleColorBallPreload {
+public class DoubleColorBallDataPreload {
 
     /**
      * 原始数据，正序

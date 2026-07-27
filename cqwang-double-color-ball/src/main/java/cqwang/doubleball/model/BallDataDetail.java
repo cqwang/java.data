@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-public class RedBallDetail {
+public class BallDataDetail {
     /**
      * 位序
      */
@@ -26,11 +26,11 @@ public class RedBallDetail {
     private int max = 1;
     private int min = 33;
 
-    public RedBallDetail() {
+    public BallDataDetail() {
 
     }
 
-    public RedBallDetail(int index) {
+    public BallDataDetail(int index) {
         this.index = index;
         this.dataList = new ArrayList<>();
         this.dataFrequencyMap = new HashMap<>();

@@ -38,6 +38,17 @@ public class DoubleColorBallItem {
      */
     private Integer blueValue;
 
+    public DoubleColorBallItem(){
+
+    }
+
+    public DoubleColorBallItem(boolean init) {
+        this();
+        if (init) {
+            this.redValueList = new ArrayList<>(6);
+        }
+    }
+
     public void formatData() {
         try {
             this.date = this.date.substring(0, 10);
