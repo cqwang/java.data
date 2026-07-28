@@ -3,10 +3,7 @@ package cqwang.data.serializer;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import java.io.File;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class FileProvider {
 

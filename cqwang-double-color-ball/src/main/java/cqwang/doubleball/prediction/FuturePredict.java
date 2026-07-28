@@ -12,7 +12,7 @@ public class FuturePredict {
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         for (var algorithm : algorithmList) {
             var predict = algorithm.getInstance().predict(targetIndex);
-            System.out.println(predict);
+            System.out.println(predict.getSimpleInfo());
         }
     }
 }

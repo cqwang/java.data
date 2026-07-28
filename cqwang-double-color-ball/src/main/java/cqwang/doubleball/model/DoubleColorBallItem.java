@@ -1,6 +1,7 @@
 package cqwang.doubleball.model;
 
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class DoubleColorBallItem {
      */
     private Integer blueValue;
 
-    public DoubleColorBallItem(){
+    public DoubleColorBallItem() {
 
     }
 
@@ -63,5 +64,9 @@ public class DoubleColorBallItem {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public String getSimpleInfo() {
+        return StringUtils.join(this.redValueList, ", ") + " | " + this.blueValue;
     }
 }
