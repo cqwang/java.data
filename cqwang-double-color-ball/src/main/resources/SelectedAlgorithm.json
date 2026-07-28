@@ -1,0 +1,34 @@
+[
+  {
+    "name": "RecentFrequency",
+    "historyPredictValueSum": 1500
+  },
+  {
+    "name": "VarianceWeighted",
+    "historyPredictValueSum": 1475
+  },
+  {
+    "name": "SVMSimulation6",
+    "historyPredictValueSum": 1200
+  },
+  {
+    "name": "CyclicFrequency",
+    "historyPredictValueSum": 1140
+  },
+  {
+    "name": "FrequencyAnalysis",
+    "historyPredictValueSum": 1105
+  },
+  {
+    "name": "ProbabilityDistribution",
+    "historyPredictValueSum": 1105
+  },
+  {
+    "name": "LogisticRegressionSimulation",
+    "historyPredictValueSum": 1060
+  },
+  {
+    "name": "RandomForestSimulation",
+    "historyPredictValueSum": 1025
+  }
+]

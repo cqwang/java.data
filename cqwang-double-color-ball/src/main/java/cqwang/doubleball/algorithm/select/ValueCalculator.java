@@ -22,10 +22,14 @@ public class ValueCalculator {
         if (intersectionRedCount == 6) {
             return equalsBlue ? 10000000 : 100000;
         }
-        if (intersectionRedCount == 5 && equalsBlue) {
-            return 3000;
+        if (intersectionRedCount == 5){
+            return equalsBlue ? 3000 : 200;
         }
-        return defaultValue;
+        if (intersectionRedCount == 4) {
+            return equalsBlue ? 200 : 10;
+        }
+
+        return equalsBlue ? 5 : defaultValue;
     }
 
     private static int calculateIntersectionRedCount(DoubleColorBallItem predictResult, DoubleColorBallItem target) {

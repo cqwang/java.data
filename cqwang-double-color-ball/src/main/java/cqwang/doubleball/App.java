@@ -1,7 +1,5 @@
 package cqwang.doubleball;
 
-import cqwang.doubleball.algorithm.detection.AlgorithmPoolFactory;
-import cqwang.doubleball.algorithm.select.AlgorithmSelector;
 import cqwang.doubleball.prediction.FuturePredict;
 
 /**
