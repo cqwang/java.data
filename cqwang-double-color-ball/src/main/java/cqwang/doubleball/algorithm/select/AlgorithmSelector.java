@@ -15,7 +15,22 @@ public class AlgorithmSelector {
     private static final int MIN_SAMPLE_COUNT = 100;
 
 
-    public static List<AlgorithmRegistry> execute() {
+    public static List<AlgorithmRegistry> execute(SelectMode selectMode){
+        if(selectMode == SelectMode.RE_CALCULATE) {
+            var algorithmList = reCalculate();
+            // 保存到文件
+            return algorithmList;
+        }
+
+        return readFromFile();
+    }
+
+    public static List<AlgorithmRegistry> readFromFile() {
+
+    }
+
+
+    public static List<AlgorithmRegistry> reCalculate() {
         ArrayList<AlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(MAX_COUNT);
 
         var algorithmList = AlgorithmPoolFactory.getAlgorithmPool();
