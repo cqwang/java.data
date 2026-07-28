@@ -1,6 +1,6 @@
 package cqwang.doubleball;
 
-import cqwang.doubleball.algorithm.impl.*;
+import cqwang.doubleball.algorithm.select.AlgorithmSelector;
 import cqwang.doubleball.preload.PreloadManager;
 
 /**
@@ -9,8 +9,8 @@ import cqwang.doubleball.preload.PreloadManager;
 public class App {
     public static void main(String[] args) {
         PreloadManager.execute();
-       var d= new MinMaxScalingAlgorithm().predict(100);
-       System.out.println(d);
+       var algorithmList = AlgorithmSelector.execute();
+       System.out.println();
     }
 }
 
