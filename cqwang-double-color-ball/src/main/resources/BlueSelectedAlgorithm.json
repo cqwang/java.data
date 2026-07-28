@@ -1,0 +1,34 @@
+[
+  {
+    "name": "CyclicFrequency",
+    "historyPredictValueSum": 695
+  },
+  {
+    "name": "MissingValueCompensation",
+    "historyPredictValueSum": 670
+  },
+  {
+    "name": "SVMSimulation4",
+    "historyPredictValueSum": 670
+  },
+  {
+    "name": "FourierAnalysis",
+    "historyPredictValueSum": 665
+  },
+  {
+    "name": "DifferentialSmoothing",
+    "historyPredictValueSum": 635
+  },
+  {
+    "name": "HiddenMarkovModel",
+    "historyPredictValueSum": 635
+  },
+  {
+    "name": "Quartile",
+    "historyPredictValueSum": 630
+  },
+  {
+    "name": "BayesianNetworkDown",
+    "historyPredictValueSum": 625
+  }
+]

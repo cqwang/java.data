@@ -1,0 +1,7 @@
+package cqwang.doubleball.algorithm.detection.impl.mixed;
+
+/**
+ * 篮球优选，挑选高优算法
+ * 红球正常挑选
+ */
+

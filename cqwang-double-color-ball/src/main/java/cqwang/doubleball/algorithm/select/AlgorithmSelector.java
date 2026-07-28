@@ -5,22 +5,24 @@ import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
 import cqwang.doubleball.algorithm.detection.AlgorithmPoolFactory;
 import cqwang.doubleball.algorithm.detection.AlgorithmRegistry;
+import cqwang.doubleball.model.DoubleColorBallItem;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlgorithmSelector {
-    private static final int MAX_COUNT = 8;
+public interface AlgorithmSelector {
     /**
      * 最小样本量
      */
-    private static final int MIN_SAMPLE_COUNT = 100;
+    int MIN_SAMPLE_COUNT = 100;
 
-    private static final String FILE_PATH = "/SelectedAlgorithm.json";
-
-
-    public static List<AlgorithmRegistry> execute(SelectMode selectMode) {
+    /**
+     *
+     * @param selectMode
+     * @return
+     */
+    default List<AlgorithmRegistry> execute(SelectMode selectMode) {
         if (selectMode == SelectMode.RE_CALCULATE) {
             var algorithmList = reCalculate();
             System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
@@ -30,8 +32,50 @@ public class AlgorithmSelector {
         return readFromFile();
     }
 
-    private static List<AlgorithmRegistry> readFromFile() {
-        var algorithmList = FileProvider.readFile(FILE_PATH, new TypeReference<List<AlgorithmRegistry>>() {});
+    /**
+     * 重新计算价值，挑选算法
+     * @return
+     */
+    private List<AlgorithmRegistry> reCalculate() {
+        ArrayList<AlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(getMaxCount());
+
+        var algorithmList = AlgorithmPoolFactory.getAlgorithmPool();
+        for (var algorithm : algorithmList) {
+            var sumValue = calculateHistoryPredictValueSum(algorithm);
+            if (ValueCalculator.hasNoValue(sumValue)) {
+                continue;
+            }
+            algorithm.setHistoryPredictValueSum(sumValue);
+            selectedAlgorithmList.add(algorithm);
+        }
+
+        selectedAlgorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());
+        var actualCount = Math.min(getMaxCount(), selectedAlgorithmList.size());
+        return selectedAlgorithmList.subList(0, actualCount);
+    }
+
+    /**
+     * 计算价值
+     * @param algorithmRegistry
+     * @return
+     */
+    private int calculateHistoryPredictValueSum(AlgorithmRegistry algorithmRegistry) {
+        int sumValue = 0;
+        for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallDataPreload.allData().size(); targetIndex++) {
+            var predict = algorithmRegistry.getInstance().predict(targetIndex);
+            var target = DoubleColorBallDataPreload.allData().get(targetIndex);
+            var value = calculateValue(predict, target);
+            sumValue += value;
+        }
+        return sumValue;
+    }
+
+    /**
+     * 从文件读取已保存算法
+     * @return
+     */
+    private List<AlgorithmRegistry> readFromFile() {
+        var algorithmList = FileProvider.readFile(getFilePath(), new TypeReference<List<AlgorithmRegistry>>() {});
 
         var memoryAlgorithmList = new ArrayList<AlgorithmRegistry>(algorithmList.size());
         for (var algorithm : algorithmList) {
@@ -45,38 +89,9 @@ public class AlgorithmSelector {
         return memoryAlgorithmList;
     }
 
-    private static List<AlgorithmRegistry> reCalculate() {
-        ArrayList<AlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(MAX_COUNT);
+    String getFilePath();
 
-        var algorithmList = AlgorithmPoolFactory.getAlgorithmPool();
-        for (var algorithm : algorithmList) {
-            var sumValue = calculateHistoryPredictValueSum(algorithm);
-            if (ValueCalculator.hasNoValue(sumValue)) {
-                continue;
-            }
-            algorithm.setHistoryPredictValueSum(sumValue);
-            selectedAlgorithmList.add(algorithm);
-        }
+    int getMaxCount();
 
-        selectedAlgorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());
-        var actualCount = Math.min(MAX_COUNT, selectedAlgorithmList.size());
-        return selectedAlgorithmList.subList(0, actualCount);
-    }
-
-    /**
-     * 历史回归，进行预测，计算价值合计
-     *
-     * @param algorithmRegistry
-     * @return
-     */
-    private static int calculateHistoryPredictValueSum(AlgorithmRegistry algorithmRegistry) {
-        int sumValue = 0;
-        for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallDataPreload.allData().size(); targetIndex++) {
-            var predict = algorithmRegistry.getInstance().predict(targetIndex);
-            var target = DoubleColorBallDataPreload.allData().get(targetIndex);
-            var value = ValueCalculator.calculate(predict, target);
-            sumValue += value;
-        }
-        return sumValue;
-    }
+    int calculateValue(DoubleColorBallItem predictResult, DoubleColorBallItem target);
 }
