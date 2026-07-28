@@ -2,13 +2,11 @@ package cqwang.data.serializer;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.File;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class FileProvider {
 
@@ -35,5 +33,25 @@ public class FileProvider {
             throw new RuntimeException("Failed to read file: " + file, e);
         }
     }
+
+    // 无法向resourc目录写入文件，可以指定其他目录
+//
+//    public static <T> void writeFile(String path, T data, TypeReference<T> typeReference) {
+//        try {
+//            String jsonString = JSON.getMapper().writerFor(typeReference).writeValueAsString(data);
+//            Files.write(Paths.get(path), jsonString.getBytes());
+//        } catch (Exception e) {
+//            throw new RuntimeException("Failed to write file: " + path, e);
+//        }
+//    }
+//
+//    public static <T> void writeFile(String path, T data, Class<T> clazz) {
+//        try {
+//            String jsonString = JSON.getMapper().writerFor(clazz).writeValueAsString(data);
+//            Files.write(Paths.get(path), jsonString.getBytes());
+//        } catch (Exception e) {
+//            throw new RuntimeException("Failed to write file: " + path, e);
+//        }
+//    }
 }
 

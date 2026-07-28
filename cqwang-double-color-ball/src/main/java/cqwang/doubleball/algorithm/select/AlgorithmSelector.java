@@ -1,5 +1,8 @@
 package cqwang.doubleball.algorithm.select;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import cqwang.data.serializer.FileProvider;
+import cqwang.data.serializer.JSON;
 import cqwang.doubleball.algorithm.detection.AlgorithmPoolFactory;
 import cqwang.doubleball.algorithm.detection.AlgorithmRegistry;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
@@ -14,23 +17,35 @@ public class AlgorithmSelector {
      */
     private static final int MIN_SAMPLE_COUNT = 100;
 
+    private static final String FILE_PATH = "/SelectedAlgorithm.json";
 
-    public static List<AlgorithmRegistry> execute(SelectMode selectMode){
-        if(selectMode == SelectMode.RE_CALCULATE) {
+
+    public static List<AlgorithmRegistry> execute(SelectMode selectMode) {
+        if (selectMode == SelectMode.RE_CALCULATE) {
             var algorithmList = reCalculate();
-            // 保存到文件
+            System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
             return algorithmList;
         }
 
         return readFromFile();
     }
 
-    public static List<AlgorithmRegistry> readFromFile() {
+    private static List<AlgorithmRegistry> readFromFile() {
+        var algorithmList = FileProvider.readFile(FILE_PATH, new TypeReference<List<AlgorithmRegistry>>() {});
 
+        var memoryAlgorithmList = new ArrayList<AlgorithmRegistry>(algorithmList.size());
+        for (var algorithm : algorithmList) {
+            var memoryAlgorithm = AlgorithmPoolFactory.getAlgorithm(algorithm.getName());
+            if (memoryAlgorithm == null) {
+                continue;
+            }
+            memoryAlgorithm.setHistoryPredictValueSum(algorithm.getHistoryPredictValueSum());
+            memoryAlgorithmList.add(memoryAlgorithm);
+        }
+        return memoryAlgorithmList;
     }
 
-
-    public static List<AlgorithmRegistry> reCalculate() {
+    private static List<AlgorithmRegistry> reCalculate() {
         ArrayList<AlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(MAX_COUNT);
 
         var algorithmList = AlgorithmPoolFactory.getAlgorithmPool();

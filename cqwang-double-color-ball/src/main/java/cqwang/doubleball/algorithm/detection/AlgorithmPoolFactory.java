@@ -52,7 +52,7 @@ public class AlgorithmPoolFactory {
 
     public static AlgorithmRegistry getAlgorithm(String name) {
         for (AlgorithmRegistry registry : ALGORITHMS) {
-            if (registry.name.equals(name)) {
+            if (registry.getName().equals(name)) {
                 return registry;
             }
         }

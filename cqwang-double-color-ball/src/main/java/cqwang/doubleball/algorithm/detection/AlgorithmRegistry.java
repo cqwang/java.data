@@ -1,5 +1,6 @@
 package cqwang.doubleball.algorithm.detection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,11 +9,13 @@ import lombok.Setter;
  */
 public class AlgorithmRegistry {
     @Getter
-    final String name;
+    private String name;
     @Getter
-    final Class<? extends PredictionAlgorithm> algorithmClass;
+    @JsonIgnore
+    private Class<? extends PredictionAlgorithm> algorithmClass;
     @Getter
-    final PredictionAlgorithm instance;
+    @JsonIgnore
+    private PredictionAlgorithm instance;
 
     /**
      * 历史预测价值合计
@@ -20,6 +23,9 @@ public class AlgorithmRegistry {
     @Getter
     @Setter
     private int historyPredictValueSum;
+
+    AlgorithmRegistry() {
+    }
 
     AlgorithmRegistry(String name, Class<? extends PredictionAlgorithm> algorithmClass) {
         this.name = name;
