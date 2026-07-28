@@ -1,0 +1,19 @@
+cqwang-data-serializer/src/main/java/cqwang/data/serializer/FileProvider.java
+  s_1caf748efb5192::t_a9b93ea0d21d95 6,8-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "0ccb96896ed9c8906ce03c089b189283fd3e1792",
+  "prompts": {},
+  "sessions": {
+    "s_1caf748efb5192": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7368f1ce-5110-4b33-93dd-7986c78522f8",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
