@@ -7,7 +7,7 @@ import org.apache.commons.lang3.Range;
 /**
  * 周期移动平均算法 - 基于相同周期位置的平均值
  */
-public class SeasonalMovingAverageAlgorithm implements PredictionAlgorithm {
+public class SeasonalMovingAverage52Algorithm implements PredictionAlgorithm {
     private static final int SEASON_LENGTH = 52; // 52周为一个周期
 
     @Override
@@ -27,18 +27,22 @@ public class SeasonalMovingAverageAlgorithm implements PredictionAlgorithm {
         }
 
         int currentIndex = dataList.size() - 1;
-        int seasonalIndex = currentIndex % SEASON_LENGTH;
+        int seasonalIndex = currentIndex % getSeasonLength();
 
         double sum = 0;
         int count = 0;
 
         // 找同一季节位置的所有值
-        for (int i = seasonalIndex; i < dataList.size(); i += SEASON_LENGTH) {
+        for (int i = seasonalIndex; i < dataList.size(); i += getSeasonLength()) {
             sum += dataList.get(i);
             count++;
         }
 
         int result = (int) Math.round(sum / Math.max(1, count));
         return Math.max(range.getMinimum(), Math.min(range.getMaximum(), result));
+    }
+
+    protected int getSeasonLength(){
+        return SEASON_LENGTH;
     }
 }

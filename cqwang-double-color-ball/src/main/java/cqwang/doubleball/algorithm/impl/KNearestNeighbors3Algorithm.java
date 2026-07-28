@@ -7,7 +7,7 @@ import org.apache.commons.lang3.Range;
 /**
  * K近邻算法 - 基于历史最相近数据的预测
  */
-public class KNearestNeighborsAlgorithm implements PredictionAlgorithm {
+public class KNearestNeighbors3Algorithm implements PredictionAlgorithm {
     private static final int K = 3;
 
     @Override
@@ -31,12 +31,16 @@ public class KNearestNeighborsAlgorithm implements PredictionAlgorithm {
         int count = 0;
 
         // 找最接近的K个值
-        for (int i = Math.max(0, dataList.size() - K); i < dataList.size() - 1; i++) {
+        for (int i = Math.max(0, dataList.size() - getK()); i < dataList.size() - 1; i++) {
             sum += dataList.get(i);
             count++;
         }
 
         int result = (int) Math.round(sum / Math.max(1, count));
         return Math.max(range.getMinimum(), Math.min(range.getMaximum(), result));
+    }
+
+    protected int getK(){
+        return K;
     }
 }
