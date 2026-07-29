@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.detection;
 
-import cqwang.doubleball.algorithm.detection.impl.single.*;
+import cqwang.doubleball.algorithm.detection.single.single.*;
 
 import java.util.Arrays;
 import java.util.List;
