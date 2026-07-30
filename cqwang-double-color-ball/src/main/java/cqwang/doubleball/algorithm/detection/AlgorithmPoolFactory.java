@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.detection;
 
-import cqwang.doubleball.algorithm.detection.impl.single.*;
+import cqwang.doubleball.algorithm.detection.impl.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -65,19 +65,28 @@ public class AlgorithmPoolFactory {
             new AlgorithmRegistry("UltimateFrequency", UltimateFrequencyAlgorithm.class),
             new AlgorithmRegistry("MidpointBalance", MidpointBalanceAlgorithm.class),
             new AlgorithmRegistry("FastDecay", FastDecayAlgorithm.class),
-            new AlgorithmRegistry("RedHighFrequency", RedHighFrequencyAlgorithm.class),
-            new AlgorithmRegistry("RedRecentWeighted", RedRecentWeightedAlgorithm.class),
-            new AlgorithmRegistry("RedMultiCycle", RedMultiCycleAlgorithm.class),
-            new AlgorithmRegistry("RedFastDecay", RedFastDecayAlgorithm.class),
-            new AlgorithmRegistry("RedInterval", RedIntervalAlgorithm.class),
-            new AlgorithmRegistry("RedExtremeRecent", RedExtremeRecentAlgorithm.class),
-            new AlgorithmRegistry("RedDynamicAverage", RedDynamicAverageAlgorithm.class),
-            new AlgorithmRegistry("RedContinuous", RedContinuousAlgorithm.class),
-            new AlgorithmRegistry("RedThreeLayerWeighted", RedThreeLayerWeightedAlgorithm.class),
+            new AlgorithmRegistry("HighFrequency", HighFrequencyAlgorithm.class),
+            new AlgorithmRegistry("RecentWeighted", RecentWeightedAlgorithm.class),
+            new AlgorithmRegistry("MultiCycle", MultiCycleAlgorithm.class),
+            new AlgorithmRegistry("Interval", IntervalAlgorithm.class),
+            new AlgorithmRegistry("ExtremeRecent", ExtremeRecentAlgorithm.class),
+            new AlgorithmRegistry("DynamicAverage", DynamicAverageAlgorithm.class),
+            new AlgorithmRegistry("Continuous", ContinuousAlgorithm.class),
+            new AlgorithmRegistry("ThreeLayerWeighted", ThreeLayerWeightedAlgorithm.class),
             new AlgorithmRegistry("HybridOptimized", HybridOptimizedAlgorithm.class),
             new AlgorithmRegistry("BurstFrequency", BurstFrequencyAlgorithm.class),
             new AlgorithmRegistry("SmartAdaptive", SmartAdaptiveAlgorithm.class),
             new AlgorithmRegistry("UltraFastDecay", UltraFastDecayAlgorithm.class),
+            new AlgorithmRegistry("ExtremeValue", ExtremeValueAlgorithm.class),
+            new AlgorithmRegistry("FourSegmentWeighted", FourSegmentWeightedAlgorithm.class),
+            new AlgorithmRegistry("PeakClustering", PeakClusteringAlgorithm.class),
+            new AlgorithmRegistry("DistributionBalance", DistributionBalanceAlgorithm.class),
+            new AlgorithmRegistry("VariableDecay", VariableDecayAlgorithm.class),
+            new AlgorithmRegistry("FrequencySurge", FrequencySurgeAlgorithm.class),
+            new AlgorithmRegistry("NeighborhoodCluster", NeighborhoodClusterAlgorithm.class),
+            new AlgorithmRegistry("FiveLayerProgressive", FiveLayerProgressiveAlgorithm.class),
+            new AlgorithmRegistry("SuperWeighted", SuperWeightedAlgorithm.class),
+            new AlgorithmRegistry("UltimateOptimization", UltimateOptimizationAlgorithm.class),
     };
 
     public static List<AlgorithmRegistry> getAlgorithmPool() {

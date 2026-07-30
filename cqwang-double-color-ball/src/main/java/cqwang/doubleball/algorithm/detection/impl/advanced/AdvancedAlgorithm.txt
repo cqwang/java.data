@@ -1,5 +1,0 @@
-package cqwang.doubleball.algorithm.detection.impl.advanced;
-
-/**
- * 除了单独看每个数值的预测，还综合看蓝、所有红，蓝+红的策略
- */

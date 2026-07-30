@@ -33,7 +33,7 @@
 ### 补充说明
 要求提供 25种PredictionAlgorithm的实现类，每种实现类对应“算法池”中的一种算法，不可重复。
 
-
+-----------------------------------------------
 
 ## 优化
 
@@ -45,9 +45,16 @@
 提供PredictionAlgorithm的更多实现类，
 目标是：将算法传入SingleAlgorithmSelector.calculateHistoryPredictValueSum方法，尽可能提高方法返回值
 
+### Mix算法
+提供PredictionAlgorithm的更多实现类，要求：
+1.生成的实现类放在cqwang.doubleball.algorithm.detection.impl.mixed包对应的目录下
+2.predictBlue使用SelectedAlgorithm.json中提供的算法，predictRed使用SelectedAlgorithm.json中实现的算法
+3.同一个实现类中，两个方法使用的算法不同。
+
 
 ### TODO 优化
-1.红蓝不同规则
+1.红不同位置 不同规则
+除了单独看每个数值的预测，还综合看蓝、所有红，蓝+红的策略
 2.既要分开预测红蓝，又要一起预测。通过历史红蓝规则，提高算法收益
 3.价值增长曲线
 

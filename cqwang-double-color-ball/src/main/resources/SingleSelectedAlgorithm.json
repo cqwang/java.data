@@ -8,27 +8,27 @@
     "historyPredictValueSum": 3900
   },
   {
+    "name": "HybridOptimized",
+    "historyPredictValueSum": 3770
+  },
+  {
+    "name": "RedExtremeRecent",
+    "historyPredictValueSum": 3760
+  },
+  {
+    "name": "RedMultiCycle",
+    "historyPredictValueSum": 3730
+  },
+  {
+    "name": "RedRecentWeighted",
+    "historyPredictValueSum": 3725
+  },
+  {
     "name": "DualCycleFrequency",
     "historyPredictValueSum": 3710
   },
   {
-    "name": "RecentFrequency",
-    "historyPredictValueSum": 1500
-  },
-  {
-    "name": "VarianceWeighted",
-    "historyPredictValueSum": 1475
-  },
-  {
-    "name": "SVMSimulation6",
-    "historyPredictValueSum": 1200
-  },
-  {
-    "name": "WeightedMode",
-    "historyPredictValueSum": 1195
-  },
-  {
-    "name": "ExtremeFrequency",
-    "historyPredictValueSum": 1165
+    "name": "BurstFrequency",
+    "historyPredictValueSum": 3700
   }
 ]
