@@ -1,6 +1,7 @@
 package cqwang.doubleball.algorithm.detection;
 
 import cqwang.doubleball.algorithm.detection.impl.*;
+import cqwang.doubleball.algorithm.detection.impl.mixed.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -87,6 +88,12 @@ public class AlgorithmPoolFactory {
             new AlgorithmRegistry("FiveLayerProgressive", FiveLayerProgressiveAlgorithm.class),
             new AlgorithmRegistry("SuperWeighted", SuperWeightedAlgorithm.class),
             new AlgorithmRegistry("UltimateOptimization", UltimateOptimizationAlgorithm.class),
+            new AlgorithmRegistry("RecentModifiedAdaptiveThreshold", RecentModified_AdaptiveThreshold_Algorithm.class),
+            new AlgorithmRegistry("RecentModifiedMidpointBalance", RecentModified_MidpointBalance_Algorithm.class),
+            new AlgorithmRegistry("RecentModifiedSVMSimulation4", RecentModified_SVMSimulation4_Algorithm.class),
+            new AlgorithmRegistry("RecentModifiedWeightedMode", RecentModified_WeightedMode_Algorithm.class),
+            new AlgorithmRegistry("UltimateFrequencyMidpointBalance", UltimateFrequency_MidpointBalance_Algorithm.class),
+            new AlgorithmRegistry("UltimateFrequencyWeightedMode", UltimateFrequency_WeightedMode_Algorithm.class),
     };
 
     public static List<AlgorithmRegistry> getAlgorithmPool() {

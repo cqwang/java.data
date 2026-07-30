@@ -7,7 +7,7 @@ import cqwang.doubleball.algorithm.select.impl.SingleAlgorithmSelector;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MixedAlgorithmProvider {
+public class MixedAlgorithmFactory {
     private static final List<MixedAlgorithm> ALGORITHMS = new ArrayList<>();
     static {
         var redAlgorithmRegistry = new SingleAlgorithmSelector().execute(SelectMode.FROM_FILE);

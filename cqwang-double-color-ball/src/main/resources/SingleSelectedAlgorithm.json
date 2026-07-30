@@ -1,5 +1,33 @@
 [
   {
+    "name": "RecentModifiedWeightedMode",
+    "historyPredictValueSum": 4365
+  },
+  {
+    "name": "RecentModifiedSVMSimulation4",
+    "historyPredictValueSum": 4325
+  },
+  {
+    "name": "AdaptiveThreshold",
+    "historyPredictValueSum": 4175
+  },
+  {
+    "name": "RecentModifiedAdaptiveThreshold",
+    "historyPredictValueSum": 4175
+  },
+  {
+    "name": "RecentModifiedMidpointBalance",
+    "historyPredictValueSum": 4170
+  },
+  {
+    "name": "UltimateFrequencyWeightedMode",
+    "historyPredictValueSum": 4165
+  },
+  {
+    "name": "UltimateFrequencyMidpointBalance",
+    "historyPredictValueSum": 4155
+  },
+  {
     "name": "RecentModified",
     "historyPredictValueSum": 4125
   },
@@ -12,15 +40,15 @@
     "historyPredictValueSum": 3770
   },
   {
-    "name": "RedExtremeRecent",
+    "name": "ExtremeRecent",
     "historyPredictValueSum": 3760
   },
   {
-    "name": "RedMultiCycle",
+    "name": "MultiCycle",
     "historyPredictValueSum": 3730
   },
   {
-    "name": "RedRecentWeighted",
+    "name": "RecentWeighted",
     "historyPredictValueSum": 3725
   },
   {
@@ -30,5 +58,25 @@
   {
     "name": "BurstFrequency",
     "historyPredictValueSum": 3700
+  },
+  {
+    "name": "FrequencySurge",
+    "historyPredictValueSum": 3685
+  },
+  {
+    "name": "UltimateOptimization",
+    "historyPredictValueSum": 1555
+  },
+  {
+    "name": "RecentFrequency",
+    "historyPredictValueSum": 1500
+  },
+  {
+    "name": "VarianceWeighted",
+    "historyPredictValueSum": 1480
+  },
+  {
+    "name": "SVMSimulation6",
+    "historyPredictValueSum": 1200
   }
 ]

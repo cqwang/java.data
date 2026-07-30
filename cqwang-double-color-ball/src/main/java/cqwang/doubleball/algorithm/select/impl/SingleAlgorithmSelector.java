@@ -16,7 +16,7 @@ public class SingleAlgorithmSelector implements AlgorithmSelector {
 
     @Override
     public int getMaxCount() {
-        return 8;
+        return 20;
     }
 
     @Override

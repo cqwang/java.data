@@ -1,4 +1,4 @@
-package cqwang.doubleball.algorithm.detection.impl;
+package cqwang.doubleball.algorithm.detection.impl.mixed;
 
 import cqwang.doubleball.algorithm.detection.MathUtils;
 import cqwang.doubleball.algorithm.detection.PredictionAlgorithm;
@@ -7,13 +7,11 @@ import org.apache.commons.lang3.Range;
 
 import java.util.List;
 
-/**
- * 蓝球终极频率算法 - 结合多个时间窗口的加权频率
- */
-public class UltimateFrequencyAlgorithm implements PredictionAlgorithm {
+public class UltimateFrequency_WeightedMode_Algorithm implements PredictionAlgorithm {
     private static final int W1 = 12;   // 最近12次
     private static final int W2 = 28;   // 最近28次
     private static final int W3 = 52;   // 最近52次
+    private static final int SAMPLE_SIZE = 80;
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
@@ -22,8 +20,6 @@ public class UltimateFrequencyAlgorithm implements PredictionAlgorithm {
 
     @Override
     public int predictBlue(BallDataDetail blueBallDataDetail, Range<Integer> blueRange) {
-        return MathUtils.ultimateFrequency(blueBallDataDetail, blueRange, List.of(W1, W2, W3));
+        return MathUtils.weightedMode(blueBallDataDetail, blueRange, SAMPLE_SIZE);
     }
-
-
 }

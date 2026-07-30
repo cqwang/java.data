@@ -1,25 +1,25 @@
-package cqwang.doubleball.algorithm.detection.impl;
+package cqwang.doubleball.algorithm.detection.impl.mixed;
 
 import cqwang.doubleball.algorithm.detection.MathUtils;
 import cqwang.doubleball.algorithm.detection.PredictionAlgorithm;
 import cqwang.doubleball.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
-/**
- * 蓝球中点平衡算法 - 在中点附近寻找最高频数
- */
-public class MidpointBalanceAlgorithm implements PredictionAlgorithm {
+import java.util.List;
+
+public class UltimateFrequency_MidpointBalance_Algorithm implements PredictionAlgorithm {
+    private static final int W1 = 12;   // 最近12次
+    private static final int W2 = 28;   // 最近28次
+    private static final int W3 = 52;   // 最近52次
     private static final int WINDOW_SIZE = 45;
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
-        return MathUtils.midpointBalance(redBallDataDetail, redRange, WINDOW_SIZE);
+        return MathUtils.ultimateFrequency(redBallDataDetail, redRange, List.of(W1, W2, W3));
     }
 
     @Override
     public int predictBlue(BallDataDetail blueBallDataDetail, Range<Integer> blueRange) {
         return MathUtils.midpointBalance(blueBallDataDetail, blueRange, WINDOW_SIZE);
     }
-
-
 }
