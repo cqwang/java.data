@@ -1,0 +1,89 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/HybridOptimizedAlgorithm.java
+  s_5a4f4f6faf600e::t_fc294463ce5d37 1-65
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedRecentWeightedAlgorithm.java
+  s_5a4f4f6faf600e::t_1509e9d3cf3af1 1-50
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedDynamicAverageAlgorithm.java
+  s_5a4f4f6faf600e::t_381233c02d9500 1-46
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/UltimateFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-64
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/QuartileModifiedAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-53
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/ProbabilityDistributionModifiedAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-55
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/UltraFastDecayAlgorithm.java
+  s_5a4f4f6faf600e::t_25fd1c5156f94d 1-51
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/DecayFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-50
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedHighFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_27f149e96d3896 1-35
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/MidpointBalanceAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-57
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RecentBurstAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-61
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/StandardDeviationWeightedAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-59
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/ExtremeFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-61
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedContinuousAlgorithm.java
+  s_5a4f4f6faf600e::t_1c5eef601e40db 1-67
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/HotColdMixedAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-81
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/AdaptiveThresholdAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-68
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/StrongWeightedFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-65
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/ContinuousPreferenceAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-67
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedMultiCycleAlgorithm.java
+  s_5a4f4f6faf600e::t_7e66e016d8c752 1-64
+cqwang-double-color-ball/pom.xml
+  s_5a4f4f6faf600e::t_106b6aeed0fe98 26
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedFastDecayAlgorithm.java
+  s_5a4f4f6faf600e::t_dcbf848d487e6b 1-51
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/WeightedModeAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-62
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedIntervalAlgorithm.java
+  s_5a4f4f6faf600e::t_686eb4bd735e6f 1-72
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/AggressiveDecayAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-51
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RecentModifiedAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-47
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/AbsenceCompensationAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-84
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/ThreePhaseWeightedAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-64
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedThreeLayerWeightedAlgorithm.java
+  s_5a4f4f6faf600e::t_e5e9271f5a0a15 1-64
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/BurstFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_e8f4cb5e562b61 1-73
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/RedExtremeRecentAlgorithm.java
+  s_5a4f4f6faf600e::t_6c7503790a48cf 1-61
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/AlgorithmPoolFactory.java
+  s_5a4f4f6faf600e::t_07de9b0aa932f8 48-67
+  s_5a4f4f6faf600e::t_4353b028a5f5cf 68-76
+  s_5a4f4f6faf600e::t_6944c0f30a2f47 77-80
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/IntervalCycleAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-74
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/SmartAdaptiveAlgorithm.java
+  s_5a4f4f6faf600e::t_86e8b1e06dcfc2 1-132
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/DualCycleFrequencyAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-64
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/impl/single/FastDecayAlgorithm.java
+  s_5a4f4f6faf600e::t_3c0f9cfe5847c2 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "429283cc71b6cf617ba07058c138dd2f00b9dbea",
+  "prompts": {},
+  "sessions": {
+    "s_5a4f4f6faf600e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3b394bed-f9cf-414b-bd40-c3b6eefa0331",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
