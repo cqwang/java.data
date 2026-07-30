@@ -1,5 +1,21 @@
 [
   {
+    "name": "RecentBurst",
+    "historyPredictValueSum": 770
+  },
+  {
+    "name": "WeightedMode",
+    "historyPredictValueSum": 710
+  },
+  {
+    "name": "AdaptiveThreshold",
+    "historyPredictValueSum": 705
+  },
+  {
+    "name": "MidpointBalance",
+    "historyPredictValueSum": 700
+  },
+  {
     "name": "CyclicFrequency",
     "historyPredictValueSum": 695
   },
@@ -12,23 +28,7 @@
     "historyPredictValueSum": 670
   },
   {
-    "name": "FourierAnalysis",
-    "historyPredictValueSum": 665
-  },
-  {
-    "name": "DifferentialSmoothing",
-    "historyPredictValueSum": 635
-  },
-  {
-    "name": "HiddenMarkovModel",
-    "historyPredictValueSum": 635
-  },
-  {
-    "name": "Quartile",
-    "historyPredictValueSum": 630
-  },
-  {
-    "name": "BayesianNetworkDown",
-    "historyPredictValueSum": 625
+    "name": "HotColdMixed",
+    "historyPredictValueSum": 670
   }
 ]

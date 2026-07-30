@@ -1,5 +1,17 @@
 [
   {
+    "name": "RecentModified",
+    "historyPredictValueSum": 4125
+  },
+  {
+    "name": "UltimateFrequency",
+    "historyPredictValueSum": 3900
+  },
+  {
+    "name": "DualCycleFrequency",
+    "historyPredictValueSum": 3710
+  },
+  {
     "name": "RecentFrequency",
     "historyPredictValueSum": 1500
   },
@@ -12,23 +24,11 @@
     "historyPredictValueSum": 1200
   },
   {
-    "name": "CyclicFrequency",
-    "historyPredictValueSum": 1140
+    "name": "WeightedMode",
+    "historyPredictValueSum": 1195
   },
   {
-    "name": "FrequencyAnalysis",
-    "historyPredictValueSum": 1105
-  },
-  {
-    "name": "ProbabilityDistribution",
-    "historyPredictValueSum": 1105
-  },
-  {
-    "name": "LogisticRegressionSimulation",
-    "historyPredictValueSum": 1060
-  },
-  {
-    "name": "RandomForestSimulation",
-    "historyPredictValueSum": 1025
+    "name": "ExtremeFrequency",
+    "historyPredictValueSum": 1165
   }
 ]

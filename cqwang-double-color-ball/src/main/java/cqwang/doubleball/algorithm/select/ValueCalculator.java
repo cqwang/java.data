@@ -9,7 +9,7 @@ public class ValueCalculator {
     private static int defaultValue = 0;
 
 
-    public static int calculateRed(DoubleColorBallItem predictResult, DoubleColorBallItem target) {
+    public static int calculateBlue(DoubleColorBallItem predictResult, DoubleColorBallItem target) {
         boolean equalsBlue = predictResult.getBlueValue().intValue() == target.getBlueValue().intValue();
         return equalsBlue ? 5 : defaultValue;
     }

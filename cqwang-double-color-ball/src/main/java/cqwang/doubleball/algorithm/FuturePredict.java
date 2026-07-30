@@ -1,4 +1,4 @@
-package cqwang.doubleball.prediction;
+package cqwang.doubleball.algorithm;
 
 import cqwang.doubleball.algorithm.select.impl.BlueAlgorithmSelector;
 import cqwang.doubleball.algorithm.select.impl.SingleAlgorithmSelector;
@@ -9,7 +9,7 @@ import cqwang.doubleball.preload.PreloadManager;
 public class FuturePredict {
     public static void predict() {
         PreloadManager.execute();
-        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.FROM_FILE);
+        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.RE_CALCULATE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         for (var algorithm : algorithmList) {
             var predict = algorithm.getInstance().predict(targetIndex);

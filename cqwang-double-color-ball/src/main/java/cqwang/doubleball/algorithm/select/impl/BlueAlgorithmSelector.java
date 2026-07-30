@@ -20,6 +20,6 @@ public class BlueAlgorithmSelector implements AlgorithmSelector {
 
     @Override
     public int calculateValue(DoubleColorBallItem predictResult, DoubleColorBallItem target) {
-        return ValueCalculator.calculateRed(predictResult, target);
+        return ValueCalculator.calculateBlue(predictResult, target);
     }
 }

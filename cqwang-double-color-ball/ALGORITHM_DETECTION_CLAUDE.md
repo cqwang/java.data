@@ -33,8 +33,20 @@
 ### 补充说明
 要求提供 25种PredictionAlgorithm的实现类，每种实现类对应“算法池”中的一种算法，不可重复。
 
-## TODO 优化
-1.找下篮球匹配最高的算法
+
+
+## 优化
+
+### predictBlue优化
+提供PredictionAlgorithm的更多实现类，
+目标是：将算法传入BlueAlgorithmSelector.calculateHistoryPredictValueSum方法，尽可能提高方法返回值
+
+### predict优化
+提供PredictionAlgorithm的更多实现类，
+目标是：将算法传入SingleAlgorithmSelector.calculateHistoryPredictValueSum方法，尽可能提高方法返回值
+
+
+### TODO 优化
 1.红蓝不同规则
 2.既要分开预测红蓝，又要一起预测。通过历史红蓝规则，提高算法收益
 3.价值增长曲线
