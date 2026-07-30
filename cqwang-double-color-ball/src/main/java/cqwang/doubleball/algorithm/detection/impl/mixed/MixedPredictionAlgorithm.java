@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.detection.impl.mixed;
 
-import cqwang.doubleball.algorithm.detection.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.detection.PredictionAlgorithm;
 
 import java.util.List;
 

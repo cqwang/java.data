@@ -7,7 +7,7 @@ import cqwang.doubleball.prediction.FuturePredict;
  */
 public class App {
     public static void main(String[] args) {
-        FuturePredict.predict();
+        FuturePredict.predictBlue();
     }
 }
 

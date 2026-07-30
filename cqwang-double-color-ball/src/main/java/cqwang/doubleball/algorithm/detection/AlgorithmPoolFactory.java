@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.detection;
 
-import cqwang.doubleball.algorithm.detection.single.single.*;
+import cqwang.doubleball.algorithm.detection.impl.single.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +17,7 @@ public class AlgorithmPoolFactory {
             new AlgorithmRegistry("RecentFrequency", RecentFrequencyAlgorithm.class),
             new AlgorithmRegistry("VarianceWeighted", VarianceWeightedAlgorithm.class),
             new AlgorithmRegistry("CyclicFrequency", CyclicFrequencyAlgorithm.class),
+            new AlgorithmRegistry("CyclicFrequencyChange", CyclicFrequencyWeightAlgorithm.class),
             new AlgorithmRegistry("MissingValueCompensation", MissingValueCompensationAlgorithm.class),
             new AlgorithmRegistry("WeightedMovingAverage", WeightedMovingAverageAlgorithm.class),
             new AlgorithmRegistry("MinMaxScaling", MinMaxScalingAlgorithm.class),

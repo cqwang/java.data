@@ -3,9 +3,25 @@ package cqwang.data.serializer;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class FileProvider {
+
+    /**
+     * 使用绝对路径读取文件
+     * @param path
+     * @return
+     */
+    public static String readFileContent(String path){
+        try {
+            return Files.readString(Path.of(path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static <T> T readFile(String path, TypeReference<T> typeReference) {
         try {

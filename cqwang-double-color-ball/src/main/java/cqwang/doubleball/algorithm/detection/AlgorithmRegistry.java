@@ -1,7 +1,6 @@
 package cqwang.doubleball.algorithm.detection;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import cqwang.doubleball.algorithm.detection.single.PredictionAlgorithm;
 import lombok.Getter;
 import lombok.Setter;
 

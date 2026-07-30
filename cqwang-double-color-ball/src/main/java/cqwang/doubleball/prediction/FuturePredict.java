@@ -17,9 +17,9 @@ public class FuturePredict {
         }
     }
 
-    public static void predictRed() {
+    public static void predictBlue() {
         PreloadManager.execute();
-        var algorithmList = new BlueAlgorithmSelector().execute(SelectMode.FROM_FILE);
+        var algorithmList = new BlueAlgorithmSelector().execute(SelectMode.RE_CALCULATE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         for (var algorithm : algorithmList) {
             var predict = algorithm.getInstance().predict(targetIndex);
