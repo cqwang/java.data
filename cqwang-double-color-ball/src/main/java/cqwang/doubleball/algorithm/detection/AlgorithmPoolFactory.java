@@ -2,6 +2,7 @@ package cqwang.doubleball.algorithm.detection;
 
 import cqwang.doubleball.algorithm.detection.impl.*;
 import cqwang.doubleball.algorithm.detection.impl.mixed.*;
+import cqwang.doubleball.algorithm.detection.impl.temp.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -94,6 +95,52 @@ public class AlgorithmPoolFactory {
             new AlgorithmRegistry("RecentModifiedWeightedMode", RecentModified_WeightedMode_Algorithm.class),
             new AlgorithmRegistry("UltimateFrequencyMidpointBalance", UltimateFrequency_MidpointBalance_Algorithm.class),
             new AlgorithmRegistry("UltimateFrequencyWeightedMode", UltimateFrequency_WeightedMode_Algorithm.class),
+            new AlgorithmRegistry("TempHighPerformance1", TempHighPerformanceAlgorithm1.class),
+            new AlgorithmRegistry("TempHighPerformance2", TempHighPerformanceAlgorithm2.class),
+            new AlgorithmRegistry("TempHighPerformance3", TempHighPerformanceAlgorithm3.class),
+            new AlgorithmRegistry("TempHighPerformance4", TempHighPerformanceAlgorithm4.class),
+            new AlgorithmRegistry("TempHighPerformance5", TempHighPerformanceAlgorithm5.class),
+            new AlgorithmRegistry("LagrangeInterpolation", LagrangeInterpolationAlgorithm.class),
+            new AlgorithmRegistry("SplineInterpolation", SplineInterpolationAlgorithm.class),
+            new AlgorithmRegistry("HermiteInterpolation", HermiteInterpolationAlgorithm.class),
+            new AlgorithmRegistry("GaussianElimination", GaussianEliminationAlgorithm.class),
+            new AlgorithmRegistry("TridiagonalChasingSolver", TridiagonalChasingSolverAlgorithm.class),
+            new AlgorithmRegistry("GaussSeidel", GaussSeidelAlgorithm.class),
+            new AlgorithmRegistry("JacobiIteration", JacobiIterationAlgorithm.class),
+            new AlgorithmRegistry("SOR", SORAlgorithm.class),
+            new AlgorithmRegistry("ConjugateGradient", ConjugateGradientAlgorithm.class),
+            new AlgorithmRegistry("SteepestDescent", SteepestDescentAlgorithm.class),
+            new AlgorithmRegistry("BroydenQuasiNewton", BroydenQuasiNewtonAlgorithm.class),
+            new AlgorithmRegistry("BFGSQuasiNewton", BFGSQuasiNewtonAlgorithm.class),
+            new AlgorithmRegistry("RosenbrockMethod", RosenbrockMethodAlgorithm.class),
+            new AlgorithmRegistry("PowellConjugate", PowellConjugateAlgorithm.class),
+            new AlgorithmRegistry("SimplexMethod", SimplexMethodAlgorithm.class),
+            new AlgorithmRegistry("LinearProgramming", LinearProgrammingAlgorithm.class),
+            new AlgorithmRegistry("QuadraticProgramming", QuadraticProgrammingAlgorithm.class),
+            new AlgorithmRegistry("SecantMethod", SecantMethodAlgorithm.class),
+            new AlgorithmRegistry("BisectionMethod", BisectionMethodAlgorithm.class),
+            new AlgorithmRegistry("NewtonRaphson", NewtonRaphsonAlgorithm.class),
+            new AlgorithmRegistry("EulerForwardDifference", EulerForwardDifferenceAlgorithm.class),
+            new AlgorithmRegistry("EulerBackwardDifference", EulerBackwardDifferenceAlgorithm.class),
+            new AlgorithmRegistry("TrapezoidalIntegration", TrapezoidalIntegrationAlgorithm.class),
+            new AlgorithmRegistry("SimpsonIntegration", SimpsonIntegrationAlgorithm.class),
+            new AlgorithmRegistry("RombergIntegration", RombergIntegrationAlgorithm.class),
+            new AlgorithmRegistry("RungeKutta", RungeKuttaAlgorithm.class),
+            new AlgorithmRegistry("AdamsBashforth", AdamsBashforthAlgorithm.class),
+            new AlgorithmRegistry("AdamsMoulton", AdamsMoultonAlgorithm.class),
+            new AlgorithmRegistry("BDFBackwardDifferentiation", BDFBackwardDifferentiationAlgorithm.class),
+            new AlgorithmRegistry("FourierSeriesPrediction", FourierSeriesPredictionAlgorithm.class),
+            new AlgorithmRegistry("ChebyshevPolynomial", ChebyshevPolynomialAlgorithm.class),
+            new AlgorithmRegistry("LegendrePolynomial", LegendrePolynomialAlgorithm.class),
+            new AlgorithmRegistry("HermitePolynomial", HermitePolynomialAlgorithm.class),
+            new AlgorithmRegistry("LaguerrePolynomial", LaguerrePolynomialAlgorithm.class),
+            new AlgorithmRegistry("OrthogonalPolynomial", OrthogonalPolynomialAlgorithm.class),
+            new AlgorithmRegistry("LeastSquares", LeastSquaresAlgorithm.class),
+            new AlgorithmRegistry("RidgeRegression", RidgeRegressionAlgorithm.class),
+            new AlgorithmRegistry("LassoRegression", LassoRegressionAlgorithm.class),
+            new AlgorithmRegistry("ElasticNetRegression", ElasticNetRegressionAlgorithm.class),
+            new AlgorithmRegistry("Eigenvalue", EigenvalueAlgorithm.class),
+            new AlgorithmRegistry("SVDDecomposition", SVDDecompositionAlgorithm.class),
     };
 
     public static List<AlgorithmRegistry> getAlgorithmPool() {

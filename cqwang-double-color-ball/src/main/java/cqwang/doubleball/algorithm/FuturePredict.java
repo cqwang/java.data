@@ -16,11 +16,11 @@ public class FuturePredict {
     public static void predictMix() {
         PreloadManager.execute();
         var algorithmList = new MixedAlgorithmSelector().execute();
-        var targetIndex = DoubleColorBallDataPreload.allData().size();
-        for (var algorithm : algorithmList) {
-            var predict = algorithm.predict(targetIndex);
-            System.out.println(predict.getSimpleInfo());
-        }
+//        var targetIndex = DoubleColorBallDataPreload.allData().size();
+//        for (var algorithm : algorithmList) {
+//            var predict = algorithm.predict(targetIndex);
+//            System.out.println(predict.getSimpleInfo());
+//        }
     }
 
     public static void predict() {

@@ -22,7 +22,7 @@ public class AlgorithmRegistry {
      */
     @Getter
     @Setter
-    private int historyPredictValueSum;
+    private int historyPredictValueSum = 0;
 
     /**
      * 历史命中次数

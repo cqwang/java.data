@@ -42,11 +42,7 @@ public interface AlgorithmSelector {
 
         var algorithmList = AlgorithmPoolFactory.getAlgorithmPool();
         for (var algorithm : algorithmList) {
-            var sumValue = calculateHistoryPredictValueSum(algorithm);
-            if (ValueCalculator.hasNoValue(sumValue)) {
-                continue;
-            }
-            algorithm.setHistoryPredictValueSum(sumValue);
+            calculateHistoryPredictValueSum(algorithm);
             selectedAlgorithmList.add(algorithm);
         }
 
@@ -61,7 +57,7 @@ public interface AlgorithmSelector {
      * @param algorithm
      * @return
      */
-    private int calculateHistoryPredictValueSum(AlgorithmRegistry algorithm) {
+    private void calculateHistoryPredictValueSum(AlgorithmRegistry algorithm) {
         int sumValue = 0;
         for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallDataPreload.allData().size(); targetIndex++) {
             var predict = algorithm.getInstance().predict(targetIndex);
@@ -76,7 +72,7 @@ public interface AlgorithmSelector {
                 algorithm.setMaxAmount(value);
             }
         }
-        return sumValue;
+        algorithm.setHistoryPredictValueSum(sumValue);
     }
 
     /**

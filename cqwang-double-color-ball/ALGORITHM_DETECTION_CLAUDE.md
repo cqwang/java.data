@@ -41,13 +41,16 @@
 提供PredictionAlgorithm的更多实现类，
 目标是：将算法传入BlueAlgorithmSelector.calculateHistoryPredictValueSum方法，尽可能提高方法返回值
 
-### predict优化
-提供PredictionAlgorithm的更多实现类，
-目标是：将算法传入SingleAlgorithmSelector.calculateHistoryPredictValueSum方法，尽可能提高方法返回值
+### predict新增算法
+提供PredictionAlgorithm的更多实现类，对每一个实现类algorithm
+1.新增的算法，不能在注册表AlgorithmPoolFactory.ALGORITHMS中已经存在
+2.algorithm类的定义放在cqwang.doubleball.algorithm.detection.impl.temp包对应的目录下
+3.执行new SingleAlgorithmSelector().calculateHistoryPredictValueSum(algorithm)方法，传入设计的算法实现类
+4.目标是：执行后，要求algorithm.historyPredictValueSum>5000，若满足则将算法添加到注册表AlgorithmPoolFactory.ALGORITHMS中
 
 ### Mix算法
 提供PredictionAlgorithm的更多实现类，要求：
-1.生成的实现类放在cqwang.doubleball.algorithm.detection.impl.mixed包对应的目录下
+1.生成的实现类放在cqwang.doubleball.algorithm.detection.impl.mix包对应的目录下 
 2.predictBlue使用SelectedAlgorithm.json中提供的算法，predictRed使用SelectedAlgorithm.json中实现的算法
 3.同一个实现类中，两个方法使用的算法不同。
 
