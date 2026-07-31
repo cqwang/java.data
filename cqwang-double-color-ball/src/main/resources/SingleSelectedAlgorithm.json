@@ -1,82 +1,500 @@
 [
   {
     "name": "RecentModifiedWeightedMode",
-    "historyPredictValueSum": 4365
+    "historyPredictValueSum": 4365,
+    "historyHitCount": 150,
+    "maxAmount": 3000
   },
   {
     "name": "RecentModifiedSVMSimulation4",
-    "historyPredictValueSum": 4325
+    "historyPredictValueSum": 4325,
+    "historyHitCount": 142,
+    "maxAmount": 3000
   },
   {
     "name": "AdaptiveThreshold",
-    "historyPredictValueSum": 4175
+    "historyPredictValueSum": 4175,
+    "historyHitCount": 150,
+    "maxAmount": 3000
   },
   {
     "name": "RecentModifiedAdaptiveThreshold",
-    "historyPredictValueSum": 4175
+    "historyPredictValueSum": 4175,
+    "historyHitCount": 150,
+    "maxAmount": 3000
   },
   {
     "name": "RecentModifiedMidpointBalance",
-    "historyPredictValueSum": 4170
+    "historyPredictValueSum": 4170,
+    "historyHitCount": 149,
+    "maxAmount": 3000
   },
   {
     "name": "UltimateFrequencyWeightedMode",
-    "historyPredictValueSum": 4165
+    "historyPredictValueSum": 4165,
+    "historyHitCount": 149,
+    "maxAmount": 3000
   },
   {
     "name": "UltimateFrequencyMidpointBalance",
-    "historyPredictValueSum": 4155
+    "historyPredictValueSum": 4155,
+    "historyHitCount": 147,
+    "maxAmount": 3000
   },
   {
     "name": "RecentModified",
-    "historyPredictValueSum": 4125
+    "historyPredictValueSum": 4125,
+    "historyHitCount": 140,
+    "maxAmount": 3000
   },
   {
     "name": "UltimateFrequency",
-    "historyPredictValueSum": 3900
+    "historyPredictValueSum": 3900,
+    "historyHitCount": 134,
+    "maxAmount": 3000
   },
   {
     "name": "HybridOptimized",
-    "historyPredictValueSum": 3770
+    "historyPredictValueSum": 3770,
+    "historyHitCount": 146,
+    "maxAmount": 3000
   },
   {
     "name": "ExtremeRecent",
-    "historyPredictValueSum": 3760
+    "historyPredictValueSum": 3760,
+    "historyHitCount": 144,
+    "maxAmount": 3000
   },
   {
     "name": "MultiCycle",
-    "historyPredictValueSum": 3730
+    "historyPredictValueSum": 3730,
+    "historyHitCount": 139,
+    "maxAmount": 3000
   },
   {
     "name": "RecentWeighted",
-    "historyPredictValueSum": 3725
+    "historyPredictValueSum": 3725,
+    "historyHitCount": 136,
+    "maxAmount": 3000
   },
   {
     "name": "DualCycleFrequency",
-    "historyPredictValueSum": 3710
+    "historyPredictValueSum": 3710,
+    "historyHitCount": 131,
+    "maxAmount": 3000
   },
   {
     "name": "BurstFrequency",
-    "historyPredictValueSum": 3700
+    "historyPredictValueSum": 3700,
+    "historyHitCount": 137,
+    "maxAmount": 3000
   },
   {
     "name": "FrequencySurge",
-    "historyPredictValueSum": 3685
+    "historyPredictValueSum": 3685,
+    "historyHitCount": 131,
+    "maxAmount": 3000
   },
   {
     "name": "UltimateOptimization",
-    "historyPredictValueSum": 1555
+    "historyPredictValueSum": 1555,
+    "historyHitCount": 146,
+    "maxAmount": 200
   },
   {
     "name": "RecentFrequency",
-    "historyPredictValueSum": 1500
+    "historyPredictValueSum": 1500,
+    "historyHitCount": 132,
+    "maxAmount": 200
   },
   {
     "name": "VarianceWeighted",
-    "historyPredictValueSum": 1480
+    "historyPredictValueSum": 1480,
+    "historyHitCount": 129,
+    "maxAmount": 200
   },
   {
     "name": "SVMSimulation6",
-    "historyPredictValueSum": 1200
+    "historyPredictValueSum": 1200,
+    "historyHitCount": 119,
+    "maxAmount": 200
+  },
+  {
+    "name": "WeightedMode",
+    "historyPredictValueSum": 1195,
+    "historyHitCount": 152,
+    "maxAmount": 200
+  },
+  {
+    "name": "ExtremeFrequency",
+    "historyPredictValueSum": 1165,
+    "historyHitCount": 142,
+    "maxAmount": 200
+  },
+  {
+    "name": "CyclicFrequency",
+    "historyPredictValueSum": 1145,
+    "historyHitCount": 145,
+    "maxAmount": 200
+  },
+  {
+    "name": "AggressiveDecay",
+    "historyPredictValueSum": 1135,
+    "historyHitCount": 139,
+    "maxAmount": 200
+  },
+  {
+    "name": "SuperWeighted",
+    "historyPredictValueSum": 1115,
+    "historyHitCount": 140,
+    "maxAmount": 200
+  },
+  {
+    "name": "FrequencyAnalysis",
+    "historyPredictValueSum": 1105,
+    "historyHitCount": 132,
+    "maxAmount": 200
+  },
+  {
+    "name": "ProbabilityDistribution",
+    "historyPredictValueSum": 1105,
+    "historyHitCount": 132,
+    "maxAmount": 200
+  },
+  {
+    "name": "IntervalCycle",
+    "historyPredictValueSum": 1105,
+    "historyHitCount": 136,
+    "maxAmount": 200
+  },
+  {
+    "name": "HighFrequency",
+    "historyPredictValueSum": 1105,
+    "historyHitCount": 132,
+    "maxAmount": 200
+  },
+  {
+    "name": "NeighborhoodCluster",
+    "historyPredictValueSum": 1090,
+    "historyHitCount": 127,
+    "maxAmount": 200
+  },
+  {
+    "name": "DistributionBalance",
+    "historyPredictValueSum": 1085,
+    "historyHitCount": 128,
+    "maxAmount": 200
+  },
+  {
+    "name": "ExtremeValue",
+    "historyPredictValueSum": 1075,
+    "historyHitCount": 131,
+    "maxAmount": 200
+  },
+  {
+    "name": "LogisticRegressionSimulation",
+    "historyPredictValueSum": 1060,
+    "historyHitCount": 130,
+    "maxAmount": 200
+  },
+  {
+    "name": "PeakClustering",
+    "historyPredictValueSum": 1045,
+    "historyHitCount": 125,
+    "maxAmount": 200
+  },
+  {
+    "name": "StandardDeviationWeighted",
+    "historyPredictValueSum": 1030,
+    "historyHitCount": 120,
+    "maxAmount": 200
+  },
+  {
+    "name": "RecentBurst",
+    "historyPredictValueSum": 1030,
+    "historyHitCount": 161,
+    "maxAmount": 200
+  },
+  {
+    "name": "RandomForestSimulation",
+    "historyPredictValueSum": 1025,
+    "historyHitCount": 124,
+    "maxAmount": 200
+  },
+  {
+    "name": "SeasonalMovingAverage101",
+    "historyPredictValueSum": 1015,
+    "historyHitCount": 116,
+    "maxAmount": 200
+  },
+  {
+    "name": "Continuous",
+    "historyPredictValueSum": 1010,
+    "historyHitCount": 151,
+    "maxAmount": 200
+  },
+  {
+    "name": "XGBoostSimulation",
+    "historyPredictValueSum": 990,
+    "historyHitCount": 115,
+    "maxAmount": 200
+  },
+  {
+    "name": "MissingValueCompensation",
+    "historyPredictValueSum": 975,
+    "historyHitCount": 145,
+    "maxAmount": 200
+  },
+  {
+    "name": "CyclicFrequencyChange",
+    "historyPredictValueSum": 955,
+    "historyHitCount": 137,
+    "maxAmount": 200
+  },
+  {
+    "name": "SmartAdaptive",
+    "historyPredictValueSum": 955,
+    "historyHitCount": 141,
+    "maxAmount": 200
+  },
+  {
+    "name": "SVMSimulation4",
+    "historyPredictValueSum": 945,
+    "historyHitCount": 142,
+    "maxAmount": 200
+  },
+  {
+    "name": "HotColdMixed",
+    "historyPredictValueSum": 945,
+    "historyHitCount": 142,
+    "maxAmount": 200
+  },
+  {
+    "name": "MidpointBalance",
+    "historyPredictValueSum": 945,
+    "historyHitCount": 145,
+    "maxAmount": 200
+  },
+  {
+    "name": "ThreePhaseWeighted",
+    "historyPredictValueSum": 940,
+    "historyHitCount": 138,
+    "maxAmount": 200
+  },
+  {
+    "name": "FourierAnalysis",
+    "historyPredictValueSum": 930,
+    "historyHitCount": 140,
+    "maxAmount": 200
+  },
+  {
+    "name": "ContinuousPreference",
+    "historyPredictValueSum": 930,
+    "historyHitCount": 136,
+    "maxAmount": 200
+  },
+  {
+    "name": "DecayFrequency",
+    "historyPredictValueSum": 920,
+    "historyHitCount": 136,
+    "maxAmount": 200
+  },
+  {
+    "name": "StrongWeightedFrequency",
+    "historyPredictValueSum": 920,
+    "historyHitCount": 136,
+    "maxAmount": 200
+  },
+  {
+    "name": "FiveLayerProgressive",
+    "historyPredictValueSum": 920,
+    "historyHitCount": 136,
+    "maxAmount": 200
+  },
+  {
+    "name": "ExponentialSmoothing5",
+    "historyPredictValueSum": 910,
+    "historyHitCount": 134,
+    "maxAmount": 200
+  },
+  {
+    "name": "BayesianNetworkDown",
+    "historyPredictValueSum": 890,
+    "historyHitCount": 132,
+    "maxAmount": 200
+  },
+  {
+    "name": "Median",
+    "historyPredictValueSum": 875,
+    "historyHitCount": 127,
+    "maxAmount": 200
+  },
+  {
+    "name": "FourSegmentWeighted",
+    "historyPredictValueSum": 865,
+    "historyHitCount": 126,
+    "maxAmount": 200
+  },
+  {
+    "name": "AbsenceCompensation",
+    "historyPredictValueSum": 855,
+    "historyHitCount": 127,
+    "maxAmount": 200
+  },
+  {
+    "name": "LSTMSimulation",
+    "historyPredictValueSum": 830,
+    "historyHitCount": 115,
+    "maxAmount": 200
+  },
+  {
+    "name": "DynamicAverage",
+    "historyPredictValueSum": 820,
+    "historyHitCount": 118,
+    "maxAmount": 200
+  },
+  {
+    "name": "SeasonalMovingAverage52",
+    "historyPredictValueSum": 795,
+    "historyHitCount": 113,
+    "maxAmount": 200
+  },
+  {
+    "name": "VariableDecay",
+    "historyPredictValueSum": 780,
+    "historyHitCount": 144,
+    "maxAmount": 10
+  },
+  {
+    "name": "Interval",
+    "historyPredictValueSum": 750,
+    "historyHitCount": 145,
+    "maxAmount": 10
+  },
+  {
+    "name": "BayesianNetworkUp",
+    "historyPredictValueSum": 740,
+    "historyHitCount": 105,
+    "maxAmount": 200
+  },
+  {
+    "name": "DifferentialSmoothing",
+    "historyPredictValueSum": 725,
+    "historyHitCount": 136,
+    "maxAmount": 10
+  },
+  {
+    "name": "SpectralClustering",
+    "historyPredictValueSum": 725,
+    "historyHitCount": 134,
+    "maxAmount": 10
+  },
+  {
+    "name": "HiddenMarkovModel",
+    "historyPredictValueSum": 725,
+    "historyHitCount": 136,
+    "maxAmount": 10
+  },
+  {
+    "name": "ThreeLayerWeighted",
+    "historyPredictValueSum": 725,
+    "historyHitCount": 140,
+    "maxAmount": 10
+  },
+  {
+    "name": "Quartile",
+    "historyPredictValueSum": 720,
+    "historyHitCount": 135,
+    "maxAmount": 10
+  },
+  {
+    "name": "UltraFastDecay",
+    "historyPredictValueSum": 710,
+    "historyHitCount": 137,
+    "maxAmount": 10
+  },
+  {
+    "name": "IntervalDistribution",
+    "historyPredictValueSum": 705,
+    "historyHitCount": 132,
+    "maxAmount": 10
+  },
+  {
+    "name": "ExponentialSmoothing3",
+    "historyPredictValueSum": 700,
+    "historyHitCount": 130,
+    "maxAmount": 10
+  },
+  {
+    "name": "FastDecay",
+    "historyPredictValueSum": 695,
+    "historyHitCount": 132,
+    "maxAmount": 10
+  },
+  {
+    "name": "SeasonalMovingAverage206",
+    "historyPredictValueSum": 675,
+    "historyHitCount": 129,
+    "maxAmount": 10
+  },
+  {
+    "name": "WeightedMovingAverage",
+    "historyPredictValueSum": 670,
+    "historyHitCount": 129,
+    "maxAmount": 10
+  },
+  {
+    "name": "LightGBMSimulation",
+    "historyPredictValueSum": 660,
+    "historyHitCount": 124,
+    "maxAmount": 10
+  },
+  {
+    "name": "CosineSimilarity",
+    "historyPredictValueSum": 640,
+    "historyHitCount": 120,
+    "maxAmount": 10
+  },
+  {
+    "name": "QuartileModified",
+    "historyPredictValueSum": 630,
+    "historyHitCount": 119,
+    "maxAmount": 10
+  },
+  {
+    "name": "Average",
+    "historyPredictValueSum": 605,
+    "historyHitCount": 112,
+    "maxAmount": 10
+  },
+  {
+    "name": "GaussianMixture",
+    "historyPredictValueSum": 605,
+    "historyHitCount": 112,
+    "maxAmount": 10
+  },
+  {
+    "name": "KNearestNeighbors3",
+    "historyPredictValueSum": 600,
+    "historyHitCount": 112,
+    "maxAmount": 10
+  },
+  {
+    "name": "KNearestNeighbors5",
+    "historyPredictValueSum": 600,
+    "historyHitCount": 112,
+    "maxAmount": 10
+  },
+  {
+    "name": "MinMaxScaling",
+    "historyPredictValueSum": 585,
+    "historyHitCount": 109,
+    "maxAmount": 10
+  },
+  {
+    "name": "ProbabilityDistributionModified",
+    "historyPredictValueSum": 570,
+    "historyHitCount": 108,
+    "maxAmount": 10
   }
 ]

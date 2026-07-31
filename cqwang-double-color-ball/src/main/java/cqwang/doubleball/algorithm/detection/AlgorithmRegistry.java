@@ -24,6 +24,20 @@ public class AlgorithmRegistry {
     @Setter
     private int historyPredictValueSum;
 
+    /**
+     * 历史命中次数
+     */
+    @Getter
+    @Setter
+    private int historyHitCount = 0;
+
+    /**
+     * 最大金额
+     */
+    @Getter
+    @Setter
+    private int maxAmount;
+
     AlgorithmRegistry() {
     }
 

@@ -34,6 +34,7 @@ public interface AlgorithmSelector {
 
     /**
      * 重新计算价值，挑选算法
+     *
      * @return
      */
     private List<AlgorithmRegistry> reCalculate() {
@@ -56,26 +57,36 @@ public interface AlgorithmSelector {
 
     /**
      * 计算价值
-     * @param algorithmRegistry
+     *
+     * @param algorithm
      * @return
      */
-    private int calculateHistoryPredictValueSum(AlgorithmRegistry algorithmRegistry) {
+    private int calculateHistoryPredictValueSum(AlgorithmRegistry algorithm) {
         int sumValue = 0;
         for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallDataPreload.allData().size(); targetIndex++) {
-            var predict = algorithmRegistry.getInstance().predict(targetIndex);
+            var predict = algorithm.getInstance().predict(targetIndex);
             var target = DoubleColorBallDataPreload.allData().get(targetIndex);
             var value = calculateValue(predict, target);
+            if (ValueCalculator.hasNoValue(value)) {
+                continue;
+            }
+            algorithm.setHistoryHitCount(algorithm.getHistoryHitCount() + 1);
             sumValue += value;
+            if (value > algorithm.getMaxAmount()) {
+                algorithm.setMaxAmount(value);
+            }
         }
         return sumValue;
     }
 
     /**
      * 从文件读取已保存算法
+     *
      * @return
      */
     private List<AlgorithmRegistry> readFromFile() {
-        var algorithmList = FileProvider.readFile(getFilePath(), new TypeReference<List<AlgorithmRegistry>>() {});
+        var algorithmList = FileProvider.readFile(getFilePath(), new TypeReference<List<AlgorithmRegistry>>() {
+        });
 
         var memoryAlgorithmList = new ArrayList<AlgorithmRegistry>(algorithmList.size());
         for (var algorithm : algorithmList) {
@@ -83,6 +94,8 @@ public interface AlgorithmSelector {
             if (memoryAlgorithm == null) {
                 continue;
             }
+            memoryAlgorithm.setHistoryHitCount(algorithm.getHistoryHitCount());
+            memoryAlgorithm.setMaxAmount(algorithm.getMaxAmount());
             memoryAlgorithm.setHistoryPredictValueSum(algorithm.getHistoryPredictValueSum());
             memoryAlgorithmList.add(memoryAlgorithm);
         }
