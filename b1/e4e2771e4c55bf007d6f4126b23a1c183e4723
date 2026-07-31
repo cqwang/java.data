@@ -1,0 +1,22 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/detection/AlgorithmPoolFactory.java
+  s_5a4f4f6faf600e::t_63967dc90e11f5 91-96
+  s_5a4f4f6faf600e::t_bb19598c25493f 4
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/selectedmixed/MixedAlgorithm.java
+  s_5a4f4f6faf600e::t_78299e236be45b 21-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.38-trip",
+  "base_commit_sha": "b1e4e2771e4c55bf007d6f4126b23a1c183e4723",
+  "prompts": {},
+  "sessions": {
+    "s_5a4f4f6faf600e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3b394bed-f9cf-414b-bd40-c3b6eefa0331",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
