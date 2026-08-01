@@ -1,5 +1,6 @@
-package cqwang.doubleball.algorithm;
+package cqwang.doubleball;
 
+import cqwang.doubleball.advancedalgorithm.AdvancedAlgorithmRegistrySelector;
 import cqwang.doubleball.algorithm.select.impl.BlueAlgorithmSelector;
 import cqwang.doubleball.algorithm.select.impl.SingleAlgorithmSelector;
 import cqwang.doubleball.algorithm.select.SelectMode;
@@ -7,20 +8,29 @@ import cqwang.doubleball.algorithm.selectedmixed.MixedAlgorithmSelector;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
 import cqwang.doubleball.preload.PreloadManager;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class FuturePredict {
+
+    public static void predictAdvanced() {
+        PreloadManager.execute();
+        var algorithmList = new AdvancedAlgorithmRegistrySelector().execute(SelectMode.FROM_FILE);
+        var targetIndex = DoubleColorBallDataPreload.allData().size();
+        for (var algorithm : algorithmList) {
+            var predict = algorithm.predict(targetIndex);
+            System.out.println(predict.getSimpleInfo());
+        }
+    }
+
     public static void predictMix() {
         PreloadManager.execute();
         var algorithmList = new MixedAlgorithmSelector().execute();
-//        var targetIndex = DoubleColorBallDataPreload.allData().size();
-//        for (var algorithm : algorithmList) {
-//            var predict = algorithm.predict(targetIndex);
-//            System.out.println(predict.getSimpleInfo());
-//        }
+        var targetIndex = DoubleColorBallDataPreload.allData().size();
+        for (var algorithm : algorithmList) {
+            var predict = algorithm.predict(targetIndex);
+            System.out.println(predict.getSimpleInfo());
+        }
     }
 
     public static void predict() {
