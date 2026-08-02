@@ -1,5 +1,6 @@
 package cqwang.doubleball.algorithm.detection;
 
+import cqwang.doubleball.algorithm.detection.impl.milestone.BayesianNetworkDownAlgorithm;
 import cqwang.doubleball.algorithm.detection.impl.*;
 import cqwang.doubleball.algorithm.detection.impl.milestone.*;
 import cqwang.doubleball.algorithm.detection.impl.mixed.*;

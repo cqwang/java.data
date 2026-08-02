@@ -68,5 +68,33 @@
     "historyPredictValueSum": 6770,
     "historyHitCount": 149,
     "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "BayesianNetworkDown",
+      "LSTMSimulation"
+    ],
+    "blueAlgorithmRegistry": "SVMSimulation4",
+    "historyPredictValueSum": 6770,
+    "historyHitCount": 149,
+    "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "BayesianNetworkDown",
+      "LSTMSimulation"
+    ],
+    "blueAlgorithmRegistry": "HybridOptimized",
+    "historyPredictValueSum": 6770,
+    "historyHitCount": 149,
+    "maxAmount": 3000
   }
 ]

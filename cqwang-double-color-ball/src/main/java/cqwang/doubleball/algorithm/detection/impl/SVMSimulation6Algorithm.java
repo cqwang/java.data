@@ -1,5 +1,7 @@
 package cqwang.doubleball.algorithm.detection.impl;
 
+import cqwang.doubleball.algorithm.detection.impl.milestone.SVMSimulation4Algorithm;
+
 /**
  * 支持向量机模拟算法 - 基于边界优化的预测
  */
