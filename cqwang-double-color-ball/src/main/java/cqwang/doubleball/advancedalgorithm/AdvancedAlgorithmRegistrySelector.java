@@ -37,7 +37,9 @@ public class AdvancedAlgorithmRegistrySelector {
         }
 
         if(selectMode == SelectMode.RE_CALCULATE_FROM_FILE){
-            return reCalculateFromFile();
+            var algorithmList = reCalculateFromFile();
+            System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
+            return algorithmList;
         }
 
         return readFromFile();
@@ -88,7 +90,6 @@ public class AdvancedAlgorithmRegistrySelector {
         var algorithmList = readFromFile();
         for(var algorithm : algorithmList){
             calculateHistoryPredictValueSum(algorithm);
-
         }
 
         algorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());

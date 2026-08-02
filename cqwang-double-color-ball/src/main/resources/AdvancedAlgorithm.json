@@ -8,7 +8,10 @@
       "AggressiveDecay",
       "RecentModified"
     ],
-    "blueAlgorithmRegistry": "WeightedMode"
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6800,
+    "historyHitCount": 152,
+    "maxAmount": 3000
   },
   {
     "redAlgorithmRegistryList": [
@@ -19,18 +22,10 @@
       "AggressiveDecay",
       "AdaptiveThreshold"
     ],
-    "blueAlgorithmRegistry": "WeightedMode"
-  },
-  {
-    "redAlgorithmRegistryList": [
-      "RecentModified",
-      "RecentModified",
-      "RecentModified",
-      "RecentModified",
-      "AggressiveDecay",
-      "ExtremeRecent"
-    ],
-    "blueAlgorithmRegistry": "WeightedMode"
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6800,
+    "historyHitCount": 152,
+    "maxAmount": 3000
   },
   {
     "redAlgorithmRegistryList": [
@@ -41,7 +36,10 @@
       "AggressiveDecay",
       "BurstFrequency"
     ],
-    "blueAlgorithmRegistry": "WeightedMode"
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6790,
+    "historyHitCount": 151,
+    "maxAmount": 3000
   },
   {
     "redAlgorithmRegistryList": [
@@ -52,6 +50,23 @@
       "AggressiveDecay",
       "RecentFrequency"
     ],
-    "blueAlgorithmRegistry": "WeightedMode"
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6790,
+    "historyHitCount": 151,
+    "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "AggressiveDecay",
+      "ExtremeRecent"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6770,
+    "historyHitCount": 149,
+    "maxAmount": 3000
   }
 ]

@@ -20,13 +20,4 @@ public class AdvancedAlgorithmPoolFactory {
     public static List<AdvancedAlgorithmRegistry> getAlgorithmPool() {
         return ALGORITHMS;
     }
-
-    public static AdvancedAlgorithmRegistry getAlgorithm(String name) {
-        for (var registry : ALGORITHMS) {
-            if (registry.getName().equals(name)) {
-                return registry;
-            }
-        }
-        return null;
-    }
 }

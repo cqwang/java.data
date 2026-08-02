@@ -41,26 +41,31 @@ public class AdvancedAlgorithmRegistry {
      */
     private int maxAmount;
 
+    public AdvancedAlgorithmRegistry(){}
 
-    public AdvancedAlgorithmRegistry() {
-        if (this.redAlgorithmRegistryList == null || this.redAlgorithmRegistryList.length != 6 || StringUtils.isEmpty(this.blueAlgorithmRegistry)) {
+    public void setRedAlgorithmRegistryList(String[] redAlgorithmRegistryList){
+        this.redAlgorithmRegistryList = redAlgorithmRegistryList;
+        if (this.redAlgorithmRegistryList == null || this.redAlgorithmRegistryList.length != 6) {
             throw new RuntimeException("invalid red algorithms args");
         }
 
+        this.redAlgorithmRegistryInstanceList = new AlgorithmRegistry[redAlgorithmRegistryList.length];
         for (int i = 0; i < redAlgorithmRegistryList.length; i++) {
             this.redAlgorithmRegistryInstanceList[i] = AlgorithmPoolFactory.getAlgorithm(redAlgorithmRegistryList[i]);
         }
+    }
+
+
+
+    public void setBlueAlgorithmRegistry(String blueAlgorithmRegistry) {
+        this.blueAlgorithmRegistry = blueAlgorithmRegistry;
         this.blueAlgorithmRegistryInstance = AlgorithmPoolFactory.getAlgorithm(this.blueAlgorithmRegistry);
     }
 
 
     public AdvancedAlgorithmRegistry(AlgorithmRegistry blueAlgorithm, AlgorithmRegistry... redAlgorithms) {
-        if (blueAlgorithm == null || redAlgorithms == null || redAlgorithms.length != 6) {
-            throw new RuntimeException("invalid red algorithms args");
-        }
-
-        this.blueAlgorithmRegistryInstance = blueAlgorithm;
-        this.redAlgorithmRegistryInstanceList = redAlgorithms;
+        setBlueAlgorithmRegistry(blueAlgorithmRegistry);
+        setRedAlgorithmRegistryList(redAlgorithmRegistryList);
     }
 
 

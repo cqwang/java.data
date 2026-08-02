@@ -17,10 +17,12 @@ public class FuturePredict {
         PreloadManager.execute();
         var algorithmList = new AdvancedAlgorithmRegistrySelector().execute(SelectMode.FROM_FILE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
+        var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
             var predict = algorithm.predict(targetIndex);
-            System.out.println(predict.getSimpleInfo());
+            resultSet.add(predict.getSimpleInfo());
         }
+        printInfo(resultSet);
     }
 
     public static void predictMix() {
@@ -35,13 +37,17 @@ public class FuturePredict {
 
     public static void predict() {
         PreloadManager.execute();
-        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.RE_CALCULATE);
+        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.FROM_FILE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
             var predict = algorithm.getInstance().predict(targetIndex);
             resultSet.add(predict.getSimpleInfo());
         }
+        printInfo(resultSet);
+    }
+
+    private static void printInfo(HashSet<String> resultSet) {
         var list = resultSet.stream().collect(Collectors.toList());
         list.sort(String::compareTo);
         for (var result : list) {
