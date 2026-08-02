@@ -3,7 +3,7 @@ package cqwang.doubleball;
 import cqwang.doubleball.advancedalgorithm.AdvancedAlgorithmRegistrySelector;
 import cqwang.doubleball.algorithm.select.impl.BlueAlgorithmSelector;
 import cqwang.doubleball.algorithm.select.impl.SingleAlgorithmSelector;
-import cqwang.doubleball.algorithm.select.SelectMode;
+import cqwang.doubleball.helper.SelectMode;
 import cqwang.doubleball.algorithm.selectedmixed.MixedAlgorithmSelector;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
 import cqwang.doubleball.preload.PreloadManager;

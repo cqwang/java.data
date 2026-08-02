@@ -6,7 +6,8 @@ import org.apache.commons.lang3.Range;
 import java.util.List;
 
 public class MathUtils {
-    public static int recentModified(BallDataDetail ballDataDetail, Range<Integer> range, int recentSize) {
+
+        public static int recentModified(BallDataDetail ballDataDetail, Range<Integer> range, int recentSize) {
         var dataList = ballDataDetail.getDataList();
         if (dataList.isEmpty()) {
             return range.getMinimum();

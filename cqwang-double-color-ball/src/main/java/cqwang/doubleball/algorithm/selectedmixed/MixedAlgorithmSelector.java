@@ -1,7 +1,6 @@
 package cqwang.doubleball.algorithm.selectedmixed;
 
-import cqwang.data.serializer.JSON;
-import cqwang.doubleball.algorithm.select.SelectMode;
+import cqwang.doubleball.helper.SelectMode;
 import cqwang.doubleball.algorithm.select.ValueCalculator;
 import cqwang.doubleball.algorithm.select.impl.SingleAlgorithmSelector;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;

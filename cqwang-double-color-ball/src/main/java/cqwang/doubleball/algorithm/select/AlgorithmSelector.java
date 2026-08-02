@@ -5,6 +5,7 @@ import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
 import cqwang.doubleball.algorithm.detection.AlgorithmPoolFactory;
 import cqwang.doubleball.algorithm.detection.AlgorithmRegistry;
+import cqwang.doubleball.helper.SelectMode;
 import cqwang.doubleball.model.DoubleColorBallItem;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
 

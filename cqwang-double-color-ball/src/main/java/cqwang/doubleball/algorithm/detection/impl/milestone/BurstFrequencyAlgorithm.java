@@ -1,4 +1,4 @@
-package cqwang.doubleball.algorithm.detection.impl;
+package cqwang.doubleball.algorithm.detection.impl.milestone;
 
 import cqwang.doubleball.algorithm.detection.PredictionAlgorithm;
 import cqwang.doubleball.model.BallDataDetail;

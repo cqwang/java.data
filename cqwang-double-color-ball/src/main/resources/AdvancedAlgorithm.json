@@ -1,0 +1,57 @@
+[
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "AggressiveDecay",
+      "RecentModified"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode"
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "AggressiveDecay",
+      "AdaptiveThreshold"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode"
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "AggressiveDecay",
+      "ExtremeRecent"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode"
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "AggressiveDecay",
+      "BurstFrequency"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode"
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "AggressiveDecay",
+      "RecentFrequency"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode"
+  }
+]

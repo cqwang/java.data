@@ -3,14 +3,11 @@ package cqwang.doubleball.advancedalgorithm;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
-import cqwang.doubleball.algorithm.select.SelectMode;
+import cqwang.doubleball.helper.SelectMode;
 import cqwang.doubleball.algorithm.select.ValueCalculator;
 import cqwang.doubleball.algorithm.select.impl.SingleAlgorithmSelector;
-import cqwang.doubleball.model.DoubleColorBallItem;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
-import cqwang.doubleball.preload.SampleDataRealtimeLoad;
 import lombok.Data;
-import org.apache.commons.lang3.Range;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +22,7 @@ public class AdvancedAlgorithmRegistrySelector {
     /**
      * 高级算法的最小收入门槛
      */
-    int ADVANCED_MIX_AMOUNT =5500;
+    int ADVANCED_MIX_AMOUNT = 5500;
 
     /**
      *
@@ -37,6 +34,10 @@ public class AdvancedAlgorithmRegistrySelector {
             var algorithmList = reCalculate();
             System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
             return algorithmList;
+        }
+
+        if(selectMode == SelectMode.RE_CALCULATE_FROM_FILE){
+            return reCalculateFromFile();
         }
 
         return readFromFile();
@@ -63,7 +64,7 @@ public class AdvancedAlgorithmRegistrySelector {
                         for (var red4 : algorithmRegistryList) {
                             for (var red5 : algorithmRegistryList) {
                                 for (var blue : algorithmRegistryList) {
-                                    var advancedAlgorithm = new AdvancedAlgorithmRegistry(blue,red0, red1, red2, red3, red4, red5, blue);
+                                    var advancedAlgorithm = new AdvancedAlgorithmRegistry(blue, red0, red1, red2, red3, red4, red5, blue);
                                     calculateHistoryPredictValueSum(advancedAlgorithm);
                                     var sumValue = advancedAlgorithm.getHistoryPredictValueSum();
                                     if (ValueCalculator.hasNoValue(sumValue) || sumValue < ADVANCED_MIX_AMOUNT) {
@@ -81,6 +82,18 @@ public class AdvancedAlgorithmRegistrySelector {
         selectedAlgorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());
         var actualCount = Math.min(20, selectedAlgorithmList.size());
         return selectedAlgorithmList.subList(0, actualCount);
+    }
+
+    private List<AdvancedAlgorithmRegistry> reCalculateFromFile() {
+        var algorithmList = readFromFile();
+        for(var algorithm : algorithmList){
+            calculateHistoryPredictValueSum(algorithm);
+
+        }
+
+        algorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());
+        var actualCount = Math.min(20, algorithmList.size());
+        return algorithmList.subList(0, actualCount);
     }
 
     /**
