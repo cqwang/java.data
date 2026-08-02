@@ -47,7 +47,7 @@ public class AlgorithmPoolFactory {
             new AlgorithmRegistry("SVMSimulation6", SVMSimulation6Algorithm.class),
             new AlgorithmRegistry("GaussianMixture", GaussianMixtureAlgorithm.class),
             new AlgorithmRegistry("HiddenMarkovModel", HiddenMarkovModelAlgorithm.class),
-            new AlgorithmRegistry("BayesianNetworkUp", BayesianNetworkUpAlgorithm.class),
+//            new AlgorithmRegistry("BayesianNetworkUp", BayesianNetworkUpAlgorithm.class),
             new AlgorithmRegistry("BayesianNetworkDown", BayesianNetworkDownAlgorithm.class),
             new AlgorithmRegistry("RecentModified", RecentModifiedAlgorithm.class),
             new AlgorithmRegistry("DecayFrequency", DecayFrequencyAlgorithm.class),
