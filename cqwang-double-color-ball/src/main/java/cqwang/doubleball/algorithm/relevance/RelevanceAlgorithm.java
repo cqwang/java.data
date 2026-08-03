@@ -1,7 +1,9 @@
 package cqwang.doubleball.algorithm.relevance;
 
 import cqwang.doubleball.common.model.DoubleColorBallItem;
+import cqwang.doubleball.common.model.VirtualDoubleColorBallItem;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
+import cqwang.doubleball.preload.SampleDataRealtimeLoad;
 
 import java.util.List;
 
@@ -14,10 +16,13 @@ public interface RelevanceAlgorithm {
      * @return
      */
     default int predictBlue(int targetIndex, List<Integer> predictedRedValueList){
-        // 获取原始数据
-        var sampleList = DoubleColorBallDataPreload.allData().subList(0, targetIndex);
+        // 获取样本数据
+        var sampleDataRealtimeLoad = new SampleDataRealtimeLoad();
+        sampleDataRealtimeLoad.execute(targetIndex);
+
+        var sampleList = sampleDataRealtimeLoad.getVirtualItemList().subList(0, targetIndex);
         return predictBlue(predictedRedValueList, sampleList);
     }
 
-    int predictBlue(List<Integer> predictedRedValueList, List<DoubleColorBallItem> sampleList);
+    int predictBlue(List<Integer> predictedRedValueList, List<VirtualDoubleColorBallItem> sampleList);
 }

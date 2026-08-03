@@ -48,10 +48,12 @@
 3.执行new SingleAlgorithmSelector().calculateHistoryPredictValueSum(algorithm)方法，传入设计的算法实现类
 4.目标是：执行后，要求algorithm.historyPredictValueSum>5000，若满足则将算法添加到注册表AlgorithmPoolFactory.ALGORITHMS中
 
-### Mix算法
-提供PredictionAlgorithm的更多实现类，要求：
-1.生成的实现类放在cqwang.doubleball.algorithm.detection.impl.mix包对应的目录下 
-2.predictBlue使用SelectedAlgorithm.json中提供的算法，predictRed使用SelectedAlgorithm.json中实现的算法
-3.同一个实现类中，两个方法使用的算法不同。
-
-
+### relevance算法
+在cqwang.doubleball.algorithm.relevance.impl包下，提供RelevanceAlgorithm的实现类，要求实现predictBlue(List<Integer> predictedRedValueList, List<VirtualDoubleColorBallItem> sampleList)方法:
+1.入参sampleList为样本数据列表，每个样本VirtualDoubleColorBallItem.ballValueList包含7位数值
+2.入参predictedRedValueList为已经预测的前6位数值
+3.方法的功能：基于样本数据列表中每个ballValueList的前6位数值和第7位数值的特征，预测predictedRedValueList对应的第7位数值，
+4.算法不要修改样本数据
+5.将算法实现类，注册到AlgorithmPoolFactory.RELEVANCE_ALGORITHMS中
+6.VirtualDoubleColorBallItem.ballValueList中，前6为数值的区间都是[1,33],第7位数值的区间是[34,49]
+7.方法如果预测失败，返回-1。如果预测成功，返回的数值区间是[34,49]

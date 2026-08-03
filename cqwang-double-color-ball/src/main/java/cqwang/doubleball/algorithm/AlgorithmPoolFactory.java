@@ -2,6 +2,10 @@ package cqwang.doubleball.algorithm;
 
 import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithm;
 import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithmRegistry;
+import cqwang.doubleball.algorithm.relevance.impl.CompositeRelevanceAlgorithm;
+import cqwang.doubleball.algorithm.relevance.impl.CosineSimilarityRelevanceAlgorithm;
+import cqwang.doubleball.algorithm.relevance.impl.EuclideanDistanceRelevanceAlgorithm;
+import cqwang.doubleball.algorithm.relevance.impl.PearsonCorrelationRelevanceAlgorithm;
 import cqwang.doubleball.algorithm.single.SingleAlgorithmRegistry;
 import cqwang.doubleball.algorithm.single.impl.*;
 import cqwang.doubleball.algorithm.single.impl.milestone.*;
@@ -111,6 +115,10 @@ public class AlgorithmPoolFactory {
 
 
     private static final RelevanceAlgorithmRegistry[] RELEVANCE_ALGORITHMS = {
+            new RelevanceAlgorithmRegistry("CompositeRelevance", CompositeRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("CosineSimilarityRelevance", CosineSimilarityRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("EuclideanDistanceRelevance", EuclideanDistanceRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("PearsonCorrelationRelevance", PearsonCorrelationRelevanceAlgorithm.class),
 
     };
 
