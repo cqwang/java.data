@@ -1,0 +1,25 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/CosineSimilarityRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_d7caa8498a0b68 48-53
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/PearsonCorrelationRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_b88173a8b0f01f 48-53
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/CompositeRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_0ebea0211b0fa0 62-67
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/EuclideanDistanceRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_5d257ff7690df5 48-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.39-trip",
+  "base_commit_sha": "73f14acfc9374981af08960f13a3c597ff189386",
+  "prompts": {},
+  "sessions": {
+    "s_f681089eeee8c9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "81023a0e-dd7e-4d21-a1e5-05241c75ae15",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
