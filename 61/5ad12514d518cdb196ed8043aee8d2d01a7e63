@@ -1,0 +1,33 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/EuclideanDistanceRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_2aff249f175dac 18-19,27,44,48
+  s_f681089eeee8c9::t_8b04e44b8030c5 1-17,20-26,28-43,45-47,49-64
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/common/model/VirtualDoubleColorBallItem.java
+  s_f681089eeee8c9::t_868f81a1912846 20-23
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/CosineSimilarityRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_6475c192628e8a 1-15,18-24,26-43,45-47,49-75
+  s_f681089eeee8c9::t_c3cb94063cb8ab 16-17,25,44,48
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/CompositeRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_2afa1855cc7157 18-19,27,58,62
+  s_f681089eeee8c9::t_96649117b1476e 1-17,20-26,28-57,59-61,63-117
+cqwang-double-color-ball/ALGORITHM_DETECTION_CLAUDE.md
+  s_f681089eeee8c9::t_4cc44240277a27 51-58
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/PearsonCorrelationRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_0740b10e403344 16-17,25,44,48
+  s_f681089eeee8c9::t_ce5ddafe999b33 1-15,18-24,26-43,45-47,49-86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.39-trip",
+  "base_commit_sha": "615ad12514d518cdb196ed8043aee8d2d01a7e63",
+  "prompts": {},
+  "sessions": {
+    "s_f681089eeee8c9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "81023a0e-dd7e-4d21-a1e5-05241c75ae15",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
