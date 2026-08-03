@@ -45,7 +45,12 @@ public class PearsonCorrelationRelevanceAlgorithm implements RelevanceAlgorithm 
         }
 
         int predictedBlue = (int) Math.round(weightedBlueSum / totalWeight);
-        return Math.max(34, Math.min(49, predictedBlue));
+
+        if (predictedBlue < 34 || predictedBlue > 49) {
+            return -1;
+        }
+
+        return predictedBlue;
     }
 
     private double calculatePearsonCorrelation(List<Integer> vector1, List<Integer> vector2) {

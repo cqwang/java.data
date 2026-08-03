@@ -55,5 +55,6 @@
 3.方法的功能：基于样本数据列表中每个ballValueList的前6位数值和第7位数值的特征，预测predictedRedValueList对应的第7位数值，
 4.算法不要修改样本数据
 5.将算法实现类，注册到AlgorithmPoolFactory.RELEVANCE_ALGORITHMS中
-6.VirtualDoubleColorBallItem.ballValueList中，前6为数值的区间都是[1,33],第7位数值的区间是[34,49]
-7.方法如果预测失败，返回-1。如果预测成功，返回的数值区间是[34,49]
+6.方法如果预测失败，返回-1。
+7.方法预测的结果，如果小于34，则返回-1.
+8.方法预测的结果，如果大于49，则返回-1
