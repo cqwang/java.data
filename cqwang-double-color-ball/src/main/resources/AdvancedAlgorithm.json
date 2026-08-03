@@ -96,5 +96,75 @@
     "historyPredictValueSum": 6770,
     "historyHitCount": 149,
     "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "VariableDecay",
+      "AdaptiveThreshold"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6760,
+    "historyHitCount": 149,
+    "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "VariableDecay",
+      "RecentModified"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6760,
+    "historyHitCount": 149,
+    "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "VariableDecay",
+      "ExtremeRecent"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6760,
+    "historyHitCount": 149,
+    "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "VariableDecay",
+      "BurstFrequency"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6760,
+    "historyHitCount": 149,
+    "maxAmount": 3000
+  },
+  {
+    "redAlgorithmRegistryList": [
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "RecentModified",
+      "VariableDecay",
+      "RecentFrequency"
+    ],
+    "blueAlgorithmRegistry": "WeightedMode",
+    "historyPredictValueSum": 6760,
+    "historyHitCount": 149,
+    "maxAmount": 3000
   }
 ]
