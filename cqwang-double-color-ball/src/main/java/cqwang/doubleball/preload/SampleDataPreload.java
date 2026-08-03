@@ -1,7 +1,7 @@
 package cqwang.doubleball.preload;
 
-import cqwang.doubleball.model.BallDataDetail;
-import cqwang.doubleball.model.RedBallData;
+import cqwang.doubleball.common.model.BallDataDetail;
+import cqwang.doubleball.common.model.RedBallData;
 
 /**
  * 全局静态，用于实时预测

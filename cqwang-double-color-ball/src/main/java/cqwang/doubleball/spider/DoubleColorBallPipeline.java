@@ -1,6 +1,6 @@
 package cqwang.doubleball.spider;
 
-import cqwang.doubleball.model.DoubleColorBallItem;
+import cqwang.doubleball.common.model.DoubleColorBallItem;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;

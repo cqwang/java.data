@@ -2,7 +2,7 @@ package cqwang.doubleball.preload;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
-import cqwang.doubleball.model.DoubleColorBallItem;
+import cqwang.doubleball.common.model.DoubleColorBallItem;
 
 import java.util.Collections;
 import java.util.List;

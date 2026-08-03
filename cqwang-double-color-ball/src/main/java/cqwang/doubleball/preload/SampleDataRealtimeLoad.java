@@ -1,8 +1,8 @@
 package cqwang.doubleball.preload;
 
-import cqwang.doubleball.model.BallDataDetail;
-import cqwang.doubleball.model.DoubleColorBallItem;
-import cqwang.doubleball.model.RedBallData;
+import cqwang.doubleball.common.model.BallDataDetail;
+import cqwang.doubleball.common.model.DoubleColorBallItem;
+import cqwang.doubleball.common.model.RedBallData;
 import lombok.Getter;
 import org.apache.commons.collections4.CollectionUtils;
 

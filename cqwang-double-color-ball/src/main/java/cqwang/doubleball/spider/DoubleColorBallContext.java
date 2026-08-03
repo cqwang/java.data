@@ -2,7 +2,7 @@ package cqwang.doubleball.spider;
 
 
 import cqwang.data.serializer.JSON;
-import cqwang.doubleball.model.DoubleColorBallItem;
+import cqwang.doubleball.common.model.DoubleColorBallItem;
 
 import java.util.ArrayList;
 import java.util.List;
