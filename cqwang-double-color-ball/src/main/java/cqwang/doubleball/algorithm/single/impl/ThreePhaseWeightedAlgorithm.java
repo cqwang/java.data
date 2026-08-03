@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球三阶段加权算法 - 极近期、近期、中期三个不同权重
  */
-public class ThreePhaseWeightedAlgorithm implements PredictionAlgorithm {
+public class ThreePhaseWeightedAlgorithm implements SingleAlgorithm {
     private static final int PHASE1_WINDOW = 15;  // 极近期
     private static final int PHASE2_WINDOW = 35;  // 近期
     private static final int PHASE3_WINDOW = 70;  // 中期

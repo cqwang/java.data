@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 贝叶斯网络模拟算法 - 基于概率推理的预测
  */
-public class BayesianNetworkDownAlgorithm implements PredictionAlgorithm {
+public class BayesianNetworkDownAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return predictByBayesian(redBallDataDetail, redRange);

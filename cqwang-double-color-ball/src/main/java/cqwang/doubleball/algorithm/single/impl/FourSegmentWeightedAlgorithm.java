@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 四段加权算法 - 四个不同时间段的加权融合
  */
-public class FourSegmentWeightedAlgorithm implements PredictionAlgorithm {
+public class FourSegmentWeightedAlgorithm implements SingleAlgorithm {
     private static final int SEG1 = 10;
     private static final int SEG2 = 25;
     private static final int SEG3 = 50;

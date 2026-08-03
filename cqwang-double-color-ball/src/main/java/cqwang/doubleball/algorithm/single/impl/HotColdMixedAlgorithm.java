@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球高频冷号混合算法 - 优先选择高频数字，次选冷号
  */
-public class HotColdMixedAlgorithm implements PredictionAlgorithm {
+public class HotColdMixedAlgorithm implements SingleAlgorithm {
     private static final double HOT_RATIO = 0.6; // 60% 选择热号
 
     @Override

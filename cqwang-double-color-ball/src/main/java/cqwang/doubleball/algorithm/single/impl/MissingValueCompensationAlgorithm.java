@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 缺失值补偿算法 - 补偿出现次数较少的值
  */
-public class MissingValueCompensationAlgorithm implements PredictionAlgorithm {
+public class MissingValueCompensationAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return findUnderrepresentedValue(redBallDataDetail, redRange);

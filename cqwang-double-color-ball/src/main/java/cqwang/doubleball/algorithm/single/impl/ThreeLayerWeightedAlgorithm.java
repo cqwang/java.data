@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 红球三层加权算法 - 三个不同时间窗口的加权组合
  */
-public class ThreeLayerWeightedAlgorithm implements PredictionAlgorithm {
+public class ThreeLayerWeightedAlgorithm implements SingleAlgorithm {
     private static final int LAYER1 = 18;   // 极近期
     private static final int LAYER2 = 40;   // 近期
     private static final int LAYER3 = 75;   // 中期

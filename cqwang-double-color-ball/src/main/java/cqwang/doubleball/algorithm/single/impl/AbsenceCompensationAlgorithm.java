@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球缺失补偿修正算法 - 结合缺失值补偿和最近频率
  */
-public class AbsenceCompensationAlgorithm implements PredictionAlgorithm {
+public class AbsenceCompensationAlgorithm implements SingleAlgorithm {
     private static final int WINDOW_SIZE = 40;
 
     @Override

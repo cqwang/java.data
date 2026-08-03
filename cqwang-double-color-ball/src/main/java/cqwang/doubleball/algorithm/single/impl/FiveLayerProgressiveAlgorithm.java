@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 五层递进算法 - 五个不同时间段的递进加权
  */
-public class FiveLayerProgressiveAlgorithm implements PredictionAlgorithm {
+public class FiveLayerProgressiveAlgorithm implements SingleAlgorithm {
     private static final int L1 = 8;
     private static final int L2 = 20;
     private static final int L3 = 40;

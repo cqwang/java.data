@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 超级加权算法 - 综合频率、最近性和稳定性的超级加权
  */
-public class SuperWeightedAlgorithm implements PredictionAlgorithm {
+public class SuperWeightedAlgorithm implements SingleAlgorithm {
     private static final int RECENT_WINDOW = 32;
     private static final int STABLE_WINDOW = 70;
 

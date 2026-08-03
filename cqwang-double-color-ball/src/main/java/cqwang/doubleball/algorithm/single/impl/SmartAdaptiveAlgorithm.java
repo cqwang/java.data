@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 智能自适应算法 - 根据数据分布自动调整策略
  */
-public class SmartAdaptiveAlgorithm implements PredictionAlgorithm {
+public class SmartAdaptiveAlgorithm implements SingleAlgorithm {
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {

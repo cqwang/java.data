@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 均值算法 - 计算历史数据的平均值
  */
-public class AverageAlgorithm implements PredictionAlgorithm {
+public class AverageAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return calculateAverage(redBallDataDetail, redRange);

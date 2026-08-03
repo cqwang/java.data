@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 谱聚类算法 - 基于数据聚类特征的预测
  */
-public class SpectralClusteringAlgorithm implements PredictionAlgorithm {
+public class SpectralClusteringAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return predictBySpectralClustering(redBallDataDetail, redRange);

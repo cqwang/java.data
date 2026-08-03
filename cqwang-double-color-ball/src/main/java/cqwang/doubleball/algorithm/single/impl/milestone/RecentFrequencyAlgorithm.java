@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 最近出现频率算法 - 基于最近N次数据中最常出现的值
  */
-public class RecentFrequencyAlgorithm implements PredictionAlgorithm {
+public class RecentFrequencyAlgorithm implements SingleAlgorithm {
     private static final int RECENT_SIZE = 20;
 
     @Override

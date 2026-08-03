@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 爆发型频率算法 - 关注最近的高频爆发
  */
-public class BurstFrequencyAlgorithm implements PredictionAlgorithm {
+public class BurstFrequencyAlgorithm implements SingleAlgorithm {
     private static final int BURST_WINDOW = 12;
     private static final int STABLE_WINDOW = 50;
 

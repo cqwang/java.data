@@ -1,7 +1,7 @@
 package cqwang.doubleball;
 
 import cqwang.doubleball.algorithm.combination.CombinationAlgorithmRegistrySelector;
-import cqwang.doubleball.algorithm.single.AlgorithmSelector;
+import cqwang.doubleball.algorithm.single.SingleAlgorithmSelector;
 import cqwang.doubleball.common.model.SelectMode;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
 import cqwang.doubleball.preload.PreloadManager;
@@ -16,7 +16,7 @@ public class FuturePredict {
      */
     public static void aggPredict() {
         PreloadManager.execute();
-        var algorithmList = new AlgorithmSelector().execute(SelectMode.FROM_FILE);
+        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.FROM_FILE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
@@ -38,7 +38,7 @@ public class FuturePredict {
      */
     public static void combinationPredict() {
         PreloadManager.execute();
-        var algorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.RE_CALCULATE);
+        var algorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.RE_CALCULATE_FROM_FILE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
@@ -53,7 +53,7 @@ public class FuturePredict {
      */
     public static void singlePredict() {
         PreloadManager.execute();
-        var algorithmList = new AlgorithmSelector().execute(SelectMode.RE_CALCULATE);
+        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.RE_CALCULATE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {

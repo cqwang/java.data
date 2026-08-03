@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 频率突跃算法 - 检测并偏好频率的突跃点
  */
-public class FrequencySurgeAlgorithm implements PredictionAlgorithm {
+public class FrequencySurgeAlgorithm implements SingleAlgorithm {
     private static final int OBSERVATION_WINDOW = 55;
 
     @Override

@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 隐马尔可夫模型算法 - 基于状态转移的序列预测
  */
-public class HiddenMarkovModelAlgorithm implements PredictionAlgorithm {
+public class HiddenMarkovModelAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return predictByHMM(redBallDataDetail, redRange);

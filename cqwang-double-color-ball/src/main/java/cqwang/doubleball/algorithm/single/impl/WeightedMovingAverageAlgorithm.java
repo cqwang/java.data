@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 加权移动平均算法 - 最近的数据权重更高
  */
-public class WeightedMovingAverageAlgorithm implements PredictionAlgorithm {
+public class WeightedMovingAverageAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return calculateWeightedMovingAverage(redBallDataDetail, redRange);

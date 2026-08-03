@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
@@ -8,7 +8,7 @@ import org.apache.commons.lang3.Range;
  * 频率分析算法 - 基于出现频率最高的数值进行预测
  * 单中算法不太合适
  */
-public class FrequencyAnalysisAlgorithm implements PredictionAlgorithm {
+public class FrequencyAnalysisAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return findMaxFrequencyValue(redBallDataDetail, redRange);

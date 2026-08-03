@@ -1,14 +1,14 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
 import cqwang.doubleball.common.MathUtils;
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 支持向量机模拟算法 - 基于边界优化的预测
  */
-public class SVMSimulation4Algorithm implements PredictionAlgorithm {
+public class SVMSimulation4Algorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return MathUtils.svmSimulation(redBallDataDetail, redRange, getWeight());

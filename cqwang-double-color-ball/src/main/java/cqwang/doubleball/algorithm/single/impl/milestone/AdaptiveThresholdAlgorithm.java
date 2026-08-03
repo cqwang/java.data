@@ -1,14 +1,14 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
 import cqwang.doubleball.common.MathUtils;
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球动态阈值算法 - 根据近期数据动态调整选择阈值
  */
-public class AdaptiveThresholdAlgorithm implements PredictionAlgorithm {
+public class AdaptiveThresholdAlgorithm implements SingleAlgorithm {
     private static final int ANALYSIS_WINDOW = 45;
     private static final int RECENT_SIZE = 30;
 

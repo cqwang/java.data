@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.helper.ListUtils;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
@@ -8,7 +8,7 @@ import org.apache.commons.lang3.Range;
 /**
  * 中位数算法 - 基于历史数据的中位数进行预测
  */
-public class MedianAlgorithm implements PredictionAlgorithm {
+public class MedianAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return calculateMedian(redBallDataDetail, redRange);

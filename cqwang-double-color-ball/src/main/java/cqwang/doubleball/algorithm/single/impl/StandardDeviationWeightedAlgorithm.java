@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球标准差加权算法 - 基于均值和标准差的加权选择
  */
-public class StandardDeviationWeightedAlgorithm implements PredictionAlgorithm {
+public class StandardDeviationWeightedAlgorithm implements SingleAlgorithm {
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {

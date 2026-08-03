@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球连续出现偏好算法 - 偏好最近连续出现过的值
  */
-public class ContinuousPreferenceAlgorithm implements PredictionAlgorithm {
+public class ContinuousPreferenceAlgorithm implements SingleAlgorithm {
     private static final int WINDOW_SIZE = 40;
 
     @Override

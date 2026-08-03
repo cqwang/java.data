@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球双周期频率算法 - 结合短周期和长周期的频率分析
  */
-public class DualCycleFrequencyAlgorithm implements PredictionAlgorithm {
+public class DualCycleFrequencyAlgorithm implements SingleAlgorithm {
     private static final int SHORT_CYCLE = 20;
     private static final int LONG_CYCLE = 60;
 

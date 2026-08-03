@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 差分平滑算法 - 基于一阶差分的平滑预测
  */
-public class DifferentialSmoothingAlgorithm implements PredictionAlgorithm {
+public class DifferentialSmoothingAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return predictByDifferentialSmoothing(redBallDataDetail, redRange);

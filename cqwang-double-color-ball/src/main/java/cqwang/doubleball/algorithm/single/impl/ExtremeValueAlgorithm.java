@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 极值优先算法 - 优先选择数据范围内的极值
  */
-public class ExtremeValueAlgorithm implements PredictionAlgorithm {
+public class ExtremeValueAlgorithm implements SingleAlgorithm {
     private static final int WINDOW_SIZE = 35;
 
     @Override

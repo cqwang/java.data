@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 超强衰减算法 - 极端衰减系数(0.80)，最近数据影响力最大
  */
-public class UltraFastDecayAlgorithm implements PredictionAlgorithm {
+public class UltraFastDecayAlgorithm implements SingleAlgorithm {
     private static final int SAMPLE_SIZE = 65;
     private static final double ULTRA_DECAY = 0.80;
 

@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球三分位数修正算法 - 使用第75百分位数
  */
-public class QuartileModifiedAlgorithm implements PredictionAlgorithm {
+public class QuartileModifiedAlgorithm implements SingleAlgorithm {
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {

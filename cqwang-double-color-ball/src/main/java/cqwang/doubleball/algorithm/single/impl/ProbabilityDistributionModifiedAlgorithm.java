@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球概率分布修正算法 - 基于频率分布计算期望值
  */
-public class ProbabilityDistributionModifiedAlgorithm implements PredictionAlgorithm {
+public class ProbabilityDistributionModifiedAlgorithm implements SingleAlgorithm {
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {

@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 分布平衡算法 - 在频率和稳定性之间寻找平衡
  */
-public class DistributionBalanceAlgorithm implements PredictionAlgorithm {
+public class DistributionBalanceAlgorithm implements SingleAlgorithm {
 
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {

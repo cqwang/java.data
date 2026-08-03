@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 峰值聚集算法 - 优先选择频率高的"峰值"
  */
-public class PeakClusteringAlgorithm implements PredictionAlgorithm {
+public class PeakClusteringAlgorithm implements SingleAlgorithm {
     private static final int WINDOW_SIZE = 42;
 
     @Override

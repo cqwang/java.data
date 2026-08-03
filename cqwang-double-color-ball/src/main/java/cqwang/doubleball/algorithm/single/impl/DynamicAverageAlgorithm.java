@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 红球动态平均算法 - 基于动态加权平均值
  */
-public class DynamicAverageAlgorithm implements PredictionAlgorithm {
+public class DynamicAverageAlgorithm implements SingleAlgorithm {
     private static final int WINDOW_SIZE = 40;
 
     @Override

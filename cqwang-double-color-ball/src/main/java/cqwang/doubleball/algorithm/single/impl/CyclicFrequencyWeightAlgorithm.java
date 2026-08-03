@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * 周期频率算法 - 基于周期性的频率分析，权重向中间倾斜
  */
-public class CyclicFrequencyWeightAlgorithm implements PredictionAlgorithm {
+public class CyclicFrequencyWeightAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return predictByCycle(redBallDataDetail, redRange);

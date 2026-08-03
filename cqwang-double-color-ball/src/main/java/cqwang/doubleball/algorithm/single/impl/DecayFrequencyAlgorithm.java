@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球衰减频率算法 - 最近出现的值权重更高
  */
-public class DecayFrequencyAlgorithm implements PredictionAlgorithm {
+public class DecayFrequencyAlgorithm implements SingleAlgorithm {
     private static final int SAMPLE_SIZE = 50;
     private static final double DECAY_FACTOR = 0.95;
 

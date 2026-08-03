@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球强加权频率算法 - 优先选择最近和历史频率都高的值
  */
-public class StrongWeightedFrequencyAlgorithm implements PredictionAlgorithm {
+public class StrongWeightedFrequencyAlgorithm implements SingleAlgorithm {
     private static final int RECENT_WINDOW = 25;
     private static final int MEDIUM_WINDOW = 60;
 

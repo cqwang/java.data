@@ -1,17 +1,16 @@
 package cqwang.doubleball.algorithm.single;
 
+import cqwang.doubleball.algorithm.PredictionAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import cqwang.doubleball.common.model.DoubleColorBallItem;
 import cqwang.doubleball.preload.SampleDataRealtimeLoad;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;
 
-import java.util.List;
-
 /**
  * 预测算法接口
  */
-public interface PredictionAlgorithm {
+public interface SingleAlgorithm extends PredictionAlgorithm {
     /**
      * 生成预测结果
      *

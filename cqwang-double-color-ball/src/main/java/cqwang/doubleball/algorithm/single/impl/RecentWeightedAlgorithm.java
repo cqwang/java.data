@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 红球近期加权算法 - 基于最近50次数据的加权频率
  */
-public class RecentWeightedAlgorithm implements PredictionAlgorithm {
+public class RecentWeightedAlgorithm implements SingleAlgorithm {
     private static final int RECENT_WINDOW = 50;
 
     @Override

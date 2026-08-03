@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 周期移动平均算法 - 基于相同周期位置的平均值
  */
-public class SeasonalMovingAverage52Algorithm implements PredictionAlgorithm {
+public class SeasonalMovingAverage52Algorithm implements SingleAlgorithm {
     private static final int SEASON_LENGTH = 52; // 52周为一个周期
 
     @Override

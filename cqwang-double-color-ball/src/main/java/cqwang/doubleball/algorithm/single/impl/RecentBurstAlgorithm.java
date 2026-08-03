@@ -1,7 +1,7 @@
 package cqwang.doubleball.algorithm.single.impl;
 
 import cqwang.doubleball.common.MathUtils;
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 蓝球近期爆发算法 - 优先选择最近10次中出现过的值
  */
-public class RecentBurstAlgorithm implements PredictionAlgorithm {
+public class RecentBurstAlgorithm implements SingleAlgorithm {
     private static final int BURST_WINDOW = 10;
     private static final int SECONDARY_WINDOW = 35;
 

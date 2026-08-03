@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 红球多周期融合算法 - 综合多个周期的频率信息
  */
-public class MultiCycleAlgorithm implements PredictionAlgorithm {
+public class MultiCycleAlgorithm implements SingleAlgorithm {
     private static final int CYCLE1 = 20;
     private static final int CYCLE2 = 45;
     private static final int CYCLE3 = 80;

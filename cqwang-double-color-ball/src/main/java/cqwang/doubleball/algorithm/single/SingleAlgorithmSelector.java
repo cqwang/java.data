@@ -3,26 +3,23 @@ package cqwang.doubleball.algorithm.single;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
+import cqwang.doubleball.algorithm.AlgorithmPoolFactory;
+import cqwang.doubleball.algorithm.AlgorithmSelector;
 import cqwang.doubleball.common.ValueCalculator;
 import cqwang.doubleball.common.model.SelectMode;
 import cqwang.doubleball.common.model.DoubleColorBallItem;
-import cqwang.doubleball.preload.DoubleColorBallDataPreload;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlgorithmSelector {
-    /**
-     * 最小样本量
-     */
-    int MIN_SAMPLE_COUNT = 100;
+public class SingleAlgorithmSelector implements AlgorithmSelector {
 
     /**
      *
      * @param selectMode
      * @return
      */
-    public List<AlgorithmRegistry> execute(SelectMode selectMode) {
+    public List<SingleAlgorithmRegistry> execute(SelectMode selectMode) {
         if (selectMode == SelectMode.RE_CALCULATE) {
             var algorithmList = reCalculate();
             System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
@@ -37,10 +34,10 @@ public class AlgorithmSelector {
      *
      * @return
      */
-    private List<AlgorithmRegistry> reCalculate() {
-        ArrayList<AlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(getMaxCount());
+    private List<SingleAlgorithmRegistry> reCalculate() {
+        ArrayList<SingleAlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(getMaxCount());
 
-        var algorithmList = AlgorithmPoolFactory.getAlgorithmPool();
+        var algorithmList = AlgorithmPoolFactory.getSingleAlgorithmPool();
         for (var algorithm : algorithmList) {
             calculateHistoryPredictValueSum(algorithm);
             selectedAlgorithmList.add(algorithm);
@@ -52,41 +49,17 @@ public class AlgorithmSelector {
     }
 
     /**
-     * 计算价值
-     *
-     * @param algorithm
-     * @return
-     */
-    private void calculateHistoryPredictValueSum(AlgorithmRegistry algorithm) {
-        int sumValue = 0;
-        for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallDataPreload.allData().size(); targetIndex++) {
-            var predict = algorithm.getInstance().predict(targetIndex);
-            var target = DoubleColorBallDataPreload.allData().get(targetIndex);
-            var value = calculateValue(predict, target);
-            if (ValueCalculator.hasNoValue(value)) {
-                continue;
-            }
-            algorithm.setHistoryHitCount(algorithm.getHistoryHitCount() + 1);
-            sumValue += value;
-            if (value > algorithm.getMaxAmount()) {
-                algorithm.setMaxAmount(value);
-            }
-        }
-        algorithm.setHistoryPredictValueSum(sumValue);
-    }
-
-    /**
      * 从文件读取已保存算法
      *
      * @return
      */
-    private List<AlgorithmRegistry> readFromFile() {
-        var algorithmList = FileProvider.readFile(getFilePath(), new TypeReference<List<AlgorithmRegistry>>() {
+    private List<SingleAlgorithmRegistry> readFromFile() {
+        var algorithmList = FileProvider.readFile(getFilePath(), new TypeReference<List<SingleAlgorithmRegistry>>() {
         });
 
-        var memoryAlgorithmList = new ArrayList<AlgorithmRegistry>(algorithmList.size());
+        var memoryAlgorithmList = new ArrayList<SingleAlgorithmRegistry>(algorithmList.size());
         for (var algorithm : algorithmList) {
-            var memoryAlgorithm = AlgorithmPoolFactory.getAlgorithm(algorithm.getName());
+            var memoryAlgorithm = AlgorithmPoolFactory.getSingleAlgorithm(algorithm.getName());
             if (memoryAlgorithm == null) {
                 continue;
             }
@@ -98,15 +71,18 @@ public class AlgorithmSelector {
         return memoryAlgorithmList;
     }
 
-    private String getFilePath() {
+    @Override
+    public String getFilePath() {
         return "/SingleSelectedAlgorithm.json";
     }
 
-    private int getMaxCount() {
+    @Override
+    public int getMaxCount() {
         return 100;
     }
 
-    private int calculateValue(DoubleColorBallItem predictResult, DoubleColorBallItem target) {
+    @Override
+    public int calculateValue(DoubleColorBallItem predictResult, DoubleColorBallItem target) {
         return ValueCalculator.calculate(predictResult, target);
     }
 }

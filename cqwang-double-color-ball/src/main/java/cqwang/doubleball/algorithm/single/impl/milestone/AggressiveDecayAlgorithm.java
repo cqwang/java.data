@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球递进衰减算法 - 更激进的衰减系数(0.92)
  */
-public class AggressiveDecayAlgorithm implements PredictionAlgorithm {
+public class AggressiveDecayAlgorithm implements SingleAlgorithm {
     private static final int SAMPLE_SIZE = 55;
     private static final double AGGRESSIVE_DECAY = 0.92;
 

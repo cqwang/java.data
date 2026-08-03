@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 邻域聚集算法 - 优先选择与其他高频数相邻的值
  */
-public class NeighborhoodClusterAlgorithm implements PredictionAlgorithm {
+public class NeighborhoodClusterAlgorithm implements SingleAlgorithm {
     private static final int WINDOW_SIZE = 48;
     private static final int NEIGHBOR_RANGE = 3;
 

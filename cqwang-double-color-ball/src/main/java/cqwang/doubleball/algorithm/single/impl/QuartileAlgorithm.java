@@ -1,6 +1,6 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.helper.ListUtils;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
@@ -8,7 +8,7 @@ import org.apache.commons.lang3.Range;
 /**
  * 四分位数算法 - 基于四分位数的鲁棒预测
  */
-public class QuartileAlgorithm implements PredictionAlgorithm {
+public class QuartileAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         return predictByQuartile(redBallDataDetail, redRange);

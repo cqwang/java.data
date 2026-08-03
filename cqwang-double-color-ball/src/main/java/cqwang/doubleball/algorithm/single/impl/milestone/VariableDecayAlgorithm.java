@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 递增衰减算法 - 从最近往前衰减，步长可变
  */
-public class VariableDecayAlgorithm implements PredictionAlgorithm {
+public class VariableDecayAlgorithm implements SingleAlgorithm {
     private static final int SAMPLE_SIZE = 70;
     private static final double BASE_DECAY = 0.87;
 

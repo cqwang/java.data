@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 最终优化算法 - 综合所有最优策略的终极版本
  */
-public class UltimateOptimizationAlgorithm implements PredictionAlgorithm {
+public class UltimateOptimizationAlgorithm implements SingleAlgorithm {
     private static final int WINDOW1 = 14;
     private static final int WINDOW2 = 32;
     private static final int WINDOW3 = 58;

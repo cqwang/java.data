@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 区间分布算法 - 基于数据分布的中点进行预测
  */
-public class IntervalDistributionAlgorithm implements PredictionAlgorithm {
+public class IntervalDistributionAlgorithm implements SingleAlgorithm {
     @Override
     public int predictRed(BallDataDetail redBallDataDetail, Range<Integer> redRange) {
         int min = Math.max(redRange.getMinimum(), redBallDataDetail.getMin());

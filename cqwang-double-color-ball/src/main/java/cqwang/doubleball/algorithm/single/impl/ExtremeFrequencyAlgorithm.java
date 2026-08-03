@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 蓝球极限频率算法 - 只关注最近50次数据中的最高频数
  */
-public class ExtremeFrequencyAlgorithm implements PredictionAlgorithm {
+public class ExtremeFrequencyAlgorithm implements SingleAlgorithm {
     private static final int EXTREME_WINDOW = 50;
 
     @Override

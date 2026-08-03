@@ -1,14 +1,14 @@
 package cqwang.doubleball.algorithm.single.impl.milestone;
 
 import cqwang.doubleball.common.MathUtils;
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 红球极限近期算法 - 只关注最近15次数据
  */
-public class ExtremeRecentAlgorithm implements PredictionAlgorithm {
+public class ExtremeRecentAlgorithm implements SingleAlgorithm {
     private static final int EXTREME_WINDOW = 15;
 
     @Override

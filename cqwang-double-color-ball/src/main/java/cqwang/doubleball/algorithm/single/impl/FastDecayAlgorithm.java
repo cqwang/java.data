@@ -1,13 +1,13 @@
 package cqwang.doubleball.algorithm.single.impl;
 
-import cqwang.doubleball.algorithm.single.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.single.SingleAlgorithm;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
 /**
  * 红球快速衰减算法 - 激进的时间衰减(0.85)
  */
-public class FastDecayAlgorithm implements PredictionAlgorithm {
+public class FastDecayAlgorithm implements SingleAlgorithm {
     private static final int SAMPLE_SIZE = 60;
     private static final double FAST_DECAY = 0.85;
 
