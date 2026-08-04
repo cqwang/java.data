@@ -1,98 +1,74 @@
 [
   {
-    "name": "RecentModifiedWeightedMode",
-    "historyPredictValueSum": 4365,
-    "historyHitCount": 150,
-    "maxAmount": 3000
-  },
-  {
-    "name": "RecentModifiedSVMSimulation4",
-    "historyPredictValueSum": 4325,
-    "historyHitCount": 142,
-    "maxAmount": 3000
-  },
-  {
     "name": "AdaptiveThreshold",
     "historyPredictValueSum": 4175,
     "historyHitCount": 150,
-    "maxAmount": 3000
-  },
-  {
-    "name": "RecentModifiedAdaptiveThreshold",
-    "historyPredictValueSum": 4175,
-    "historyHitCount": 150,
-    "maxAmount": 3000
-  },
-  {
-    "name": "RecentModifiedMidpointBalance",
-    "historyPredictValueSum": 4170,
-    "historyHitCount": 149,
-    "maxAmount": 3000
-  },
-  {
-    "name": "UltimateFrequencyWeightedMode",
-    "historyPredictValueSum": 4165,
-    "historyHitCount": 149,
-    "maxAmount": 3000
-  },
-  {
-    "name": "UltimateFrequencyMidpointBalance",
-    "historyPredictValueSum": 4155,
-    "historyHitCount": 147,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 2,
+    "latest50MaxAmount": 5
   },
   {
     "name": "RecentModified",
     "historyPredictValueSum": 4125,
     "historyHitCount": 140,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 5,
+    "latest50MaxAmount": 5
   },
   {
     "name": "UltimateFrequency",
     "historyPredictValueSum": 3900,
     "historyHitCount": 134,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 4,
+    "latest50MaxAmount": 5
   },
   {
     "name": "HybridOptimized",
     "historyPredictValueSum": 3770,
     "historyHitCount": 146,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 3,
+    "latest50MaxAmount": 5
   },
   {
     "name": "ExtremeRecent",
     "historyPredictValueSum": 3760,
     "historyHitCount": 144,
-    "maxAmount": 3000
-  },
-  {
-    "name": "MultiCycle",
-    "historyPredictValueSum": 3730,
-    "historyHitCount": 139,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 4,
+    "latest50MaxAmount": 5
   },
   {
     "name": "RecentWeighted",
     "historyPredictValueSum": 3725,
     "historyHitCount": 136,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 2,
+    "latest50MaxAmount": 5
   },
   {
-    "name": "DualCycleFrequency",
-    "historyPredictValueSum": 3710,
-    "historyHitCount": 131,
-    "maxAmount": 3000
+    "name": "RecentBurst",
+    "historyPredictValueSum": 3700,
+    "historyHitCount": 137,
+    "maxAmount": 3000,
+    "latest50HitCount": 3,
+    "latest50MaxAmount": 5
   },
   {
     "name": "BurstFrequency",
     "historyPredictValueSum": 3700,
     "historyHitCount": 137,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 3,
+    "latest50MaxAmount": 5
   },
   {
     "name": "FrequencySurge",
     "historyPredictValueSum": 3685,
     "historyHitCount": 131,
-    "maxAmount": 3000
+    "maxAmount": 3000,
+    "latest50HitCount": 4,
+    "latest50MaxAmount": 5
   }
 ]
