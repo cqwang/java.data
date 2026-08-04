@@ -1,0 +1,19 @@
+cqwang-double-color-ball/src/main/resources/SingleSelectedAlgorithm.json
+  s_f681089eeee8c9::t_e9112b1f2bcac6 6-8,14-16,22-24,30-32,38-40,46-48,51-56,62-64,70-72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.39-trip",
+  "base_commit_sha": "d70bf3a8c631c4a9c8ee65a633d3f27ba93bb9f5",
+  "prompts": {},
+  "sessions": {
+    "s_f681089eeee8c9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "81023a0e-dd7e-4d21-a1e5-05241c75ae15",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
