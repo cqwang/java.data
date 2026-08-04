@@ -1,0 +1,25 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/single/impl/FrequencyAnalysisAlgorithm.java
+  s_f681089eeee8c9::t_5541af19d32c4e 3,9-14,19,24-32,35-46
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/AlgorithmSelector.java
+  s_f681089eeee8c9::t_d5ed766cf1ce62 29,34,47-51
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/AlgorithmRegistry.java
+  s_f681089eeee8c9::t_81ee1fc0b7bed7 24-32
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/AlgorithmPoolFactory.java
+  s_f681089eeee8c9::t_0f165decdf8bba 94-127
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.39-trip",
+  "base_commit_sha": "f4f0331734c186363007aac2f9c1306e491137f8",
+  "prompts": {},
+  "sessions": {
+    "s_f681089eeee8c9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "81023a0e-dd7e-4d21-a1e5-05241c75ae15",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
