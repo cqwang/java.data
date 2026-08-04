@@ -14,8 +14,16 @@ public enum SelectMode {
      */
     RE_CALCULATE_FROM_FILE,
 
+
+    /**
+     * 替换blue
+     */
+    RE_CALCULATE_FROM_FILE_FOR_RELEVANCE,
+
     /**
      * 重新计算、挑选算法并保存到文件
      */
-    RE_CALCULATE
+    RE_CALCULATE,
+
+
 }

@@ -12,6 +12,12 @@ public interface AlgorithmSelector {
      */
     int MIN_SAMPLE_COUNT = 100;
 
+
+    /**
+     * 高级算法的最小收入门槛
+     */
+    int ADVANCED_MIX_AMOUNT = 5500;
+
     /**
      * 计算价值
      *

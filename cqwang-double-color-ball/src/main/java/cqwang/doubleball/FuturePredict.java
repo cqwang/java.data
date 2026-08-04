@@ -1,6 +1,7 @@
 package cqwang.doubleball;
 
 import cqwang.doubleball.algorithm.combination.CombinationAlgorithmRegistrySelector;
+import cqwang.doubleball.algorithm.combination.CombinationRelevanceSelector;
 import cqwang.doubleball.algorithm.single.SingleAlgorithmSelector;
 import cqwang.doubleball.common.model.SelectMode;
 import cqwang.doubleball.preload.DoubleColorBallDataPreload;
@@ -29,6 +30,13 @@ public class FuturePredict {
             var predict = algorithm.predict(targetIndex);
             resultSet.add(predict.getSimpleInfo());
         }
+
+        var combinationRelevanceAlgorithmList = new CombinationRelevanceSelector().execute(SelectMode.FROM_FILE);
+        for (var algorithm : combinationRelevanceAlgorithmList) {
+            var predict = algorithm.predict(targetIndex);
+            resultSet.add(predict.getSimpleInfo());
+        }
+
         printInfo(resultSet);
     }
 
@@ -61,6 +69,20 @@ public class FuturePredict {
             resultSet.add(predict.getSimpleInfo());
         }
         printInfo(resultSet);
+    }
+
+
+    public static void combinationRelevancePredict(){
+        PreloadManager.execute();
+        var algorithmList = new CombinationRelevanceSelector().execute(SelectMode.FROM_FILE);
+        var targetIndex = DoubleColorBallDataPreload.allData().size();
+        var resultSet = new HashSet<String>();
+        for (var algorithm : algorithmList) {
+            var predict = algorithm.predict(targetIndex);
+            resultSet.add(predict.getSimpleInfo());
+        }
+        printInfo(resultSet);
+
     }
 
     private static void printInfo(HashSet<String> resultSet) {

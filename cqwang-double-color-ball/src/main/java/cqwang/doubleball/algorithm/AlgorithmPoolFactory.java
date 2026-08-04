@@ -1,11 +1,7 @@
 package cqwang.doubleball.algorithm;
 
-import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithm;
 import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithmRegistry;
-import cqwang.doubleball.algorithm.relevance.impl.CompositeRelevanceAlgorithm;
-import cqwang.doubleball.algorithm.relevance.impl.CosineSimilarityRelevanceAlgorithm;
-import cqwang.doubleball.algorithm.relevance.impl.EuclideanDistanceRelevanceAlgorithm;
-import cqwang.doubleball.algorithm.relevance.impl.PearsonCorrelationRelevanceAlgorithm;
+import cqwang.doubleball.algorithm.relevance.impl.*;
 import cqwang.doubleball.algorithm.single.SingleAlgorithmRegistry;
 import cqwang.doubleball.algorithm.single.impl.*;
 import cqwang.doubleball.algorithm.single.impl.milestone.*;
@@ -119,6 +115,17 @@ public class AlgorithmPoolFactory {
             new RelevanceAlgorithmRegistry("CosineSimilarityRelevance", CosineSimilarityRelevanceAlgorithm.class),
             new RelevanceAlgorithmRegistry("EuclideanDistanceRelevance", EuclideanDistanceRelevanceAlgorithm.class),
             new RelevanceAlgorithmRegistry("PearsonCorrelationRelevance", PearsonCorrelationRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("IntervalGapRelevance", IntervalGapRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("IntervalFrequencyRelevance", IntervalFrequencyRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("DecayFrequencyRelevance", DecayFrequencyRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("ContinuousPatternRelevance", ContinuousPatternRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("ExtremeFrequencyRelevance", ExtremeFrequencyRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("RecentFrequencyRelevance", RecentFrequencyRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("BurstFrequencyRelevance", BurstFrequencyRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("AggressiveDecayRelevance", AggressiveDecayRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("ExtremeRecentRelevance", ExtremeRecentRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("WeightedModeRelevance", WeightedModeRelevanceAlgorithm.class),
+            new RelevanceAlgorithmRegistry("HybridOptimizedRelevance", HybridOptimizedRelevanceAlgorithm.class),
 
     };
 
@@ -126,7 +133,14 @@ public class AlgorithmPoolFactory {
         return Arrays.asList(RELEVANCE_ALGORITHMS);
     }
 
-
+    public static RelevanceAlgorithmRegistry getRelevanceAlgorithm(String name) {
+        for (RelevanceAlgorithmRegistry registry : RELEVANCE_ALGORITHMS) {
+            if (registry.getName().equals(name)) {
+                return registry;
+            }
+        }
+        return null;
+    }
 
 
 

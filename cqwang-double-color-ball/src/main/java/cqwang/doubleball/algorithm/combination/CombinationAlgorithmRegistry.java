@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import cqwang.doubleball.algorithm.AlgorithmPoolFactory;
 import cqwang.doubleball.algorithm.AlgorithmRegistry;
 import cqwang.doubleball.algorithm.PredictionAlgorithm;
+import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithm;
+import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithmRegistry;
 import cqwang.doubleball.algorithm.single.SingleAlgorithmRegistry;
 import cqwang.doubleball.common.model.DoubleColorBallItem;
 import cqwang.doubleball.preload.SampleDataRealtimeLoad;
@@ -26,9 +28,29 @@ public class CombinationAlgorithmRegistry extends AlgorithmRegistry implements P
     @JsonIgnore
     private SingleAlgorithmRegistry blueSingleAlgorithmRegistryInstance;
 
+    private String blueRelevanceAlgorithmRegistry;
+
+    @JsonIgnore
+    private RelevanceAlgorithm blueRelevanceAlgorithmRegistryInstance;
+
 
     public CombinationAlgorithmRegistry() {
     }
+
+    public CombinationAlgorithmRegistry(SingleAlgorithmRegistry blueAlgorithm, SingleAlgorithmRegistry... redAlgorithms) {
+        this.blueSingleAlgorithmRegistryInstance = blueAlgorithm;
+        this.redSingleAlgorithmRegistryInstanceList = redAlgorithms;
+    }
+
+    public CombinationAlgorithmRegistry(CombinationAlgorithmRegistry source, RelevanceAlgorithmRegistry relevanceAlgorithmRegistry){
+        this.redAlgorithmRegistryList = source.getRedAlgorithmRegistryList();
+        this.redSingleAlgorithmRegistryInstanceList = source.getRedSingleAlgorithmRegistryInstanceList();
+        this.blueAlgorithmRegistry = source.getBlueAlgorithmRegistry();
+        this.blueSingleAlgorithmRegistryInstance = source.getBlueSingleAlgorithmRegistryInstance();
+        this.blueRelevanceAlgorithmRegistry = relevanceAlgorithmRegistry.getName();
+        this.blueRelevanceAlgorithmRegistryInstance = relevanceAlgorithmRegistry.getInstance();
+    }
+
 
     public void setRedAlgorithmRegistryList(String[] redAlgorithmRegistryList) {
         this.redAlgorithmRegistryList = redAlgorithmRegistryList;
@@ -46,12 +68,6 @@ public class CombinationAlgorithmRegistry extends AlgorithmRegistry implements P
     public void setBlueAlgorithmRegistry(String blueAlgorithmRegistry) {
         this.blueAlgorithmRegistry = blueAlgorithmRegistry;
         this.blueSingleAlgorithmRegistryInstance = AlgorithmPoolFactory.getSingleAlgorithm(this.blueAlgorithmRegistry);
-    }
-
-
-    public CombinationAlgorithmRegistry(SingleAlgorithmRegistry blueAlgorithm, SingleAlgorithmRegistry... redAlgorithms) {
-        this.blueSingleAlgorithmRegistryInstance = blueAlgorithm;
-        this.redSingleAlgorithmRegistryInstanceList = redAlgorithms;
     }
 
 
@@ -73,8 +89,14 @@ public class CombinationAlgorithmRegistry extends AlgorithmRegistry implements P
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueAlgorithm = getBlueSingleAlgorithmRegistryInstance().getInstance();
-        var blueValue = blueAlgorithm.predictBlue(sampleDataRealtimeLoad.getBlueBallDetail(), Range.between(1, 16));
+        var blueValue = 0;
+        if (blueRelevanceAlgorithmRegistryInstance != null) {
+            blueValue = blueRelevanceAlgorithmRegistryInstance.predictBlue(targetIndex, predictResult.getRedValueList());
+        } else {
+            var blueAlgorithm = getBlueSingleAlgorithmRegistryInstance().getInstance();
+            blueValue = blueAlgorithm.predictBlue(sampleDataRealtimeLoad.getBlueBallDetail(), Range.between(1, 16));
+        }
+
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }

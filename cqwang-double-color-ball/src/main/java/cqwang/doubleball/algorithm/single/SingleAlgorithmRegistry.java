@@ -2,8 +2,8 @@ package cqwang.doubleball.algorithm.single;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import cqwang.doubleball.algorithm.AlgorithmRegistry;
+import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithm;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * 算法
@@ -15,6 +15,11 @@ public class SingleAlgorithmRegistry extends AlgorithmRegistry {
     @Getter
     @JsonIgnore
     private SingleAlgorithm instance;
+
+    private String blueRelevanceAlgorithmRegistry;
+
+    @JsonIgnore
+    private RelevanceAlgorithm blueRelevanceAlgorithmRegistryInstance;
 
     public SingleAlgorithmRegistry() {
     }

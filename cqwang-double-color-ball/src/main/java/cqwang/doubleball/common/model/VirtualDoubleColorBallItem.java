@@ -14,8 +14,7 @@ public class VirtualDoubleColorBallItem {
         ballValueList = new ArrayList<>(7);
         ballValueList.addAll(doubleColorBallItem.getRedValueList());
 
-        var maxRed = doubleColorBallItem.getRedValueList().get(doubleColorBallItem.getRedValueList().size() - 1);
-        ballValueList.add(doubleColorBallItem.getBlueValue() + 33 - maxRed);
+        ballValueList.add(doubleColorBallItem.getBlueValue() + 33);
     }
 
     public List<Integer> getBallValueList() {

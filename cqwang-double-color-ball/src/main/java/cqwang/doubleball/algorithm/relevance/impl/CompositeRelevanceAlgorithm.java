@@ -16,7 +16,7 @@ public class CompositeRelevanceAlgorithm implements RelevanceAlgorithm {
     @Override
     public int predictBlue(List<Integer> predictedRedValueList, List<VirtualDoubleColorBallItem> sampleList) {
         if (sampleList == null || sampleList.isEmpty()) {
-            return -1;
+            return INVALID_RESULT;
         }
 
         double totalWeight = 0;
@@ -55,13 +55,13 @@ public class CompositeRelevanceAlgorithm implements RelevanceAlgorithm {
         }
 
         if (totalWeight == 0) {
-            return -1;
+            return INVALID_RESULT;
         }
 
         int predictedBlue = (int) Math.round(weightedBlueSum / totalWeight);
 
-        if (predictedBlue < 34 || predictedBlue > 49) {
-            return -1;
+        if (predictedBlue < BLUE_VIRTUAL_MIN || predictedBlue > BLUE_VIRTUAL_MAX) {
+            return INVALID_RESULT;
         }
 
         return predictedBlue;

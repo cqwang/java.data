@@ -5,9 +5,9 @@ import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
 import cqwang.doubleball.algorithm.AlgorithmSelector;
 import cqwang.doubleball.algorithm.single.SingleAlgorithmSelector;
+import cqwang.doubleball.common.ValueCalculator;
 import cqwang.doubleball.common.model.DoubleColorBallItem;
 import cqwang.doubleball.common.model.SelectMode;
-import cqwang.doubleball.common.ValueCalculator;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -15,12 +15,6 @@ import java.util.List;
 
 @Data
 public class CombinationAlgorithmRegistrySelector implements AlgorithmSelector {
-
-
-    /**
-     * 高级算法的最小收入门槛
-     */
-    int ADVANCED_MIX_AMOUNT = 5500;
 
     /**
      *
@@ -34,7 +28,7 @@ public class CombinationAlgorithmRegistrySelector implements AlgorithmSelector {
             return algorithmList;
         }
 
-        if(selectMode == SelectMode.RE_CALCULATE_FROM_FILE){
+        if (selectMode == SelectMode.RE_CALCULATE_FROM_FILE) {
             var algorithmList = reCalculateFromFile();
             System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
             return algorithmList;
@@ -43,7 +37,7 @@ public class CombinationAlgorithmRegistrySelector implements AlgorithmSelector {
         return readFromFile();
     }
 
-    private List<CombinationAlgorithmRegistry> readFromFile() {
+    public List<CombinationAlgorithmRegistry> readFromFile() {
         return FileProvider.readFile(getFilePath(), new TypeReference<List<CombinationAlgorithmRegistry>>() {
         });
     }
@@ -86,10 +80,9 @@ public class CombinationAlgorithmRegistrySelector implements AlgorithmSelector {
 
     private List<CombinationAlgorithmRegistry> reCalculateFromFile() {
         var algorithmList = readFromFile();
-        for(var algorithm : algorithmList){
+        for (var algorithm : algorithmList) {
             calculateHistoryPredictValueSum(algorithm);
         }
-
         algorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());
         return algorithmList;
     }
