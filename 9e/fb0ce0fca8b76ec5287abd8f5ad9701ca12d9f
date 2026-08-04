@@ -1,0 +1,44 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/WeightedModeRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_4c353d5ba6884a 1-75
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/HybridOptimizedRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_e1c2bc07a00700 1-100
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/IntervalGapRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_23ec8e81b59307 1-17,19-57,59-72,74-104
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/DecayFrequencyRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_abd3bea6fbf31d 1-73
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/ExtremeRecentRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_288f1982761e8b 1-73
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/ContinuousPatternRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_0374548dbddbcb 1-94
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/AggressiveDecayRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_a4035f206f175f 1-73
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/ExtremeFrequencyRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_18dfc7982b8186 1-87
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/BurstFrequencyRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_828d7ffca7edba 1-125
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/RecentFrequencyRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_d8559fb1c11e71 1-72
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/AlgorithmPoolFactory.java
+  s_f681089eeee8c9::t_767cb06bc48013 119
+  s_f681089eeee8c9::t_7182f54d101763 120-122
+  s_f681089eeee8c9::t_50fc653d580e9b 118
+  s_f681089eeee8c9::t_b8013e524a586e 123-128
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/algorithm/relevance/impl/IntervalFrequencyRelevanceAlgorithm.java
+  s_f681089eeee8c9::t_c60d7d5d73b5db 1-19,21-48,50-63,65-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.39-trip",
+  "base_commit_sha": "9efb0ce0fca8b76ec5287abd8f5ad9701ca12d9f",
+  "prompts": {},
+  "sessions": {
+    "s_f681089eeee8c9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "81023a0e-dd7e-4d21-a1e5-05241c75ae15",
+        "model": "arn:aws:bedrock:us-east-1:133197901387:application-inference-profile/r3vgzaso9r25"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
