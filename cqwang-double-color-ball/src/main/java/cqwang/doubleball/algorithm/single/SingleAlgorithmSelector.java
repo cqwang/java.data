@@ -26,7 +26,27 @@ public class SingleAlgorithmSelector implements AlgorithmSelector {
             return algorithmList;
         }
 
+        if(selectMode == SelectMode.RE_CALCULATE_FROM_FILE){
+            var algorithmList = reCalculateFromFile();
+            System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
+            return algorithmList;
+        }
+
         return readFromFile();
+    }
+
+    private List<SingleAlgorithmRegistry> reCalculateFromFile() {
+        ArrayList<SingleAlgorithmRegistry> selectedAlgorithmList = new ArrayList<>(getMaxCount());
+
+        var algorithmList = readFromFile();
+        for (var algorithm : algorithmList) {
+            calculateHistoryPredictValueSum(algorithm);
+            selectedAlgorithmList.add(algorithm);
+        }
+
+        selectedAlgorithmList.sort((o1, o2) -> o2.getHistoryPredictValueSum() - o1.getHistoryPredictValueSum());
+        var actualCount = Math.min(getMaxCount(), selectedAlgorithmList.size());
+        return selectedAlgorithmList.subList(0, actualCount);
     }
 
     /**

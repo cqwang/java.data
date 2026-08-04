@@ -3,8 +3,9 @@ package cqwang.doubleball.algorithm;
 import cqwang.doubleball.algorithm.relevance.RelevanceAlgorithmRegistry;
 import cqwang.doubleball.algorithm.relevance.impl.*;
 import cqwang.doubleball.algorithm.single.SingleAlgorithmRegistry;
-import cqwang.doubleball.algorithm.single.impl.*;
 import cqwang.doubleball.algorithm.single.impl.milestone.*;
+import cqwang.doubleball.algorithm.single.impl.FrequencyAnalysisAlgorithm;
+import cqwang.doubleball.algorithm.single.impl.toredo.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -90,6 +91,40 @@ public class AlgorithmPoolFactory {
             new SingleAlgorithmRegistry("FiveLayerProgressive", FiveLayerProgressiveAlgorithm.class),
             new SingleAlgorithmRegistry("SuperWeighted", SuperWeightedAlgorithm.class),
             new SingleAlgorithmRegistry("UltimateOptimization", UltimateOptimizationAlgorithm.class),
+            new SingleAlgorithmRegistry("AbsoluteFrequency", AbsoluteFrequencyAlgorithm.class),
+            new SingleAlgorithmRegistry("ARIMA", ARIMAAlgorithm.class),
+            new SingleAlgorithmRegistry("Autocorrelation", AutocorrelationAlgorithm.class),
+            new SingleAlgorithmRegistry("Autoregression", AutoregressionAlgorithm.class),
+            new SingleAlgorithmRegistry("Correlation", CorrelationAlgorithm.class),
+            new SingleAlgorithmRegistry("Covariance", CovarianceAlgorithm.class),
+            new SingleAlgorithmRegistry("Crosscorrelation", CrosscorrelationAlgorithm.class),
+            new SingleAlgorithmRegistry("CycleAnalysis", CycleAnalysisAlgorithm.class),
+            new SingleAlgorithmRegistry("Difference", DifferenceAlgorithm.class),
+            new SingleAlgorithmRegistry("DynamicFrequency", DynamicFrequencyAlgorithm.class),
+            new SingleAlgorithmRegistry("GeometricMean", GeometricMeanAlgorithm.class),
+            new SingleAlgorithmRegistry("HarmonicMean", HarmonicMeanAlgorithm.class),
+            new SingleAlgorithmRegistry("HoltWinters", HoltWintersAlgorithm.class),
+            new SingleAlgorithmRegistry("IQR", IQRAlgorithm.class),
+            new SingleAlgorithmRegistry("KalmanFilter", KalmanFilterAlgorithm.class),
+            new SingleAlgorithmRegistry("LaggedValue", LaggedValueAlgorithm.class),
+            new SingleAlgorithmRegistry("MaximumValue", MaximumValueAlgorithm.class),
+            new SingleAlgorithmRegistry("MinimumValue", MinimumValueAlgorithm.class),
+            new SingleAlgorithmRegistry("Mode", ModeAlgorithm.class),
+            new SingleAlgorithmRegistry("MovingAverage", MovingAverageAlgorithm.class),
+            new SingleAlgorithmRegistry("Percentile", PercentileAlgorithm.class),
+            new SingleAlgorithmRegistry("PolynomialRegression", PolynomialRegressionAlgorithm.class),
+            new SingleAlgorithmRegistry("RandomWalk", RandomWalkAlgorithm.class),
+            new SingleAlgorithmRegistry("RangeAverage", RangeAverageAlgorithm.class),
+            new SingleAlgorithmRegistry("Regression", RegressionAlgorithm.class),
+            new SingleAlgorithmRegistry("Skewness", SkewnessAlgorithm.class),
+            new SingleAlgorithmRegistry("SmoothingSpline", SmoothingSplineAlgorithm.class),
+            new SingleAlgorithmRegistry("SpectralAnalysis", SpectralAnalysisAlgorithm.class),
+            new SingleAlgorithmRegistry("StandardDeviation", StandardDeviationAlgorithm.class),
+            new SingleAlgorithmRegistry("TrendAnalysis", TrendAnalysisAlgorithm.class),
+            new SingleAlgorithmRegistry("TrimmedMean", TrimmedMeanAlgorithm.class),
+            new SingleAlgorithmRegistry("Variance", VarianceAlgorithm.class),
+            new SingleAlgorithmRegistry("Wavelet", WaveletAlgorithm.class),
+            new SingleAlgorithmRegistry("WinsorizedMean", WinsorizedMeanAlgorithm.class),
 
     };
 

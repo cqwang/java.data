@@ -46,7 +46,7 @@ public class FuturePredict {
      */
     public static void combinationPredict() {
         PreloadManager.execute();
-        var algorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.RE_CALCULATE_FROM_FILE);
+        var algorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.RE_CALCULATE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
@@ -61,7 +61,7 @@ public class FuturePredict {
      */
     public static void singlePredict() {
         PreloadManager.execute();
-        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.RE_CALCULATE);
+        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.RE_CALCULATE_FROM_FILE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {

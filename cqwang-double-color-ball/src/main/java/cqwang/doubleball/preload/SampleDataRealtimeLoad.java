@@ -32,7 +32,11 @@ public class SampleDataRealtimeLoad {
      * @param preSampleNum 样本数量
      */
     public void execute(int preSampleNum) {
-        List<DoubleColorBallItem> preSampleData = DoubleColorBallDataPreload.allData().subList(0, preSampleNum);
+        execute(0, preSampleNum);
+    }
+
+    public void execute(int startIndex, int preSampleNum) {
+        List<DoubleColorBallItem> preSampleData = DoubleColorBallDataPreload.allData().subList(startIndex, preSampleNum);
         if (CollectionUtils.isEmpty(preSampleData)) {
             return;
         }
@@ -49,5 +53,10 @@ public class SampleDataRealtimeLoad {
             var virtualItem = new VirtualDoubleColorBallItem(item);
             virtualItemList.add(virtualItem);
         }
+
+        for (var ballDataDetail : redBallData.getRedBallMap().values()) {
+            ballDataDetail.calculateWeight();
+        }
+        blueBallDetail.calculateWeight();
     }
 }

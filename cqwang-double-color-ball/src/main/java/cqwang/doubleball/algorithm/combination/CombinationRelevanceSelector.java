@@ -18,7 +18,7 @@ public class CombinationRelevanceSelector {
     public List<CombinationAlgorithmRegistry> execute(SelectMode selectMode) {
 
 
-        if (selectMode == SelectMode.RE_CALCULATE_FROM_FILE_FOR_RELEVANCE) {
+        if (selectMode == SelectMode.RE_CALCULATE_FROM_FILE_FOR_COMBINATION) {
             var algorithmList = reCalculateRelevance();
             System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
             return algorithmList;

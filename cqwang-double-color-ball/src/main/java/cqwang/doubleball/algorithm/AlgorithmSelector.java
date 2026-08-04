@@ -26,11 +26,12 @@ public interface AlgorithmSelector {
      */
     default void calculateHistoryPredictValueSum(AlgorithmRegistry algorithm) {
         var predictionAlgorithm = getPredictionAlgorithm(algorithm);
-        if(predictionAlgorithm == null){
+        if (predictionAlgorithm == null) {
             throw new RuntimeException("not find predictionAlgorithm");
         }
 
         int sumValue = 0;
+        int latest50Index = DoubleColorBallDataPreload.allData().size() - 50;
         for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallDataPreload.allData().size(); targetIndex++) {
             var predict = predictionAlgorithm.predict(targetIndex);
             var target = DoubleColorBallDataPreload.allData().get(targetIndex);
@@ -42,6 +43,12 @@ public interface AlgorithmSelector {
             sumValue += value;
             if (value > algorithm.getMaxAmount()) {
                 algorithm.setMaxAmount(value);
+            }
+            if (targetIndex >= latest50Index) {
+                algorithm.setLatest50HitCount(algorithm.getLatest50HitCount() + 1);
+                if (value > algorithm.getLatest50MaxAmount()) {
+                    algorithm.setLatest50MaxAmount(value);
+                }
             }
         }
         algorithm.setHistoryPredictValueSum(sumValue);
