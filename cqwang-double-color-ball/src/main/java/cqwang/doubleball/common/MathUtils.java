@@ -169,6 +169,13 @@ public class MathUtils {
         return result;
     }
 
+    /**
+     * 结合多个时间窗口的加权频率
+     * @param ballDataDetail
+     * @param range
+     * @param periodList
+     * @return
+     */
     public static int ultimateFrequency(BallDataDetail ballDataDetail, Range<Integer> range, List<Integer> periodList) {
         var dataList = ballDataDetail.getDataList();
         if (dataList.isEmpty()) {

@@ -53,10 +53,5 @@ public class SampleDataRealtimeLoad {
             var virtualItem = new VirtualDoubleColorBallItem(item);
             virtualItemList.add(virtualItem);
         }
-
-        for (var ballDataDetail : redBallData.getRedBallMap().values()) {
-            ballDataDetail.calculateWeight();
-        }
-        blueBallDetail.calculateWeight();
     }
 }
