@@ -1,4 +1,4 @@
-package cqwang.doubleball.common.model;
+package cqwang.doubleball.common.model.inner;
 
 /**
  * 算法挑选模式

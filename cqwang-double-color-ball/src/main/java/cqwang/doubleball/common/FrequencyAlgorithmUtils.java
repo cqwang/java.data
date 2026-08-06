@@ -1,6 +1,8 @@
 package cqwang.doubleball.common;
 
 import cqwang.doubleball.common.model.BallDataDetail;
+import cqwang.doubleball.common.model.inner.DataLevel;
+import cqwang.doubleball.common.model.inner.FrequencyDataListModel;
 import org.apache.commons.lang3.Range;
 
 import java.util.HashMap;
@@ -31,32 +33,50 @@ public class FrequencyAlgorithmUtils {
 //    }
 
     /**
-     * 查找最近样本中频次权重最高的数值
-     * 考虑时间衰减和异常值处理
+     * 基于相似度的预测 - 多维度相似度计算
      */
-    public static int findLatestMaxWeightFrequencyValue(BallDataDetail ballDataDetail, Range<Integer> range,
-                                                        int sampleSize, double decayFactor) {
+    public static int similarity(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize) {
         var dataList = ballDataDetail.getDataList();
         if (dataList.isEmpty()) {
             return range.getMinimum();
         }
 
-        int startIdx = Math.max(0, dataList.size() - sampleSize);
-        double maxWeight = 0;
+        // 最近20个数据作为目标模式
+        int windowSize = Math.min(sampleSize, dataList.size());
+        int startIdx = dataList.size() - windowSize;
+
+        double maxScore = 0;
         int result = range.getMinimum();
 
-        for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            double weight = 0;
-            int count = 0;
-            for (int j = dataList.size() - 1; j >= startIdx; j--) {
-                if (dataList.get(j) == i) {
-                    weight += Math.pow(decayFactor, count);
+        for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
+            double score = 0;
+
+            // 频率得分
+            int frequency = 0;
+            for (int i = startIdx; i < dataList.size(); i++) {
+                if (dataList.get(i) == candidate) {
+                    frequency++;
                 }
-                count++;
             }
-            if (weight > maxWeight) {
-                maxWeight = weight;
-                result = i;
+            score += frequency * 10;
+
+            // 邻近性得分
+            for (int i = startIdx; i < dataList.size(); i++) {
+                int diff = Math.abs(dataList.get(i) - candidate);
+                if (diff <= 2) {
+                    score += 5;
+                } else if (diff <= 5) {
+                    score += 2;
+                }
+            }
+
+            // 全局频率补充
+            int globalFreq = ballDataDetail.getDataFrequencyMap().getOrDefault(candidate, 0);
+            score += globalFreq * 0.5;
+
+            if (score > maxScore) {
+                maxScore = score;
+                result = candidate;
             }
         }
 
@@ -65,10 +85,9 @@ public class FrequencyAlgorithmUtils {
 
 
     /**
-     * 基于爆发检测的预测 - 三层级
-     * 爆发 > 稳定中期 > 长期
+     * 基于爆发检测的预测
      */
-    public static int predictByBurstDetection(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize) {
+    public static int burst(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize) {
         var dataList = ballDataDetail.getDataList();
         if (dataList.isEmpty()) {
             return range.getMinimum();
@@ -79,44 +98,6 @@ public class FrequencyAlgorithmUtils {
         return findMostFrequent(dataList, range, burstStart, dataList.size());
     }
 
-
-    /**
-     * 基于分布和权重的频次预测
-     */
-    public static int predictByDistributionFrequency(BallDataDetail ballDataDetail, Range<Integer> range) {
-        var dataList = ballDataDetail.getDataList();
-        if (dataList.isEmpty()) {
-            return range.getMinimum();
-        }
-
-        // 分三层：最近(12)、中期(50)、长期(100)
-        int recentStart = Math.max(0, dataList.size() - 12);
-        int mediumStart = Math.max(0, dataList.size() - 20);
-        int longStart = Math.max(0, dataList.size() - 40);
-
-        int recentBest = findMostFrequent(dataList, range, recentStart, dataList.size());
-        int mediumBest = findMostFrequent(dataList, range, mediumStart, dataList.size());
-        int longBest = findMostFrequent(dataList, range, longStart, dataList.size());
-
-        // 权重：最近50%、中期30%、长期20%
-        int recentFreq = countFrequency(dataList, recentBest, recentStart, dataList.size());
-        int mediumFreq = countFrequency(dataList, mediumBest, mediumStart, dataList.size());
-        int longFreq = countFrequency(dataList, longBest, longStart, dataList.size());
-
-        double recentScore = recentFreq * 0.5;
-        double mediumScore = mediumFreq * 0.3;
-        double longScore = longFreq * 0.2;
-
-        if (recentScore >= mediumScore && recentScore >= longScore) {
-            return recentBest;
-        } else if (mediumScore >= longScore) {
-            return mediumBest;
-        } else {
-            return longBest;
-        }
-    }
-
-
     /**
      * 频率突跃算法 - 检测并偏好频率的突跃点
      *
@@ -125,7 +106,7 @@ public class FrequencyAlgorithmUtils {
      * @param sampleSize     55
      * @return
      */
-    public static int predictSurge(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize) {
+    public static int surge(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize) {
         var dataList = ballDataDetail.getDataList();
         if (dataList.isEmpty()) {
             return range.getMinimum();
@@ -167,6 +148,116 @@ public class FrequencyAlgorithmUtils {
 
 
     /**
+     * 基于连续性的预测 - 识别连续出现的值
+     */
+    public static int continuity(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize) {
+        var dataList = ballDataDetail.getDataList();
+        if (dataList.isEmpty()) {
+            return range.getMinimum();
+        }
+
+        int windowSize = Math.min(sampleSize, dataList.size());
+        int startIdx = dataList.size() - windowSize;
+
+        double maxScore = 0;
+        int result = range.getMinimum();
+
+        for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
+            int totalFreq = 0;
+            int maxConsecutive = 0;
+            int currentConsecutive = 0;
+
+            for (int i = startIdx; i < dataList.size(); i++) {
+                if (dataList.get(i) == candidate) {
+                    totalFreq++;
+                    currentConsecutive++;
+                    maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
+                } else {
+                    currentConsecutive = 0;
+                }
+            }
+
+            double score = totalFreq * 1.0 + maxConsecutive * 3.0;
+
+            if (score > maxScore) {
+                maxScore = score;
+                result = candidate;
+            }
+        }
+
+        return result;
+    }
+
+
+
+    /**
+     * 查找最近样本中频次权重最高的数值
+     * 考虑时间衰减和异常值处理
+     */
+    public static int powerWeight(BallDataDetail ballDataDetail, Range<Integer> range, int sampleSize, double decayFactor) {
+        var dataList = ballDataDetail.getDataList();
+        if (dataList.isEmpty()) {
+            return range.getMinimum();
+        }
+
+        int startIdx = Math.max(0, dataList.size() - sampleSize);
+        double maxWeight = 0;
+        int result = range.getMinimum();
+
+        for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+            double weight = 0;
+            int count = 0;
+            for (int j = dataList.size() - 1; j >= startIdx; j--) {
+                if (dataList.get(j) == i) {
+                    weight += Math.pow(decayFactor, count);
+                }
+                count++;
+            }
+            if (weight > maxWeight) {
+                maxWeight = weight;
+                result = i;
+            }
+        }
+
+        return result;
+    }
+
+
+
+    /**
+     * 高频冷号分段混合算法
+     * 近期：低频
+     * 中期：稳定
+     * 长期：高频
+     * @param ballDataDetail
+     * @param range
+     * @return
+     */
+    public static int hotColdMixed(BallDataDetail ballDataDetail, Range<Integer> range, int shortPeriodSize, int midPeriodSize, int longPeriodSize) {
+        var dataList = ballDataDetail.getDataList();
+        if (dataList.isEmpty()) {
+            return range.getMinimum();
+        }
+
+        var shortModel = new FrequencyDataListModel(ballDataDetail, shortPeriodSize);
+        var midModel = new FrequencyDataListModel(ballDataDetail, midPeriodSize);
+        var longModel = new FrequencyDataListModel(ballDataDetail, longPeriodSize);
+
+        int maxFrequency = 0;
+        int result = range.getMinimum();
+        for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+            if (longModel.getLevel(data) == DataLevel.HOT && midModel.getLevel(data) == DataLevel.STABLE && shortModel.getLevel(data) == DataLevel.COLD) {
+                if (longModel.getFrequency(data) > maxFrequency) {
+                    maxFrequency = longModel.getFrequency(data);
+                    result = data;
+                }
+            }
+        }
+        return result;
+    }
+
+
+    /**
      * 结合多个时间窗口的加权频率
      *
      * @param ballDataDetail
@@ -174,7 +265,7 @@ public class FrequencyAlgorithmUtils {
      * @param periodList
      * @return
      */
-    public static int ultimateFrequency(BallDataDetail ballDataDetail, Range<Integer> range, List<Integer> periodList, List<Integer> weightList) {
+    public static int distributionWeight(BallDataDetail ballDataDetail, Range<Integer> range, List<Integer> periodList, List<Integer> weightList) {
         var dataList = ballDataDetail.getDataList();
         if (dataList.isEmpty()) {
             return range.getMinimum();
@@ -209,7 +300,6 @@ public class FrequencyAlgorithmUtils {
 
         return result;
     }
-
 
 
 
@@ -269,6 +359,7 @@ public class FrequencyAlgorithmUtils {
         }
         return count;
     }
+
 }
 
 

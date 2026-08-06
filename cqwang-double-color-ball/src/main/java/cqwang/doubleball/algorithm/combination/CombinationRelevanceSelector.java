@@ -4,7 +4,7 @@ import cqwang.data.serializer.JSON;
 import cqwang.doubleball.algorithm.AlgorithmPoolFactory;
 import cqwang.doubleball.algorithm.relevance.RelevancePredictSelector;
 import cqwang.doubleball.common.ValueCalculator;
-import cqwang.doubleball.common.model.SelectMode;
+import cqwang.doubleball.common.model.inner.SelectMode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,7 +8,7 @@ import cqwang.doubleball.algorithm.AlgorithmPoolFactory;
 import cqwang.doubleball.algorithm.AlgorithmSelector;
 import cqwang.doubleball.common.ValueCalculator;
 import cqwang.doubleball.common.model.DoubleColorBallItem;
-import cqwang.doubleball.common.model.SelectMode;
+import cqwang.doubleball.common.model.inner.SelectMode;
 
 import java.util.ArrayList;
 import java.util.List;
