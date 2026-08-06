@@ -20,10 +20,10 @@ public class FuturePredict {
         var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.FROM_FILE);
         var targetIndex = DoubleColorBallDataPreload.allData().size();
         var resultSet = new HashSet<String>();
-        for (var algorithm : algorithmList) {
-            var predict = algorithm.getInstance().predict(targetIndex);
-            resultSet.add(predict.getSimpleInfo());
-        }
+//        for (var algorithm : algorithmList) {
+//            var predict = algorithm.getInstance().predict(targetIndex);
+//            resultSet.add(predict.getSimpleInfo());
+//        }
 
         var advancedAlgorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.FROM_FILE);
         for (var algorithm : advancedAlgorithmList) {

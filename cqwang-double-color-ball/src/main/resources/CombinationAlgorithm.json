@@ -34,7 +34,7 @@
       "RecentModified",
       "RecentModified",
       "AggressiveDecay",
-      "BurstFrequency"
+      "Frequency"
     ],
     "blueAlgorithmRegistry": "WeightedMode",
     "historyPredictValueSum": 6790,
@@ -48,7 +48,7 @@
       "RecentModified",
       "RecentModified",
       "AggressiveDecay",
-      "RecentFrequency"
+      "Frequency"
     ],
     "blueAlgorithmRegistry": "WeightedMode",
     "historyPredictValueSum": 6790,
@@ -146,7 +146,7 @@
       "RecentModified",
       "RecentModified",
       "VariableDecay",
-      "BurstFrequency"
+      "Frequency"
     ],
     "blueAlgorithmRegistry": "WeightedMode",
     "historyPredictValueSum": 6760,
@@ -160,7 +160,7 @@
       "RecentModified",
       "RecentModified",
       "VariableDecay",
-      "RecentFrequency"
+      "Frequency"
     ],
     "blueAlgorithmRegistry": "WeightedMode",
     "historyPredictValueSum": 6760,
