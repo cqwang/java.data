@@ -36,11 +36,23 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         // 策略：全局频率 1105
         int globalMaxWeightData = FrequencyAlgorithmUtils.findMaxFrequencyValue(ballDataDetail, range);
 
+        // 策略：支持向量机模拟算法 - 基于边界优化的预测
+        var svmSimulationData = FrequencyAlgorithmUtils.svmSimulation(ballDataDetail, range, 50, 0.4); // 更接近max的支持向量
+
+        // 策略：加权众数算法 - 最近出现的频率最高值权重更高
+        var weightedMode = FrequencyAlgorithmUtils.weightedMode(ballDataDetail, range, 80);
+
+        // 策略：近期加权算法 - 基于最近数据的加权频率 3935
+        var recentWeight = FrequencyAlgorithmUtils.recentWeight(ballDataDetail, range, 45);
+
+        // 策略：域聚集算法 - 优先选择与其他高频数相邻的值 3920
+        var neighborhoodCluster = FrequencyAlgorithmUtils.neighborhoodCluster(ballDataDetail, range,5, 2);
+
         // 策略： 基于连续性的预测 - 识别连续出现的值 3670
         var continuity = FrequencyAlgorithmUtils.continuity(ballDataDetail, range, 12);
 
         // 策略：爆发检测 3700
-        int recentBurstData = FrequencyAlgorithmUtils.burst(ballDataDetail, range, 12);
+        int recentBurstData = FrequencyAlgorithmUtils.burst(ballDataDetail, range, 15);
 
         // 策略：加权频率（强调最近） 3740
         int recentMaxWeightData = FrequencyAlgorithmUtils.powerWeight(ballDataDetail, range, 50, 0.99);
@@ -52,11 +64,13 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         var recentSurgeData = FrequencyAlgorithmUtils.surge(ballDataDetail, range, 30);
 
         // 策略： 高频冷号分段混合算法 4230
-        var hotColdMixedData = FrequencyAlgorithmUtils.hotColdMixed(ballDataDetail, range,5,20,50);
+        var hotColdMixedData = FrequencyAlgorithmUtils.hotColdMixed(ballDataDetail, range,5,20,50, 1.0);
 
         // 结合多个时间窗口的加权频率 权重：近期权重更高 (7:3:1) 4300
         var ultimateFrequencyData = FrequencyAlgorithmUtils.distributionWeight(ballDataDetail, range, List.of(12, 20, 40), List.of(7,3,1));
 
+        // 结合多个时间窗口的加权频率 权重 4115
+        var hybridOptimized = FrequencyAlgorithmUtils.hybridOptimized(ballDataDetail, range, List.of(12, 20, 40), List.of(10,4,1));
 
 
 //        return VoteUtils.randomVote(
@@ -82,7 +96,7 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
 //        }
 
         // 默认使用加权频率结果
-        return ultimateFrequencyData;
+        return weightedMode;
     }
 
 

@@ -9,6 +9,8 @@ import java.util.*;
 public class FrequencyDataListModel {
     private int totalFrequency;
     private double avgFrequency;
+    private int maxFrequency;
+    private int maxFrequencyData;
 
 
     private Map<Integer, Integer> dataFrequencyMap;
@@ -27,18 +29,28 @@ public class FrequencyDataListModel {
             this.totalFrequency++;
         }
 
+        for (var entry : this.dataFrequencyMap.entrySet()) {
+            if (entry.getValue() > maxFrequency) {
+                this.maxFrequency = entry.getValue();
+                this.maxFrequencyData = entry.getKey();
+            }
+        }
+
         this.avgFrequency = (double) totalFrequency / dataFrequencyMap.size();
 
         this.dataLevelMap = new HashMap<>(dataFrequencyMap.size());
         var maxCold = DataLevel.COLD.getToAvgFrequencyRatio() * this.avgFrequency;
         var maxStable = DataLevel.STABLE.getToAvgFrequencyRatio() * this.avgFrequency;
+        var maxHot = DataLevel.HOT.getToAvgFrequencyRatio() * this.avgFrequency;
         for (var entry : dataFrequencyMap.entrySet()) {
             if (entry.getValue() < maxCold) {
                 dataLevelMap.put(entry.getKey(), DataLevel.COLD);
             } else if (entry.getValue() < maxStable) {
                 dataLevelMap.put(entry.getKey(), DataLevel.STABLE);
-            } else {
+            } else if (entry.getValue() < maxHot) {
                 dataLevelMap.put(entry.getKey(), DataLevel.HOT);
+            } else {
+                dataLevelMap.put(entry.getKey(), DataLevel.SO_HOT);
             }
         }
     }

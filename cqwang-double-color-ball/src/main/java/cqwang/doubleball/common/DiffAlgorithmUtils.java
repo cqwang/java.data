@@ -3,6 +3,9 @@ package cqwang.doubleball.common;
 import cqwang.doubleball.common.model.BallDataDetail;
 import org.apache.commons.lang3.Range;
 
+/**
+ * 差值算法
+ */
 public class DiffAlgorithmUtils {
 
     /**

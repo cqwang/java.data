@@ -134,40 +134,6 @@ public class MathUtils {
         return result;
     }
 
-    public static int midpointBalance(BallDataDetail ballDataDetail, Range<Integer> range, int windowSize) {
-        var dataList = ballDataDetail.getDataList();
-        if (dataList.isEmpty()) {
-            return range.getMinimum();
-        }
-
-        int startIdx = Math.max(0, dataList.size() - windowSize);
-        int midPoint = (range.getMinimum() + range.getMaximum()) / 2;
-
-        // 分别计算两侧的评分
-        double maxScore = 0;
-        int result = range.getMinimum();
-
-        for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            int freq = 0;
-            for (int j = startIdx; j < dataList.size(); j++) {
-                if (dataList.get(j) == i) {
-                    freq++;
-                }
-            }
-
-            // 评分 = 频率 * (1 - 偏离中点的距离权重)
-            int distance = Math.abs(i - midPoint);
-            double distanceWeight = 1.0 - (double) distance / (range.getMaximum() - range.getMinimum());
-            double score = freq * (0.7 + distanceWeight * 0.3);
-
-            if (score > maxScore) {
-                maxScore = score;
-                result = i;
-            }
-        }
-
-        return result;
-    }
 
     /**
      * 结合多个时间窗口的加权频率
