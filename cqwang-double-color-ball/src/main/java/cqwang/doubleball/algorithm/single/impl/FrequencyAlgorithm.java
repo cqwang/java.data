@@ -96,7 +96,7 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
 //        }
 
         // 默认使用加权频率结果
-        return weightedMode;
+        return globalMaxWeightData;
     }
 
 

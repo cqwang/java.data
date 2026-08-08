@@ -1,0 +1,66 @@
+package cqwang.doubleball.v2.algorithm;
+
+import cqwang.data.serializer.JSON;
+import cqwang.doubleball.v2.model.option.RunOption;
+
+import java.util.List;
+
+public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
+    /**
+     * 最小样本量
+     */
+    int MIN_SAMPLE_COUNT = 100;
+
+
+    default List<TRegistry> execute(RunOption runOption) {
+        List<TRegistry> algorithmList = null;
+        if (runOption == RunOption.RE_CALCULATE) {
+            algorithmList = reCalculate();
+        } else if (runOption == RunOption.RE_CALCULATE_VALUE_FROM_FILE) {
+            algorithmList = reCalculateValueFromFile();
+        } else if (runOption == RunOption.FROM_FILE) {
+            algorithmList = readFromFile();
+        }
+
+        if (algorithmList == null) {
+            return algorithmList;
+        }
+
+        algorithmList.sort((o1, o2) -> o2.getPredictResult().getSumValue() - o1.getPredictResult().getSumValue());
+        var actualCount = Math.min(getMaxCount(), algorithmList.size());
+        algorithmList = algorithmList.subList(0, actualCount);
+        System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
+        return algorithmList;
+    }
+
+
+    List<TRegistry> reCalculate();
+
+    default List<TRegistry> reCalculateValueFromFile() {
+        var algorithmList = readFromFile();
+        for (var algorithm : algorithmList) {
+            historyPredict(algorithm);
+        }
+        return algorithmList;
+    }
+
+    List<TRegistry> readFromFile();
+
+    void historyPredict(TRegistry registry);
+
+    /**
+     * 算法最大数量
+     *
+     * @return
+     */
+    default int getMaxCount() {
+        return 100;
+    }
+
+    /**
+     * 文件路径
+     *
+     * @return
+     */
+    String getFilePath();
+}
