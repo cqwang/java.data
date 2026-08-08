@@ -10,6 +10,12 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 public class SingleBallPredictAlgorithmRegistry extends AlgorithmRegistry {
+    /**
+     * 算法实现类名称
+     */
+    @Getter
+    private String algorithmName;
+
     @Getter
     @JsonIgnore
     private Class<? extends SingleBallPredictAlgorithm> algorithmClass;
@@ -18,7 +24,7 @@ public class SingleBallPredictAlgorithmRegistry extends AlgorithmRegistry {
     private SingleBallPredictAlgorithm instance;
 
     public SingleBallPredictAlgorithmRegistry(String name, Class<? extends SingleBallPredictAlgorithm> algorithmClass) {
-        super.setAlgorithmName(name);
+        this.algorithmName = name;
         this.algorithmClass = algorithmClass;
         try {
             this.instance = algorithmClass.newInstance();

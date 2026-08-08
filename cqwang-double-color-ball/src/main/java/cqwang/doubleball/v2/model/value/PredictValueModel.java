@@ -14,5 +14,8 @@ public class PredictValueModel {
      */
     private int predictValue = 0;
 
+    /**
+     * 价值标签
+     */
     private ValueFlag valueFlag = ValueFlag.NONE;
 }

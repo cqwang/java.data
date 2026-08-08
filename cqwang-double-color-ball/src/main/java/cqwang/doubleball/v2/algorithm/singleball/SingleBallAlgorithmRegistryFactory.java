@@ -1,6 +1,6 @@
 package cqwang.doubleball.v2.algorithm.singleball;
 
-import cqwang.doubleball.v2.algorithm.singleball.impl.MaxFrequencyImpl;
+import cqwang.doubleball.v2.algorithm.singleball.impl.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +12,8 @@ public class SingleBallAlgorithmRegistryFactory {
 
     private static final SingleBallPredictAlgorithmRegistry[] ALGORITHMS = {
             new SingleBallPredictAlgorithmRegistry("MaxFrequency", MaxFrequencyImpl.class),
-
+            new SingleBallPredictAlgorithmRegistry("RecentMaxFrequency", RecentMaxFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("RecentDistributionMaxWeightFrequency", RecentDistributionMaxWeightFrequencyImpl.class)
     };
 
     public static List<SingleBallPredictAlgorithmRegistry> getAlgorithmPool() {

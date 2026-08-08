@@ -5,10 +5,11 @@ import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.option.StrategyOption;
 import org.apache.commons.lang3.Range;
 
-public class MaxFrequencyImpl implements SingleBallPredictAlgorithm {
+public class RecentMaxFrequencyImpl implements SingleBallPredictAlgorithm {
     @Override
     public int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
-        // 从全量样本中，选取出现频次最高的数值
-        return singleBall.getMaxDataFrequency().getData();
+        // 爆发检测，取最近出现频次最高的数值
+        var sub = singleBall.sub(15);
+        return sub.getMaxDataFrequency().getData();
     }
 }

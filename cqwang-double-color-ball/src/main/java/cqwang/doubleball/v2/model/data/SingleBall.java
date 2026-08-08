@@ -71,11 +71,11 @@ public class SingleBall {
      * 完成填充
      */
     public void completeFill() {
-        // 按照频率从小到达、 数据从小到大排序
+        // 按照频率从小到达、 数据从大到小排序
         sortedList = new ArrayList<>(dataFrequencyMap.values());
         sortedList.sort((left, right) -> {
             if (left.getFrequency() == right.getFrequency()) {
-                return left.getData() - right.getData();
+                return right.getData() - left.getData();
             }
             return left.getFrequency() - right.getFrequency();
         });
@@ -109,5 +109,34 @@ public class SingleBall {
 
     public DataFrequency get(Integer data) {
         return dataFrequencyMap.get(data);
+    }
+
+    public int getFrequency(Integer data) {
+        var result = dataFrequencyMap.get(data);
+        if (result == null) {
+            return 0;
+        }
+        return result.getFrequency();
+    }
+
+
+    /**
+     * 按照样本量构造单个球对象
+     * @param sampleSize
+     * @return
+     */
+    public SingleBall sub(int sampleSize) {
+        if (sampleSize > this.dataList.size()) {
+            sampleSize = this.dataList.size();
+        }
+
+        var sub = new SingleBall(this.index);
+        int startIndex = this.dataList.size() - sampleSize;
+        for (var i = startIndex; i < this.dataList.size(); i++) {
+            sub.addData(this.dataList.get(i));
+        }
+
+        sub.completeFill();
+        return sub;
     }
 }

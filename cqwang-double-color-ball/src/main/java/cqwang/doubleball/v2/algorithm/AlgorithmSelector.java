@@ -19,7 +19,7 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
         } else if (runOption == RunOption.RE_CALCULATE_VALUE_FROM_FILE) {
             algorithmList = reCalculateValueFromFile();
         } else if (runOption == RunOption.FROM_FILE) {
-            algorithmList = readFromFile();
+            algorithmList = readFromFile(false);
         }
 
         if (algorithmList == null) {
@@ -37,14 +37,14 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
     List<TRegistry> reCalculate();
 
     default List<TRegistry> reCalculateValueFromFile() {
-        var algorithmList = readFromFile();
+        var algorithmList = readFromFile(true);
         for (var algorithm : algorithmList) {
             historyPredict(algorithm);
         }
         return algorithmList;
     }
 
-    List<TRegistry> readFromFile();
+    List<TRegistry> readFromFile(boolean resetHistoryValue);
 
     void historyPredict(TRegistry registry);
 

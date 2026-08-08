@@ -1,8 +1,8 @@
 [
   {
+    "blueAlgorithm": "RecentDistributionMaxWeightFrequency",
     "redAlgorithmList": [
-      "MaxFrequency"
-    ],
-    "blueAlgorithm": "MaxFrequency"
+      "RecentDistributionMaxWeightFrequency"
+    ]
   }
 ]

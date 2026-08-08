@@ -53,12 +53,12 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
     }
 
     @Override
-    public List<DoubleColorPredictionAlgorithmRegistry> readFromFile() {
+    public List<DoubleColorPredictionAlgorithmRegistry> readFromFile(boolean resetHistoryValue) {
         var algorithmList = FileProvider.readFile(getFilePath(), new TypeReference<List<DoubleColorPredictionAlgorithmRegistry>>() {
         });
 
         for (var algorithm : algorithmList) {
-            algorithm.initInstance();
+            algorithm.initInstance(resetHistoryValue);
         }
         return algorithmList;
     }

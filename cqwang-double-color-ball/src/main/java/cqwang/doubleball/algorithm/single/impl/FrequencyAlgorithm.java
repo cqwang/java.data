@@ -33,8 +33,6 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
      * @return
      */
     private int findOptimizedFrequencyValue(BallDataDetail ballDataDetail, Range<Integer> range) {
-        // 策略：全局频率 1105
-        int globalMaxWeightData = FrequencyAlgorithmUtils.findMaxFrequencyValue(ballDataDetail, range);
 
         // 策略：支持向量机模拟算法 - 基于边界优化的预测
         var svmSimulationData = FrequencyAlgorithmUtils.svmSimulation(ballDataDetail, range, 50, 0.4); // 更接近max的支持向量
@@ -51,11 +49,7 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         // 策略： 基于连续性的预测 - 识别连续出现的值 3670
         var continuity = FrequencyAlgorithmUtils.continuity(ballDataDetail, range, 12);
 
-        // 策略：爆发检测 3700
-        int recentBurstData = FrequencyAlgorithmUtils.burst(ballDataDetail, range, 15);
 
-        // 策略：加权频率（强调最近） 3740
-        int recentMaxWeightData = FrequencyAlgorithmUtils.powerWeight(ballDataDetail, range, 50, 0.99);
 
         // 策略：基于相似度的预测 - 多维度相似度计算 3895
         var recentSimilarityFrequencyData = FrequencyAlgorithmUtils.similarity(ballDataDetail, range, 40);
@@ -96,7 +90,7 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
 //        }
 
         // 默认使用加权频率结果
-        return globalMaxWeightData;
+        return ultimateFrequencyData;
     }
 
 

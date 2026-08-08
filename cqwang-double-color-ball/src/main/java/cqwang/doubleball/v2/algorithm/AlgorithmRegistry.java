@@ -6,11 +6,6 @@ import lombok.Data;
 @Data
 public class AlgorithmRegistry {
     /**
-     * 算法实现类名称
-     */
-    private String algorithmName;
-
-    /**
      * 预测结果
      */
     private PredictResult predictResult;

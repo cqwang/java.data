@@ -1,12 +1,14 @@
 package cqwang.doubleball.v2.algorithm.doublecolorball;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import cqwang.doubleball.v2.algorithm.AlgorithmRegistry;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallAlgorithmRegistryFactory;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallPredictAlgorithmRegistry;
 import cqwang.doubleball.v2.model.data.DoubleColorBall;
 import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.data.SplitBall;
+import cqwang.doubleball.v2.model.value.PredictResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +19,7 @@ import org.apache.commons.lang3.Range;
  * 双色球预测算法注册表
  */
 @NoArgsConstructor
+@JsonPropertyOrder({"blueAlgorithm", "redAlgorithmList", "predictResult"})
 public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry implements DoubleColorPredictionAlgorithm {
 
     /**
@@ -53,7 +56,10 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
         this.redInstanceList = reds;
     }
 
-    public void initInstance() {
+    public void initInstance(boolean resetHistoryValue) {
+        if (resetHistoryValue) {
+            this.setPredictResult(new PredictResult());
+        }
         this.blueInstance = SingleBallAlgorithmRegistryFactory.getAlgorithm(this.blueAlgorithm);
         this.redInstanceList = new SingleBallPredictAlgorithmRegistry[6];
 

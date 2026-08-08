@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class FuturePredictV2 {
     public static void predict(){
         DoubleColorBallPreload.execute();
-        var algorithmList = new DoubleColorPredictionAlgorithmSelector().execute(RunOption.FROM_FILE);
+        var algorithmList = new DoubleColorPredictionAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {

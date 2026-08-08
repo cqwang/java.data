@@ -1,5 +1,7 @@
 package cqwang.doubleball.v2.model.value;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import cqwang.doubleball.v2.model.value.features.ValueFlag;
 import cqwang.doubleball.v2.utils.ValueCalculator;
 import lombok.Data;
 
@@ -22,6 +24,11 @@ public class PredictResult {
     private int hitTotalCount = 0;
 
     /**
+     * 命中篮球次数
+     */
+    private int hitBlueTotalCount = 0;
+
+    /**
      * 最大价值
      */
     private int maxValue;
@@ -29,6 +36,7 @@ public class PredictResult {
     /**
      * 预测价值曲线，按照索引正序
      */
+//    @JsonIgnore
     private List<PredictPointValue> predictPointList;
 
     public PredictResult() {
@@ -42,6 +50,9 @@ public class PredictResult {
 
         this.sumValue += predictValueModel.getPredictValue();
         this.hitTotalCount++;
+        if (predictValueModel.getValueFlag() == ValueFlag.BlUE || predictValueModel.getValueFlag() == ValueFlag.BLUE_RED) {
+            this.hitBlueTotalCount++;
+        }
         if (predictValueModel.getPredictValue() > maxValue) {
             maxValue = predictValueModel.getPredictValue();
         }
