@@ -139,4 +139,11 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
 
         return Range.between(lastRed + 1, singleBall.getMaxData());
     }
+
+    public boolean equalsBlueAlgorithm(DoubleColorPredictionAlgorithmRegistry right) {
+        return this.getBlueAlgorithm().equals(right.getBlueAlgorithm())
+                && this.getOption().isRecent() == right.getOption().isRecent()
+                && this.getOption().isCumulativeWeight() == right.getOption().isCumulativeWeight()
+                && this.getOption().isWeight() == right.getOption().isWeight();
+    }
 }

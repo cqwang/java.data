@@ -15,6 +15,4 @@ public class AlgorithmRegistry {
         this.predictResult = new PredictResult();
     }
 
-    public void initInstance(){ }
-
 }

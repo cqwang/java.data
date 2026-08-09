@@ -2,6 +2,7 @@ package cqwang.doubleball.v2.model.value;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import cqwang.doubleball.v2.model.value.features.ValueFlag;
+import cqwang.doubleball.v2.preload.DoubleColorBallPreload;
 import cqwang.doubleball.v2.utils.ValueCalculator;
 import lombok.Data;
 
@@ -57,5 +58,18 @@ public class PredictResult {
             maxValue = predictValueModel.getPredictValue();
         }
         this.predictPointList.add(new PredictPointValue(predictIndex, predictValueModel));
+    }
+
+    public int getRecentSumValue(int recentSize) {
+        int sumValue = 0;
+        var startIndex = DoubleColorBallPreload.getAllData().size() - recentSize;
+        for (int i = 0; i < this.predictPointList.size(); i++) {
+            var point = this.predictPointList.get(i);
+            if (point.getPredictIndex() < startIndex) {
+                continue;
+            }
+            sumValue += point.getPredictValue().getPredictValue();
+        }
+        return sumValue;
     }
 }
