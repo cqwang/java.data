@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.doubleball.v2.algorithm.AlgorithmSelector;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallAlgorithmRegistryFactory;
+import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.preload.DoubleColorBallPreload;
 import cqwang.doubleball.v2.utils.ValueCalculator;
 
@@ -12,13 +13,14 @@ import java.util.List;
 
 public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector<DoubleColorPredictionAlgorithmRegistry> {
 
-    int ADVANCED_MIX_AMOUNT = 0;
+    int ADVANCED_MIX_AMOUNT = 6000;
 
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculate() {
         var selectedAlgorithmList = new ArrayList<DoubleColorPredictionAlgorithmRegistry>();
 
         var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
+        var optionList = getStrategyOptionList();
         for (var red0 : singleBallAlgorithmList) {
             for (var red1 : singleBallAlgorithmList) {
                 for (var red2 : singleBallAlgorithmList) {
@@ -26,20 +28,30 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
                         for (var red4 : singleBallAlgorithmList) {
                             for (var red5 : singleBallAlgorithmList) {
                                 for (var blue : singleBallAlgorithmList) {
-                                    var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(blue, red0, red1, red2, red3, red4, red5, blue);
-                                    historyPredict(advancedAlgorithm);
-                                    var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
-                                    if (ValueCalculator.hasNoValue(sumValue) || sumValue < ADVANCED_MIX_AMOUNT) {
-                                        continue;
+                                    for (var option : optionList) {
+                                        var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(option, blue, red0, red1, red2, red3, red4, red5, blue);
+                                        historyPredict(advancedAlgorithm);
+                                        var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
+                                        if (ValueCalculator.hasNoValue(sumValue) || sumValue < ADVANCED_MIX_AMOUNT) {
+                                            continue;
+                                        }
+                                        selectedAlgorithmList.add(advancedAlgorithm);
                                     }
-                                    selectedAlgorithmList.add(advancedAlgorithm);
                                 }
                             }
                         }
                     }
                 }
             }
-        }       return selectedAlgorithmList;
+        }
+        return selectedAlgorithmList;
+    }
+
+    private List<StrategyOption> getStrategyOptionList() {
+        var list = new ArrayList<StrategyOption>();
+        list.add(new StrategyOption(true));
+        list.add(new StrategyOption(false));
+        return list;
     }
 
     @Override

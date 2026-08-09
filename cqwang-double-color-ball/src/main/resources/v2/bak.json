@@ -1,0 +1,3009 @@
+[
+  {
+    "blueAlgorithm": "MaxFrequency",
+    "redAlgorithmList": [
+      "MaxFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 1315,
+      "hitTotalCount": 134,
+      "hitBlueTotalCount": 121,
+      "maxValue": 200,
+      "predictPointList": [
+        {
+          "predictIndex": 105,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 135,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 177,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 213,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 218,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 220,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 228,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 240,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 263,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 276,
+          "predictValue": {
+            "predictValue": 200,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 278,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 279,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 293,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 306,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 317,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 364,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 372,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 399,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 408,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 431,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 442,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 445,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 457,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 463,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 465,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 470,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 484,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 489,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 502,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 510,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 533,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 546,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 554,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 571,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 594,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 599,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 601,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 606,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 627,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 629,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 647,
+          "predictValue": {
+            "predictValue": 200,
+            "valueFlag": "BLUE_RED"
+          }
+        },
+        {
+          "predictIndex": 664,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 677,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 687,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 698,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 717,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 733,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 747,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 757,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 760,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 773,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 778,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 783,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 808,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 821,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 824,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 827,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 856,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 857,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 859,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 892,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 900,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 925,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 927,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 939,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 977,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 980,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 983,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 997,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1021,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1022,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1055,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1066,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1068,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1079,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1114,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1128,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1136,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1151,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1169,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1194,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1203,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1212,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1219,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1235,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1278,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1316,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1326,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1331,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1348,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1369,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1371,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1385,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1386,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1450,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1465,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1466,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1470,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1478,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1482,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1491,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1517,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1536,
+          "predictValue": {
+            "predictValue": 200,
+            "valueFlag": "BLUE_RED"
+          }
+        },
+        {
+          "predictIndex": 1579,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1581,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1591,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1592,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1632,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1635,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1636,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1723,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1728,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1730,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1732,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1744,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1757,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1784,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1788,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1841,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1852,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1857,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1865,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1866,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1869,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1914,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1954,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1960,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1976,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2001,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2005,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2015,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2029,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2032,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2037,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        }
+      ]
+    }
+  }
+
+  ,
+
+  {
+    "blueAlgorithm": "RecentMaxFrequency",
+    "redAlgorithmList": [
+      "RecentMaxFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 3820,
+      "hitTotalCount": 150,
+      "hitBlueTotalCount": 135,
+      "maxValue": 3000,
+      "predictPointList": [
+        {
+          "predictIndex": 115,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 120,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 123,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 138,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 182,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 202,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 224,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 248,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 249,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 264,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 325,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 366,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 368,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 380,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 403,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 409,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 422,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 423,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 426,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 431,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 470,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 482,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 493,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 504,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 528,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 535,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 548,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 578,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 598,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 611,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 616,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 622,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 624,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 637,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 650,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 679,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 686,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 696,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 708,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 727,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 732,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 760,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 810,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 821,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 824,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 827,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 839,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 843,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 849,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 850,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 853,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 873,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 886,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 921,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 944,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 951,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 960,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 981,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 988,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1003,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1033,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1035,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1036,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1043,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1045,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1052,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1054,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1112,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1122,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1141,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1158,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1188,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1189,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1226,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1240,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1253,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1260,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1265,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1274,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1276,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1288,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1290,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1308,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1328,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1337,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1341,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1343,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1344,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1378,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1385,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1390,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1402,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1421,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1424,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1427,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1430,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1464,
+          "predictValue": {
+            "predictValue": 3000,
+            "valueFlag": "BLUE_RED"
+          }
+        },
+        {
+          "predictIndex": 1470,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1478,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1491,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1502,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1503,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1516,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1528,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1530,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1544,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1591,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1597,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1616,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1629,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1633,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1660,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1672,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1695,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1703,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1705,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1722,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1730,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1769,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1780,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1787,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1791,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1800,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1814,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1816,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1817,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1818,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1824,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1825,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1855,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1865,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1866,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1869,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1885,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1886,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1887,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1895,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1915,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1919,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1932,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1937,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1965,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1966,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1987,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 1991,
+          "predictValue": {
+            "predictValue": 10,
+            "valueFlag": "RED"
+          }
+        },
+        {
+          "predictIndex": 1992,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2020,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2022,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2036,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        },
+        {
+          "predictIndex": 2039,
+          "predictValue": {
+            "predictValue": 5,
+            "valueFlag": "BlUE"
+          }
+        }
+      ]
+    }
+  }
+
+,
+
+
+    {
+      "blueAlgorithm": "RecentDistributionMaxWeightFrequency",
+      "redAlgorithmList": [
+        "RecentDistributionMaxWeightFrequency"
+      ],
+      "predictResult": {
+        "sumValue": 4300,
+        "hitTotalCount": 138,
+        "hitBlueTotalCount": 132,
+        "maxValue": 3000,
+        "predictPointList": [
+          {
+            "predictIndex": 113,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 115,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 120,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 123,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 138,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 173,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 220,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 248,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 249,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 264,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 300,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 359,
+            "predictValue": {
+              "predictValue": 10,
+              "valueFlag": "RED"
+            }
+          },
+          {
+            "predictIndex": 368,
+            "predictValue": {
+              "predictValue": 10,
+              "valueFlag": "RED"
+            }
+          },
+          {
+            "predictIndex": 409,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 418,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 422,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 423,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 426,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 431,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 465,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 470,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 481,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 482,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 493,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 504,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 528,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 530,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 535,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 550,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 570,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 578,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 580,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 611,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 616,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 619,
+            "predictValue": {
+              "predictValue": 10,
+              "valueFlag": "RED"
+            }
+          },
+          {
+            "predictIndex": 622,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 624,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 696,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 708,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 727,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 738,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 760,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 768,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 794,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 810,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 814,
+            "predictValue": {
+              "predictValue": 10,
+              "valueFlag": "RED"
+            }
+          },
+          {
+            "predictIndex": 816,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 821,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 824,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 827,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 843,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 849,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 850,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 853,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 894,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 921,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 928,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 940,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 944,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 951,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 960,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1009,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1029,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1033,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1035,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1036,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1043,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1063,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1074,
+            "predictValue": {
+              "predictValue": 3000,
+              "valueFlag": "BLUE_RED"
+            }
+          },
+          {
+            "predictIndex": 1112,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1141,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1158,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1189,
+            "predictValue": {
+              "predictValue": 10,
+              "valueFlag": "RED"
+            }
+          },
+          {
+            "predictIndex": 1203,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1226,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1239,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1240,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1260,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1269,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1274,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1276,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1288,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1290,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1307,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1308,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1328,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1343,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1344,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1363,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1402,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1462,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1464,
+            "predictValue": {
+              "predictValue": 200,
+              "valueFlag": "BLUE_RED"
+            }
+          },
+          {
+            "predictIndex": 1470,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1474,
+            "predictValue": {
+              "predictValue": 10,
+              "valueFlag": "RED"
+            }
+          },
+          {
+            "predictIndex": 1478,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1482,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1502,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1503,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1516,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1528,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1530,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1552,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1560,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1575,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1633,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1670,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1695,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1703,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1705,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1761,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1769,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1787,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1814,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1817,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1818,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1824,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1825,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1850,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1855,
+            "predictValue": {
+              "predictValue": 200,
+              "valueFlag": "BLUE_RED"
+            }
+          },
+          {
+            "predictIndex": 1866,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1869,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1885,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1886,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1887,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1895,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1902,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1910,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1919,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1932,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1962,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1965,
+            "predictValue": {
+              "predictValue": 200,
+              "valueFlag": "BLUE_RED"
+            }
+          },
+          {
+            "predictIndex": 1966,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 1976,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 2011,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 2020,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 2022,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 2036,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          },
+          {
+            "predictIndex": 2039,
+            "predictValue": {
+              "predictValue": 5,
+              "valueFlag": "BlUE"
+            }
+          }
+        ]
+      }
+    }
+
+
+
+]
+

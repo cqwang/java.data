@@ -8,6 +8,7 @@ import cqwang.doubleball.v2.algorithm.singleball.SingleBallPredictAlgorithmRegis
 import cqwang.doubleball.v2.model.data.DoubleColorBall;
 import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.data.SplitBall;
+import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.model.value.PredictResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -51,7 +52,12 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
     @Getter
     private SingleBallPredictAlgorithmRegistry blueInstance;
 
-    public DoubleColorPredictionAlgorithmRegistry(SingleBallPredictAlgorithmRegistry blue, SingleBallPredictAlgorithmRegistry... reds) {
+    @Getter
+    @Setter
+    private StrategyOption option;
+
+    public DoubleColorPredictionAlgorithmRegistry(StrategyOption option, SingleBallPredictAlgorithmRegistry blue, SingleBallPredictAlgorithmRegistry... reds) {
+        this.option = option;
         this.blueInstance = blue;
         this.redInstanceList = reds;
     }
@@ -89,11 +95,11 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
 
             var singleBall = splitBall.getRedBall(redIndex);
             var redRange = getRedRange(predictResult, singleBall);
-            var predictRed = redAlgorithm.predict(singleBall, redRange, null);
+            var predictRed = redAlgorithm.predict(singleBall, redRange, option);
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), null);
+        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), option);
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }

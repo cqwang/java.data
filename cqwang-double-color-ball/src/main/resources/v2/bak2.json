@@ -1,0 +1,28 @@
+[
+  {
+    "blueAlgorithm": "RecentDistributionMaxWeightFrequency",
+    "redAlgorithmList": [
+      "RecentDistributionMaxWeightFrequency"
+    ],
+    "option": {
+      "cumulativeWeight": false
+    }
+  },
+  {
+    "blueAlgorithm": "MaxFrequency",
+    "redAlgorithmList": [
+      "MaxFrequency"
+    ],
+    "option": {
+    }
+  },
+  {
+    "blueAlgorithm": "MaxFrequency",
+    "redAlgorithmList": [
+      "MaxFrequency"
+    ],
+    "option": {
+      "period": 15
+    }
+  }
+]

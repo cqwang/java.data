@@ -60,37 +60,8 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         // 策略： 高频冷号分段混合算法 4230
         var hotColdMixedData = FrequencyAlgorithmUtils.hotColdMixed(ballDataDetail, range,5,20,50, 1.0);
 
-        // 结合多个时间窗口的加权频率 权重：近期权重更高 (7:3:1) 4300
-        var ultimateFrequencyData = FrequencyAlgorithmUtils.distributionWeight(ballDataDetail, range, List.of(12, 20, 40), List.of(7,3,1));
-
-        // 结合多个时间窗口的加权频率 权重 4115
-        var hybridOptimized = FrequencyAlgorithmUtils.hybridOptimized(ballDataDetail, range, List.of(12, 20, 40), List.of(10,4,1));
-
-
-//        return VoteUtils.randomVote(
-//                List.of(globalMaxWeightData, continuity, recentBurstData,recentMaxWeightData,recentSimilarityFrequencyData, recentSurgeData, hotColdMixedData, ultimateFrequencyData),
-//                List.of(1,1,3,3,3,20, 41,43)
-//        );
-
-        // 先投票
-        // 一票否决 or 区间测算
-
-
-
-
-//        // 多数投票或选择最优
-//        if (globalMaxWeightData == recentMaxWeightData || globalMaxWeightData == recentSurgeData) {
-//            return globalMaxWeightData; // 优先选择最近和历史频率都高的值
-//        } else if(recentDistributionMaxWeightData == recentMaxWeightData || recentDistributionMaxWeightData == recentSurgeData){
-//            return recentDistributionMaxWeightData;
-//        } else if (recentBurstData == recentMaxWeightData || recentBurstData == recentSurgeData) {
-//            return recentBurstData;
-//        } else if(recentMaxWeightData == recentSurgeData){
-//            return recentSurgeData;
-//        }
-
         // 默认使用加权频率结果
-        return ultimateFrequencyData;
+        return hotColdMixedData;
     }
 
 
