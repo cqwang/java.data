@@ -133,7 +133,7 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
         }
 
         var lastRed = result.getRedValueList().get(result.getRedValueList().size() - 1);
-        if (lastRed <= singleBall.getMinData()) {
+        if (lastRed < singleBall.getMinData()) {
             return Range.between(singleBall.getMinData(), singleBall.getMaxData());
         }
 

@@ -5,6 +5,8 @@ import cqwang.doubleball.v2.model.value.features.ValueFlag;
 import cqwang.doubleball.v2.preload.DoubleColorBallPreload;
 import cqwang.doubleball.v2.utils.ValueCalculator;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class PredictResult {
     /**
      * 预测价值曲线，按照索引正序
      */
-//    @JsonIgnore
+    @JsonIgnore
     private List<PredictPointValue> predictPointList;
 
     public PredictResult() {
