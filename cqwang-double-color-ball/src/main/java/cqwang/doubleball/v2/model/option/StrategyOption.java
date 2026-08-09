@@ -33,6 +33,11 @@ public class StrategyOption {
      */
     private boolean recent;
 
+    /**
+     * 是否权重
+     */
+    private boolean weight;
+
 
     /**
      * 黑名单
@@ -44,8 +49,9 @@ public class StrategyOption {
         return this;
     }
 
-    public StrategyOption recent(boolean recent){
+    public StrategyOption recent(boolean recent, boolean weight){
         this.recent = recent;
+        this.weight = weight;
         return this;
     }
 }

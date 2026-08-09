@@ -22,6 +22,7 @@ public class SingleBall {
     /**
      * 历史数据按序记录
      */
+    @Getter
     private List<Integer> dataList;
     /**
      * 历史数据和出现的频次

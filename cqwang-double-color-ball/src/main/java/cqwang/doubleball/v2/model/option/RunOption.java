@@ -16,4 +16,9 @@ public enum RunOption {
      * 重新计算算法和价值、挑选并返回，需要手动保存到文件
      */
     RE_CALCULATE,
+
+    /**
+     * 仅仅用于篮球算法选取，结果要按照篮球命中次数排序
+     */
+    RE_CALCULATE_JUST_FOR_BLUE
 }

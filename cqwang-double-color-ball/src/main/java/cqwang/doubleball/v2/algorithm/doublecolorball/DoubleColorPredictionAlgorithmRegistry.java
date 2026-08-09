@@ -16,6 +16,8 @@ import lombok.Setter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;
 
+import java.util.Arrays;
+
 /**
  * 双色球预测算法注册表
  */
@@ -59,7 +61,21 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
     public DoubleColorPredictionAlgorithmRegistry(StrategyOption option, SingleBallPredictAlgorithmRegistry blue, SingleBallPredictAlgorithmRegistry... reds) {
         this.option = option;
         this.blueInstance = blue;
-        this.redInstanceList = reds;
+        this.blueAlgorithm = blue.getAlgorithmName();
+        this.redAlgorithmList = new String[6];
+
+        if (reds.length == 1) {
+            this.redInstanceList = new SingleBallPredictAlgorithmRegistry[6];
+            Arrays.fill(this.redInstanceList, reds[0]);
+            Arrays.fill(this.redAlgorithmList, reds[0].getAlgorithmName());
+        } else if (reds.length == 6) {
+            this.redInstanceList = reds;
+            for (int i = 0; i < reds.length; i++) {
+                this.redAlgorithmList[i] = reds[i].getAlgorithmName();
+            }
+        } else {
+            throw new RuntimeException(" error config");
+        }
     }
 
     public void initInstance(boolean resetHistoryValue) {

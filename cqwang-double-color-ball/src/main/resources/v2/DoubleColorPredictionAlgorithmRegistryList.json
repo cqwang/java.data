@@ -1,10 +1,12 @@
 [
   {
-    "blueAlgorithm": "DistributionFrequency",
+    "blueAlgorithm": "MaxFrequency",
     "redAlgorithmList": [
-      "DistributionFrequency"
+      "MaxFrequency"
     ],
     "option": {
+      "recent": true,
+      "weight": true
     }
   }
 ]

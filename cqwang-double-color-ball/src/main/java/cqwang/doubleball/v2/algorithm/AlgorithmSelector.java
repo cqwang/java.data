@@ -14,6 +14,12 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
 
     default List<TRegistry> execute(RunOption runOption) {
         List<TRegistry> algorithmList = null;
+
+        if(runOption == RunOption.RE_CALCULATE_JUST_FOR_BLUE){
+            return reCalculateJustForBlue();
+        }
+
+
         if (runOption == RunOption.RE_CALCULATE) {
             algorithmList = reCalculate();
         } else if (runOption == RunOption.RE_CALCULATE_VALUE_FROM_FILE) {
@@ -33,6 +39,7 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
         return algorithmList;
     }
 
+    List<TRegistry> reCalculateJustForBlue();
 
     List<TRegistry> reCalculate();
 
