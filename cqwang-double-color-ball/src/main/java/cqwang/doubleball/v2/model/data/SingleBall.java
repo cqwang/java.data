@@ -4,6 +4,7 @@ import cqwang.doubleball.common.model.inner.DataLevel;
 import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.Range;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -104,8 +105,14 @@ public class SingleBall {
         }
     }
 
-    public DataFrequency getMaxDataFrequency() {
-        return sortedList.get(sortedList.size() - 1);
+    public DataFrequency getMaxDataFrequency(Range<Integer> range) {
+        for(int index = sortedList.size() -1 ; index>=0;index--){
+            var item = sortedList.get(index);
+            if(item.getData()>=range.getMinimum() && item.getData()<=range.getMaximum()){
+                return item;
+            }
+        }
+        return new DataFrequency(range.getMinimum());
     }
 
     public DataFrequency get(Integer data) {

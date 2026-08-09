@@ -21,17 +21,14 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
         var selectedAlgorithmList = new ArrayList<DoubleColorPredictionAlgorithmRegistry>();
 
         var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
-        var optionList = getStrategyOptionList();
         for (var blue : singleBallAlgorithmList) {
-            for (var option : optionList) {
-                var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(option, blue, blue);
-                historyPredict(advancedAlgorithm);
-                var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
-                if (ValueCalculator.hasNoValue(sumValue) || sumValue < MIN_AMOUNT) {
-                    continue;
-                }
-                selectedAlgorithmList.add(advancedAlgorithm);
+            var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(blue, blue);
+            historyPredict(advancedAlgorithm);
+            var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
+            if (ValueCalculator.hasNoValue(sumValue) || sumValue < MIN_AMOUNT) {
+                continue;
             }
+            selectedAlgorithmList.add(advancedAlgorithm);
         }
 
         selectedAlgorithmList.sort((o1, o2) -> o2.getPredictResult().getHitBlueTotalCount() - o1.getPredictResult().getHitBlueTotalCount());
@@ -41,10 +38,9 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
 
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculate() {
+        var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
         Map<Integer, List<DoubleColorPredictionAlgorithmRegistry>> maxValueAlgorithmMap = new HashMap<>();
 
-        var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
-        var optionList = getStrategyOptionList();
         for (var red0 : singleBallAlgorithmList) {
             for (var red1 : singleBallAlgorithmList) {
                 for (var red2 : singleBallAlgorithmList) {
@@ -52,17 +48,15 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
                         for (var red4 : singleBallAlgorithmList) {
                             for (var red5 : singleBallAlgorithmList) {
                                 for (var blue : singleBallAlgorithmList) {
-                                    for (var option : optionList) {
-                                        var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(option, blue, red0, red1, red2, red3, red4, red5);
-                                        historyPredict(advancedAlgorithm);
-                                        var predictResult = advancedAlgorithm.getPredictResult();
-                                        if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getSumValue() < MIN_AMOUNT) {
-                                            continue;
-                                        }
-
-                                        var list = maxValueAlgorithmMap.computeIfAbsent(predictResult.getMaxValue(), k -> new ArrayList<>());
-                                        list.add(advancedAlgorithm);
+                                    var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(blue, red0, red1, red2, red3, red4, red5);
+                                    historyPredict(advancedAlgorithm);
+                                    var predictResult = advancedAlgorithm.getPredictResult();
+                                    if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getSumValue() < MIN_AMOUNT) {
+                                        continue;
                                     }
+
+                                    var list = maxValueAlgorithmMap.computeIfAbsent(predictResult.getMaxValue(), k -> new ArrayList<>());
+                                    list.add(advancedAlgorithm);
                                 }
                             }
                         }
@@ -103,13 +97,6 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
         return selectedAlgorithmList;
     }
 
-    private List<StrategyOption> getStrategyOptionList() {
-        var list = new ArrayList<StrategyOption>();
-        list.add(new StrategyOption().cumulativeWeight(true));
-        list.add(new StrategyOption().recent(true, false));
-        list.add(new StrategyOption().recent(true, true));
-        return list;
-    }
 
     @Override
     public void historyPredict(DoubleColorPredictionAlgorithmRegistry registry) {

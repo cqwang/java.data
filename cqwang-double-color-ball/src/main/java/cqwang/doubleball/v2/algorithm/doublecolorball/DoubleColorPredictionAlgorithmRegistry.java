@@ -54,12 +54,8 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
     @Getter
     private SingleBallPredictAlgorithmRegistry blueInstance;
 
-    @Getter
-    @Setter
-    private StrategyOption option;
 
-    public DoubleColorPredictionAlgorithmRegistry(StrategyOption option, SingleBallPredictAlgorithmRegistry blue, SingleBallPredictAlgorithmRegistry... reds) {
-        this.option = option;
+    public DoubleColorPredictionAlgorithmRegistry(SingleBallPredictAlgorithmRegistry blue, SingleBallPredictAlgorithmRegistry... reds) {
         this.blueInstance = blue;
         this.blueAlgorithm = blue.getAlgorithmName();
         this.redAlgorithmList = new String[6];
@@ -111,11 +107,11 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
 
             var singleBall = splitBall.getRedBall(redIndex);
             var redRange = getRedRange(predictResult, singleBall);
-            var predictRed = redAlgorithm.predict(singleBall, redRange, option);
+            var predictRed = redAlgorithm.predict(singleBall, redRange, new StrategyOption());
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), option);
+        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption());
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
@@ -141,9 +137,6 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
     }
 
     public boolean equalsBlueAlgorithm(DoubleColorPredictionAlgorithmRegistry right) {
-        return this.getBlueAlgorithm().equals(right.getBlueAlgorithm())
-                && this.getOption().isRecent() == right.getOption().isRecent()
-                && this.getOption().isCumulativeWeight() == right.getOption().isCumulativeWeight()
-                && this.getOption().isWeight() == right.getOption().isWeight();
+        return this.getBlueAlgorithm().equals(right.getBlueAlgorithm());
     }
 }

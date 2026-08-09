@@ -11,9 +11,12 @@ import java.util.List;
 public class SingleBallAlgorithmRegistryFactory {
 
     private static final SingleBallPredictAlgorithmRegistry[] ALGORITHMS = {
-            new SingleBallPredictAlgorithmRegistry("MaxFrequency", MaxFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("MaxDistributionWeightFrequency", MaxDistributionWeightFrequencyImpl.class),
             new SingleBallPredictAlgorithmRegistry("DistributionFrequency", DistributionFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("MaxDistributionCumulativeWeightFrequency", MaxDistributionCumulativeWeightFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("MaxDistributionSplitWeightFrequency", MaxDistributionSplitWeightFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("MaxFrequency", MaxFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("RecentMaxFrequency", RecentMaxFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("RecentMaxWeightFrequency", RecentMaxWeightFrequencyImpl.class)
 
     };
 
