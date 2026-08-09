@@ -119,6 +119,14 @@ public class SingleBall {
         return result.getFrequency();
     }
 
+    public FrequencyLevel getFrequencyLevel(Integer data) {
+        var result = dataFrequencyMap.get(data);
+        if (result == null) {
+            return FrequencyLevel.SO_COLD;
+        }
+        return result.getFrequencyLevel();
+    }
+
 
     /**
      * 按照样本量构造单个球对象

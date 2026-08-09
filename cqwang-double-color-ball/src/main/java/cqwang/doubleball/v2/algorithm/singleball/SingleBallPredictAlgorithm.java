@@ -15,5 +15,4 @@ public interface SingleBallPredictAlgorithm {
      * @return
      */
     int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option);
-
 }

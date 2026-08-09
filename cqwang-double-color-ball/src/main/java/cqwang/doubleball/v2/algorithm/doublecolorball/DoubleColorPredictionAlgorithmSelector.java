@@ -49,8 +49,8 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
 
     private List<StrategyOption> getStrategyOptionList() {
         var list = new ArrayList<StrategyOption>();
-        list.add(new StrategyOption(true));
-        list.add(new StrategyOption(false));
+        list.add(new StrategyOption().cumulativeWeight(true));
+        list.add(new StrategyOption().recent(true));
         return list;
     }
 

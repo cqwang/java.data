@@ -1,5 +1,6 @@
 package cqwang.doubleball.v2.model.option;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,17 +10,17 @@ import java.util.List;
 @NoArgsConstructor
 public class StrategyOption {
     /**
-     * 单周期窗口
-     */
-    int period;
-    /**
      * 周期窗口
      */
+    @JsonIgnore
     int[] periods;
     /**
      * 每个窗口的权重
      */
+    @JsonIgnore
     int[] weights;
+
+
 
     /**
      * 权重是否累计
@@ -28,15 +29,23 @@ public class StrategyOption {
     private boolean cumulativeWeight;
 
     /**
+     * 是否最近窗口取样
+     */
+    private boolean recent;
+
+
+    /**
      * 黑名单
      */
     private List<Integer> balckList;
 
-    public StrategyOption(boolean cumulativeWeight) {
+    public StrategyOption cumulativeWeight(boolean cumulativeWeight) {
         this.cumulativeWeight = cumulativeWeight;
+        return this;
     }
 
-    public StrategyOption(int period){
-        this.period = period;
+    public StrategyOption recent(boolean recent){
+        this.recent = recent;
+        return this;
     }
 }

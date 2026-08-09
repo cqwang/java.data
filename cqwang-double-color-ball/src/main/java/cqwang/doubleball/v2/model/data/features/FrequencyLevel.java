@@ -1,6 +1,5 @@
 package cqwang.doubleball.v2.model.data.features;
 
-import cqwang.doubleball.common.model.inner.DataLevel;
 import lombok.Getter;
 
 /**
@@ -43,11 +42,19 @@ public enum FrequencyLevel {
         this.toAvgFrequencyRatio = toAvgFrequencyRatio;
     }
 
-    public boolean greatEqualsThen(DataLevel other) {
+    public boolean greatEqualsThen(FrequencyLevel other) {
         return this.getToAvgFrequencyRatio() >= other.getToAvgFrequencyRatio();
     }
 
-    public boolean lessEqualsThen(DataLevel other) {
+    public boolean lessEqualsThen(FrequencyLevel other) {
         return this.getToAvgFrequencyRatio() <= other.getToAvgFrequencyRatio();
+    }
+
+    public boolean between(FrequencyLevel min, FrequencyLevel max){
+        return greatEqualsThen(min) && lessEqualsThen(max);
+    }
+
+    public boolean equals(FrequencyLevel other){
+        return this.getToAvgFrequencyRatio() == other.getToAvgFrequencyRatio();
     }
 }

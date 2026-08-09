@@ -12,7 +12,9 @@ public class SingleBallAlgorithmRegistryFactory {
 
     private static final SingleBallPredictAlgorithmRegistry[] ALGORITHMS = {
             new SingleBallPredictAlgorithmRegistry("MaxFrequency", MaxFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("RecentDistributionMaxWeightFrequency", RecentDistributionMaxWeightFrequencyImpl.class)
+            new SingleBallPredictAlgorithmRegistry("MaxDistributionWeightFrequency", MaxDistributionWeightFrequencyImpl.class),
+            new SingleBallPredictAlgorithmRegistry("DistributionFrequency", DistributionFrequencyImpl.class),
+
     };
 
     public static List<SingleBallPredictAlgorithmRegistry> getAlgorithmPool() {

@@ -1,10 +1,53 @@
 package cqwang.doubleball.v2.utils;
 
+import cqwang.doubleball.common.model.inner.DataLevel;
 import cqwang.doubleball.v2.model.data.SingleBall;
+import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
 import cqwang.doubleball.v2.model.option.StrategyOption;
 import org.apache.commons.lang3.Range;
 
 public class AlgorithmUtils {
+
+    /**
+     * 结合长期、中期、短期的冷热特征推荐
+     *
+     * @param singleBall
+     * @param range
+     * @param option
+     * @return
+     */
+    public static int distribution(
+            SingleBall singleBall,
+            Range<Integer> range,
+            StrategyOption option) {
+        if (option.getPeriods().length != 3) {
+            throw new RuntimeException("not valid periods");
+        }
+
+        var shortSub = singleBall.sub(option.getPeriods()[0]);
+        var midSub = singleBall.sub(option.getPeriods()[1]);
+        var longSub = singleBall.sub(option.getPeriods()[2]);
+
+
+        int maxFrequency = 0;
+        int result = range.getMinimum();
+        for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+            // 长期热，中期稳，短期冷，推荐
+            var longFre = longSub.getFrequencyLevel(data);
+            var midFre = midSub.getFrequencyLevel(data);
+            var shortFre = shortSub.getFrequencyLevel(data);
+
+            if (longFre.greatEqualsThen(FrequencyLevel.HOT)
+                    && midFre == FrequencyLevel.STABLE
+                    && shortFre.lessEqualsThen(FrequencyLevel.COLD)) {
+                if (longSub.get(data).getFrequency() > maxFrequency) {
+                    maxFrequency = longSub.getFrequency(data);
+                    result = data;
+                }
+            }
+        }
+        return result;
+    }
 
     /**
      * 结合多个时间窗口的加权频次

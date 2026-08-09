@@ -1,8 +1,8 @@
 [
   {
-    "blueAlgorithm": "RecentDistributionMaxWeightFrequency",
+    "blueAlgorithm": "MaxDistributionWeightFrequency",
     "redAlgorithmList": [
-      "RecentDistributionMaxWeightFrequency"
+      "MaxDistributionWeightFrequency"
     ],
     "option": {
       "cumulativeWeight": false
