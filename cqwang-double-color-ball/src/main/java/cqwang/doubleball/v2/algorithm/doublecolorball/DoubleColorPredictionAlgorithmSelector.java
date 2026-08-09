@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector<DoubleColorPredictionAlgorithmRegistry> {
 
-    int ADVANCED_MIX_AMOUNT = 6000;
+    int MIN_AMOUNT = 6000;
 
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculateJustForBlue() {
@@ -27,7 +27,7 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
                 var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(option, blue, blue);
                 historyPredict(advancedAlgorithm);
                 var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
-                if (ValueCalculator.hasNoValue(sumValue) || sumValue < ADVANCED_MIX_AMOUNT) {
+                if (ValueCalculator.hasNoValue(sumValue) || sumValue < MIN_AMOUNT) {
                     continue;
                 }
                 selectedAlgorithmList.add(advancedAlgorithm);
@@ -56,7 +56,7 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
                                         var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(option, blue, red0, red1, red2, red3, red4, red5);
                                         historyPredict(advancedAlgorithm);
                                         var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
-                                        if (ValueCalculator.hasNoValue(sumValue) || sumValue < ADVANCED_MIX_AMOUNT) {
+                                        if (ValueCalculator.hasNoValue(sumValue) || sumValue < MIN_AMOUNT) {
                                             continue;
                                         }
                                         selectedAlgorithmList.add(advancedAlgorithm);
