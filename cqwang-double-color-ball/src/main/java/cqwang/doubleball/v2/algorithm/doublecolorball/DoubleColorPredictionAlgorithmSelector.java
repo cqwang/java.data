@@ -11,10 +11,11 @@ import cqwang.doubleball.v2.preload.DoubleColorBallPreload;
 import cqwang.doubleball.v2.utils.ValueCalculator;
 
 import java.util.*;
+import java.util.concurrent.*;
 
 public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector<DoubleColorPredictionAlgorithmRegistry> {
 
-    int MIN_AMOUNT = 6000;
+    int MIN_AMOUNT = 4000;
 
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculateJustForBlue() {
@@ -39,7 +40,30 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculate() {
         var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
-        Map<Integer, List<DoubleColorPredictionAlgorithmRegistry>> maxValueAlgorithmMap = new HashMap<>();
+        Map<Integer, List<DoubleColorPredictionAlgorithmRegistry>> maxValueAlgorithmMap = new ConcurrentHashMap<>();
+
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(10, 20,
+                60L, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<Runnable>());
+
+        int count = 0;
+        for (var red0 : singleBallAlgorithmList) {
+            for (var red1 : singleBallAlgorithmList) {
+                for (var red2 : singleBallAlgorithmList) {
+                    for (var red3 : singleBallAlgorithmList) {
+                        for (var red4 : singleBallAlgorithmList) {
+                            for (var red5 : singleBallAlgorithmList) {
+                                for (var blue : singleBallAlgorithmList) {
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        var countdown = new CountDownLatch(count);
 
         for (var red0 : singleBallAlgorithmList) {
             for (var red1 : singleBallAlgorithmList) {
@@ -49,14 +73,19 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
                             for (var red5 : singleBallAlgorithmList) {
                                 for (var blue : singleBallAlgorithmList) {
                                     var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(blue, red0, red1, red2, red3, red4, red5);
-                                    historyPredict(advancedAlgorithm);
-                                    var predictResult = advancedAlgorithm.getPredictResult();
-                                    if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getSumValue() < MIN_AMOUNT) {
-                                        continue;
-                                    }
 
-                                    var list = maxValueAlgorithmMap.computeIfAbsent(predictResult.getMaxValue(), k -> new ArrayList<>());
-                                    list.add(advancedAlgorithm);
+                                    threadPool.execute(() -> {
+                                        historyPredict(advancedAlgorithm);
+                                        var predictResult = advancedAlgorithm.getPredictResult();
+                                        if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getSumValue() < MIN_AMOUNT) {
+                                            countdown.countDown();
+                                            return;
+                                        }
+
+                                        var list = maxValueAlgorithmMap.computeIfAbsent(predictResult.getMaxValue(), k -> Collections.synchronizedList(new ArrayList<>()));
+                                        list.add(advancedAlgorithm);
+                                        countdown.countDown();
+                                    });
                                 }
                             }
                         }
@@ -64,7 +93,13 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
                 }
             }
         }
+        System.out.println(count);
 
+        try {
+            countdown.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         for (var entry : maxValueAlgorithmMap.entrySet()) {
             var list = entry.getValue();

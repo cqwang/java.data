@@ -1,0 +1,104 @@
+[
+  {
+    "blueAlgorithm": "DistributionFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "RecentMaxFrequency",
+      "MaxFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 100985,
+      "hitTotalCount": 152,
+      "hitBlueTotalCount": 144,
+      "maxValue": 100000
+    }
+  },
+  {
+    "blueAlgorithm": "RecentMaxWeightFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "RecentMaxFrequency",
+      "MaxFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 100975,
+      "hitTotalCount": 150,
+      "hitBlueTotalCount": 142,
+      "maxValue": 100000
+    }
+  },
+  {
+    "blueAlgorithm": "RecentMaxFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "RecentMaxFrequency",
+      "MaxFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 100755,
+      "hitTotalCount": 144,
+      "hitBlueTotalCount": 135,
+      "maxValue": 100000
+    }
+  },
+  {
+    "blueAlgorithm": "MaxDistributionSplitWeightFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "RecentMaxFrequency",
+      "MaxFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 100750,
+      "hitTotalCount": 143,
+      "hitBlueTotalCount": 134,
+      "maxValue": 100000
+    }
+  },
+  {
+    "blueAlgorithm": "MaxDistributionCumulativeWeightFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "RecentMaxFrequency",
+      "MaxFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 100725,
+      "hitTotalCount": 138,
+      "hitBlueTotalCount": 129,
+      "maxValue": 100000
+    }
+  },
+  {
+    "blueAlgorithm": "MaxFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "RecentMaxFrequency",
+      "MaxFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 100685,
+      "hitTotalCount": 130,
+      "hitBlueTotalCount": 121,
+      "maxValue": 100000
+    }
+  }
+]
