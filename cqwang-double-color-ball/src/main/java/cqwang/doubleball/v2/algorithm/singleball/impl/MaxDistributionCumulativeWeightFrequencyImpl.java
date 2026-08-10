@@ -16,6 +16,7 @@ public class MaxDistributionCumulativeWeightFrequencyImpl implements SingleBallP
 
 
     private void prepareOption(StrategyOption option) {
+        option.setCumulativeWeight(true);
         option.setPeriods(new int[]{12, 20, 40});
         option.setWeights(new int[]{7, 3, 1});
     }

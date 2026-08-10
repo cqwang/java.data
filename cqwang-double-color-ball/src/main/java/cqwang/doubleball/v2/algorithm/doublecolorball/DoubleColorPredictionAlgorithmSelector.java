@@ -6,6 +6,7 @@ import cqwang.data.serializer.JSON;
 import cqwang.doubleball.v2.algorithm.AlgorithmSelector;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallAlgorithmRegistryFactory;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallPredictAlgorithmRegistry;
+import cqwang.doubleball.v2.model.option.PredictOption;
 import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.preload.DoubleColorBallPreload;
 import cqwang.doubleball.v2.utils.ValueCalculator;
@@ -136,7 +137,7 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
     @Override
     public void historyPredict(DoubleColorPredictionAlgorithmRegistry registry) {
         for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallPreload.getAllData().size(); targetIndex++) {
-            var predict = registry.predict(targetIndex);
+            var predict = registry.predict(targetIndex, new PredictOption());
             var target = DoubleColorBallPreload.getAllData().get(targetIndex);
             var value = ValueCalculator.calculate(predict, target);
             registry.getPredictResult().add(targetIndex, value);

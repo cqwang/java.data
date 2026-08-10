@@ -7,9 +7,7 @@ public class App {
     public static void main(String[] args) {
 
         FuturePredictV2.predict();
-
-//        DoubleColorBallPreload.execute();
-        FuturePredict.singlePredict();
+//        FuturePredict.singlePredict();
     }
 }
 

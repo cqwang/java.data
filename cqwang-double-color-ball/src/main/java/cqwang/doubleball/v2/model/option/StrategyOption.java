@@ -10,6 +10,18 @@ import java.util.List;
 @NoArgsConstructor
 public class StrategyOption {
     /**
+     *
+     */
+    private PredictOptionDetail predictOption;
+
+
+    /**
+     * 权重是否累计
+     * 如果不累计，短期、中期、长期的权重不同。短期的权重可以更高
+     */
+    private boolean cumulativeWeight;
+
+    /**
      * 周期窗口
      */
     @JsonIgnore
@@ -20,38 +32,15 @@ public class StrategyOption {
     @JsonIgnore
     int[] weights;
 
-
-
-    /**
-     * 权重是否累计
-     * 如果不累计，短期、中期、长期的权重不同。短期的权重可以更高
-     */
-    private boolean cumulativeWeight;
-
-    /**
-     * 是否最近窗口取样
-     */
-    private boolean recent;
-
-    /**
-     * 是否权重
-     */
-    private boolean weight;
-
-
-    /**
-     * 黑名单
-     */
-    private List<Integer> balckList;
-
-    public StrategyOption cumulativeWeight(boolean cumulativeWeight) {
-        this.cumulativeWeight = cumulativeWeight;
-        return this;
+    public StrategyOption(PredictOptionDetail predictOption) {
+        this.predictOption = predictOption;
     }
 
-    public StrategyOption recent(boolean recent, boolean weight){
-        this.recent = recent;
-        this.weight = weight;
-        return this;
+
+    public boolean isBlocked(int data) {
+        if (predictOption == null || predictOption.getBlocks() == null) {
+            return false;
+        }
+        return predictOption.getBlocks().contains(data);
     }
 }

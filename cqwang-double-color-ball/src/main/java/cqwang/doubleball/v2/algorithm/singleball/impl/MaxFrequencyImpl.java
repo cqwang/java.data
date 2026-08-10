@@ -9,6 +9,6 @@ public class MaxFrequencyImpl implements SingleBallPredictAlgorithm {
     @Override
     public int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
         // 从全量样本中，选取出现频次最高的数值
-        return singleBall.getMaxDataFrequency(range).getData();
+        return singleBall.getMaxDataFrequency(range, option).getData();
     }
 }

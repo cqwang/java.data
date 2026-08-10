@@ -8,10 +8,12 @@ import cqwang.doubleball.v2.algorithm.singleball.SingleBallPredictAlgorithmRegis
 import cqwang.doubleball.v2.model.data.DoubleColorBall;
 import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.data.SplitBall;
+import cqwang.doubleball.v2.model.option.PredictOption;
 import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.model.value.PredictResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;
@@ -95,7 +97,7 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
 
 
     @Override
-    public DoubleColorBall predict(int targetIndex) {
+    public DoubleColorBall predict(int targetIndex, PredictOption predictOption) {
         // 获取样本数据
         var splitBall = new SplitBall(targetIndex);
 
@@ -104,14 +106,13 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
         // 红色
         for (int redIndex = 0; redIndex < 6; redIndex++) {
             var redAlgorithm = redInstanceList[redIndex].getInstance();
-
             var singleBall = splitBall.getRedBall(redIndex);
             var redRange = getRedRange(predictResult, singleBall);
-            var predictRed = redAlgorithm.predict(singleBall, redRange, new StrategyOption());
+            var predictRed = redAlgorithm.predictRetry(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex)));
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption());
+        var blueValue = this.blueInstance.getInstance().predictRetry(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption());
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }

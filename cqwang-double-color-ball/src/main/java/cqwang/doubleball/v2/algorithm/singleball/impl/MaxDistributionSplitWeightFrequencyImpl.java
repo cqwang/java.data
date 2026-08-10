@@ -16,6 +16,7 @@ public class MaxDistributionSplitWeightFrequencyImpl implements SingleBallPredic
     }
 
     private void prepareOption(StrategyOption option) {
+        option.setCumulativeWeight(false);
         option.setPeriods(new int[]{12, 20, 40});
         option.setWeights(new int[]{10, 4, 1});
     }

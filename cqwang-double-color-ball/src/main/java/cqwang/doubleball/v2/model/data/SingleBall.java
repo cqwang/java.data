@@ -2,6 +2,7 @@ package cqwang.doubleball.v2.model.data;
 
 import cqwang.doubleball.common.model.inner.DataLevel;
 import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
+import cqwang.doubleball.v2.model.option.StrategyOption;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.Range;
@@ -105,10 +106,14 @@ public class SingleBall {
         }
     }
 
-    public DataFrequency getMaxDataFrequency(Range<Integer> range) {
-        for(int index = sortedList.size() -1 ; index>=0;index--){
+    public DataFrequency getMaxDataFrequency(Range<Integer> range, StrategyOption option) {
+        for (int index = sortedList.size() - 1; index >= 0; index--) {
             var item = sortedList.get(index);
-            if(item.getData()>=range.getMinimum() && item.getData()<=range.getMaximum()){
+            if (option.isBlocked(item.getData())) {
+                continue;
+            }
+
+            if (item.getData() >= range.getMinimum() && item.getData() <= range.getMaximum()) {
                 return item;
             }
         }

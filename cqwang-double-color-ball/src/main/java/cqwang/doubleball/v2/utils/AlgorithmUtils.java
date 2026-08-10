@@ -23,6 +23,11 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
 
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+            if (option.isBlocked(i)) {
+                continue;
+            }
+
+
             double weightedFreq = 0;
             int occurrenceIndex = 0;
 
@@ -75,6 +80,10 @@ public class AlgorithmUtils {
         int maxFrequency = 0;
         int result = range.getMinimum();
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+            if (option.isBlocked(data)) {
+                continue;
+            }
+
             // 长期热，中期稳，短期冷，推荐
             var longFre = longSub.getFrequencyLevel(data);
             var midFre = midSub.getFrequencyLevel(data);
@@ -112,6 +121,11 @@ public class AlgorithmUtils {
         double maxScore = 0;
         int result = range.getMinimum();
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+            if (option.isBlocked(data)) {
+                continue;
+            }
+
+
             var score = 0;
             for (var index = 0; index < subList.length; index++) {
                 score += calculateScore(subList, option, data, index);
