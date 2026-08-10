@@ -14,6 +14,7 @@ import java.util.Set;
 public interface SingleBallPredictAlgorithm {
     /**
      * 预测单个球的值
+     *
      * @param singleBall
      * @param range
      * @return
@@ -24,10 +25,18 @@ public interface SingleBallPredictAlgorithm {
         var result = predict(singleBall, range, option);
 
         // 如果太热，就更换
-        if (singleBall.sub(5).get(result).getFrequencyLevel().greatEqualsThen(FrequencyLevel.HOT)) {
+        var dataFrequency = singleBall.sub(3).get(result);
+        if (dataFrequency != null && dataFrequency.getFrequencyLevel().greatEqualsThen(FrequencyLevel.STABLE)) {
             option.setPredictOption(new PredictOptionDetail(Set.of(result)));
             return predict(singleBall, range, option);
         }
+
+        dataFrequency = singleBall.sub(2).get(result);
+        if(dataFrequency!=null && dataFrequency.getFrequencyLevel().greatEqualsThen(FrequencyLevel.COLD)){
+            option.setPredictOption(new PredictOptionDetail(Set.of(result)));
+            return predict(singleBall, range, option);
+        }
+
         return result;
     }
 }

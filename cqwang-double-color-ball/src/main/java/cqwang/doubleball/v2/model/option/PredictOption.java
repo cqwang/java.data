@@ -13,4 +13,14 @@ public class PredictOption {
     public PredictOptionDetail getRed(int index) {
         return redMap.get(index);
     }
+
+    public PredictOption addRed(int index, int data) {
+        var detail = redMap.get(index);
+        if (detail == null) {
+            detail = new PredictOptionDetail();
+            redMap.put(index, detail);
+        }
+        detail.getBlocks().add(data);
+        return this;
+    }
 }

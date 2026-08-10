@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -14,5 +15,5 @@ public class PredictOptionDetail {
     /**
      * 黑名单
      */
-    private Set<Integer> blocks;
+    private Set<Integer> blocks = new HashSet<>();
 }

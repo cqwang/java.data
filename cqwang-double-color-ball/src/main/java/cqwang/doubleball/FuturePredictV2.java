@@ -11,11 +11,13 @@ import java.util.stream.Collectors;
 public class FuturePredictV2 {
     public static void predict(){
         DoubleColorBallPreload.execute();
-        var algorithmList = new DoubleColorPredictionAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
+        var algorithmList = new DoubleColorPredictionAlgorithmSelector().execute(RunOption.RE_CALCULATE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
             var predict = algorithm.predict(targetIndex, new PredictOption());
+            resultSet.add(predict.getSimpleInfo());
+            predict = algorithm.predict(targetIndex, new PredictOption().addRed(0, predict.getRedValueList().get(0)));
             resultSet.add(predict.getSimpleInfo());
         }
 

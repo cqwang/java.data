@@ -112,7 +112,7 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = this.blueInstance.getInstance().predictRetry(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption());
+        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption());
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
