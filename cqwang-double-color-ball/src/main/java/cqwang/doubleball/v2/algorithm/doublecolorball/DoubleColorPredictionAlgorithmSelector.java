@@ -5,11 +5,10 @@ import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
 import cqwang.doubleball.v2.algorithm.AlgorithmSelector;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallAlgorithmRegistryFactory;
-import cqwang.doubleball.v2.algorithm.singleball.SingleBallPredictAlgorithmRegistry;
 import cqwang.doubleball.v2.model.option.PredictOption;
-import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.preload.DoubleColorBallPreload;
 import cqwang.doubleball.v2.utils.ValueCalculator;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -40,6 +39,40 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
 
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculate() {
+        return reCalculateSerial();
+    }
+
+    private List<DoubleColorPredictionAlgorithmRegistry> reCalculateSerial() {
+        var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
+        Map<Integer, List<DoubleColorPredictionAlgorithmRegistry>> maxValueAlgorithmMap = new ConcurrentHashMap<>();
+        for (var red0 : singleBallAlgorithmList) {
+            for (var red1 : singleBallAlgorithmList) {
+                for (var red2 : singleBallAlgorithmList) {
+                    for (var red3 : singleBallAlgorithmList) {
+                        for (var red4 : singleBallAlgorithmList) {
+                            for (var red5 : singleBallAlgorithmList) {
+                                for (var blue : singleBallAlgorithmList) {
+                                    var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(blue, red0, red1, red2, red3, red4, red5);
+                                    historyPredict(advancedAlgorithm);
+                                    var predictResult = advancedAlgorithm.getPredictResult();
+                                    if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getSumValue() < MIN_AMOUNT) {
+                                        continue;
+                                    }
+
+                                    var list = maxValueAlgorithmMap.computeIfAbsent(predictResult.getMaxValue(), k -> Collections.synchronizedList(new ArrayList<>()));
+                                    list.add(advancedAlgorithm);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return getDoubleColorPredictionAlgorithmRegistries(maxValueAlgorithmMap);
+    }
+
+    private List<DoubleColorPredictionAlgorithmRegistry> reCalculateParallel() {
         var singleBallAlgorithmList = SingleBallAlgorithmRegistryFactory.getAlgorithmPool();
         Map<Integer, List<DoubleColorPredictionAlgorithmRegistry>> maxValueAlgorithmMap = new ConcurrentHashMap<>();
 
@@ -102,6 +135,10 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
             throw new RuntimeException(e);
         }
 
+        return getDoubleColorPredictionAlgorithmRegistries(maxValueAlgorithmMap);
+    }
+
+    private @NonNull ArrayList<DoubleColorPredictionAlgorithmRegistry> getDoubleColorPredictionAlgorithmRegistries(Map<Integer, List<DoubleColorPredictionAlgorithmRegistry>> maxValueAlgorithmMap) {
         for (var entry : maxValueAlgorithmMap.entrySet()) {
             var list = entry.getValue();
             list.sort((left, right) -> {
@@ -116,18 +153,20 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
             });
         }
 
+        // 相同maxValue下，只取
         var selectedAlgorithmList = new ArrayList<DoubleColorPredictionAlgorithmRegistry>();
         for (var entry : maxValueAlgorithmMap.entrySet()) {
+            var subList = new ArrayList<DoubleColorPredictionAlgorithmRegistry>();
             for (int i = 0; i < entry.getValue().size(); i++) {
                 var algorithm = entry.getValue().get(i);
-                var last = selectedAlgorithmList.stream().filter(t -> t.equalsBlueAlgorithm(algorithm)).findFirst().orElse(null);
+                var last = subList.stream().filter(t -> t.simpleEquals(algorithm)).findFirst().orElse(null);
                 if (last != null) {
                     continue;
                 }
 
-                selectedAlgorithmList.add(algorithm);
-
+                subList.add(algorithm);
             }
+            selectedAlgorithmList.addAll(subList);
         }
 
         return selectedAlgorithmList;

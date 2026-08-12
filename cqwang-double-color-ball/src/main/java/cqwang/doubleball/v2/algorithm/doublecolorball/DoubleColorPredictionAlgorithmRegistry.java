@@ -13,7 +13,6 @@ import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.model.value.PredictResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;
@@ -57,6 +56,11 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
     private SingleBallPredictAlgorithmRegistry blueInstance;
 
 
+    /**
+     * 检测时初始化
+     * @param blue
+     * @param reds
+     */
     public DoubleColorPredictionAlgorithmRegistry(SingleBallPredictAlgorithmRegistry blue, SingleBallPredictAlgorithmRegistry... reds) {
         this.blueInstance = blue;
         this.blueAlgorithm = blue.getAlgorithmName();
@@ -76,22 +80,30 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
         }
     }
 
+    /**
+     * 从文件读取时初始化
+     * @param resetHistoryValue
+     */
     public void initInstance(boolean resetHistoryValue) {
-        if (resetHistoryValue) {
-            this.setPredictResult(new PredictResult());
-        }
-        this.blueInstance = SingleBallAlgorithmRegistryFactory.getAlgorithm(this.blueAlgorithm);
-        this.redInstanceList = new SingleBallPredictAlgorithmRegistry[6];
-
-        if (this.redAlgorithmList == null || this.redAlgorithmList.length == 0 || this.redAlgorithmList.length != 1 && this.redAlgorithmList.length != 6) {
+        if (this.redAlgorithmList == null || this.redAlgorithmList.length == 0 || this.redAlgorithmList.length!=1 && this.redAlgorithmList.length!=6) {
             throw new RuntimeException(" error config");
         }
 
-        for (int index = 0; index < this.redInstanceList.length; index++) {
-            var actualIndex = this.redAlgorithmList.length > index ? index : 0;
-            var actualName = this.redAlgorithmList[actualIndex];
-            var instance = SingleBallAlgorithmRegistryFactory.getAlgorithm(actualName);
-            this.redInstanceList[index] = instance;
+        if (this.redAlgorithmList.length == 1) {
+            var red = this.redAlgorithmList[0];
+            this.redAlgorithmList = new String[6];
+            Arrays.fill(this.redAlgorithmList, red);
+        }
+
+        this.blueInstance = SingleBallAlgorithmRegistryFactory.getAlgorithm(this.blueAlgorithm);
+        this.redInstanceList = new SingleBallPredictAlgorithmRegistry[6];
+        for (int index = 0; index < this.redAlgorithmList.length; index++) {
+            var algorithm = this.redAlgorithmList[index];
+            this.redInstanceList[index] = SingleBallAlgorithmRegistryFactory.getAlgorithm(algorithm);
+        }
+
+        if (resetHistoryValue) {
+            this.setPredictResult(new PredictResult());
         }
     }
 
@@ -137,7 +149,8 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
         return Range.between(lastRed + 1, singleBall.getMaxData());
     }
 
-    public boolean equalsBlueAlgorithm(DoubleColorPredictionAlgorithmRegistry right) {
-        return this.getBlueAlgorithm().equals(right.getBlueAlgorithm());
+    public boolean simpleEquals(DoubleColorPredictionAlgorithmRegistry right) {
+        return this.getBlueAlgorithm().equals(right.getBlueAlgorithm())
+                && this.getRedAlgorithmList()[0].equals(right.getRedAlgorithmList()[0]);
     }
 }
