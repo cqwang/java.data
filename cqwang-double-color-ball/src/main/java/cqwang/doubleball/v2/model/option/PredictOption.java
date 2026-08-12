@@ -9,6 +9,7 @@ import java.util.Map;
 public class PredictOption {
     private PredictOptionDetail blue;
     private Map<Integer, PredictOptionDetail> redMap = new HashMap<>(6);
+    private boolean retry;
 
     public PredictOptionDetail getRed(int index) {
         return redMap.get(index);

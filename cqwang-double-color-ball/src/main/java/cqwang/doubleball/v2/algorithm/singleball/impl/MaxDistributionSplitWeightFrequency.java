@@ -6,7 +6,7 @@ import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.utils.AlgorithmUtils;
 import org.apache.commons.lang3.Range;
 
-public class MaxDistributionSplitWeightFrequencyImpl implements SingleBallPredictAlgorithm {
+public class MaxDistributionSplitWeightFrequency implements SingleBallPredictAlgorithm {
 
     @Override
     public int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {

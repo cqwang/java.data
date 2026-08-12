@@ -120,7 +120,14 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
             var redAlgorithm = redInstanceList[redIndex].getInstance();
             var singleBall = splitBall.getRedBall(redIndex);
             var redRange = getRedRange(predictResult, singleBall);
-            var predictRed = redAlgorithm.predictRetry(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex)));
+
+            int predictRed = 0;
+            if (predictOption.isRetry()) {
+                predictRed = redAlgorithm.predictRetry(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex)));
+            } else {
+                predictRed = redAlgorithm.predict(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex)));
+            }
+
             predictResult.getRedValueList().add(predictRed);
         }
 

@@ -11,13 +11,13 @@ import java.util.List;
 public class SingleBallAlgorithmRegistryFactory {
 
     private static final SingleBallPredictAlgorithmRegistry[] ALGORITHMS = {
-            new SingleBallPredictAlgorithmRegistry("DistributionFrequency", DistributionFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("MaxDistributionCumulativeWeightFrequency", MaxDistributionCumulativeWeightFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("MaxDistributionSplitWeightFrequency", MaxDistributionSplitWeightFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("MaxFrequency", MaxFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("RecentMaxFrequency", RecentMaxFrequencyImpl.class),
-            new SingleBallPredictAlgorithmRegistry("RecentMaxWeightFrequency", RecentMaxWeightFrequencyImpl.class)
-
+            new SingleBallPredictAlgorithmRegistry("DistributionFrequency", DistributionFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("MaxDistributionCumulativeWeightFrequency", MaxDistributionCumulativeWeightFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("MaxDistributionSplitWeightFrequency", MaxDistributionSplitWeightFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("MaxFrequency", MaxFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("RecentMaxFrequency", RecentMaxFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("RecentMaxWeightFrequency", RecentMaxWeightFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("SurgeFrequency", SurgeFrequency.class),
     };
 
     public static List<SingleBallPredictAlgorithmRegistry> getAlgorithmPool() {

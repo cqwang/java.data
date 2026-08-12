@@ -54,9 +54,6 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         // 策略：基于相似度的预测 - 多维度相似度计算 3895
         var recentSimilarityFrequencyData = FrequencyAlgorithmUtils.similarity(ballDataDetail, range, 40);
 
-        // 策略：频率突跃算法 - 检测并偏好频率的突跃点 4105
-        var recentSurgeData = FrequencyAlgorithmUtils.surge(ballDataDetail, range, 30);
-
         // 默认使用加权频率结果
         return weightedMode;
     }

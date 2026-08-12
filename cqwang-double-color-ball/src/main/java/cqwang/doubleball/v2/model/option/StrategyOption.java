@@ -32,6 +32,9 @@ public class StrategyOption {
     @JsonIgnore
     int[] weights;
 
+    @JsonIgnore
+    int period;
+
     public StrategyOption(PredictOptionDetail predictOption) {
         this.predictOption = predictOption;
     }

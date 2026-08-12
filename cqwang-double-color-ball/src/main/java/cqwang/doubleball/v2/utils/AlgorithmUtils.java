@@ -1,11 +1,46 @@
 package cqwang.doubleball.v2.utils;
 
+import cqwang.doubleball.common.model.BallDataDetail;
 import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
 import cqwang.doubleball.v2.model.option.StrategyOption;
 import org.apache.commons.lang3.Range;
 
 public class AlgorithmUtils {
+
+    /**
+     * 频率突跃算法 - 检测并偏好频率的突跃点
+     * @param singleBall
+     * @param range
+     * @param option
+     * @return
+     */
+    public static int surge(SingleBall singleBall,
+                            Range<Integer> range,
+                            StrategyOption option) {
+        var midBall = singleBall.sub(option.getPeriod());
+        var subBall = singleBall.sub(option.getPeriod()/2);
+
+        double maxScore = 0;
+        int result = range.getMinimum();
+        for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+            if (midBall.getFrequency(i) == 0) {
+                continue;
+            }
+
+            // 检测频率突跃：最近一半的频率相比整体频率的提升
+            double surgeRatio = subBall.getFrequency(i) * 2.0 / midBall.getFrequency(i);
+            double score = midBall.getFrequency(i) * (1.0 + Math.min(surgeRatio, 2.0) * 0.5);
+
+            if (score > maxScore) {
+                maxScore = score;
+                result = i;
+            }
+        }
+
+        return result;
+    }
+
 
     /**
      * 加权众数算法 - 最近出现的频率最高值权重更高
