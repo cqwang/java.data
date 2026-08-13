@@ -40,22 +40,15 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         // 策略：加权众数算法 - 最近出现的频率最高值权重更高
         var weightedMode = FrequencyAlgorithmUtils.weightedMode(ballDataDetail, range, 80);
 
-        // 策略：近期加权算法 - 基于最近数据的加权频率 3935
-        var recentWeight = FrequencyAlgorithmUtils.recentWeight(ballDataDetail, range, 45);
-
         // 策略：域聚集算法 - 优先选择与其他高频数相邻的值 3920
         var neighborhoodCluster = FrequencyAlgorithmUtils.neighborhoodCluster(ballDataDetail, range,5, 2);
-
-        // 策略： 基于连续性的预测 - 识别连续出现的值 3670
-        var continuity = FrequencyAlgorithmUtils.continuity(ballDataDetail, range, 12);
-
 
 
         // 策略：基于相似度的预测 - 多维度相似度计算 3895
         var recentSimilarityFrequencyData = FrequencyAlgorithmUtils.similarity(ballDataDetail, range, 40);
 
         // 默认使用加权频率结果
-        return weightedMode;
+        return continuity;
     }
 
 

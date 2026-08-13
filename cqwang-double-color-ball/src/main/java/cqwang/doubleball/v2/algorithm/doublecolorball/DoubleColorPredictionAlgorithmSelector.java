@@ -39,7 +39,7 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
 
     @Override
     public List<DoubleColorPredictionAlgorithmRegistry> reCalculate() {
-        return reCalculateSerial();
+        return reCalculateParallel();
     }
 
     private List<DoubleColorPredictionAlgorithmRegistry> reCalculateSerial() {

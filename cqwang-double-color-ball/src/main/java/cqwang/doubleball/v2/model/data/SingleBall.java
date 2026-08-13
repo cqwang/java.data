@@ -60,6 +60,9 @@ public class SingleBall {
             dataFrequencyMap.put(data, new DataFrequency(data));
         } else {
             model.setFrequency(model.getFrequency() + 1);
+            if (hasPreSameData(data)) {
+                model.setMaxContinuousFrequency(model.getMaxContinuousFrequency() + 1);
+            }
         }
 
         if (data > maxData) {
@@ -68,6 +71,15 @@ public class SingleBall {
         if (data < minData) {
             minData = data;
         }
+    }
+
+    private boolean hasPreSameData(Integer data) {
+        if (this.dataList.size() == 1) {
+            return false;
+        }
+
+        var preData = this.dataList.get(this.dataList.size() - 2);
+        return preData == data;
     }
 
     /**

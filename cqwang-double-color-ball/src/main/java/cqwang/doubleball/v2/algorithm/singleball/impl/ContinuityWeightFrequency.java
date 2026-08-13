@@ -6,12 +6,13 @@ import cqwang.doubleball.v2.model.option.StrategyOption;
 import cqwang.doubleball.v2.utils.AlgorithmUtils;
 import org.apache.commons.lang3.Range;
 
-public class RecentMaxWeightFrequency implements SingleBallPredictAlgorithm {
+/**
+ * 基于连续性的预测 - 连续出现的频次和权重
+ */
+public class ContinuityWeightFrequency implements SingleBallPredictAlgorithm {
     @Override
     public int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
-
-        // 取最近出现权重最高的数值，时间越近权重越高
-        var sub = singleBall.sub(45);
-        return AlgorithmUtils.squareWeight(sub, range, option);
+        var subBall = singleBall.sub(12);
+        return AlgorithmUtils.continueWeight(subBall, range, option);
     }
 }

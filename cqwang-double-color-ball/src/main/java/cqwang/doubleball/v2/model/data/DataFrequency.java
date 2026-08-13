@@ -7,11 +7,13 @@ import lombok.Data;
 public class DataFrequency {
     private int data;
     private int frequency;
+    private int maxContinuousFrequency;
 
     private FrequencyLevel frequencyLevel = FrequencyLevel.NONE;
 
     public DataFrequency(int data) {
         this.data = data;
         this.frequency = 1;
+        this.maxContinuousFrequency = 1;
     }
 }

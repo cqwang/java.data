@@ -18,6 +18,7 @@ public class SingleBallAlgorithmRegistryFactory {
             new SingleBallPredictAlgorithmRegistry("RecentMaxFrequency", RecentMaxFrequency.class),
             new SingleBallPredictAlgorithmRegistry("RecentMaxWeightFrequency", RecentMaxWeightFrequency.class),
             new SingleBallPredictAlgorithmRegistry("SurgeFrequency", SurgeFrequency.class),
+            new SingleBallPredictAlgorithmRegistry("ContinuityWeightFrequency", ContinuityWeightFrequency.class),
     };
 
     public static List<SingleBallPredictAlgorithmRegistry> getAlgorithmPool() {

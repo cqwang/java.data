@@ -8,6 +8,44 @@ import org.apache.commons.lang3.Range;
 
 public class AlgorithmUtils {
 
+
+    /**
+     * 连续出现的次数 权重高
+     * @param singleBall
+     * @param range
+     * @param option
+     * @return
+     */
+    public static int continueWeight(
+            SingleBall singleBall,
+            Range<Integer> range,
+            StrategyOption option) {
+
+        double maxScore = 0;
+        int result = range.getMinimum();
+
+        for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
+            if(option.isBlocked(candidate)) {
+                continue;
+            }
+
+            var dataFrequency = singleBall.get(candidate);
+            if(dataFrequency == null){
+                continue;
+            }
+            double score = dataFrequency.getFrequency() * 1.0 + dataFrequency.getMaxContinuousFrequency() * 3.0;
+
+            if (score > maxScore) {
+                maxScore = score;
+                result = candidate;
+            }
+        }
+
+        return result;
+    }
+
+
+
     /**
      * 频率突跃算法 - 检测并偏好频率的突跃点
      * @param singleBall
@@ -24,6 +62,10 @@ public class AlgorithmUtils {
         double maxScore = 0;
         int result = range.getMinimum();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+//            if (option.isBlocked(i)) {
+//                continue;
+//            }
+
             if (midBall.getFrequency(i) == 0) {
                 continue;
             }
