@@ -1,22 +1,36 @@
 package cqwang.doubleball.v2.utils;
 
 import cqwang.doubleball.common.model.BallDataDetail;
+import cqwang.doubleball.v2.algorithm.singleball.SingleBallAlgorithmRegistryFactory;
 import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
 import cqwang.doubleball.v2.model.option.StrategyOption;
+import cqwang.doubleball.v2.model.result.SingleResult;
 import org.apache.commons.lang3.Range;
 
 public class AlgorithmUtils {
 
 
+    public static SingleResult predictPriority(SingleBall singleBall, Range<Integer> range, StrategyOption option, String...algorithms) {
+        for (var algorithm : algorithms) {
+            var singleResult = SingleBallAlgorithmRegistryFactory.getAlgorithm(algorithm).getInstance().predict(singleBall, range, option);
+            if (singleResult.isSuccess()) {
+                return singleResult;
+            }
+        }
+        return new SingleResult(range.getMinimum(), false);
+    }
+
+
     /**
      * 连续出现的次数 权重高
+     *
      * @param singleBall
      * @param range
      * @param option
      * @return
      */
-    public static int continueWeight(
+    public static SingleResult continueWeight(
             SingleBall singleBall,
             Range<Integer> range,
             StrategyOption option) {
@@ -24,13 +38,14 @@ public class AlgorithmUtils {
         double maxScore = 0;
         int result = range.getMinimum();
 
+        boolean success = false;
         for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
-            if(option.isBlocked(candidate)) {
+            if (option.isBlocked(candidate)) {
                 continue;
             }
 
             var dataFrequency = singleBall.get(candidate);
-            if(dataFrequency == null){
+            if (dataFrequency == null) {
                 continue;
             }
             double score = dataFrequency.getFrequency() * 1.0 + dataFrequency.getMaxContinuousFrequency() * 3.0;
@@ -38,28 +53,30 @@ public class AlgorithmUtils {
             if (score > maxScore) {
                 maxScore = score;
                 result = candidate;
+                success = true;
             }
         }
 
-        return result;
+        return new SingleResult(result, success);
     }
-
 
 
     /**
      * 频率突跃算法 - 检测并偏好频率的突跃点
+     *
      * @param singleBall
      * @param range
      * @param option
      * @return
      */
-    public static int surge(SingleBall singleBall,
+    public static SingleResult surge(SingleBall singleBall,
                             Range<Integer> range,
                             StrategyOption option) {
         var midBall = singleBall.sub(option.getPeriod());
-        var subBall = singleBall.sub(option.getPeriod()/2);
+        var subBall = singleBall.sub(option.getPeriod() / 2);
 
         double maxScore = 0;
+        boolean success = false;
         int result = range.getMinimum();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
 //            if (option.isBlocked(i)) {
@@ -77,21 +94,23 @@ public class AlgorithmUtils {
             if (score > maxScore) {
                 maxScore = score;
                 result = i;
+                success = true;
             }
         }
 
-        return result;
+        return new SingleResult(result, success);
     }
 
 
     /**
      * 加权众数算法 - 最近出现的频率最高值权重更高
+     *
      * @param singleBall
      * @param range
      * @param option
      * @return
      */
-    public static int squareWeight(
+    public static SingleResult squareWeight(
             SingleBall singleBall,
             Range<Integer> range,
             StrategyOption option) {
@@ -99,6 +118,7 @@ public class AlgorithmUtils {
         double maxWeightedFreq = 0;
         int result = range.getMinimum();
 
+        boolean success = false;
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
             if (option.isBlocked(i)) {
                 continue;
@@ -126,10 +146,11 @@ public class AlgorithmUtils {
             if (weightedFreq > maxWeightedFreq) {
                 maxWeightedFreq = weightedFreq;
                 result = i;
+                success = true;
             }
         }
 
-        return result;
+        return new SingleResult(result, success);
     }
 
 
@@ -141,7 +162,7 @@ public class AlgorithmUtils {
      * @param option
      * @return
      */
-    public static int distribution(
+    public static SingleResult distribution(
             SingleBall singleBall,
             Range<Integer> range,
             StrategyOption option) {
@@ -156,6 +177,7 @@ public class AlgorithmUtils {
 
         int maxFrequency = 0;
         int result = range.getMinimum();
+        boolean success = false;
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
             if (option.isBlocked(data)) {
                 continue;
@@ -172,10 +194,11 @@ public class AlgorithmUtils {
                 if (longSub.get(data).getFrequency() > maxFrequency) {
                     maxFrequency = longSub.getFrequency(data);
                     result = data;
+                    success = true;
                 }
             }
         }
-        return result;
+        return new SingleResult(result, success);
     }
 
     /**
@@ -186,7 +209,7 @@ public class AlgorithmUtils {
      * @param option
      * @return
      */
-    public static int distributionWeight(
+    public static SingleResult distributionWeight(
             SingleBall singleBall,
             Range<Integer> range,
             StrategyOption option) {
@@ -197,6 +220,7 @@ public class AlgorithmUtils {
 
         double maxScore = 0;
         int result = range.getMinimum();
+        boolean success = false;
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
             if (option.isBlocked(data)) {
                 continue;
@@ -211,9 +235,10 @@ public class AlgorithmUtils {
             if (score > maxScore) {
                 maxScore = score;
                 result = data;
+                success = true;
             }
         }
-        return result;
+        return new SingleResult(result, success);
     }
 
     private static int calculateScore(SingleBall[] subList, StrategyOption option, int data, int index) {

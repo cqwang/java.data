@@ -123,15 +123,15 @@ public class DoubleColorPredictionAlgorithmRegistry extends AlgorithmRegistry im
 
             int predictRed = 0;
             if (predictOption.isRetry()) {
-                predictRed = redAlgorithm.predictRetry(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex)));
+                predictRed = redAlgorithm.predictRetry(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex))).getResult();
             } else {
-                predictRed = redAlgorithm.predict(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex)));
+                predictRed = redAlgorithm.predict(singleBall, redRange, new StrategyOption(predictOption.getRed(redIndex))).getResult();
             }
 
             predictResult.getRedValueList().add(predictRed);
         }
 
-        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption());
+        var blueValue = this.blueInstance.getInstance().predict(splitBall.getBlueBall(), Range.between(1, 16), new StrategyOption()).getResult();
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }

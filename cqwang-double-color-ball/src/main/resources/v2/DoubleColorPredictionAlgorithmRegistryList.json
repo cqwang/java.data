@@ -1,8 +1,8 @@
 [
   {
-    "blueAlgorithm": "ContinuityWeightFrequency",
+    "blueAlgorithm": "BluePredict",
     "redAlgorithmList": [
-      "ContinuityWeightFrequency"
+      "RedPredict"
     ]
   }
 ]

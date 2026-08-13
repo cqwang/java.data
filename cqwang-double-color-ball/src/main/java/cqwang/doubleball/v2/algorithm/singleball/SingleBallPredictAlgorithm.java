@@ -4,6 +4,7 @@ import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
 import cqwang.doubleball.v2.model.option.PredictOptionDetail;
 import cqwang.doubleball.v2.model.option.StrategyOption;
+import cqwang.doubleball.v2.model.result.SingleResult;
 import org.apache.commons.lang3.Range;
 
 import java.util.Set;
@@ -19,21 +20,21 @@ public interface SingleBallPredictAlgorithm {
      * @param range
      * @return
      */
-    int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option);
+    SingleResult predict(SingleBall singleBall, Range<Integer> range, StrategyOption option);
 
-    default int predictRetry(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
+    default SingleResult predictRetry(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
         var result = predict(singleBall, range, option);
 
         // 如果太热，就更换
-        var dataFrequency = singleBall.sub(3).get(result);
+        var dataFrequency = singleBall.sub(3).get(result.getResult());
         if (dataFrequency != null && dataFrequency.getFrequencyLevel().greatEqualsThen(FrequencyLevel.STABLE)) {
-            option.setPredictOption(new PredictOptionDetail(Set.of(result)));
+            option.setPredictOption(new PredictOptionDetail(Set.of(result.getResult())));
             return predict(singleBall, range, option);
         }
 
-        dataFrequency = singleBall.sub(2).get(result);
+        dataFrequency = singleBall.sub(2).get(result.getResult());
         if(dataFrequency!=null && dataFrequency.getFrequencyLevel().greatEqualsThen(FrequencyLevel.COLD)){
-            option.setPredictOption(new PredictOptionDetail(Set.of(result)));
+            option.setPredictOption(new PredictOptionDetail(Set.of(result.getResult())));
             return predict(singleBall, range, option);
         }
 

@@ -3,6 +3,7 @@ package cqwang.doubleball.v2.model.data;
 import cqwang.doubleball.common.model.inner.DataLevel;
 import cqwang.doubleball.v2.model.data.features.FrequencyLevel;
 import cqwang.doubleball.v2.model.option.StrategyOption;
+import cqwang.doubleball.v2.model.result.SingleResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.Range;
@@ -118,7 +119,7 @@ public class SingleBall {
         }
     }
 
-    public DataFrequency getMaxDataFrequency(Range<Integer> range, StrategyOption option) {
+    public SingleResult getMaxDataFrequency(Range<Integer> range, StrategyOption option) {
         for (int index = sortedList.size() - 1; index >= 0; index--) {
             var item = sortedList.get(index);
             if (option.isBlocked(item.getData())) {
@@ -126,10 +127,10 @@ public class SingleBall {
             }
 
             if (item.getData() >= range.getMinimum() && item.getData() <= range.getMaximum()) {
-                return item;
+                return new SingleResult(item.getData(), true);
             }
         }
-        return new DataFrequency(range.getMinimum());
+        return new SingleResult(range.getMinimum(), false);
     }
 
     public DataFrequency get(Integer data) {

@@ -3,6 +3,7 @@ package cqwang.doubleball.v2.algorithm.singleball.impl;
 import cqwang.doubleball.v2.algorithm.singleball.SingleBallPredictAlgorithm;
 import cqwang.doubleball.v2.model.data.SingleBall;
 import cqwang.doubleball.v2.model.option.StrategyOption;
+import cqwang.doubleball.v2.model.result.SingleResult;
 import cqwang.doubleball.v2.utils.AlgorithmUtils;
 import org.apache.commons.lang3.Range;
 
@@ -11,7 +12,7 @@ import org.apache.commons.lang3.Range;
  */
 public class ContinuityWeightFrequency implements SingleBallPredictAlgorithm {
     @Override
-    public int predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
+    public SingleResult predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
         var subBall = singleBall.sub(12);
         return AlgorithmUtils.continueWeight(subBall, range, option);
     }

@@ -48,7 +48,7 @@ public class FrequencyAlgorithm implements SingleAlgorithm {
         var recentSimilarityFrequencyData = FrequencyAlgorithmUtils.similarity(ballDataDetail, range, 40);
 
         // 默认使用加权频率结果
-        return continuity;
+        return recentSimilarityFrequencyData;
     }
 
 
