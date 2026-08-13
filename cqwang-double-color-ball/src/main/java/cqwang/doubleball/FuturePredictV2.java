@@ -17,7 +17,11 @@ public class FuturePredictV2 {
         for (var algorithm : algorithmList) {
             var predict = algorithm.predict(targetIndex, new PredictOption());
             resultSet.add(predict.getSimpleInfo());
+            predict = algorithm.predict(targetIndex, new PredictOption(){{setRetry(true);}});
+            resultSet.add(predict.getSimpleInfo());
             predict = algorithm.predict(targetIndex, new PredictOption().addRed(0, predict.getRedValueList().get(0)));
+            resultSet.add(predict.getSimpleInfo());
+            predict = algorithm.predict(targetIndex, new PredictOption(){{setRetry(true);}}.addRed(0, predict.getRedValueList().get(0)));
             resultSet.add(predict.getSimpleInfo());
         }
 
