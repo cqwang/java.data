@@ -32,11 +32,11 @@ public interface SingleBallPredictAlgorithm {
             return predict(singleBall, range, option);
         }
 
-        dataFrequency = singleBall.sub(2).get(result.getResult());
-        if(dataFrequency!=null && dataFrequency.getFrequencyLevel().greatEqualsThen(FrequencyLevel.COLD)){
-            option.setPredictOption(new PredictOptionDetail(Set.of(result.getResult())));
-            return predict(singleBall, range, option);
-        }
+//        dataFrequency = singleBall.sub(2).get(result.getResult());
+//        if(dataFrequency!=null && dataFrequency.getFrequencyLevel().greatEqualsThen(FrequencyLevel.COLD)){
+//            option.setPredictOption(new PredictOptionDetail(Set.of(result.getResult())));
+//            return predict(singleBall, range, option);
+//        }
 
         return result;
     }

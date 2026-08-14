@@ -26,7 +26,7 @@ public class DoubleColorPredictionAlgorithmSelector implements AlgorithmSelector
             var advancedAlgorithm = new DoubleColorPredictionAlgorithmRegistry(blue, blue);
             historyPredict(advancedAlgorithm);
             var sumValue = advancedAlgorithm.getPredictResult().getSumValue();
-            if (ValueCalculator.hasNoValue(sumValue) || sumValue < MIN_AMOUNT) {
+            if (ValueCalculator.hasNoValue(sumValue) || sumValue < 0) {
                 continue;
             }
             selectedAlgorithmList.add(advancedAlgorithm);

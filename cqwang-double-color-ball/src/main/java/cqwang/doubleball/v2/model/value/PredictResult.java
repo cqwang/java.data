@@ -31,6 +31,12 @@ public class PredictResult {
      */
     private int hitBlueTotalCount = 0;
 
+    private int hitRedTotalCount = 0;
+
+    private int hitRedBlueTotalCount = 0;
+
+    private int hitFirstRedTotalCount = 0;
+
     /**
      * 最大价值
      */
@@ -55,6 +61,15 @@ public class PredictResult {
         this.hitTotalCount++;
         if (predictValueModel.getValueFlag() == ValueFlag.BlUE || predictValueModel.getValueFlag() == ValueFlag.BLUE_RED) {
             this.hitBlueTotalCount++;
+        }
+        if(predictValueModel.getValueFlag() == ValueFlag.RED || predictValueModel.getValueFlag() == ValueFlag.BLUE_RED){
+            this.hitRedTotalCount++;
+        }
+        if(predictValueModel.getValueFlag() == ValueFlag.BLUE_RED){
+            this.hitRedBlueTotalCount++;
+        }
+        if(predictValueModel.isFirstRed()){
+            this.hitFirstRedTotalCount++;
         }
         if (predictValueModel.getPredictValue() > maxValue) {
             maxValue = predictValueModel.getPredictValue();

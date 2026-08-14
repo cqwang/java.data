@@ -14,6 +14,8 @@ public class PredictValueModel {
      */
     private int predictValue = 0;
 
+    private boolean firstRed = false;
+
     /**
      * 价值标签
      */

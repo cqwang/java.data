@@ -17,17 +17,18 @@ public class ValueCalculator {
     public static PredictValueModel calculate(DoubleColorBall predictResult, DoubleColorBall target) {
         var intersectionRedCount = calculateIntersectionRedCount(predictResult, target);
         boolean equalsBlue = predictResult.getBlueValue().intValue() == target.getBlueValue().intValue();
+        boolean firstRed = predictResult.getRedValueList().get(0) == target.getRedValueList().get(0);
         if (intersectionRedCount == 6) {
-            return equalsBlue ? new PredictValueModel(10000000, ValueFlag.BLUE_RED) : new PredictValueModel(100000, ValueFlag.RED);
+            return equalsBlue ? new PredictValueModel(10000000, firstRed, ValueFlag.BLUE_RED) : new PredictValueModel(100000,firstRed, ValueFlag.RED);
         }
         if (intersectionRedCount == 5) {
-            return equalsBlue ? new PredictValueModel(3000, ValueFlag.BLUE_RED) : new PredictValueModel(200, ValueFlag.RED);
+            return equalsBlue ? new PredictValueModel(3000,firstRed, ValueFlag.BLUE_RED) : new PredictValueModel(200,firstRed, ValueFlag.RED);
         }
         if (intersectionRedCount == 4) {
-            return equalsBlue ? new PredictValueModel(200, ValueFlag.BLUE_RED) : new PredictValueModel(10, ValueFlag.RED);
+            return equalsBlue ? new PredictValueModel(200,firstRed, ValueFlag.BLUE_RED) : new PredictValueModel(10,firstRed, ValueFlag.RED);
         }
 
-        return equalsBlue ? new PredictValueModel(5, ValueFlag.BlUE) : new PredictValueModel(defaultValue, ValueFlag.NONE);
+        return equalsBlue ? new PredictValueModel(5, firstRed, ValueFlag.BlUE) : new PredictValueModel(defaultValue, firstRed, ValueFlag.NONE);
     }
 
     private static int calculateIntersectionRedCount(DoubleColorBall predictResult, DoubleColorBall target) {

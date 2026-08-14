@@ -2,7 +2,18 @@
   {
     "blueAlgorithm": "BluePredict",
     "redAlgorithmList": [
+      "FirstRedPredict",
+      "RedPredict",
+      "RedPredict",
+      "RedPredict",
+      "RedPredict",
       "RedPredict"
-    ]
+    ],
+    "predictResult": {
+      "sumValue": 101160,
+      "hitTotalCount": 150,
+      "hitBlueTotalCount": 144,
+      "maxValue": 100000
+    }
   }
 ]

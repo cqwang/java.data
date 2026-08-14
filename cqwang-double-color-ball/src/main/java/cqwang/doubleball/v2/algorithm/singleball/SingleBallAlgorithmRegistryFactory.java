@@ -22,6 +22,7 @@ public class SingleBallAlgorithmRegistryFactory {
             new SingleBallPredictAlgorithmRegistry("ContinuityWeightFrequency", ContinuityWeightFrequency.class),
             new SingleBallPredictAlgorithmRegistry("BluePredict", BluePredict.class),
             new SingleBallPredictAlgorithmRegistry("RedPredict", RedPredict.class),
+            new SingleBallPredictAlgorithmRegistry("FirstRedPredict", FirstRedPredict.class),
     };
 
     public static List<SingleBallPredictAlgorithmRegistry> getAlgorithmPool() {
