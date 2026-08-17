@@ -18,7 +18,7 @@ public enum RunOption {
     RE_CALCULATE,
 
     /**
-     * 仅仅用于篮球算法选取，结果要按照篮球命中次数排序
+     * 单个球
      */
-    RE_CALCULATE_JUST_FOR_BLUE
+    RE_CALCULATE_SINGLE_BALL
 }

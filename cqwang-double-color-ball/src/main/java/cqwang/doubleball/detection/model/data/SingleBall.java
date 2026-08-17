@@ -1,10 +1,9 @@
 package cqwang.doubleball.detection.model.data;
 
-import cqwang.doubleball.detection.model.option.StrategyOption;
+import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.Range;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,32 +99,34 @@ public class SingleBall {
         this.avgFrequency = (double) totalFrequency / dataFrequencyMap.size();
     }
 
-    public SingleResult getMaxDataFrequency(Range<Integer> range, StrategyOption option) {
+    /**
+     * 爆发检测，取最近出现频次最高的数值
+     * 从全量样本中，选取出现频次最高的数值
+     * @param option
+     * @return
+     */
+    public SingleResult getMaxDataFrequency(PredictOption option) {
         for (int index = sortedList.size() - 1; index >= 0; index--) {
             var item = sortedList.get(index);
             if (option.isBlocked(item.getData())) {
                 continue;
             }
 
-            if (item.getData() >= range.getMinimum() && item.getData() <= range.getMaximum()) {
-                return new SingleResult(item.getData(), true);
-            }
+            return new SingleResult(item.getData(), true);
         }
-        return new SingleResult(range.getMinimum(), false);
+        return new SingleResult(sortedList.get(sortedList.size() - 1).getData(), false);
     }
 
-    public SingleResult getMinDataFrequency(Range<Integer> range, StrategyOption option) {
+    public SingleResult getMinDataFrequency(PredictOption option) {
         for (int index = 0; index < sortedList.size(); index++) {
             var item = sortedList.get(index);
             if (option.isBlocked(item.getData())) {
                 continue;
             }
 
-            if (item.getData() >= range.getMinimum() && item.getData() <= range.getMaximum()) {
-                return new SingleResult(item.getData(), true);
-            }
+            return new SingleResult(item.getData(), true);
         }
-        return new SingleResult(range.getMinimum(), false);
+        return new SingleResult(sortedList.get(0).getData(), false);
     }
 
     public DataFrequency get(Integer data) {
@@ -175,48 +176,4 @@ public class SingleBall {
         return dataFrequency.getMaxContinuousFrequency();
     }
 
-
-    /**
-     * 均值
-     * @param range
-     * @return
-     */
-    public int medianData(Range<Integer> range) {
-        var median = medianData();
-        return Math.max(range.getMinimum(),
-                Math.min(range.getMaximum(), (int) Math.round(median)));
-    }
-
-    private int medianData(){
-        int mid = dataList.size() / 2;
-        if (dataList.size() % 2 == 0) {
-            return (dataList.get(mid - 1) + dataList.get(mid)) / 2;
-        } else {
-            return dataList.get(mid);
-        }
-    }
-
-
-    /**
-     * 加权平均值
-     * @return
-     */
-    public int weightedAverageData(Range<Integer> range){
-        var weightedAvg = weightedAverageData();
-        return Math.max(range.getMinimum(),
-                Math.min(range.getMaximum(), (int) Math.round(weightedAvg)));
-    }
-
-    private double weightedAverageData() {
-        double sum = 0;
-        double totalWeight = 0;
-
-        for (int i = 0; i < dataList.size(); i++) {
-            double weight = 1.0 + (double) (i / dataList.size());
-            sum += dataList.get(i) * weight;
-            totalWeight += weight;
-        }
-
-        return sum / totalWeight;
-    }
 }

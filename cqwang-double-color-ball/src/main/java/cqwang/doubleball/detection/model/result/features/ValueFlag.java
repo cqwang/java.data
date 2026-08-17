@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.model.value.features;
+package cqwang.doubleball.detection.model.result.features;
 
 public enum ValueFlag {
     NONE,

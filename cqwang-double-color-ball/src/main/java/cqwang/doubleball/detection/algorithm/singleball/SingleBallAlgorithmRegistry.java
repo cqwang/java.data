@@ -5,11 +5,8 @@ import cqwang.doubleball.detection.algorithm.AlgorithmRegistry;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-/**
- * 单个球的预测算法注册表
- */
 @NoArgsConstructor
-public class SingleBallPredictAlgorithmRegistry extends AlgorithmRegistry {
+public class SingleBallAlgorithmRegistry extends AlgorithmRegistry {
     /**
      * 算法实现类名称
      */
@@ -18,12 +15,12 @@ public class SingleBallPredictAlgorithmRegistry extends AlgorithmRegistry {
 
     @Getter
     @JsonIgnore
-    private Class<? extends SingleBallPredictAlgorithm> algorithmClass;
+    private Class<? extends SingleBallAlgorithm> algorithmClass;
     @Getter
     @JsonIgnore
-    private SingleBallPredictAlgorithm instance;
+    private SingleBallAlgorithm instance;
 
-    public SingleBallPredictAlgorithmRegistry(String name, Class<? extends SingleBallPredictAlgorithm> algorithmClass) {
+    public SingleBallAlgorithmRegistry(String name, Class<? extends SingleBallAlgorithm> algorithmClass) {
         this.algorithmName = name;
         this.algorithmClass = algorithmClass;
         try {

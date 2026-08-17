@@ -1,6 +1,6 @@
 package cqwang.doubleball.detection.algorithm;
 
-import cqwang.doubleball.detection.model.value.PredictResult;
+import cqwang.doubleball.detection.model.result.PredictResult;
 import lombok.Data;
 
 @Data

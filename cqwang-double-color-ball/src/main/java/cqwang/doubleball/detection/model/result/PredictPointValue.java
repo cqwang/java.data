@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.model.value;
+package cqwang.doubleball.detection.model.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

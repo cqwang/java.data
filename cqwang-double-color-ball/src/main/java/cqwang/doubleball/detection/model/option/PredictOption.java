@@ -1,26 +1,24 @@
 package cqwang.doubleball.detection.model.option;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PredictOption {
-    private PredictOptionDetail blue;
-    private Map<Integer, PredictOptionDetail> redMap = new HashMap<>(6);
+    /**
+     * 黑名单
+     */
+    private Set<Integer> blocks = new HashSet<>();
 
-    public PredictOptionDetail getRed(int index) {
-        return redMap.get(index);
+    public boolean isBlocked(int data) {
+        return blocks.contains(data);
     }
 
-    public PredictOption addRed(int index, int data) {
-        var detail = redMap.get(index);
-        if (detail == null) {
-            detail = new PredictOptionDetail();
-            redMap.put(index, detail);
-        }
-        detail.getBlocks().add(data);
-        return this;
+    public void addBlock(int data) {
+        blocks.add(data);
     }
 }

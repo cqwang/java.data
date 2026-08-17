@@ -1,8 +1,8 @@
 package cqwang.doubleball.detection.utils;
 
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
-import cqwang.doubleball.detection.model.value.PredictValueModel;
-import cqwang.doubleball.detection.model.value.features.ValueFlag;
+import cqwang.doubleball.detection.model.result.PredictValueModel;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class ValueCalculator {
     private static int defaultValue = 0;
@@ -17,18 +17,23 @@ public class ValueCalculator {
     public static PredictValueModel calculate(DoubleColorBall predictResult, DoubleColorBall target) {
         var intersectionRedCount = calculateIntersectionRedCount(predictResult, target);
         boolean equalsBlue = predictResult.getBlueValue().intValue() == target.getBlueValue().intValue();
-        boolean firstRed = predictResult.getRedValueList().get(0) == target.getRedValueList().get(0);
+        int predictValue = getPredictValue(intersectionRedCount, equalsBlue);
+        boolean hasRedEquals = intersectionRedCount >= 4;
+        return new PredictValueModel(predictValue, equalsBlue, hasRedEquals);
+    }
+
+    private static @NonNull int getPredictValue(int intersectionRedCount, boolean equalsBlue) {
         if (intersectionRedCount == 6) {
-            return equalsBlue ? new PredictValueModel(10000000, firstRed, ValueFlag.BLUE_RED) : new PredictValueModel(100000,firstRed, ValueFlag.RED);
+            return equalsBlue ? 10000000 : 100000;
         }
         if (intersectionRedCount == 5) {
-            return equalsBlue ? new PredictValueModel(3000,firstRed, ValueFlag.BLUE_RED) : new PredictValueModel(200,firstRed, ValueFlag.RED);
+            return equalsBlue ? 3000 : 200;
         }
         if (intersectionRedCount == 4) {
-            return equalsBlue ? new PredictValueModel(200,firstRed, ValueFlag.BLUE_RED) : new PredictValueModel(10,firstRed, ValueFlag.RED);
+            return equalsBlue ? 200 : 10;
         }
 
-        return equalsBlue ? new PredictValueModel(5, firstRed, ValueFlag.BlUE) : new PredictValueModel(defaultValue, firstRed, ValueFlag.NONE);
+        return equalsBlue ? 5 : defaultValue;
     }
 
     private static int calculateIntersectionRedCount(DoubleColorBall predictResult, DoubleColorBall target) {
