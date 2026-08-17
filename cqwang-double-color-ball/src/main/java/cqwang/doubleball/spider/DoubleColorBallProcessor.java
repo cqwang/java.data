@@ -1,7 +1,7 @@
 package cqwang.doubleball.spider;
 
 import cqwang.data.serializer.JSON;
-import cqwang.doubleball.common.model.DoubleColorBallResponse;
+import cqwang.doubleball.spider.model.DoubleColorBallResponse;
 import org.apache.commons.collections4.CollectionUtils;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;

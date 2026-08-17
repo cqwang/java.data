@@ -1,0 +1,17 @@
+package cqwang.doubleball.detection.algorithm.singleball.imp;
+
+import cqwang.doubleball.detection.algorithm.singleball.SingleBallPredictAlgorithm;
+import cqwang.doubleball.detection.model.data.SingleBall;
+import cqwang.doubleball.detection.model.option.StrategyOption;
+import cqwang.doubleball.detection.model.result.SingleResult;
+import cqwang.doubleball.detection.utils.AlgorithmUtils;
+import org.apache.commons.lang3.Range;
+
+public class BluePredict implements SingleBallPredictAlgorithm {
+    @Override
+    public SingleResult predict(SingleBall singleBall, Range<Integer> range, StrategyOption option) {
+        return AlgorithmUtils.distribution(singleBall, range, option);
+    }
+
+
+}

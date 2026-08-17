@@ -1,39 +1,24 @@
 package cqwang.doubleball;
 
-import cqwang.doubleball.algorithm.combination.CombinationAlgorithmRegistrySelector;
-import cqwang.doubleball.algorithm.combination.CombinationRelevanceSelector;
-import cqwang.doubleball.algorithm.single.SingleAlgorithmSelector;
-import cqwang.doubleball.common.model.inner.SelectMode;
-import cqwang.doubleball.preload.DoubleColorBallDataPreload;
-import cqwang.doubleball.preload.PreloadManager;
+import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorPredictionAlgorithmSelector;
+import cqwang.doubleball.detection.model.option.PredictOption;
+import cqwang.doubleball.detection.model.option.RunOption;
+import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class FuturePredict {
-
-    /**
-     * 聚合预测结果
-     */
-    public static void aggPredict() {
-        PreloadManager.execute();
-        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.FROM_FILE);
-        var targetIndex = DoubleColorBallDataPreload.allData().size();
+    public static void predict(){
+        DoubleColorBallPreload.execute();
+        var algorithmList = new DoubleColorPredictionAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
+        var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
-//        for (var algorithm : algorithmList) {
-//            var predict = algorithm.getInstance().predict(targetIndex);
-//            resultSet.add(predict.getSimpleInfo());
-//        }
-
-        var advancedAlgorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.FROM_FILE);
-        for (var algorithm : advancedAlgorithmList) {
-            var predict = algorithm.predict(targetIndex);
+        for (var algorithm : algorithmList) {
+            var predict = algorithm.predict(targetIndex, new PredictOption());
             resultSet.add(predict.getSimpleInfo());
-        }
-
-        var combinationRelevanceAlgorithmList = new CombinationRelevanceSelector().execute(SelectMode.FROM_FILE);
-        for (var algorithm : combinationRelevanceAlgorithmList) {
-            var predict = algorithm.predict(targetIndex);
+            predict = algorithm.predict(targetIndex, new PredictOption().addRed(0, predict.getRedValueList().get(0)));
+            resultSet.add(predict.getSimpleInfo());
             resultSet.add(predict.getSimpleInfo());
         }
 
@@ -41,48 +26,9 @@ public class FuturePredict {
     }
 
 
-    /**
-     * 多算法组合预测
-     */
-    public static void combinationPredict() {
-        PreloadManager.execute();
-        var algorithmList = new CombinationAlgorithmRegistrySelector().execute(SelectMode.RE_CALCULATE);
-        var targetIndex = DoubleColorBallDataPreload.allData().size();
-        var resultSet = new HashSet<String>();
-        for (var algorithm : algorithmList) {
-            var predict = algorithm.predict(targetIndex);
-            resultSet.add(predict.getSimpleInfo());
-        }
-        printInfo(resultSet);
-    }
-
-    /**
-     * 单种算法预测
-     */
-    public static void singlePredict() {
-        PreloadManager.execute();
-        var algorithmList = new SingleAlgorithmSelector().execute(SelectMode.RE_CALCULATE_FROM_FILE);
-        var targetIndex = DoubleColorBallDataPreload.allData().size();
-        var resultSet = new HashSet<String>();
-        for (var algorithm : algorithmList) {
-            var predict = algorithm.getInstance().predict(targetIndex);
-            resultSet.add(predict.getSimpleInfo());
-        }
-        printInfo(resultSet);
-    }
-
-
-    public static void combinationRelevancePredict(){
-        PreloadManager.execute();
-        var algorithmList = new CombinationRelevanceSelector().execute(SelectMode.FROM_FILE);
-        var targetIndex = DoubleColorBallDataPreload.allData().size();
-        var resultSet = new HashSet<String>();
-        for (var algorithm : algorithmList) {
-            var predict = algorithm.predict(targetIndex);
-            resultSet.add(predict.getSimpleInfo());
-        }
-        printInfo(resultSet);
-
+    public static void predictBlue(){
+        DoubleColorBallPreload.execute();
+        var algorithmList = new DoubleColorPredictionAlgorithmSelector().execute(RunOption.RE_CALCULATE_JUST_FOR_BLUE);
     }
 
     private static void printInfo(HashSet<String> resultSet) {
@@ -92,4 +38,5 @@ public class FuturePredict {
             System.out.println(result);
         }
     }
+
 }

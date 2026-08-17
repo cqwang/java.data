@@ -1,5 +1,205 @@
 [
   {
+    "blueAlgorithm": "DistributionFrequency",
+    "redAlgorithmList": [
+      "DistributionFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency",
+      "DistributionFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 1220,
+      "hitTotalCount": 155,
+      "hitBlueTotalCount": 144,
+      "hitRedTotalCount": 13,
+      "hitRedBlueTotalCount": 2,
+      "hitFirstRedTotalCount": 29,
+      "maxValue": 200
+    }
+  },
+  {
+    "blueAlgorithm": "BluePredict",
+    "redAlgorithmList": [
+      "BluePredict",
+      "BluePredict",
+      "BluePredict",
+      "BluePredict",
+      "BluePredict",
+      "BluePredict"
+    ],
+    "predictResult": {
+      "sumValue": 4175,
+      "hitTotalCount": 150,
+      "hitBlueTotalCount": 140,
+      "hitRedTotalCount": 11,
+      "hitRedBlueTotalCount": 1,
+      "hitFirstRedTotalCount": 29,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "RecentMaxWeightFrequency",
+    "redAlgorithmList": [
+      "RecentMaxWeightFrequency",
+      "RecentMaxWeightFrequency",
+      "RecentMaxWeightFrequency",
+      "RecentMaxWeightFrequency",
+      "RecentMaxWeightFrequency",
+      "RecentMaxWeightFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 3940,
+      "hitTotalCount": 144,
+      "hitBlueTotalCount": 137,
+      "hitRedTotalCount": 8,
+      "hitRedBlueTotalCount": 1,
+      "hitFirstRedTotalCount": 28,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "MaxDistributionSplitWeightFrequency",
+    "redAlgorithmList": [
+      "MaxDistributionSplitWeightFrequency",
+      "MaxDistributionSplitWeightFrequency",
+      "MaxDistributionSplitWeightFrequency",
+      "MaxDistributionSplitWeightFrequency",
+      "MaxDistributionSplitWeightFrequency",
+      "MaxDistributionSplitWeightFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 4120,
+      "hitTotalCount": 141,
+      "hitBlueTotalCount": 135,
+      "hitRedTotalCount": 9,
+      "hitRedBlueTotalCount": 3,
+      "hitFirstRedTotalCount": 24,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "RecentMaxFrequency",
+    "redAlgorithmList": [
+      "RecentMaxFrequency",
+      "RecentMaxFrequency",
+      "RecentMaxFrequency",
+      "RecentMaxFrequency",
+      "RecentMaxFrequency",
+      "RecentMaxFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 3760,
+      "hitTotalCount": 144,
+      "hitBlueTotalCount": 135,
+      "hitRedTotalCount": 10,
+      "hitRedBlueTotalCount": 1,
+      "hitFirstRedTotalCount": 27,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "MaxDistributionCumulativeWeightFrequency",
+    "redAlgorithmList": [
+      "MaxDistributionCumulativeWeightFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "MaxDistributionCumulativeWeightFrequency",
+      "MaxDistributionCumulativeWeightFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 4305,
+      "hitTotalCount": 139,
+      "hitBlueTotalCount": 133,
+      "hitRedTotalCount": 10,
+      "hitRedBlueTotalCount": 4,
+      "hitFirstRedTotalCount": 22,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "RedPredict",
+    "redAlgorithmList": [
+      "RedPredict",
+      "RedPredict",
+      "RedPredict",
+      "RedPredict",
+      "RedPredict",
+      "RedPredict"
+    ],
+    "predictResult": {
+      "sumValue": 4305,
+      "hitTotalCount": 139,
+      "hitBlueTotalCount": 133,
+      "hitRedTotalCount": 10,
+      "hitRedBlueTotalCount": 4,
+      "hitFirstRedTotalCount": 22,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "ContinuityWeightFrequency",
+    "redAlgorithmList": [
+      "ContinuityWeightFrequency",
+      "ContinuityWeightFrequency",
+      "ContinuityWeightFrequency",
+      "ContinuityWeightFrequency",
+      "ContinuityWeightFrequency",
+      "ContinuityWeightFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 3660,
+      "hitTotalCount": 128,
+      "hitBlueTotalCount": 123,
+      "hitRedTotalCount": 6,
+      "hitRedBlueTotalCount": 1,
+      "hitFirstRedTotalCount": 20,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "SurgeFrequency",
+    "redAlgorithmList": [
+      "SurgeFrequency",
+      "SurgeFrequency",
+      "SurgeFrequency",
+      "SurgeFrequency",
+      "SurgeFrequency",
+      "SurgeFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 4105,
+      "hitTotalCount": 133,
+      "hitBlueTotalCount": 122,
+      "hitRedTotalCount": 14,
+      "hitRedBlueTotalCount": 3,
+      "hitFirstRedTotalCount": 30,
+      "maxValue": 3000
+    }
+  },
+  {
+    "blueAlgorithm": "MaxFrequency",
+    "redAlgorithmList": [
+      "MaxFrequency",
+      "MaxFrequency",
+      "MaxFrequency",
+      "MaxFrequency",
+      "MaxFrequency",
+      "MaxFrequency"
+    ],
+    "predictResult": {
+      "sumValue": 1105,
+      "hitTotalCount": 132,
+      "hitBlueTotalCount": 121,
+      "hitRedTotalCount": 13,
+      "hitRedBlueTotalCount": 2,
+      "hitFirstRedTotalCount": 30,
+      "maxValue": 200
+    }
+  },
+  {
     "blueAlgorithm": "BluePredict",
     "redAlgorithmList": [
       "FirstRedPredict",

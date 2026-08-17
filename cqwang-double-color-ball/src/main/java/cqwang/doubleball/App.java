@@ -5,9 +5,7 @@ package cqwang.doubleball;
  */
 public class App {
     public static void main(String[] args) {
-
-        FuturePredictV2.predict();
-        FuturePredict.singlePredict();
+        FuturePredict.predict();
     }
 }
 
