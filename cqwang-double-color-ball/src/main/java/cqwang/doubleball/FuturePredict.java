@@ -25,7 +25,7 @@ public class FuturePredict {
 
     public static void predictList() {
         DoubleColorBallPreload.execute();
-        var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
+        var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
