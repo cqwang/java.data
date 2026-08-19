@@ -17,9 +17,9 @@ public class DoublePredictOption {
 
     public PredictOption toPredictOption(ValueFlag valueFlag) {
         if (valueFlag == ValueFlag.BlUE) {
-            return new PredictOption(blueBlocks);
+            return new PredictOption(new HashSet<>(blueBlocks));
         }
-        return new PredictOption(redBlocks);
+        return new PredictOption(new HashSet<>(redBlocks));
     }
 
     public DoublePredictOption addRedBlock(int data) {

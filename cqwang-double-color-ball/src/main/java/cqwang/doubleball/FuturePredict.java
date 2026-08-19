@@ -10,9 +10,9 @@ import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class FuturePredict {
-    public static void predict(){
+    public static void predict() {
         DoubleColorBallPreload.execute();
-        var algorithmList = new DoubleColorAlgorithmSelector().execute(RunOption.RE_CALCULATE);
+        var algorithmList = new DoubleColorAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
@@ -23,14 +23,14 @@ public class FuturePredict {
         printInfo(resultSet);
     }
 
-    public static void predictList(){
+    public static void predictList() {
         DoubleColorBallPreload.execute();
-        var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
+        var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
             var predictList = algorithm.predictList(targetIndex, new DoublePredictOption());
-            for(var predict: predictList){
+            for (var predict : predictList) {
                 resultSet.add(predict.getSimpleInfo());
             }
         }
