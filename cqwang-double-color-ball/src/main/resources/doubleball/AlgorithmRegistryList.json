@@ -1,6 +1,13 @@
 [
   {
-    "blueAlgorithm": "BluePredict",
-    "redAlgorithm": "RedPredict"
+    "blueAlgorithm": "BlueRecommend",
+    "redAlgorithm": "MaxDistributionCumulativeWeightFrequency",
+    "predictResult": {
+      "sumValue": 4415,
+      "hitTotalCount": 125,
+      "hitBlueTotalCount": 122,
+      "hitRedTotalCount": 8,
+      "maxValue": 3000
+    }
   }
 ]

@@ -349,9 +349,9 @@ public class AlgorithmUtils {
         boolean success = false;
         int result = range.getMinimum();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-//            if (option.isBlocked(i)) {
-//                continue;
-//            }
+            if (option.isBlocked(i)) {
+                continue;
+            }
 
             if (midBall.getFrequency(i) == 0) {
                 continue;
@@ -470,7 +470,7 @@ public class AlgorithmUtils {
         return new SingleResult(result, success);
     }
 
-    private static int calculateScore(SingleBall[] subList, boolean isCumulativeWeight, int[] weightList, int data, int index) {
+    public static int calculateScore(SingleBall[] subList, boolean isCumulativeWeight, int[] weightList, int data, int index) {
         if (isCumulativeWeight) {
             return subList[index].getFrequency(data) * weightList[index];
         }

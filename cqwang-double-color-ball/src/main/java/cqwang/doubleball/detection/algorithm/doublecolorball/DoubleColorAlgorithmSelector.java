@@ -8,12 +8,9 @@ import cqwang.doubleball.detection.algorithm.AlgorithmSelector;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.model.option.DoublePredictOption;
 import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.*;
 
 public class DoubleColorAlgorithmSelector  implements AlgorithmSelector<DoubleColorAlgorithmRegistry> {

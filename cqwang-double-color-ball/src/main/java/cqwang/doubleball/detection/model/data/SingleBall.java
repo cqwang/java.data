@@ -2,6 +2,7 @@ package cqwang.doubleball.detection.model.data;
 
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -32,6 +33,7 @@ public class SingleBall {
     /**
      * 历史数据按照频次、数值排序
      */
+    @Getter
     private List<DataFrequency> sortedList;
 
 
