@@ -443,7 +443,7 @@ public class AlgorithmUtils {
         subList[1] = singleBall.sub(20);
         subList[2]=singleBall.sub(40);
 
-        var weightList = isCumulativeWeight ? new int[]{7, 3, 1} : new int[]{10, 4, 1};
+        var weightList = isCumulativeWeight ? new double[]{7, 3, 1} : new double[]{10, 4, 1};
 
 
 
@@ -456,7 +456,7 @@ public class AlgorithmUtils {
             }
 
 
-            var score = 0;
+            var score = 0.0;
             for (var index = 0; index < subList.length; index++) {
                 score += calculateScore(subList, isCumulativeWeight, weightList, data, index);
             }
@@ -470,7 +470,7 @@ public class AlgorithmUtils {
         return new SingleResult(result, success);
     }
 
-    public static int calculateScore(SingleBall[] subList, boolean isCumulativeWeight, int[] weightList, int data, int index) {
+    public static double calculateScore(SingleBall[] subList, boolean isCumulativeWeight, double[] weightList, int data, int index) {
         if (isCumulativeWeight) {
             return subList[index].getFrequency(data) * weightList[index];
         }
