@@ -2,6 +2,7 @@ package cqwang.doubleball.detection.algorithm;
 
 import cqwang.data.serializer.JSON;
 import cqwang.doubleball.detection.model.option.RunOption;
+import cqwang.doubleball.detection.utils.CompareUtils;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
             return algorithmList;
         }
 
-        algorithmList.sort((o1, o2) -> o2.getPredictResult().getSumValue() - o1.getPredictResult().getSumValue());
+        algorithmList.sort(CompareUtils.PREDICT_RESULT_COMPARE);
         var actualCount = Math.min(getMaxCount(), algorithmList.size());
         algorithmList = algorithmList.subList(0, actualCount);
         System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下

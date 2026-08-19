@@ -114,6 +114,13 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         option.addRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
         list.add(predict(targetIndex, option));
 
+
         return list;
+    }
+
+
+    @JsonIgnore
+    public String getUniqueName() {
+        return redAlgorithm + "_" + blueAlgorithm;
     }
 }

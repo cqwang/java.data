@@ -4,7 +4,6 @@ import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.model.data.SingleBall;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
-import cqwang.doubleball.detection.utils.AlgorithmUtils;
 import org.apache.commons.lang3.Range;
 
 public class BlueRecommend implements SingleBallAlgorithm {
@@ -28,8 +27,8 @@ public class BlueRecommend implements SingleBallAlgorithm {
             SingleBall singleBall,
             Range<Integer> range,
             PredictOption option) {
-        var sub30 = singleBall.sub(30);
-        var sub15 = singleBall.sub(15);
+        var sub30 = singleBall.sub(34);
+        var sub15 = singleBall.sub(17);
 
         double maxScore = 0;
         boolean success = false;

@@ -77,4 +77,5 @@
 对同一个位置的预测，如果相同则选取，如果不同则按照得分选取
 
 
-投票
+#### 增长趋势
+在线构建图表：https://echarts.apache.org/examples/zh/editor.html

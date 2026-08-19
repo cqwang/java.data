@@ -6,7 +6,8 @@ package cqwang.doubleball;
 public class App {
     public static void main(String[] args) {
 
-        FuturePredict.predictList();
+//        FuturePredict.predictList();
+        System.out.println(ValueTrendLine.buildEchartDom());
     }
 }
 

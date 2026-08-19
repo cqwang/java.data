@@ -3,6 +3,7 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
+import cqwang.doubleball.detection.utils.CompareUtils;
 import cqwang.doubleball.detection.utils.ValueCalculator;
 import cqwang.doubleball.detection.algorithm.AlgorithmSelector;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
@@ -32,7 +33,7 @@ public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleCol
             selectedAlgorithmList.add(advancedAlgorithm);
         }
 
-        selectedAlgorithmList.sort((o1, o2) -> o2.getPredictResult().getSumValue() - o1.getPredictResult().getSumValue());
+        selectedAlgorithmList.sort(CompareUtils.PREDICT_RESULT_COMPARE);
         System.out.println(JSON.toJSONString(selectedAlgorithmList));
         return selectedAlgorithmList;
     }
