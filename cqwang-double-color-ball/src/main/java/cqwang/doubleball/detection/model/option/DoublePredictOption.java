@@ -27,8 +27,18 @@ public class DoublePredictOption {
         return this;
     }
 
+    public DoublePredictOption removeRedBlock(int data) {
+        this.redBlocks.remove(data);
+        return this;
+    }
+
     public DoublePredictOption addBlueBlock(int data) {
         this.blueBlocks.add(data);
+        return this;
+    }
+
+    public DoublePredictOption removeBlueBlock(int data) {
+        this.blueBlocks.remove(data);
         return this;
     }
 }

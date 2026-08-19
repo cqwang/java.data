@@ -19,6 +19,7 @@ public class SingleBallAlgorithmFactory {
             new SingleBallAlgorithmRegistry("SurgeFrequency", SurgeFrequency.class),
             new SingleBallAlgorithmRegistry("SvmSimulation", SvmSimulation.class),
             new SingleBallAlgorithmRegistry("BlueRecommend", BlueRecommend.class),
+            new SingleBallAlgorithmRegistry("RedRecommend", RedRecommend.class),
 
     };
 

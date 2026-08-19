@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class DoubleColorAlgorithmSelector  implements AlgorithmSelector<DoubleColorAlgorithmRegistry> {
+public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleColorAlgorithmRegistry> {
     int MIN_AMOUNT = 0;
 
 
@@ -56,31 +56,6 @@ public class DoubleColorAlgorithmSelector  implements AlgorithmSelector<DoubleCo
         }
         return resultList;
     }
-
-//    private @NonNull ArrayList<DoubleColorAlgorithmRegistry> getDoubleColorPredictionAlgorithmRegistries(Map<Integer, List<DoubleColorAlgorithmRegistry>> maxValueAlgorithmMap) {
-//        for (var entry : maxValueAlgorithmMap.entrySet()) {
-//            var list = entry.getValue();
-//            list.sort((left, right) -> {
-//                if (left.getPredictResult().getHitBlueTotalCount() == right.getPredictResult().getHitBlueTotalCount()) {
-//                    var recent = right.getPredictResult().getRecentSumValue(100) - left.getPredictResult().getRecentSumValue(100);
-//                    if (recent == 0) {
-//                        return right.getPredictResult().getSumValue() - left.getPredictResult().getSumValue();
-//                    }
-//                    return recent;
-//                }
-//                return right.getPredictResult().getHitBlueTotalCount() - left.getPredictResult().getHitBlueTotalCount();
-//            });
-//        }
-//
-//        // 相同maxValue下，只取
-//        var selectedAlgorithmList = new ArrayList<DoubleColorAlgorithmRegistry>();
-//        for (var entry : maxValueAlgorithmMap.entrySet()) {
-//            var subList = new ArrayList<>(entry.getValue());
-//            selectedAlgorithmList.addAll(subList);
-//        }
-//
-//        return selectedAlgorithmList;
-//    }
 
     @Override
     public List<DoubleColorAlgorithmRegistry> readFromFile(boolean resetHistoryValue) {

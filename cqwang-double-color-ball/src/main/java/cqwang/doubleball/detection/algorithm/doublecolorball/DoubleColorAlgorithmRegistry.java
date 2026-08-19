@@ -15,6 +15,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 @NoArgsConstructor
 @JsonPropertyOrder({"blueAlgorithm", "redAlgorithm", "predictResult"})
 public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements DoubleColorAlgorithm {
@@ -89,9 +93,27 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
                 }
             }
         }
+        predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
 
         var blueValue = blueInstance.predict(splitBall.getBlueBall(), option.toPredictOption(ValueFlag.BlUE)).getResult();
         predictResult.setBlueValue(blueValue);
         return predictResult;
+    }
+
+    @Override
+    public List<DoubleColorBall> predictList(int targetIndex, DoublePredictOption option) {
+        var list = new ArrayList<DoubleColorBall>();
+
+        var first = predict(targetIndex, option);
+        list.add(first);
+
+        option.addRedBlock(first.getRedValueList().get(0));
+        list.add(predict(targetIndex, option));
+
+        option.removeRedBlock(first.getRedValueList().get(0));
+        option.addRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
+        list.add(predict(targetIndex, option));
+
+        return list;
     }
 }

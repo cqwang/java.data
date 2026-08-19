@@ -14,6 +14,9 @@ import java.util.List;
  */
 @Data
 public class PredictResult {
+
+    private int sumCost = 0;
+
     /**
      * 预测价值合计
      */
@@ -40,13 +43,14 @@ public class PredictResult {
      * 预测价值曲线，按照索引正序
      */
     @JsonIgnore
-    private List<PredictPointValue> predictPointList;
+//    private List<PredictPointValue> predictPointList;
 
     public PredictResult() {
-        this.predictPointList = new ArrayList<>();
+//        this.predictPointList = new ArrayList<>();
     }
 
     public void add(int predictIndex, PredictValueModel predictValueModel) {
+        sumCost += 2;
         if (ValueCalculator.hasNoValue(predictValueModel.getPredictValue())) {
             return;
         }
@@ -63,19 +67,23 @@ public class PredictResult {
         if (predictValueModel.getPredictValue() > maxValue) {
             maxValue = predictValueModel.getPredictValue();
         }
-        this.predictPointList.add(new PredictPointValue(predictIndex, predictValueModel));
+//        this.predictPointList.add(new PredictPointValue(predictIndex, predictValueModel));
     }
 
-    public int getRecentSumValue(int recentSize) {
-        int sumValue = 0;
-        var startIndex = DoubleColorBallPreload.getAllData().size() - recentSize;
-        for (int i = 0; i < this.predictPointList.size(); i++) {
-            var point = this.predictPointList.get(i);
-            if (point.getPredictIndex() < startIndex) {
-                continue;
-            }
-            sumValue += point.getPredictValue().getPredictValue();
-        }
-        return sumValue;
+    public int getProfit() {
+        return sumValue - sumCost;
     }
+
+//    public int getRecentSumValue(int recentSize) {
+//        int sumValue = 0;
+//        var startIndex = DoubleColorBallPreload.getAllData().size() - recentSize;
+//        for (int i = 0; i < this.predictPointList.size(); i++) {
+//            var point = this.predictPointList.get(i);
+//            if (point.getPredictIndex() < startIndex) {
+//                continue;
+//            }
+//            sumValue += point.getPredictValue().getPredictValue();
+//        }
+//        return sumValue;
+//    }
 }
