@@ -15,11 +15,15 @@ public class DoublePredictOption {
      */
     private Set<Integer> redBlocks = new HashSet<>();
 
+    private Set<Integer> blueAllows = new HashSet<>();
+
+    private Set<Integer> redAllows = new HashSet<>();
+
     public PredictOption toPredictOption(ValueFlag valueFlag) {
         if (valueFlag == ValueFlag.BlUE) {
-            return new PredictOption(new HashSet<>(blueBlocks));
+            return new PredictOption(new HashSet<>(blueBlocks), new HashSet<>(blueAllows));
         }
-        return new PredictOption(new HashSet<>(redBlocks));
+        return new PredictOption(new HashSet<>(redBlocks), new HashSet<>(redAllows));
     }
 
     public DoublePredictOption addRedBlock(int data) {
@@ -39,6 +43,16 @@ public class DoublePredictOption {
 
     public DoublePredictOption removeBlueBlock(int data) {
         this.blueBlocks.remove(data);
+        return this;
+    }
+
+    public DoublePredictOption addBlueAllow(int data) {
+        this.blueAllows.add(data);
+        return this;
+    }
+
+    public DoublePredictOption removeBlueAllow(int data) {
+        this.blueAllows.remove(data);
         return this;
     }
 }

@@ -1,14 +1,62 @@
 package cqwang.doubleball.detection.utils;
 
 import cqwang.doubleball.detection.model.data.SingleBall;
+import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
+import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 import org.apache.commons.lang3.Range;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlgorithmUtils {
+
+
+    // 间隔最大，频次最少，加权重
+    public static int findBlueCold() {
+        Range<Integer> range = Range.between(1, 16);
+        double maxScore = 0;
+        int result = range.getMinimum();
+        int period = 50;
+        var maxSize = DoubleColorBallPreload.getAllData().size();
+        for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+            var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(BallType.BLUE, 0, i);
+            var score = calculateScore(globalBallIndexList, maxSize, period);
+            if (score > maxScore) {
+                maxScore = score;
+                result = i;
+            }
+        }
+
+        return result;
+    }
+
+    public static double calculateScore(List<Integer> indexList, int maxSize, int period) {
+        double sumScore = 0;
+        int minIndex = maxSize - period;
+        int hitCount = 0;
+        int lastIndex = maxSize;
+        for (var i = indexList.size() - 1; i >= 0; i--) {
+            var index = indexList.get(i);
+            if (index < minIndex) {
+                break;
+            }
+
+            hitCount++;
+
+            var diff = lastIndex - index;
+            var score = diff * 1.0 / hitCount;
+            sumScore += score;
+            lastIndex = index;
+        }
+
+        if (hitCount < 2) {
+            return 0;
+        }
+        return sumScore;
+    }
+
 
     public static int diffWeightedAverage(SingleBall singleBall, SingleBall preBall, Range<Integer> range) {
         var diffList = new ArrayList<Integer>(singleBall.getDataList().size());
@@ -22,6 +70,7 @@ public class AlgorithmUtils {
 
     /**
      * 中位数
+     *
      * @param range
      * @return
      */
@@ -31,7 +80,7 @@ public class AlgorithmUtils {
                 Math.min(range.getMaximum(), (int) Math.round(median)));
     }
 
-    private static int medianData(List<Integer> dataList){
+    private static int medianData(List<Integer> dataList) {
         int mid = dataList.size() / 2;
         if (dataList.size() % 2 == 0) {
             return (dataList.get(mid - 1) + dataList.get(mid)) / 2;
@@ -42,15 +91,16 @@ public class AlgorithmUtils {
 
     /**
      * 加权平均值
+     *
      * @return
      */
-    public static int weightedAverage(List<Integer> dataList, Range<Integer> range){
+    public static int weightedAverage(List<Integer> dataList, Range<Integer> range) {
         var weightedAvg = weightedAverage(dataList);
         return Math.max(range.getMinimum(),
                 Math.min(range.getMaximum(), (int) Math.round(weightedAvg)));
     }
 
-    private static double weightedAverage(List<Integer> dataList){
+    private static double weightedAverage(List<Integer> dataList) {
         double sum = 0;
         double totalWeight = 0;
 
@@ -62,7 +112,6 @@ public class AlgorithmUtils {
 
         return sum / totalWeight;
     }
-
 
 
     /**
@@ -136,7 +185,7 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
 
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            if(option.isBlocked(i)) {
+            if (option.isBlocked(i)) {
                 continue;
             }
 
@@ -225,7 +274,7 @@ public class AlgorithmUtils {
 
             // 计算邻域强度：周围NEIGHBOR_RANGE内的频率总和
             int neighborStrength = 0;
-            int period =2 ;
+            int period = 2;
             for (int j = Math.max(range.getMinimum(), i - period);
                  j <= Math.min(range.getMaximum(), i + period); j++) {
                 neighborStrength += singleBall.getFrequency(j);
@@ -242,7 +291,6 @@ public class AlgorithmUtils {
 
         return new SingleResult(result, success);
     }
-
 
 
     /**
@@ -339,7 +387,7 @@ public class AlgorithmUtils {
      * @return
      */
     public static SingleResult surge(SingleBall singleBall,
-                            Range<Integer> range,
+                                     Range<Integer> range,
                                      PredictOption option) {
         var period = 30;
         var midBall = singleBall.sub(period);
@@ -424,7 +472,6 @@ public class AlgorithmUtils {
     }
 
 
-
     /**
      * 结合多个时间窗口的加权频次
      *
@@ -441,10 +488,9 @@ public class AlgorithmUtils {
         var subList = new SingleBall[3];
         subList[0] = singleBall.sub(12);
         subList[1] = singleBall.sub(20);
-        subList[2]=singleBall.sub(40);
+        subList[2] = singleBall.sub(40);
 
         var weightList = isCumulativeWeight ? new double[]{7, 3, 1} : new double[]{10, 4, 1};
-
 
 
         double maxScore = 0;

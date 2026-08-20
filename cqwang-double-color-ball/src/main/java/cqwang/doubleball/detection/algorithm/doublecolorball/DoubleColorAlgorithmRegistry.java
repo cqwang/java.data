@@ -11,6 +11,7 @@ import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.option.DoublePredictOption;
 import cqwang.doubleball.detection.model.result.PredictResult;
 import cqwang.doubleball.detection.model.result.features.ValueFlag;
+import cqwang.doubleball.detection.utils.AlgorithmUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -114,6 +115,10 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         option.addRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
         list.add(predict(targetIndex, option));
 
+        var blueCold = AlgorithmUtils.findBlueCold();
+        option.removeRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
+        option.addBlueAllow(blueCold);
+        list.add(predict(targetIndex, option));
 
         return list;
     }
