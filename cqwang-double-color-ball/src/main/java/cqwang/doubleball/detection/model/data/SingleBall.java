@@ -1,5 +1,6 @@
 package cqwang.doubleball.detection.model.data;
 
+import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
 import lombok.Data;
@@ -16,6 +17,9 @@ import java.util.Map;
  */
 @NoArgsConstructor
 public class SingleBall {
+
+    private BallType ballType;
+
     /**
      * 位序
      */
@@ -48,7 +52,8 @@ public class SingleBall {
     @Getter
     private double avgFrequency;
 
-    public SingleBall(int index) {
+    public SingleBall(int index, BallType ballType) {
+        this.ballType = ballType;
         this.index = index;
         this.dataList = new ArrayList<>();
         this.dataFrequencyMap = new HashMap<>();
@@ -155,7 +160,7 @@ public class SingleBall {
             sampleSize = this.dataList.size();
         }
 
-        var sub = new SingleBall(this.index);
+        var sub = new SingleBall(this.index, this.ballType);
         int startIndex = this.dataList.size() - sampleSize;
         for (var i = startIndex; i < this.dataList.size(); i++) {
             sub.addData(this.dataList.get(i));

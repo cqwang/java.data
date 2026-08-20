@@ -3,6 +3,7 @@ package cqwang.doubleball.detection.preload;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
+import cqwang.doubleball.detection.model.data.SplitBall;
 import lombok.Getter;
 
 import java.util.Collections;
@@ -18,6 +19,11 @@ public class DoubleColorBallPreload {
     @Getter
     private static List<DoubleColorBall> allData;
 
+    /**
+     * 原始数据
+     */
+    private static SplitBall splitAllData;
+
 
     public static void execute() {
         allData = FileProvider.readFile("/doubleball/DoubleColorBall.json", new TypeReference<List<DoubleColorBall>>() { });
@@ -26,6 +32,9 @@ public class DoubleColorBallPreload {
         }
 
         Collections.reverse(allData);
+
+
+        splitAllData = new SplitBall(allData.size());
     }
 
 
