@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleColorAlgorithmRegistry> {
-    int MIN_AMOUNT = 0;
+    int MIN_PROFIT = 0;
 
 
     @Override
@@ -48,7 +48,7 @@ public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleCol
                 var advancedAlgorithm = new DoubleColorAlgorithmRegistry(blue, red);
                 historyPredict(advancedAlgorithm);
                 var predictResult = advancedAlgorithm.getPredictResult();
-                if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getSumValue() < MIN_AMOUNT) {
+                if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getProfit() < MIN_PROFIT) {
                     continue;
                 }
 

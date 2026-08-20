@@ -22,6 +22,7 @@ public class DoubleColorBallPreload {
     /**
      * 原始数据
      */
+    @Getter
     private static SplitBall splitAllData;
 
 
@@ -36,6 +37,5 @@ public class DoubleColorBallPreload {
 
         splitAllData = new SplitBall(allData.size());
     }
-
 
 }

@@ -85,4 +85,13 @@ public class SplitBall {
     public SingleBall getRedBall(int index) {
         return redBallMap.get(index);
     }
+
+
+    public List<Integer> getIndexList(BallType ballType, int index, int data) {
+        if (ballType == BallType.BLUE) {
+            return blueIndexMap.get(data);
+        }
+
+        return redIndexMap.get(index).get(data);
+    }
 }

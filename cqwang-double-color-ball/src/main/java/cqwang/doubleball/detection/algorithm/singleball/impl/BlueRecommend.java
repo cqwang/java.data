@@ -4,14 +4,74 @@ import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.model.data.SingleBall;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
+import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 import org.apache.commons.lang3.Range;
+
+import java.util.List;
 
 public class BlueRecommend implements SingleBallAlgorithm {
     @Override
     public SingleResult predict(SingleBall singleBall, PredictOption option) {
         var range = Range.between(singleBall.getMinData(), singleBall.getMaxData());
-        return surge(singleBall, range, option);
+        var result = surge(singleBall, range, option);
+        return result;
+//        if(result.isSuccess()) {
+//            return result;
+//        }
+
+//        return findCold(singleBall, range, option);
     }
+
+
+    // 间隔最大，频次最少，加权重
+    public SingleResult findCold(SingleBall singleBall, Range<Integer> range, PredictOption option) {
+        double maxScore = 0;
+        boolean success = false;
+        int result = range.getMinimum();
+        int period = 50;
+        var maxSize = DoubleColorBallPreload.getAllData().size();
+        for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+            if (option.isBlocked(i)) {
+                continue;
+            }
+
+            var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(singleBall.getBallType(), singleBall.getIndex(), i);
+            var score = calculateScore(globalBallIndexList, maxSize, period);
+            if (score > maxScore) {
+                maxScore = score;
+                result = i;
+                success = true;
+            }
+        }
+
+        return new SingleResult(result, success);
+    }
+
+    public double calculateScore(List<Integer> indexList, int maxSize, int period) {
+        double sumScore = 0;
+        int minIndex = maxSize - period;
+        int hitCount = 0;
+        int lastIndex = maxSize;
+        for (var i = indexList.size() - 1; i >= 0; i--) {
+            var index = indexList.get(i);
+            if (index < minIndex) {
+                break;
+            }
+
+            hitCount++;
+
+            var diff = lastIndex - index;
+            var score = diff * 1.0 / hitCount;
+            sumScore += score;
+            lastIndex = index;
+        }
+
+        if (hitCount < 2) {
+            return 0;
+        }
+        return sumScore;
+    }
+
 
 
     /**
@@ -27,8 +87,8 @@ public class BlueRecommend implements SingleBallAlgorithm {
             SingleBall singleBall,
             Range<Integer> range,
             PredictOption option) {
-        var sub30 = singleBall.sub(34);
-        var sub15 = singleBall.sub(17);
+        var sub30 = singleBall.sub(30);
+        var sub15 = singleBall.sub(15);
 
         double maxScore = 0;
         boolean success = false;
@@ -91,3 +151,7 @@ public class BlueRecommend implements SingleBallAlgorithm {
         return recentBall.getFrequency(data) * calcFactor(longBall, recentBall);
     }
 }
+
+
+
+

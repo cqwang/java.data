@@ -18,11 +18,13 @@ import java.util.Map;
 @NoArgsConstructor
 public class SingleBall {
 
+    @Getter
     private BallType ballType;
 
     /**
      * 位序
      */
+    @Getter
     private Integer index;
     /**
      * 历史数据按序记录
