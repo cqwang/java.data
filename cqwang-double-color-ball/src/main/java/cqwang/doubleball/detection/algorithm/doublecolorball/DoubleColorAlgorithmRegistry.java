@@ -11,7 +11,6 @@ import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.PredictResult;
-import cqwang.doubleball.detection.model.result.features.ValueFlag;
 import cqwang.doubleball.detection.utils.AlgorithmUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +19,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
 
 @NoArgsConstructor
 @JsonPropertyOrder({"blueAlgorithm", "redAlgorithm", "predictResult"})
@@ -90,7 +90,7 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
                 option.addBlocks(BallType.RED, redIndex + 1, predictResult.getRedValueList().get(0));
             }
 
-            for (int j = 0; j < redIndex; j++) {
+            for (int j = 0; j <= redIndex; j++) {
                 option.addBlock(BallType.RED, redIndex + 1, predictResult.getRedValueList().get(j));
             }
         }
@@ -110,27 +110,21 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
 
         // 替换first red
-        var index = 0;
-        var firstRedOption = option.cloneAndAddBlock(BallType.RED, index, origin.getRedValueList().get(index));
-        for (int i = 0; i < 5; i++) {
-            var firstRedBlock = predict(targetIndex, firstRedOption);
-            list.add(firstRedBlock);
-            firstRedOption.addBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(0));
-        }
+        replaceRed(list, targetIndex, option, origin, 0, 5);
 
 
         // 替换last red
-        index = origin.getRedValueList().size() - 1;
-        list.add(predict(targetIndex, option.cloneAndAddBlock(BallType.RED, index, origin.getRedValueList().get(index))));
+        replaceRed(list, targetIndex, option, origin, origin.getRedValueList().size() - 1, 1);
+
 
         // 使用冷blue
         var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
         for (var blue : coldBlueList) {
             list.add(origin.clone(blue.getData(), null));
         }
-
+//
         // 使用冷blue red
-        index = 0;
+        int index = 0;
         var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index, 30);
         for (var red : coldRedList) {
             var result = predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData()));
@@ -138,6 +132,15 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         }
 
         return list;
+    }
+
+    private void replaceRed(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, int index, int tryTimes) {
+        var firstRedOption = option.cloneAndAddBlock(BallType.RED, index, origin.getRedValueList().get(index));
+        for (int i = 0; i < tryTimes; i++) {
+            var firstRedBlock = predict(targetIndex, firstRedOption);
+            resultList.add(firstRedBlock);
+            firstRedOption.addBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index));
+        }
     }
 
 
