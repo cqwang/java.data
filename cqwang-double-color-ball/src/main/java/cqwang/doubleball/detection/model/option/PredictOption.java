@@ -91,4 +91,29 @@ public class PredictOption {
         }
     }
 
+    public PredictOption clone(){
+        var result = new PredictOption();
+        for(var entry : this.redBlocks.entrySet()){
+            var key = entry.getKey();
+            var values = new HashSet<>(entry.getValue());
+            result.redBlocks.put(key, values);
+        }
+        result.blueBlocks.addAll(this.blueBlocks);
+        result.blueAllow = this.blueAllow;
+        result.redAllows.putAll(this.redAllows);
+        return result;
+    }
+
+    public PredictOption cloneAndAddBlock(BallType ballType, int index, int value) {
+        var result = clone();
+        result.addBlock(ballType, index, value);
+        return result;
+    }
+
+    public PredictOption cloneAndSetAllow(BallType ballType, int index, int value) {
+        var result = clone();
+        result.setAllow(ballType, index, value);
+        return result;
+    }
+
 }

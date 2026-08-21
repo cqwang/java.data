@@ -1,5 +1,6 @@
 package cqwang.doubleball.detection.model.result;
 
+import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.result.features.ValueFlag;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,13 +13,16 @@ public class PredictValueModel {
      */
     private int predictValue = 0;
 
+    private String predictResult;
+
     /**
      * 价值标签
      */
     private ValueFlag valueFlag = ValueFlag.NONE;
 
-    public PredictValueModel(int predictValue, boolean equalsBlue, boolean hasRedEquals) {
+    public PredictValueModel(int predictValue, boolean equalsBlue, boolean hasRedEquals, String predictResult) {
         this.predictValue = predictValue;
+        this.predictResult = predictResult;
 
         if (equalsBlue && hasRedEquals) {
             valueFlag = ValueFlag.BLUE_RED;

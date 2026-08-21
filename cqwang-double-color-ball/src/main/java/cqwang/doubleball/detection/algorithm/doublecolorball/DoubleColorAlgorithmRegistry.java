@@ -83,6 +83,20 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         // 红色
         for (int redIndex = 0; redIndex < 6; redIndex++) {
             var singleBall = splitBall.getRedBall(redIndex);
+
+
+            for (int tryTimes = 0; tryTimes < 6; tryTimes++) {
+                var predictRedResult = redInstance.predict(singleBall, option);
+                if (predictResult.getRedValueList().contains(predictRedResult.getResult())) {
+                    option.addBlock(BallType.RED, redIndex, predictRedResult.getResult());
+                } else {
+                    predictResult.getRedValueList().add(predictRedResult.getResult());
+                    break;
+                }
+            }
+
+
+
             var predictRedResult = redInstance.predict(singleBall, option);
             predictResult.getRedValueList().add(predictRedResult.getResult());
         }
@@ -97,19 +111,15 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
     public List<DoubleColorBall> predictList(int targetIndex, PredictOption option) {
         var list = new ArrayList<DoubleColorBall>();
 
-        var first = predict(targetIndex, option);
+        var first = predict(targetIndex, option.clone());
         list.add(first);
 
         var index = 0;
-        option.addBlock(BallType.RED, index, first.getRedValueList().get(index));
-        list.add(predict(targetIndex, option));
-        option.removeBlock(BallType.RED, index, first.getRedValueList().get(index));
+        list.add(predict(targetIndex, option.cloneAndAddBlock(BallType.RED, index, first.getRedValueList().get(index))));
 
 
         index = first.getRedValueList().size() - 1;
-        option.addBlock(BallType.RED, index, first.getRedValueList().get(index));
-        list.add(predict(targetIndex, option));
-        option.removeBlock(BallType.RED, index, first.getRedValueList().get(index));
+        list.add(predict(targetIndex, option.cloneAndAddBlock(BallType.RED, index, first.getRedValueList().get(index))));
 
         var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0,15);
         for(var blue: coldBlueList){
@@ -119,8 +129,7 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         index = 0;
         var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index,50);
         for(var red: coldRedList) {
-            option.setAllow(BallType.RED, index, red.getData());
-            list.add(predict(targetIndex, option));
+            list.add(predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData())));
         }
 //
 //        for(var blue: coldBlueList){
