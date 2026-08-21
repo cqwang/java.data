@@ -117,14 +117,14 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         list.add(predict(targetIndex, option.cloneAndAddBlock(BallType.RED, index, first.getRedValueList().get(index))));
 
         // 使用冷blue
-        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
+        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 24);
         for (var blue : coldBlueList) {
             list.add(first.clone(blue.getData(), null));
         }
 
         // 使用冷blue red
         index = 0;
-        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index, 15);
+        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index, 50);
         for (var red : coldRedList) {
             var result = predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData()));
             list.add(result);

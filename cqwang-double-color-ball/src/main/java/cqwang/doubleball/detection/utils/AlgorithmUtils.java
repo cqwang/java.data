@@ -21,7 +21,7 @@ public class AlgorithmUtils {
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
             var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(ballType, index, i);
             var score = calculateScore(globalBallIndexList, maxSize, period);
-            if (score >= period * 0.73) {
+            if (score >= period * 0.6) {
                 dataScoreList.add(new DataScore(i, score));
             }
         }
@@ -58,10 +58,10 @@ public class AlgorithmUtils {
             sumScore += score;
             lastIndex = index;
         }
-//
-//        if (hitCount < 2) {
-//            return 0;
-//        }
+
+        if (hitCount < 2) {
+            return 0;
+        }
         return sumScore;
     }
 
