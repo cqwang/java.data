@@ -84,21 +84,20 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         for (int redIndex = 0; redIndex < 6; redIndex++) {
             var singleBall = splitBall.getRedBall(redIndex);
 
-
-            for (int tryTimes = 0; tryTimes < 6; tryTimes++) {
-                var predictRedResult = redInstance.predict(singleBall, option);
-                if (predictResult.getRedValueList().contains(predictRedResult.getResult())) {
-                    option.addBlock(BallType.RED, redIndex, predictRedResult.getResult());
-                } else {
-                    predictResult.getRedValueList().add(predictRedResult.getResult());
-                    break;
-                }
-            }
-
-
-
             var predictRedResult = redInstance.predict(singleBall, option);
             predictResult.getRedValueList().add(predictRedResult.getResult());
+            option.addBlocks(BallType.RED, redIndex+1, predictRedResult.getResult());
+
+//
+//            for (int tryTimes = 0; tryTimes < 6; tryTimes++) {
+//                var predictRedResult = redInstance.predict(singleBall, option);
+//                if (predictResult.getRedValueList().contains(predictRedResult.getResult())) {
+//                    option.addBlock(BallType.RED, redIndex, predictRedResult.getResult());
+//                } else {
+//                    predictResult.getRedValueList().add(predictRedResult.getResult());
+//                    break;
+//                }
+//            }
         }
         predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
 
@@ -127,16 +126,14 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         }
 
         index = 0;
-        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index,50);
+        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index,15);
         for(var red: coldRedList) {
-            list.add(predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData())));
+            var result = predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData()));
+            list.add(result);
+            for (var blue : coldBlueList) {
+                list.add(result.clone(blue.getData(), null));
+            }
         }
-//
-//        for(var blue: coldBlueList){
-//            for(var red: coldRedList){
-//                list.add(first.clone(blue.getData(), red.getData()));
-//            }
-//        }
 
         return list;
     }

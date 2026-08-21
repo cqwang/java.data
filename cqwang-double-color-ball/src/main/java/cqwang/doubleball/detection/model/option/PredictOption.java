@@ -39,6 +39,19 @@ public class PredictOption {
         }
     }
 
+    public void addBlocks(BallType ballType, int index, int maxValue) {
+        if (ballType == BallType.BLUE) {
+            for (int i = 1; i <= maxValue; i++) {
+                blueBlocks.add(i);
+            }
+        } else if (ballType == BallType.RED) {
+            var set = redBlocks.computeIfAbsent(index, k -> new HashSet<>());
+            for (int i = 1; i <= maxValue; i++) {
+                set.add(i);
+            }
+        }
+    }
+
     public boolean isBlock(BallType ballType, int index ,int value) {
         if (ballType == BallType.BLUE) {
             return blueBlocks.contains(value);
