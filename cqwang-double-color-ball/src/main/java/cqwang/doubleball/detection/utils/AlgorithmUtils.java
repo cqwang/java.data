@@ -5,6 +5,8 @@ import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
 import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.utils.model.DataScore;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;
 
 import java.util.ArrayList;
@@ -12,27 +14,33 @@ import java.util.List;
 
 public class AlgorithmUtils {
 
-
-    // 间隔最大，频次最少，加权重
-    public static int findBlueCold() {
-        Range<Integer> range = Range.between(1, 16);
-        double maxScore = 0;
-        int result = range.getMinimum();
-        int period = 50;
+    public static List<DataScore> findColdList(BallType ballType, int index, int period) {
+        Range<Integer> range = ballType == BallType.BLUE ? Range.between(1, 16) : Range.between(1, 33);
+        List<DataScore> dataScoreList = new ArrayList<>();
         var maxSize = DoubleColorBallPreload.getAllData().size();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(BallType.BLUE, 0, i);
+            var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(ballType, index, i);
             var score = calculateScore(globalBallIndexList, maxSize, period);
-            if (score > maxScore) {
-                maxScore = score;
-                result = i;
+            if (score >= period * 0.73) {
+                dataScoreList.add(new DataScore(i, score));
             }
         }
 
-        return result;
+        dataScoreList.sort((o1, o2) -> {
+            var diff = o2.getScore() - o1.getScore();
+            if (Math.abs(diff) < 1e-6) {
+                return 0;
+            }
+            return diff > 0 ? 1 : -1;
+        });
+        return dataScoreList;
     }
 
     public static double calculateScore(List<Integer> indexList, int maxSize, int period) {
+        if (CollectionUtils.isEmpty(indexList)) {
+            return 0;
+        }
+
         double sumScore = 0;
         int minIndex = maxSize - period;
         int hitCount = 0;
@@ -50,10 +58,10 @@ public class AlgorithmUtils {
             sumScore += score;
             lastIndex = index;
         }
-
-        if (hitCount < 2) {
-            return 0;
-        }
+//
+//        if (hitCount < 2) {
+//            return 0;
+//        }
         return sumScore;
     }
 

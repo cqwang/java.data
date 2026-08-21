@@ -14,14 +14,8 @@ public class PredictOption {
      */
     private Set<Integer> blocks = new HashSet<>();
 
-    private Set<Integer> allows = new HashSet<>();
-
     public boolean isBlocked(int data) {
         return blocks.contains(data);
-    }
-
-    public boolean isAllowed(int data) {
-        return allows.contains(data);
     }
 
     public void addBlock(int data) {

@@ -8,6 +8,7 @@ import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFacto
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegistry;
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.data.SplitBall;
+import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.DoublePredictOption;
 import cqwang.doubleball.detection.model.result.PredictResult;
 import cqwang.doubleball.detection.model.result.features.ValueFlag;
@@ -115,10 +116,21 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         option.addRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
         list.add(predict(targetIndex, option));
 
-        var blueCold = AlgorithmUtils.findBlueCold();
-        option.removeRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
-        option.addBlueAllow(blueCold);
-        list.add(predict(targetIndex, option));
+        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0,50);
+        for(var blue: coldBlueList){
+            list.add(first.clone(blue.getData(), null));
+        }
+
+        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, 0,50);
+        for(var red: coldRedList){
+            list.add(first.clone(null, red.getData()));
+        }
+
+        for(var blue: coldBlueList){
+            for(var red: coldRedList){
+                list.add(first.clone(blue.getData(), red.getData()));
+            }
+        }
 
         return list;
     }

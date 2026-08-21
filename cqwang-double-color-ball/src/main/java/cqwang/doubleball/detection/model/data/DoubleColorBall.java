@@ -82,4 +82,17 @@ public class DoubleColorBall {
         return StringUtils.join(this.redValueList, ", ") + " | " + this.blueValue;
     }
 
+
+    public DoubleColorBall clone(Integer blue, Integer firstRed) {
+        var target = new DoubleColorBall();
+        target.blueValue = this.blueValue;
+        if (blue != null) {
+            target.blueValue = blue;
+        }
+        target.redValueList.addAll(this.redValueList);
+        if (firstRed != null) {
+            target.redValueList.set(0, firstRed);
+        }
+        return target;
+    }
 }
