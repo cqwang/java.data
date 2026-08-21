@@ -129,4 +129,9 @@ public class PredictOption {
         return result;
     }
 
+    public boolean hasFirstRedAllow() {
+        var result = redAllows.get(0);
+        return result != null;
+    }
+
 }

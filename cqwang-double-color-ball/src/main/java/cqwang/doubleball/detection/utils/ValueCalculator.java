@@ -19,7 +19,7 @@ public class ValueCalculator {
         boolean equalsBlue = predictResult.getBlueValue().intValue() == target.getBlueValue().intValue();
         int predictValue = getPredictValue(intersectionRedCount, equalsBlue);
         boolean hasRedEquals = intersectionRedCount >= 4;
-        return new PredictValueModel(predictValue, equalsBlue, hasRedEquals, predictResult.getSimpleInfo());
+        return new PredictValueModel(predictValue, equalsBlue, hasRedEquals, predictResult.getSimpleInfo(), target.getSimpleInfo());
     }
 
     private static @NonNull int getPredictValue(int intersectionRedCount, boolean equalsBlue) {

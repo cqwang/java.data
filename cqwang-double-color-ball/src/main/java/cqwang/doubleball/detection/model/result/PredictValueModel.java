@@ -15,14 +15,17 @@ public class PredictValueModel {
 
     private String predictResult;
 
+    private String actualResult;
+
     /**
      * 价值标签
      */
     private ValueFlag valueFlag = ValueFlag.NONE;
 
-    public PredictValueModel(int predictValue, boolean equalsBlue, boolean hasRedEquals, String predictResult) {
+    public PredictValueModel(int predictValue, boolean equalsBlue, boolean hasRedEquals, String predictResult, String actualResult) {
         this.predictValue = predictValue;
         this.predictResult = predictResult;
+        this.actualResult = actualResult;
 
         if (equalsBlue && hasRedEquals) {
             valueFlag = ValueFlag.BLUE_RED;
