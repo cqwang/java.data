@@ -14,6 +14,40 @@ import java.util.List;
 
 public class AlgorithmUtils {
 
+
+    /**
+     *
+     * @param longBall
+     * @param recentBall
+     * @param data
+     * @param factor     倍数
+     * @return
+     */
+    public static boolean becomeHot(SingleBall longBall, SingleBall recentBall, int data, double factor) {
+        return scale(longBall, recentBall, data,1.0) > longBall.getFrequency(data) * factor;
+    }
+
+    public static boolean becomeCold(SingleBall longBall, SingleBall recentBall, int data) {
+        return scale(longBall, recentBall, data, 1.0) < longBall.getFrequency(data);
+    }
+
+    public static double calcFactor(SingleBall longBall, SingleBall recentBall) {
+        return 1.0 * longBall.getDataList().size() / recentBall.getDataList().size();
+    }
+
+    /**
+     * 把短期频次 按照比例扩展为长期频次
+     *
+     * @param longBall
+     * @param recentBall
+     * @param data
+     * @return
+     */
+    public static double scale(SingleBall longBall, SingleBall recentBall, int data, double factor) {
+        return recentBall.getFrequency(data) * calcFactor(longBall, recentBall);
+    }
+
+
     public static List<DataScore> findColdList(BallType ballType, int index, int period) {
         Range<Integer> range = ballType == BallType.BLUE ? Range.between(1, 16) : Range.between(1, 33);
         List<DataScore> dataScoreList = new ArrayList<>();

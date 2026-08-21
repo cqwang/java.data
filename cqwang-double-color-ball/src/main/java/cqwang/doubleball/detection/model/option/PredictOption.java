@@ -39,14 +39,14 @@ public class PredictOption {
         }
     }
 
-    public void addBlocks(BallType ballType, int index, int maxValue) {
+    public void addBlocks(BallType ballType, int index, int minValue, int maxValue) {
         if (ballType == BallType.BLUE) {
-            for (int i = 1; i <= maxValue; i++) {
+            for (int i = minValue; i <= maxValue; i++) {
                 blueBlocks.add(i);
             }
         } else if (ballType == BallType.RED) {
             var set = redBlocks.computeIfAbsent(index, k -> new HashSet<>());
-            for (int i = 1; i <= maxValue; i++) {
+            for (int i = minValue; i <= maxValue; i++) {
                 set.add(i);
             }
         }
@@ -132,6 +132,16 @@ public class PredictOption {
     public boolean hasFirstRedAllow() {
         var result = redAllows.get(0);
         return result != null;
+    }
+
+    public Integer nextRedAllow(int index) {
+        for (int i = index + 1; i < 6; i++) {
+            var result = redAllows.get(i);
+            if (result != null) {
+                return result;
+            }
+        }
+        return null;
     }
 
 }

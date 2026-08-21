@@ -83,11 +83,17 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         for (int redIndex = 0; redIndex < 6; redIndex++) {
             var singleBall = splitBall.getRedBall(redIndex);
 
+            var nextAllow = option.nextRedAllow(redIndex);
+            if (nextAllow != null) {
+                option.addBlocks(BallType.RED, redIndex, nextAllow, 33);
+            }
+
+
             var predictRedResult = redInstance.predict(singleBall, option);
             predictResult.getRedValueList().add(predictRedResult.getResult());
 
             if (option.hasFirstRedAllow()) {
-                option.addBlocks(BallType.RED, redIndex + 1, predictResult.getRedValueList().get(0));
+                option.addBlocks(BallType.RED, redIndex + 1, 1, predictResult.getRedValueList().get(0));
             }
 
             for (int j = 0; j <= redIndex; j++) {
@@ -108,9 +114,37 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         var origin = predict(targetIndex, option.clone());
         list.add(origin);
 
+//        if(origin.getBlueValue()<4){
+//            // 替换blue
+//            var blueOption = option.cloneAndAddBlock(BallType.BLUE, 0, origin.getBlueValue());
+//            for (int i = 0; i < 5; i++) {
+//                var blueBlock = predict(targetIndex, blueOption);
+//                list.add(blueBlock);
+//                blueOption.addBlock(BallType.BLUE, 0, blueBlock.getBlueValue());
+//            }
+//        }
 
         // 替换first red
         replaceRed(list, targetIndex, option, origin, 0, 5);
+
+        // 移位算法
+        if (origin.getRedValueList().get(0) <= 6) {
+            // 第二个red作为第一个red的黑名单
+            var secondRedOption = option.cloneAndAddBlock(BallType.RED, 0, origin.getRedValueList().get(1));
+            list.add(predict(targetIndex, secondRedOption));
+
+            // 第二个red前移
+            secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
+            list.add(predict(targetIndex, secondRedOption));
+
+            // 第二个red前移, 第4位red重新生成
+            secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
+            secondRedOption.setAllow(BallType.RED, 1, origin.getRedValueList().get(2));
+            secondRedOption.setAllow(BallType.RED, 2, origin.getRedValueList().get(3));
+            secondRedOption.setAllow(BallType.RED, 4, origin.getRedValueList().get(4));
+            secondRedOption.setAllow(BallType.RED, 5, origin.getRedValueList().get(5));
+            list.add(predict(targetIndex, secondRedOption));
+        }
 
 
         // 替换last red
