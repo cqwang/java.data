@@ -9,7 +9,7 @@ import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegis
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
-import cqwang.doubleball.detection.model.option.DoublePredictOption;
+import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.PredictResult;
 import cqwang.doubleball.detection.model.result.features.ValueFlag;
 import cqwang.doubleball.detection.utils.AlgorithmUtils;
@@ -74,63 +74,60 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
 
     @Override
-    public DoubleColorBall predict(int targetIndex, DoublePredictOption option) {
+    public DoubleColorBall predict(int targetIndex, PredictOption option) {
         // 获取样本数据
         var splitBall = new SplitBall(targetIndex);
 
         // 预测结果
         var predictResult = new DoubleColorBall();
         // 红色
-        var redOption = option.toPredictOption(ValueFlag.RED);
         for (int redIndex = 0; redIndex < 6; redIndex++) {
             var singleBall = splitBall.getRedBall(redIndex);
-
-            for (int tryTimes = 0; tryTimes < 6; tryTimes++) {
-                var predictRedResult = redInstance.predict(singleBall, redOption);
-                if (predictResult.getRedValueList().contains(predictRedResult.getResult())) {
-                    redOption.addBlock(predictRedResult.getResult());
-                } else {
-                    predictResult.getRedValueList().add(predictRedResult.getResult());
-                    break;
-                }
-            }
+            var predictRedResult = redInstance.predict(singleBall, option);
+            predictResult.getRedValueList().add(predictRedResult.getResult());
         }
         predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
 
-        var blueValue = blueInstance.predict(splitBall.getBlueBall(), option.toPredictOption(ValueFlag.BlUE)).getResult();
+        var blueValue = blueInstance.predict(splitBall.getBlueBall(), option).getResult();
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
 
     @Override
-    public List<DoubleColorBall> predictList(int targetIndex, DoublePredictOption option) {
+    public List<DoubleColorBall> predictList(int targetIndex, PredictOption option) {
         var list = new ArrayList<DoubleColorBall>();
 
         var first = predict(targetIndex, option);
         list.add(first);
 
-        option.addRedBlock(first.getRedValueList().get(0));
+        var index = 0;
+        option.addBlock(BallType.RED, index, first.getRedValueList().get(index));
         list.add(predict(targetIndex, option));
+        option.removeBlock(BallType.RED, index, first.getRedValueList().get(index));
 
-        option.removeRedBlock(first.getRedValueList().get(0));
-        option.addRedBlock(first.getRedValueList().get(first.getRedValueList().size() - 1));
+
+        index = first.getRedValueList().size() - 1;
+        option.addBlock(BallType.RED, index, first.getRedValueList().get(index));
         list.add(predict(targetIndex, option));
+        option.removeBlock(BallType.RED, index, first.getRedValueList().get(index));
 
-        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0,50);
+        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0,15);
         for(var blue: coldBlueList){
             list.add(first.clone(blue.getData(), null));
         }
 
-        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, 0,50);
-        for(var red: coldRedList){
-            list.add(first.clone(null, red.getData()));
+        index = 0;
+        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index,50);
+        for(var red: coldRedList) {
+            option.setAllow(BallType.RED, index, red.getData());
+            list.add(predict(targetIndex, option));
         }
-
-        for(var blue: coldBlueList){
-            for(var red: coldRedList){
-                list.add(first.clone(blue.getData(), red.getData()));
-            }
-        }
+//
+//        for(var blue: coldBlueList){
+//            for(var red: coldRedList){
+//                list.add(first.clone(blue.getData(), red.getData()));
+//            }
+//        }
 
         return list;
     }

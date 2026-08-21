@@ -3,11 +3,11 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.data.serializer.JSON;
+import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.utils.CompareUtils;
 import cqwang.doubleball.detection.utils.ValueCalculator;
 import cqwang.doubleball.detection.algorithm.AlgorithmSelector;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
-import cqwang.doubleball.detection.model.option.DoublePredictOption;
 import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleCol
     @Override
     public void historyPredict(DoubleColorAlgorithmRegistry registry) {
         for (int targetIndex = MIN_SAMPLE_COUNT; targetIndex < DoubleColorBallPreload.getAllData().size(); targetIndex++) {
-            var predict = registry.predict(targetIndex, new DoublePredictOption());
+            var predict = registry.predict(targetIndex, new PredictOption());
             var target = DoubleColorBallPreload.getAllData().get(targetIndex);
             var value = ValueCalculator.calculate(predict, target);
             registry.getPredictResult().add(targetIndex, value);

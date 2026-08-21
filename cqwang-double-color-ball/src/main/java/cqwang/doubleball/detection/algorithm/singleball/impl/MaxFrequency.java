@@ -8,6 +8,6 @@ import cqwang.doubleball.detection.model.result.SingleResult;
 public class MaxFrequency implements SingleBallAlgorithm {
     @Override
     public SingleResult predict(SingleBall singleBall, PredictOption option) {
-        return singleBall.getMaxDataFrequency(option);
+        return singleBall.getMaxDataFrequency(singleBall, option);
     }
 }

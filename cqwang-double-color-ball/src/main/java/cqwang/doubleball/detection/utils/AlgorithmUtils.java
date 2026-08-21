@@ -193,7 +193,7 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
 
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            if (option.isBlocked(i)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
             }
 
@@ -224,8 +224,11 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
         boolean success = false;
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
-            if (option.isBlocked(data)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
+                return new SingleResult(data, true);
             }
 
             // 全局热
@@ -273,8 +276,11 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
         boolean success = false;
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            if (option.isBlocked(i)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                return new SingleResult(i, true);
             }
 
             int freq = singleBall.getFrequency(i);
@@ -314,8 +320,11 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
         boolean success = false;
         for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
-            if (option.isBlocked(candidate)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
+                return new SingleResult(candidate, true);
             }
 
             double score = 0;
@@ -365,8 +374,11 @@ public class AlgorithmUtils {
 
         boolean success = false;
         for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
-            if (option.isBlocked(candidate)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
+                return new SingleResult(candidate, true);
             }
 
             var dataFrequency = singleBall.get(candidate);
@@ -405,8 +417,11 @@ public class AlgorithmUtils {
         boolean success = false;
         int result = range.getMinimum();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            if (option.isBlocked(i)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                return new SingleResult(i, true);
             }
 
             if (midBall.getFrequency(i) == 0) {
@@ -446,8 +461,11 @@ public class AlgorithmUtils {
 
         boolean success = false;
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            if (option.isBlocked(i)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                return new SingleResult(i, true);
             }
 
 
@@ -505,10 +523,12 @@ public class AlgorithmUtils {
         int result = range.getMinimum();
         boolean success = false;
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
-            if (option.isBlocked(data)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 continue;
             }
-
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
+                return new SingleResult(data, true);
+            }
 
             var score = 0.0;
             for (var index = 0; index < subList.length; index++) {

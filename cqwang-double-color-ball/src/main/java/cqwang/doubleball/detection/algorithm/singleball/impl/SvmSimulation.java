@@ -14,8 +14,8 @@ public class SvmSimulation implements SingleBallAlgorithm {
         // 支持向量机模拟算法 - 基于边界优化的预测, 在min和max之间的加权中点, 更接近max的支持向量
         var subBall = singleBall.sub(50);
 
-        var max = subBall.getMaxDataFrequency(option);
-        var min = subBall.getMinDataFrequency(option);
+        var max = subBall.getMaxDataFrequency(singleBall, option);
+        var min = subBall.getMinDataFrequency(singleBall, option);
         var range = Range.between(singleBall.getMinData(), singleBall.getMaxData());
 
         int result = (int) Math.round(min.getResult() * (1 - weight) + max.getResult() * weight);

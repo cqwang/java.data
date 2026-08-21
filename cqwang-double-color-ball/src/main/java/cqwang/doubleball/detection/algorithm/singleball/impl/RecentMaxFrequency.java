@@ -9,6 +9,6 @@ public class RecentMaxFrequency implements SingleBallAlgorithm {
     @Override
     public SingleResult predict(SingleBall singleBall, PredictOption option) {
         var sub = singleBall.sub(15);
-        return sub.getMaxDataFrequency(option);
+        return sub.getMaxDataFrequency(singleBall, option);
     }
 }

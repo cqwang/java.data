@@ -3,7 +3,6 @@ package cqwang.doubleball.detection.model.data;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -111,14 +110,19 @@ public class SingleBall {
     /**
      * 爆发检测，取最近出现频次最高的数值
      * 从全量样本中，选取出现频次最高的数值
+     *
      * @param option
      * @return
      */
-    public SingleResult getMaxDataFrequency(PredictOption option) {
+    public SingleResult getMaxDataFrequency(SingleBall singleBall, PredictOption option) {
         for (int index = sortedList.size() - 1; index >= 0; index--) {
             var item = sortedList.get(index);
-            if (option.isBlocked(item.getData())) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), item.getData())) {
                 continue;
+            }
+
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), item.getData())) {
+                return new SingleResult(item.getData(), true);
             }
 
             return new SingleResult(item.getData(), true);
@@ -126,10 +130,10 @@ public class SingleBall {
         return new SingleResult(sortedList.get(sortedList.size() - 1).getData(), false);
     }
 
-    public SingleResult getMinDataFrequency(PredictOption option) {
+    public SingleResult getMinDataFrequency(SingleBall singleBall, PredictOption option) {
         for (int index = 0; index < sortedList.size(); index++) {
             var item = sortedList.get(index);
-            if (option.isBlocked(item.getData())) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), item.getData())) {
                 continue;
             }
 
@@ -172,7 +176,7 @@ public class SingleBall {
         return sub;
     }
 
-    public double toAvgFrequencyRatio(Integer data){
+    public double toAvgFrequencyRatio(Integer data) {
 
         return getFrequency(data) / avgFrequency;
     }

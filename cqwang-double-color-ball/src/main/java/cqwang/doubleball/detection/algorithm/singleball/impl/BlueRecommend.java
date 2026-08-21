@@ -35,8 +35,11 @@ public class BlueRecommend implements SingleBallAlgorithm {
         boolean success = false;
         int result = range.getMinimum();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            if (option.isBlocked(i)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
+            }
+            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                return new SingleResult(i, true);
             }
 
             if (sub30.getFrequency(i) == 0) {

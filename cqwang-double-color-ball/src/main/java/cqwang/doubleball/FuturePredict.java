@@ -2,7 +2,7 @@ package cqwang.doubleball;
 
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorithmSelector;
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorListAlgorithmSelector;
-import cqwang.doubleball.detection.model.option.DoublePredictOption;
+import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.option.RunOption;
 import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
@@ -16,7 +16,7 @@ public class FuturePredict {
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
-            var predict = algorithm.predict(targetIndex, new DoublePredictOption());
+            var predict = algorithm.predict(targetIndex, new PredictOption());
             resultSet.add(predict.getSimpleInfo());
         }
 
@@ -29,7 +29,7 @@ public class FuturePredict {
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         var resultSet = new HashSet<String>();
         for (var algorithm : algorithmList) {
-            var predictList = algorithm.predictList(targetIndex, new DoublePredictOption());
+            var predictList = algorithm.predictList(targetIndex, new PredictOption());
             for (var predict : predictList) {
                 resultSet.add(predict.getSimpleInfo());
             }
