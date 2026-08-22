@@ -81,5 +81,7 @@
 频繁出现的，还会出现，但不一定是下一次
 最近比较冷的，也会出现。
 
+提升200 10元的价值，形成通用规则
+
 #### 增长趋势
 在线构建图表：https://echarts.apache.org/examples/zh/editor.html

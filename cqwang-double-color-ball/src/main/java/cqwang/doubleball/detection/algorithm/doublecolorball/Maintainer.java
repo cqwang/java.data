@@ -41,7 +41,7 @@ public class Maintainer {
                         }
                     }
                 } else if (similarList.size() > size * 0.5) {
-                    System.out.println();
+//                    System.out.println();
                 }
 
             }
