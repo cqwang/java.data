@@ -70,7 +70,11 @@ public class ValueTrendLine {
         for (var algorithm : algorithmList) {
             int[] valueList = new int[indexList.length];
             for (var point : algorithm.getPredictResult().getPredictPointList()) {
-                valueList[point.getPredictIndex()] += point.getPredictValue().getPredictValue();
+                if (point.getPredictValue().getPredictValue() > 1000000) {
+                    valueList[point.getPredictIndex()] += 0; // 降噪，看成长曲线
+                } else {
+                    valueList[point.getPredictIndex()] += point.getPredictValue().getPredictValue();
+                }
             }
             var echart = new EChart(valueList);
             list.add(echart);

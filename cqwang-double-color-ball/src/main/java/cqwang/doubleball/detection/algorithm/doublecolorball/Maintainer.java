@@ -3,6 +3,7 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
+import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -41,7 +42,8 @@ public class Maintainer {
                         }
                     }
                 } else if (similarList.size() > size * 0.5) {
-//                    System.out.println();
+                    var target = DoubleColorBallPreload.getAllData().get(targetIndex);
+                    System.out.println();
                 }
 
             }
