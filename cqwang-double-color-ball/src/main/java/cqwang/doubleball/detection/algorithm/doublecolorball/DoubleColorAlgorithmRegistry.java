@@ -123,7 +123,7 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
 
 
-        // 黑名单和移位算法
+        // 移位算法
         if (origin.getRedValueList().get(0) <= 6) {
             // 第二个red作为第一个red的黑名单
             var tempRedOption = option.clone();

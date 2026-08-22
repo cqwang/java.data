@@ -44,7 +44,7 @@ public class PredictResult {
     /**
      * 预测价值曲线，按照索引正序
      */
-    @JsonIgnore
+//    @JsonIgnore
     private List<PredictPointValue> predictPointList;
 
     public PredictResult() {

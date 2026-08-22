@@ -70,8 +70,8 @@ public class ValueTrendLine {
         for (var algorithm : algorithmList) {
             int[] valueList = new int[indexList.length];
             for (var point : algorithm.getPredictResult().getPredictPointList()) {
-                if (point.getPredictValue().getPredictValue() > 1000000) {
-                    valueList[point.getPredictIndex()] += 0; // 降噪，看成长曲线
+                if (point.getPredictValue().getPredictValue() > 500) {
+                    valueList[point.getPredictIndex()] = 0; // 降噪，看成长曲线
                 } else {
                     valueList[point.getPredictIndex()] += point.getPredictValue().getPredictValue();
                 }
