@@ -6,9 +6,7 @@ import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.option.RunOption;
 import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FuturePredict {
@@ -16,35 +14,41 @@ public class FuturePredict {
         DoubleColorBallPreload.execute();
         var algorithmList = new DoubleColorAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
-        var list = new ArrayList<String>();
+        Map<String, Integer> result = new HashMap<>();
         for (var algorithm : algorithmList) {
             var predict = algorithm.predict(targetIndex, new PredictOption());
-            list.add(predict.getSimpleInfo());
+            var last = result.getOrDefault(predict.getSimpleInfo(), 0);
+            result.put(predict.getSimpleInfo(), last+1);
         }
 
-        printInfo(list);
+        printInfo(result);
     }
 
     public static void predictList() {
         DoubleColorBallPreload.execute();
         var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
-        var list = new ArrayList<String>();
+        Map<String, Integer> result = new HashMap<>();
         for (var algorithm : algorithmList) {
             var predictList = algorithm.predictList(targetIndex, new PredictOption());
             for (var predict : predictList) {
-                list.add(predict.getSimpleInfo());
+                var last = result.getOrDefault(predict.getSimpleInfo(), 0);
+                result.put(predict.getSimpleInfo(), last+1);
             }
         }
 
-        printInfo(list);
+        printInfo(result);
     }
 
 
-    private static void printInfo(List<String> list) {
+    private static void printInfo(Map<String, Integer> result) {
+        var list = new ArrayList<String>();
+        for(var entry : result.entrySet()){
+            list.add(entry.getKey());
+        }
         list.sort(String::compareTo);
-        for (var result : list) {
-            System.out.println(result);
+        for (var predict : list) {
+            System.out.println(predict +" ===购买份数=== "+ result.get(predict));
         }
     }
 
