@@ -93,7 +93,7 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
             for (int j = 0; j <= redIndex; j++) {
                 option.addBlock(BallType.RED, redIndex + 1, predictResult.getRedValueList().get(j));
-                if(option.hasRedAllow(j)){
+                if (option.hasRedAllow(j)) {
                     option.addBlocks(BallType.RED, redIndex + 1, 1, predictResult.getRedValueList().get(j));
                 }
             }
@@ -117,8 +117,29 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         replaceRed(list, targetIndex, option.clone(), origin, 0, 3);
         // 用算法本身的次优，替换last red
         replaceRed(list, targetIndex, option.clone(), origin, origin.getRedValueList().size() - 1, 1);
+        // 用算法本身的次优，替换blue
+        replaceBlue(list, targetIndex, option.clone(), origin, 2);
 
-//        replaceBlue(list, targetIndex, option, origin, 2);
+
+
+
+        // 黑名单和移位算法
+        if (origin.getRedValueList().get(0) <= 6) {
+            // 第二个red作为第一个red的黑名单
+            var tempRedOption = option.clone();
+            tempRedOption.addBlock(BallType.RED, 0, origin.getRedValueList().get(1));
+            list.add(predict(targetIndex, tempRedOption));
+
+            // 第二个red前移
+            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
+            list.add(predict(targetIndex, secondRedOption));
+        }
+
+        if (origin.getRedValueList().get(1) <= 6) {
+            // 第二个red前移
+            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
+            list.add(predict(targetIndex, secondRedOption));
+        }
 
         // 使用冷blue
         var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
@@ -137,18 +158,6 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
         // 如果大家推荐的雷同，则补全缺失
         Maintainer.vote(list, option.clone(), targetIndex, this);
-
-        // 移位算法
-        if (origin.getRedValueList().get(0) <= 6) {
-            // 第二个red作为第一个red的黑名单
-            var secondRedOption = option.cloneAndAddBlock(BallType.RED, 0, origin.getRedValueList().get(1));
-            list.add(predict(targetIndex, secondRedOption));
-
-            // 第二个red前移
-            secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
-            list.add(predict(targetIndex, secondRedOption));
-        }
-
 
         return list;
     }
