@@ -46,8 +46,8 @@ public class Maintainer {
                         }
                     }
                 } else if (similarList.size() > 2) {
-                    var target = DoubleColorBallPreload.getAllData().get(targetIndex);
-                    System.out.println();
+//                    var target = DoubleColorBallPreload.getAllData().get(targetIndex);
+//                    System.out.println();
                 }
 
             }

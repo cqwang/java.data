@@ -71,7 +71,8 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
 
     @Override
-    public DoubleColorBall predict(int targetIndex, PredictOption option) {
+    public DoubleColorBall predict(int targetIndex, PredictOption originOption) {
+        var option = originOption.clone();
         // 获取样本数据
         var splitBall = new SplitBall(targetIndex);
 
@@ -112,10 +113,10 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         list.add(origin);
 
 
-        // 替换first red
-        replaceRed(list, targetIndex, option, origin, 0, 5);
-        // 替换last red
-        replaceRed(list, targetIndex, option, origin, origin.getRedValueList().size() - 1, 1);
+        // 用算法本身的次优，替换first red
+        replaceRed(list, targetIndex, option.clone(), origin, 0, 3);
+        // 用算法本身的次优，替换last red
+        replaceRed(list, targetIndex, option.clone(), origin, origin.getRedValueList().size() - 1, 1);
 
 //        replaceBlue(list, targetIndex, option, origin, 2);
 
@@ -135,7 +136,7 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         }
 
         // 如果大家推荐的雷同，则补全缺失
-        Maintainer.vote(list, option, targetIndex, this);
+        Maintainer.vote(list, option.clone(), targetIndex, this);
 
         // 移位算法
         if (origin.getRedValueList().get(0) <= 6) {

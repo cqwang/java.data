@@ -3,13 +3,91 @@
     "blueAlgorithm": "BlueRecommend",
     "redAlgorithm": "RedRecommend",
     "predictResult": {
-      "profit": 10019343,
-      "sumValue": 10069975,
-      "sumCost": 50632,
+      "profit": 10022801,
+      "sumValue": 10059215,
+      "sumCost": 36414,
       "maxValue": 10000000,
-      "hitTotalCount": 1711,
-      "hitBlueTotalCount": 1610,
-      "hitRedTotalCount": 154
+      "hitTotalCount": 1218,
+      "hitBlueTotalCount": 1150,
+      "hitRedTotalCount": 109
+    }
+  },
+  {
+    "blueAlgorithm": "RecentMaxWeightFrequency",
+    "redAlgorithm": "RedRecommend",
+    "predictResult": {
+      "profit": 10022798,
+      "sumValue": 10059480,
+      "sumCost": 36682,
+      "maxValue": 10000000,
+      "hitTotalCount": 1346,
+      "hitBlueTotalCount": 1275,
+      "hitRedTotalCount": 110
+    }
+  },
+  {
+    "blueAlgorithm": "SimilarityFrequency",
+    "redAlgorithm": "RedRecommend",
+    "predictResult": {
+      "profit": 10022779,
+      "sumValue": 10059005,
+      "sumCost": 36226,
+      "maxValue": 10000000,
+      "hitTotalCount": 1247,
+      "hitBlueTotalCount": 1172,
+      "hitRedTotalCount": 114
+    }
+  },
+  {
+    "blueAlgorithm": "SurgeFrequency",
+    "redAlgorithm": "RedRecommend",
+    "predictResult": {
+      "profit": 10022730,
+      "sumValue": 10059030,
+      "sumCost": 36300,
+      "maxValue": 10000000,
+      "hitTotalCount": 1181,
+      "hitBlueTotalCount": 1113,
+      "hitRedTotalCount": 109
+    }
+  },
+  {
+    "blueAlgorithm": "MaxDistributionSplitWeightFrequency",
+    "redAlgorithm": "RedRecommend",
+    "predictResult": {
+      "profit": 10022579,
+      "sumValue": 10058965,
+      "sumCost": 36386,
+      "maxValue": 10000000,
+      "hitTotalCount": 1316,
+      "hitBlueTotalCount": 1240,
+      "hitRedTotalCount": 113
+    }
+  },
+  {
+    "blueAlgorithm": "MaxDistributionCumulativeWeightFrequency",
+    "redAlgorithm": "RedRecommend",
+    "predictResult": {
+      "profit": 10022499,
+      "sumValue": 10058885,
+      "sumCost": 36386,
+      "maxValue": 10000000,
+      "hitTotalCount": 1300,
+      "hitBlueTotalCount": 1224,
+      "hitRedTotalCount": 113
+    }
+  },
+  {
+    "blueAlgorithm": "RedRecommend",
+    "redAlgorithm": "RedRecommend",
+    "predictResult": {
+      "profit": 10022473,
+      "sumValue": 10058875,
+      "sumCost": 36402,
+      "maxValue": 10000000,
+      "hitTotalCount": 1298,
+      "hitBlueTotalCount": 1222,
+      "hitRedTotalCount": 113
     }
   }
 ]
