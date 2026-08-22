@@ -17,8 +17,12 @@ public class Maintainer {
             var coreIndex = entry.getKey();
             for (var subEntry : entry.getValue().entrySet()) {
                 var similarList = subEntry.getValue();
+                if (similarList.size() <= 2) {
+                    continue;
+                }
+
                 var allSameLit = similarList.stream().filter(t -> t.getSimpleInfo().equals(similarList.get(0).getSimpleInfo())).collect(Collectors.toList());
-                if (allSameLit.size() > similarList.size() /2) {
+                if (allSameLit.size() > similarList.size() / 2) {
                     continue;
                 }
 
@@ -41,7 +45,7 @@ public class Maintainer {
                             list.add(corePredict.cloneRed(5, red));
                         }
                     }
-                } else if (similarList.size() > size * 0.5) {
+                } else if (similarList.size() > 2) {
                     var target = DoubleColorBallPreload.getAllData().get(targetIndex);
                     System.out.println();
                 }

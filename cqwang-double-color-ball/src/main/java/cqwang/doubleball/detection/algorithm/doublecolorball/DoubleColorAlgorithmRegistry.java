@@ -111,10 +111,13 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         var origin = predict(targetIndex, option.clone());
         list.add(origin);
 
+
         // 替换first red
         replaceRed(list, targetIndex, option, origin, 0, 5);
         // 替换last red
         replaceRed(list, targetIndex, option, origin, origin.getRedValueList().size() - 1, 1);
+
+//        replaceBlue(list, targetIndex, option, origin, 2);
 
         // 使用冷blue
         var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
@@ -158,16 +161,16 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         }
     }
 
-    private void replaceBlue() {
-//        if(origin.getBlueValue()<4){
-//            // 替换blue
-//            var blueOption = option.cloneAndAddBlock(BallType.BLUE, 0, origin.getBlueValue());
-//            for (int i = 0; i < 1; i++) {
-//                var blueBlock = predict(targetIndex, blueOption);
-//                list.add(blueBlock);
-//                blueOption.addBlock(BallType.BLUE, 0, blueBlock.getBlueValue());
-//            }
-//        }
+    private void replaceBlue(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, int tryTimes) {
+        if (origin.getBlueValue() < 4) {
+            // 替换blue
+            var blueOption = option.cloneAndAddBlock(BallType.BLUE, 0, origin.getBlueValue());
+            for (int i = 0; i < tryTimes; i++) {
+                var blueBlock = predict(targetIndex, blueOption);
+                resultList.add(blueBlock);
+                blueOption.addBlock(BallType.BLUE, 0, blueBlock.getBlueValue());
+            }
+        }
     }
 
 
