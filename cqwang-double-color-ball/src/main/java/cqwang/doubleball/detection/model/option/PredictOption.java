@@ -129,8 +129,8 @@ public class PredictOption {
         return result;
     }
 
-    public boolean hasFirstRedAllow() {
-        var result = redAllows.get(0);
+    public boolean hasRedAllow(int index) {
+        var result = redAllows.get(index);
         return result != null;
     }
 

@@ -95,4 +95,26 @@ public class DoubleColorBall {
         }
         return target;
     }
+
+    public DoubleColorBall cloneRed(int index, Integer red) {
+        var result = clone(null, null);
+        result.getRedValueList().set(index, red);
+        return result;
+    }
+
+    public String getSimilarInfo(int excludeRedIndex) {
+        var sb = new StringBuilder();
+        for (int i = 0; i < redValueList.size(); i++) {
+            if (i == excludeRedIndex) {
+                continue;
+            }
+            sb.append(redValueList.get(i));
+            sb.append(" ");
+        }
+        sb.append("|");
+        sb.append(blueValue);
+        return sb.toString();
+    }
+
+
 }

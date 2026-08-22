@@ -54,8 +54,8 @@ public class AlgorithmUtils {
         var maxSize = DoubleColorBallPreload.getAllData().size();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
             var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(ballType, index, i);
-            var score = calculateScore(globalBallIndexList, maxSize, period);
-            if (score >= period * 0.6) {
+            var score = calculateScore(globalBallIndexList, maxSize, period, ballType);
+            if (score >= period * 0.75) {
                 dataScoreList.add(new DataScore(i, score));
             }
         }
@@ -70,7 +70,7 @@ public class AlgorithmUtils {
         return dataScoreList;
     }
 
-    public static double calculateScore(List<Integer> indexList, int maxSize, int period) {
+    public static double calculateScore(List<Integer> indexList, int maxSize, int period, BallType ballType) {
         if (CollectionUtils.isEmpty(indexList)) {
             return 0;
         }
@@ -93,7 +93,7 @@ public class AlgorithmUtils {
             lastIndex = index;
         }
 
-        if (hitCount < 2) {
+        if(ballType == BallType.RED && hitCount < 2) {
             return 0;
         }
         return sumScore;

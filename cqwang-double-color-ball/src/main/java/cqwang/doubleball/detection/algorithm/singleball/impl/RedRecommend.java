@@ -34,8 +34,6 @@ public class RedRecommend implements SingleBallAlgorithm {
                 singleBall.sub(40)
         };
         var weightList = new double[]{-2, 10, 3, 1};
-        var sub30= singleBall.sub(30);
-
 
         double maxScore = 0;
         int result = range.getMinimum();
