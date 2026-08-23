@@ -27,28 +27,28 @@ public class Maintainer {
                 }
 
                 var talkPredict = similarList.get(0);
-                if (coreIndex == 0) {
-                    if (similarList.size() > size * 0.75) { // 有一半以上推荐
-                        // 1 2 3 red前移, 4 5 不变，3遍历生成
-                        var coreOption = buildOption(option, talkPredict, Set.of(1, 2, 3), Set.of(4, 5));
-                        var corePredict = generator.predict(targetIndex, coreOption);
-                        for (var red = corePredict.getRedValueList().get(2) + 1; red < corePredict.getRedValueList().get(4); red++) {
-                            list.add(corePredict.cloneRed(3, red));
-                        }
-                    }
-                } else if (coreIndex == 1) {
-                    if (similarList.size() >= size * 0.5) {
-                        // 2 3 4 5 前移，0不变，5遍历生成
-                        var coreOption = buildOption(option, talkPredict, Set.of(2, 3, 4, 5), Set.of(0));
-                        var corePredict = generator.predict(targetIndex, coreOption);
-                        for (var red = corePredict.getRedValueList().get(4) + 1; red <= 33; red++) {
-                            list.add(corePredict.cloneRed(5, red));
-                        }
-                    }
-                } else if (similarList.size() > 2) {
-//                    var target = DoubleColorBallPreload.getAllData().get(targetIndex);
-//                    System.out.println();
-                }
+//                if (coreIndex == 0) {
+//                    if (similarList.size() > size * 0.75) { // 有一半以上推荐
+//                        // 1 2 3 red前移, 4 5 不变，3遍历生成
+//                        var coreOption = buildOption(option, talkPredict, Set.of(1, 2, 3), Set.of(4, 5));
+//                        var corePredict = generator.predict(targetIndex, coreOption);
+//                        for (var red = corePredict.getRedValueList().get(2) + 1; red < corePredict.getRedValueList().get(4); red++) {
+//                            list.add(corePredict.cloneRed(3, red));
+//                        }
+//                    }
+//                }
+//                else if (coreIndex == 1) {
+//                    if (similarList.size() >= size * 0.5) {
+//                        // 2 3 4 5 前移，0不变，5遍历生成
+//                        var coreOption = buildOption(option, talkPredict, Set.of(2, 3, 4, 5), Set.of(0));
+//                        var corePredict = generator.predict(targetIndex, coreOption);
+//                        for (var red = corePredict.getRedValueList().get(4) + 1; red <= 33; red++) {
+//                            list.add(corePredict.cloneRed(5, red));
+//                        }
+//                    }
+//                }
+//                else if (similarList.size() > 2) {
+//                }
 
             }
         }

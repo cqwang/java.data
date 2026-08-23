@@ -1,6 +1,7 @@
 package cqwang.doubleball.detection.utils;
 
 import cqwang.doubleball.detection.model.data.SingleBall;
+import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
@@ -48,13 +49,12 @@ public class AlgorithmUtils {
     }
 
 
-    public static List<DataScore> findColdList(BallType ballType, int index, int period) {
+    public static List<DataScore> findColdList(SplitBall splitBall, BallType ballType, int index, int period) {
         Range<Integer> range = ballType == BallType.BLUE ? Range.between(1, 16) : Range.between(1, 33);
         List<DataScore> dataScoreList = new ArrayList<>();
-        var maxSize = DoubleColorBallPreload.getAllData().size();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
-            var globalBallIndexList = DoubleColorBallPreload.getSplitAllData().getIndexList(ballType, index, i);
-            var score = calculateScore(globalBallIndexList, maxSize, period, ballType);
+            var globalBallIndexList = splitBall.getIndexList(ballType, index, i);
+            var score = calculateScore(globalBallIndexList, splitBall.getBlueBall().getDataList().size(), period, ballType);
             if (score >= period * 0.75) {
                 dataScoreList.add(new DataScore(i, score));
             }

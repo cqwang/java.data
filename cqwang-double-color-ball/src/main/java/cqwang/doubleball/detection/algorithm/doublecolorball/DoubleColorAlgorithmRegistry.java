@@ -3,8 +3,7 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import cqwang.doubleball.detection.algorithm.AlgorithmRegistry;
-import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.PreMover;
-import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.SecondBest;
+import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.*;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegistry;
@@ -13,7 +12,6 @@ import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.PredictResult;
-import cqwang.doubleball.detection.utils.AlgorithmUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -116,35 +114,11 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
         SecondBest.execute(list, targetIndex, option.clone(), this);
         PreMover.execute(list, targetIndex, option.clone(), this);
-//
-//
-//
-//
+        ColdBest.execute(list, targetIndex, option, this);
 
-//
-//        if (origin.getRedValueList().get(1) <= 6) {
-//            // 第二个red前移
-//            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
-//            list.add(predict(targetIndex, secondRedOption));
-//        }
-//
-//        // 使用冷blue
-//        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
-//        for (var blue : coldBlueList) {
-//            list.add(origin.clone(blue.getData(), null));
-//        }
-//
-//
-//        // 使用冷red
-//        int index = 0;
-//        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index, 30);
-//        for (var red : coldRedList) {
-//            var result = predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData()));
-//            list.add(result);
-//        }
 
         // 如果大家推荐的雷同，则补全缺失
-//        Maintainer.vote(list, option.clone(), targetIndex, this);
+        Maintainer.vote(list, option.clone(), targetIndex, this);
 
         return list;
     }
