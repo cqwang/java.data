@@ -1,9 +1,9 @@
-package cqwang.doubleball.detection.algorithm.doublecolorball;
+package cqwang.doubleball.detection.algorithm.doublecolorball.strategy;
 
+import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorithmRegistry;
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
 import java.util.*;
 import java.util.stream.Collectors;

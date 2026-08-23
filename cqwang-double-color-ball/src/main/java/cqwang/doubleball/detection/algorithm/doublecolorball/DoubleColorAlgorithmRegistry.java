@@ -3,6 +3,7 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import cqwang.doubleball.detection.algorithm.AlgorithmRegistry;
+import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.SecondBest;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegistry;
@@ -112,75 +113,54 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         var origin = predict(targetIndex, option.clone());
         list.add(origin);
 
-
-        // 用算法本身的次优，替换first red
-        replaceRed(list, targetIndex, option.clone(), origin, 0, 3);
-        // 用算法本身的次优，替换last red
-        replaceRed(list, targetIndex, option.clone(), origin, origin.getRedValueList().size() - 1, 1);
-        // 用算法本身的次优，替换blue
-        replaceBlue(list, targetIndex, option.clone(), origin, 2);
-
-
-
-
-        // 移位算法
-        if (origin.getRedValueList().get(0) <= 6) {
-            // 第二个red作为第一个red的黑名单
-            var tempRedOption = option.clone();
-            tempRedOption.addBlock(BallType.RED, 0, origin.getRedValueList().get(1));
-            list.add(predict(targetIndex, tempRedOption));
-
-            // 第二个red前移
-            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
-            list.add(predict(targetIndex, secondRedOption));
-        }
-
-        if (origin.getRedValueList().get(1) <= 6) {
-            // 第二个red前移
-            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
-            list.add(predict(targetIndex, secondRedOption));
-        }
-
-        // 使用冷blue
-        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
-        for (var blue : coldBlueList) {
-            list.add(origin.clone(blue.getData(), null));
-        }
-
-
-        // 使用冷red
-        int index = 0;
-        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index, 30);
-        for (var red : coldRedList) {
-            var result = predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData()));
-            list.add(result);
-        }
+        SecondBest.execute(list, targetIndex, option.clone(), this);
+//
+//
+//
+//
+//        // 移位算法
+//        if (origin.getRedValueList().get(0) <= 6) {
+//            // 第二个red作为第一个red的黑名单
+//            var tempRedOption = option.clone();
+//            tempRedOption.addBlock(BallType.RED, 0, origin.getRedValueList().get(1));
+//            list.add(predict(targetIndex, tempRedOption));
+//
+//            // 第二个red前移
+//            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
+//            list.add(predict(targetIndex, secondRedOption));
+//        }
+//
+//        if (origin.getRedValueList().get(1) <= 6) {
+//            // 第二个red前移
+//            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
+//            list.add(predict(targetIndex, secondRedOption));
+//        }
+//
+//        // 使用冷blue
+//        var coldBlueList = AlgorithmUtils.findColdList(BallType.BLUE, 0, 15);
+//        for (var blue : coldBlueList) {
+//            list.add(origin.clone(blue.getData(), null));
+//        }
+//
+//
+//        // 使用冷red
+//        int index = 0;
+//        var coldRedList = AlgorithmUtils.findColdList(BallType.RED, index, 30);
+//        for (var red : coldRedList) {
+//            var result = predict(targetIndex, option.cloneAndSetAllow(BallType.RED, index, red.getData()));
+//            list.add(result);
+//        }
 
         // 如果大家推荐的雷同，则补全缺失
-        Maintainer.vote(list, option.clone(), targetIndex, this);
+//        Maintainer.vote(list, option.clone(), targetIndex, this);
 
         return list;
     }
 
-    private void replaceRed(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, int index, int tryTimes) {
-        var firstRedOption = option.cloneAndAddBlock(BallType.RED, index, origin.getRedValueList().get(index));
-        for (int i = 0; i < tryTimes; i++) {
-            var firstRedBlock = predict(targetIndex, firstRedOption);
-            resultList.add(firstRedBlock);
-            firstRedOption.addBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index));
-        }
-    }
+    private void dd() {
 
-    private void replaceBlue(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, int tryTimes) {
-        if (origin.getBlueValue() < 4) {
-            // 替换blue
-            var blueOption = option.cloneAndAddBlock(BallType.BLUE, 0, origin.getBlueValue());
-            for (int i = 0; i < tryTimes; i++) {
-                var blueBlock = predict(targetIndex, blueOption);
-                resultList.add(blueBlock);
-                blueOption.addBlock(BallType.BLUE, 0, blueBlock.getBlueValue());
-            }
-        }
+        // 用算法本身的次优，替换blue
+//        replaceBlue(list, targetIndex, option.clone(), origin, 2);
     }
 
 
