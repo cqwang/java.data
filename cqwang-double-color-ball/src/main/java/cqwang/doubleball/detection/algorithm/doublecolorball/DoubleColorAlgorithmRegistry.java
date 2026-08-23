@@ -3,6 +3,7 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import cqwang.doubleball.detection.algorithm.AlgorithmRegistry;
+import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.PreMover;
 import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.SecondBest;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
@@ -114,21 +115,12 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         list.add(origin);
 
         SecondBest.execute(list, targetIndex, option.clone(), this);
+        PreMover.execute(list, targetIndex, option.clone(), this);
 //
 //
 //
 //
-//        // 移位算法
-//        if (origin.getRedValueList().get(0) <= 6) {
-//            // 第二个red作为第一个red的黑名单
-//            var tempRedOption = option.clone();
-//            tempRedOption.addBlock(BallType.RED, 0, origin.getRedValueList().get(1));
-//            list.add(predict(targetIndex, tempRedOption));
-//
-//            // 第二个red前移
-//            var secondRedOption = option.cloneAndSetAllow(BallType.RED, 0, origin.getRedValueList().get(1));
-//            list.add(predict(targetIndex, secondRedOption));
-//        }
+
 //
 //        if (origin.getRedValueList().get(1) <= 6) {
 //            // 第二个red前移

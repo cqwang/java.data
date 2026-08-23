@@ -26,8 +26,8 @@ public class SecondBest {
         var origin = ballList.get(0);
 
         var continuesOption = option.clone();
-        if (origin.getRedValueList().get(0) <= 1) {
-            // 用算法本身的次优，替换first red
+        if (origin.getRedValueList().get(0) <= 2) {
+            // 用算法本身的次优，替换first red，这是1950的突起，不稳定
             replaceRed(ballList, targetIndex, continuesOption, origin, 0, 15, generator);
         }
     }
