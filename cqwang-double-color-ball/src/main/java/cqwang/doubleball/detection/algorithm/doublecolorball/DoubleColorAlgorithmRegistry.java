@@ -112,13 +112,15 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         var origin = predict(targetIndex, option.clone());
         list.add(origin);
 
-        SecondBest.execute(list, targetIndex, option.clone(), this);
         PreMover.execute(list, targetIndex, option.clone(), this);
+
+        SecondBest.execute(list, targetIndex, option.clone(), this);
+
 //        ColdBest.execute(list, targetIndex, option, this);
 
 
         // 如果大家推荐的雷同，则补全缺失
-        Maintainer.vote(list, option.clone(), targetIndex, this);
+//        Maintainer.vote(list, option.clone(), targetIndex, this);
 
         return list;
     }

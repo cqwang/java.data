@@ -7,7 +7,6 @@ import cqwang.doubleball.detection.model.option.RunOption;
 import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class FuturePredict {
     public static void predict() {
@@ -18,7 +17,7 @@ public class FuturePredict {
         for (var algorithm : algorithmList) {
             var predict = algorithm.predict(targetIndex, new PredictOption());
             var last = result.getOrDefault(predict.getSimpleInfo(), 0);
-            result.put(predict.getSimpleInfo(), last+1);
+            result.put(predict.getSimpleInfo(), last + 1);
         }
 
         printInfo(result);
@@ -33,7 +32,7 @@ public class FuturePredict {
             var predictList = algorithm.predictList(targetIndex, new PredictOption());
             for (var predict : predictList) {
                 var last = result.getOrDefault(predict.getSimpleInfo(), 0);
-                result.put(predict.getSimpleInfo(), last+1);
+                result.put(predict.getSimpleInfo(), last + 1);
             }
         }
 
@@ -43,12 +42,12 @@ public class FuturePredict {
 
     private static void printInfo(Map<String, Integer> result) {
         var list = new ArrayList<String>();
-        for(var entry : result.entrySet()){
+        for (var entry : result.entrySet()) {
             list.add(entry.getKey());
         }
         list.sort(String::compareTo);
         for (var predict : list) {
-            System.out.println(predict +" ===购买份数=== "+ result.get(predict));
+            System.out.println(predict + " ===份数=== " + result.get(predict));
         }
     }
 

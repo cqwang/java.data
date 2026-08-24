@@ -21,10 +21,13 @@ public class SecondBest {
     public static void execute(List<DoubleColorBall> ballList, int targetIndex, PredictOption option, DoubleColorAlgorithmRegistry generator) {
         var origin = ballList.get(0);
 
+//        replaceReds(ballList, targetIndex, option, origin,Set.of(1,3,5), generator);
+
         replaceRed(ballList, targetIndex, option.clone(), origin, 0, generator);
+        // "profit":12113,"sumValue":29595,"sumCost":17482,"maxValue":3000,"hitTotalCount":552,"hitBlueTotalCount":523,"hitRedTotalCount":51}
 //        replaceBlue(ballList, targetIndex, option.clone(),origin,10, generator);
 //        replaceRedNeighbor(ballList, targetIndex, option.clone(), origin, 2, generator);
-//        replaceRedNeighbor(ballList, targetIndex, option.clone(), origin, 5, generator);
+//        replaceRedNeighbor(ballList, targetIndex, option.clone(), origin, 4, generator);
 //        replaceBlueNeighbor(ballList, targetIndex, option.clone(), origin, 5, generator);
 
     }
@@ -34,29 +37,32 @@ public class SecondBest {
         var result = maxTimes;
         if (redIndex == 0) {
             result = origin.getRedValueList().get(redIndex + 1) - origin.getRedValueList().get(redIndex) - 1;
-        } else {
+        } else if (redIndex == 5) {
             result = origin.getRedValueList().get(redIndex) - origin.getRedValueList().get(redIndex - 1) - 1;
+        } else {
+            result = origin.getRedValueList().get(redIndex + 1) - origin.getRedValueList().get(redIndex - 1) - 2;
         }
         return Math.min(maxTimes, result);
     }
 
-    private static void replaceReds(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, Set<Integer> indexList, int defaultTryTimes, DoubleColorAlgorithmRegistry generator) {
-        var tryTimes = defaultTryTimes;
-        for (var index : indexList) {
-            option.addBlock(BallType.RED, index, origin.getRedValueList().get(index));
-            var times = getTryTimes(origin, index);
-            if (times < tryTimes) {
-                tryTimes = times;
-            }
-        }
+    private static void replaceReds(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, Set<Integer> indexList, DoubleColorAlgorithmRegistry generator) {
+//        var tryTimes = 1;
+//        for(var index: indexList) {
+//            var currentTimes = getTryTimes(origin, index);
+//            if (currentTimes < tryTimes) {
+//                tryTimes = currentTimes;
+//            }
+//        }
 
-        for (int i = 0; i < tryTimes; i++) {
-            var firstRedBlock = generator.predict(targetIndex, option);
-            resultList.add(firstRedBlock);
-            for (var index : indexList) {
-                option.addBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index));
-            }
+        // 原始的预测结果，每个数值都使用次优
+        var allChangeOption = option.clone();
+        for (var redIndex : indexList) {
+            allChangeOption.addBlock(BallType.RED, redIndex, origin.getRedValueList().get(redIndex));
         }
+        resultList.add(generator.predict(targetIndex, allChangeOption));
+
+
+
     }
 
     private static void replaceRed(List<DoubleColorBall> resultList, int targetIndex, PredictOption option, DoubleColorBall origin, int index, DoubleColorAlgorithmRegistry generator) {
