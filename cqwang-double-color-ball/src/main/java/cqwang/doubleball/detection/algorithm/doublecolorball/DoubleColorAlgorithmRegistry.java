@@ -114,7 +114,7 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
         SecondBest.execute(list, targetIndex, option.clone(), this);
         PreMover.execute(list, targetIndex, option.clone(), this);
-        ColdBest.execute(list, targetIndex, option, this);
+//        ColdBest.execute(list, targetIndex, option, this);
 
 
         // 如果大家推荐的雷同，则补全缺失

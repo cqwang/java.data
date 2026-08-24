@@ -16,13 +16,15 @@ public class ColdBest {
             int targetIndex,
             PredictOption option,
             DoubleColorAlgorithmRegistry generator) {
-        var origin = ballList.get(0);
-
         var splitBall = new SplitBall(targetIndex);
-        // first 使用冷red
-        addColdRed(ballList,splitBall, generator, targetIndex, 0, option);
+
+        // 使用冷red
+//        addColdRed(ballList,splitBall, generator, targetIndex, 0, option);
+//        addColdRed(ballList,splitBall, generator, targetIndex, 5, option);
+//        addColdRed(ballList,splitBall, generator, targetIndex, 3, option);
 
         // 使用冷blue
+//        var origin = ballList.get(0);
 //        var coldBlueList = AlgorithmUtils.findColdList(splitBall, BallType.BLUE, 0, 15);
 //        for (var blue : coldBlueList) {
 //            ballList.add(origin.clone(blue.getData(), null));

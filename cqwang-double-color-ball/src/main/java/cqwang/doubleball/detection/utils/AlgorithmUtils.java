@@ -55,7 +55,7 @@ public class AlgorithmUtils {
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
             var globalBallIndexList = splitBall.getIndexList(ballType, index, i);
             var score = calculateScore(globalBallIndexList, splitBall.getBlueBall().getDataList().size(), period, ballType);
-            if (score >= period * 0.75) {
+            if (score >= period * 0.7) {
                 dataScoreList.add(new DataScore(i, score));
             }
         }
@@ -67,7 +67,8 @@ public class AlgorithmUtils {
             }
             return diff > 0 ? 1 : -1;
         });
-        return dataScoreList;
+        int count = Math.min(1, dataScoreList.size());
+        return dataScoreList.subList(0, count);
     }
 
     public static double calculateScore(List<Integer> indexList, int maxSize, int period, BallType ballType) {

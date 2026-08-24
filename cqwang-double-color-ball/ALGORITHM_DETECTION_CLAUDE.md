@@ -86,3 +86,4 @@
 
 #### 增长趋势
 在线构建图表：https://echarts.apache.org/examples/zh/editor.html
+目标：提高均匀的价值增长，寻找多次命中高价值的普通规律
