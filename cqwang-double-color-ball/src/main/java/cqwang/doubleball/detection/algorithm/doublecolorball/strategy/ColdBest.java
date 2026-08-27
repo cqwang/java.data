@@ -18,17 +18,17 @@ public class ColdBest {
             DoubleColorAlgorithmRegistry generator) {
         var splitBall = new SplitBall(targetIndex);
 
-        // 使用冷red
-//        addColdRed(ballList,splitBall, generator, targetIndex, 0, option);
-//        addColdRed(ballList,splitBall, generator, targetIndex, 5, option);
-//        addColdRed(ballList,splitBall, generator, targetIndex, 3, option);
+//         使用冷red
+        addColdRed(ballList,splitBall, generator, targetIndex, 0, option);
+        addColdRed(ballList,splitBall, generator, targetIndex, 5, option);
+        addColdRed(ballList,splitBall, generator, targetIndex, 3, option);
 
-        // 使用冷blue
-//        var origin = ballList.get(0);
-//        var coldBlueList = AlgorithmUtils.findColdList(splitBall, BallType.BLUE, 0, 15);
-//        for (var blue : coldBlueList) {
-//            ballList.add(origin.clone(blue.getData(), null));
-//        }
+//         使用冷blue
+        var origin = ballList.get(0);
+        var coldBlueList = AlgorithmUtils.findColdList(splitBall, BallType.BLUE, 0, 15);
+        for (var blue : coldBlueList) {
+            ballList.add(origin.clone(blue.getData(), null));
+        }
     }
 
     private static void addColdRed(

@@ -21,9 +21,10 @@ public class SecondBest {
     public static void execute(List<DoubleColorBall> ballList, int targetIndex, PredictOption option, DoubleColorAlgorithmRegistry generator) {
         var origin = ballList.get(0);
 
-//        replaceReds(ballList, targetIndex, option, origin,Set.of(1,3,5), generator);
 
-        replaceRed(ballList, targetIndex, option.clone(), origin, 0, generator);
+        replaceReds(ballList, targetIndex, option, origin,Set.of(1,3,5), generator);
+
+//        replaceRed(ballList, targetIndex, option.clone(), origin, 0, generator);
         // "profit":12113,"sumValue":29595,"sumCost":17482,"maxValue":3000,"hitTotalCount":552,"hitBlueTotalCount":523,"hitRedTotalCount":51}
 //        replaceBlue(ballList, targetIndex, option.clone(),origin,10, generator);
 //        replaceRedNeighbor(ballList, targetIndex, option.clone(), origin, 2, generator);
@@ -36,7 +37,7 @@ public class SecondBest {
         var maxTimes = 5;
         var result = maxTimes;
         if (redIndex == 0) {
-            result = origin.getRedValueList().get(redIndex + 1) - origin.getRedValueList().get(redIndex) - 1;
+            result = origin.getRedValueList().get(redIndex + 2) - origin.getRedValueList().get(redIndex) - 1;
         } else if (redIndex == 5) {
             result = origin.getRedValueList().get(redIndex) - origin.getRedValueList().get(redIndex - 1) - 1;
         } else {
@@ -70,10 +71,17 @@ public class SecondBest {
         option.addBlock(BallType.RED, index, origin.getRedValueList().get(index));
         for (int i = 0; i < tryTimes; i++) {
             var firstRedBlock = generator.predict(targetIndex, option);
-            resultList.add(firstRedBlock);
-            if (option.isBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index))) {
-                return;
+            if(resultList.stream().anyMatch(t->t.getSimpleInfo().equals(firstRedBlock.getSimpleInfo()))){
+                option.addBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index));
+                option.addBlock(BallType.RED, index+1, firstRedBlock.getRedValueList().get(index));
+                option.addBlock(BallType.RED, index+2, firstRedBlock.getRedValueList().get(index));
+                continue;
             }
+
+            resultList.add(firstRedBlock);
+//            if (option.isBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index))) {
+//                return;
+//            }
             option.addBlock(BallType.RED, index, firstRedBlock.getRedValueList().get(index));
         }
     }

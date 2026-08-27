@@ -19,7 +19,7 @@ public class PreMover {
         var origin = ballList.get(0);
 
         var tempOption = option.clone();
-        var flag0 = origin.getRedValueList().get(0) <= 2;
+        var flag0 = origin.getRedValueList().get(0) <= 4;
         if (flag0) {
             // 第2个red前移
             tempOption.setAllow(BallType.RED, 0, origin.getRedValueList().get(1));
