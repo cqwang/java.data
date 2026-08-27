@@ -1,0 +1,20 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/doublecolorball/strategy/BlockAndAllowMaker.java
+  s_fb41eb4b031d58::t_49a1fb31d47495 34-37,47,50-52,62,64-66
+  s_fb41eb4b031d58::t_69dfdfcab79a6c 95-209
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "8062de432f32c17b8e990c3c3347b2e6d22effd5",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
