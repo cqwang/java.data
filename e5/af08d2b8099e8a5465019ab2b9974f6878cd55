@@ -1,0 +1,22 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/WeightTuner.java
+  s_fb41eb4b031d58::t_2552dd17addeee 11,21-22,40-41,44,48-49,51-56,61-63,65-67,71-74
+  s_fb41eb4b031d58::t_b9733e671ae41d 1-10,12-20,23-39,42-43,45-47,50,57-60,64,68-70,75-78
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/EnsemblePredictor.java
+  s_fb41eb4b031d58::t_103ab380100180 19-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "e5af08d2b8099e8a5465019ab2b9974f6878cd55",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
