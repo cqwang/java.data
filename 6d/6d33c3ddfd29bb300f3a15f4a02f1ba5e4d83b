@@ -1,0 +1,23 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/ModelManager.java
+  s_fb41eb4b031d58::t_b8b38ceed240de 1-71
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/HyperparameterOptimizer.java
+  s_fb41eb4b031d58::t_ee5bc418957c88 1-95
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/PerformanceMonitor.java
+  s_fb41eb4b031d58::t_575bb1bdc0c2fd 1-75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "6d6d33c3ddfd29bb300f3a15f4a02f1ba5e4d83b",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
