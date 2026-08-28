@@ -1,0 +1,36 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/AlgorithmPerformanceAnalyzer.java
+  s_fb41eb4b031d58::t_e35fb939f60bf9 1-22,24,26-41,44,48-79
+  s_fb41eb4b031d58::t_61955dcb9569bb 23,25,42-43,45-47,80
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/AlgorithmComparator.java
+  s_fb41eb4b031d58::t_790db896eae793 22,36-38,61,63-65
+  s_fb41eb4b031d58::t_2b62a3f6a1636c 21,32-35,55-59
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/HMMPredictor.java
+  s_fb41eb4b031d58::t_7f0e01be4d059d 1-89
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/SingleBallAlgorithmFactory.java
+  s_fb41eb4b031d58::t_68d121db95a47f 32
+  s_fb41eb4b031d58::t_080f5ef4c7a26e 31
+  s_fb41eb4b031d58::t_d4998df288209a 6
+  s_fb41eb4b031d58::t_4b1fb43a71ba6b 7
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/WeightedEnsembleOptimizer.java
+  s_fb41eb4b031d58::t_6016e7b66b6304 1-70
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/AdvancedEnsemblePredictor.java
+  s_fb41eb4b031d58::t_2955619642b97d 1-101
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/HMMState.java
+  s_fb41eb4b031d58::t_9ff23124a8a87c 1-98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "3ad078e276dbe737a7fbd9640e84d70a95580e8c",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
