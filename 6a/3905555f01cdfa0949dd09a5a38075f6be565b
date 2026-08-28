@@ -1,0 +1,19 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/DeploymentPipeline.java
+  s_fb41eb4b031d58::t_7fc2dfa1bea849 1-91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "6a3905555f01cdfa0949dd09a5a38075f6be565b",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
