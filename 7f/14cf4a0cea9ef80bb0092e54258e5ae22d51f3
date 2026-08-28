@@ -1,0 +1,23 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/utils/FeatureEngineer.java
+  s_fb41eb4b031d58::t_f5437e3fa5c5f7 1-253
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/utils/FeatureVector.java
+  s_fb41eb4b031d58::t_56d9cb7dc4649b 1-274
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/FeatureEngineeringTest.java
+  s_fb41eb4b031d58::t_71e6449d477eeb 1-145
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "7f14cf4a0cea9ef80bb0092e54258e5ae22d51f3",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
