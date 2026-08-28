@@ -1,0 +1,74 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/ProfitTest.java
+  s_fb41eb4b031d58::t_8b73f1d602d18b 1-31
+cqwang-double-color-ball/target/classes/doubleball/DoubleColorBall.json
+  s_fb41eb4b031d58::t_95b7a1d746d603 1-12338
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/AlgorithmOptimizer.java
+  s_fb41eb4b031d58::t_0404edca448021 1-14,16-20,22-23,26-27,29-37,42,44,48-49,56-63,65-95
+  s_fb41eb4b031d58::t_c4384fa61044b1 15,21,24-25,28,38-41,43,45-47,50-55,64
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/MLPredictor.java
+  s_fb41eb4b031d58::t_68959cd8bb95db 1-22
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/RandomForestPredictor.java
+  s_fb41eb4b031d58::t_68679e47df75d1 3,12,31,40,59
+  s_fb41eb4b031d58::t_8ad62cb41852d8 1-2,4-11,13-29,35,37-39,41-47,49-51,53-58
+  s_fb41eb4b031d58::t_96ebb03cd871be 30,32-34,36,48,52,60
+cqwang-double-color-ball/target/classes/doubleball/AlgorithmRegistryList.json
+  s_fb41eb4b031d58::t_95b7a1d746d603 1-15
+cqwang-data-serializer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+  s_fb41eb4b031d58::t_f28b970032df49 1-3
+cqwang-double-color-ball/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+  s_fb41eb4b031d58::t_f50d1fa950d4ad 29
+  s_fb41eb4b031d58::t_19afa1ab929cb0 42
+  s_fb41eb4b031d58::t_95b7a1d746d603 1-24,26-28,30-41,44-71
+  s_fb41eb4b031d58::t_523811a5ceadbe 25
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/EnsemblePredictor.java
+  s_fb41eb4b031d58::t_034ee11ab7b432 1-11,13-52,58-87
+  s_fb41eb4b031d58::t_59ee667a48bdf0 53-57
+  s_fb41eb4b031d58::t_d6cbe87542b649 12,88
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/ModelTrainer.java
+  s_fb41eb4b031d58::t_7f3deef67916eb 1-4,8-34,40,42-85
+  s_fb41eb4b031d58::t_a87708b315dd74 5-7,35-39,41
+cqwang-double-color-ball/target/maven-archiver/pom.properties
+  s_fb41eb4b031d58::t_0238f930db43a9 1,3-5
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/doublecolorball/DoubleColorAlgorithmRegistry.java
+  s_fb41eb4b031d58::t_01a095d92fb4d8 115-116
+cqwang-double-color-ball/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+  s_fb41eb4b031d58::t_26c8c69e45cb7d 1-68,70-80
+  s_fb41eb4b031d58::t_19afa1ab929cb0 69
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/SingleBallAlgorithmFactory.java
+  s_fb41eb4b031d58::t_8a3ae2e964e9fe 4,27
+  s_fb41eb4b031d58::t_264f897e8d9737 5,28
+cqwang-double-color-ball/pom.xml
+  s_fb41eb4b031d58::t_3c4ba4cba5a34f 19-30
+  s_fb41eb4b031d58::t_9b3349b10e5154 78-88
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/singleball/ml/FeatureVectorizer.java
+  s_fb41eb4b031d58::t_43e0354d6009b3 1-5,9-11,13,23-24,33-48,61,63-64
+  s_fb41eb4b031d58::t_2df282838ee98e 6-8,12,14-22,25-32,49-60,62
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/doublecolorball/DoubleColorAlgorithmSelector.java
+  s_fb41eb4b031d58::t_8e1a13b718bd28 18
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/AlgorithmComparator.java
+  s_fb41eb4b031d58::t_490155d2117623 21,31-33,36-37,41-42,47-48,50,52-54
+  s_fb41eb4b031d58::t_e0ce4520d88068 39,45,51
+  s_fb41eb4b031d58::t_13b2c65b793271 20,22-30,34-35,38,40,43-44,46,49
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/detection/algorithm/doublecolorball/strategy/HighProfitMaker.java
+  s_fb41eb4b031d58::t_dd9704280e8c1a 1-12,14-15,18-26,28,42,50-66,80-87
+  s_fb41eb4b031d58::t_87668f80abd45d 13,35,39,45-46,48-49,67-79
+  s_fb41eb4b031d58::t_c0b5af93789047 16-17,27,29-34,36-38,40-41,43-44,47
+cqwang-data-serializer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+  s_fb41eb4b031d58::t_f28b970032df49 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "962bea27af9178d3285c621b42331ecbab4804db",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
