@@ -1,0 +1,21 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/HMMDiagnostics.java
+  s_fb41eb4b031d58::t_1e468a3b30aac0 1-76
+monitor_full.ps1
+  s_fb41eb4b031d58::t_d58ba952f2adcd 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "54807964ec3cbf7580691964462730ec9e46c140",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
