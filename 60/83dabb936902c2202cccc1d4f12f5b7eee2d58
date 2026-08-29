@@ -1,0 +1,26 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/FullDatasetComparison.java
+  s_fb41eb4b031d58::t_986bc7b94f80cd 35-38
+  s_fb41eb4b031d58::t_b2c6ae97f7a185 53-56
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/LightweightComparison.java
+  s_fb41eb4b031d58::t_19705d772d2e8e 43-46
+  s_fb41eb4b031d58::t_4177404fb37fc4 27-30
+  s_fb41eb4b031d58::t_ec192517e33b78 59-62
+monitor_test.ps1
+  s_fb41eb4b031d58::t_9e193e98d073f8 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "6083dabb936902c2202cccc1d4f12f5b7eee2d58",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
