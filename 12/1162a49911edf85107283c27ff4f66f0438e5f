@@ -1,0 +1,21 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/FastComparison.java
+  s_fb41eb4b031d58::t_05752ceedea1a4 1-81
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/LightweightComparison.java
+  s_fb41eb4b031d58::t_66a936138083b8 1-86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "121162a49911edf85107283c27ff4f66f0438e5f",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
