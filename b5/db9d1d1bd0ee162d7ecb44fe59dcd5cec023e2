@@ -1,0 +1,20 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/QuickVerification.java
+  s_fb41eb4b031d58::t_0be6713146c77c 1-48,50-65
+  s_fb41eb4b031d58::t_35374035fc0f28 49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "b5db9d1d1bd0ee162d7ecb44fe59dcd5cec023e2",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
