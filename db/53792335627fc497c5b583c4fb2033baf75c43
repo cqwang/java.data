@@ -1,0 +1,23 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/DeploymentMonitor.java
+  s_fb41eb4b031d58::t_b5254c1655b626 1-126
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/DeployHMMModel.java
+  s_fb41eb4b031d58::t_471c2686b68f59 1-61
+cqwang-double-color-ball/FINAL_DEPLOYMENT_REPORT.md
+  s_fb41eb4b031d58::t_eda59b26f89b99 1-228
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "db53792335627fc497c5b583c4fb2033baf75c43",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
