@@ -1,0 +1,26 @@
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/MonitoringLogger.java
+  s_fb41eb4b031d58::t_56b405a54e7c37 3
+  s_fb41eb4b031d58::t_760a19a952cd5a 1-2,4-221
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/FinalHMMDeployment.java
+  s_fb41eb4b031d58::t_0f0e5dc602663a 1-160
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/ProductionPredictor.java
+  s_fb41eb4b031d58::t_da4cbb3c7741b9 1-178
+cqwang-double-color-ball/src/main/java/cqwang/doubleball/CanaryDeployment.java
+  s_fb41eb4b031d58::t_0d9fe6ce2d3559 1-179
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.43-trip",
+  "base_commit_sha": "fb44ec227186fff55bec4a9ea5db55820b1d3f18",
+  "prompts": {},
+  "sessions": {
+    "s_fb41eb4b031d58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63173db5-142d-4480-96a8-b261840c6137",
+        "model": "arn:aws:bedrock:us-east-1:296122126678:application-inference-profile/3m9rx57mbhzq"
+      },
+      "human_author": "cq_wang <cq_wang@trip.com>"
+    }
+  }
+}
