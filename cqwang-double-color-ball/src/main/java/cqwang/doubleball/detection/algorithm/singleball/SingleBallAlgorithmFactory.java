@@ -1,6 +1,8 @@
 package cqwang.doubleball.detection.algorithm.singleball;
 
 import cqwang.doubleball.detection.algorithm.singleball.impl.*;
+import cqwang.doubleball.test.ml.AdvancedEnsemblePredictor;
+import cqwang.doubleball.test.ml.EnsemblePredictor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +22,8 @@ public class SingleBallAlgorithmFactory {
             new SingleBallAlgorithmRegistry("SvmSimulation", SvmSimulation.class),
             new SingleBallAlgorithmRegistry("BlueRecommend", BlueRecommend.class),
             new SingleBallAlgorithmRegistry("RedRecommend", RedRecommend.class),
+            new SingleBallAlgorithmRegistry("AdvancedEnsemblePredictor", AdvancedEnsemblePredictor.class),
+            new SingleBallAlgorithmRegistry("EnsemblePredictor", EnsemblePredictor.class),
 
     };
 

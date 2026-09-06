@@ -84,6 +84,11 @@
 提升200 10元的价值，形成通用规则
 重点: 红球
 
+1.加权预测，
+    不合理性：
+    基于利润的概率不合理性：只需要选择利润最高的接口，不需要把利润低的加进来。
+2.去噪预测
+
 #### 增长趋势
 在线构建图表：https://echarts.apache.org/examples/zh/editor.html
 https://echarts.apache.org/examples/zh/editor.html?c=bar-waterfall

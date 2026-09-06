@@ -112,12 +112,18 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         var origin = predict(targetIndex, option.clone());
         list.add(origin);
 
-        BlockAndAllowMaker.execute(list, targetIndex, option.clone(), this);
+
+        // [{"blueAlgorithm":"BlueRecommend","redAlgorithm":"RedRecommend","predictResult":{"profit":3342,"sumValue":7260,"sumCost":3918,"maxValue":3000,"hitTotalCount":131,"hitBlueTotalCount":125,"hitRedTotalCount":11}}]
+
+
+
+//        PointRemover.execute(list, targetIndex, option.clone(), this);
+
+//        BlockAndAllowMaker.execute(list, targetIndex, option.clone(), this);
 //
 //        PreMover.execute(list, targetIndex, option.clone(), this);
 //
 //        SecondBest.execute(list, targetIndex, option.clone(), this);
-
 //        ColdBest.execute(list, targetIndex, option, this);
 
 

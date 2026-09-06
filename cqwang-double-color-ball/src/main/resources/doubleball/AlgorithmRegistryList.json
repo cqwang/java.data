@@ -1,15 +1,10 @@
 [
   {
     "blueAlgorithm": "BlueRecommend",
-    "redAlgorithm": "RedRecommend",
-    "predictResult": {
-      "profit": 10022801,
-      "sumValue": 10059215,
-      "sumCost": 36414,
-      "maxValue": 10000000,
-      "hitTotalCount": 1218,
-      "hitBlueTotalCount": 1150,
-      "hitRedTotalCount": 109
-    }
+    "redAlgorithm": "RedRecommend"
+  },
+  {
+    "blueAlgorithm": "BlueRecommend",
+    "redAlgorithm": "EnsemblePredictor"
   }
 ]

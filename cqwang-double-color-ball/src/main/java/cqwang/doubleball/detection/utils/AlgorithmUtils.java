@@ -49,15 +49,23 @@ public class AlgorithmUtils {
     }
 
 
+    /**
+     * 得分越大，越冷
+     * @param splitBall
+     * @param ballType
+     * @param index
+     * @param period
+     * @return
+     */
     public static List<DataScore> findColdList(SplitBall splitBall, BallType ballType, int index, int period) {
         Range<Integer> range = ballType == BallType.BLUE ? Range.between(1, 16) : Range.between(1, 33);
         List<DataScore> dataScoreList = new ArrayList<>();
         for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
             var globalBallIndexList = splitBall.getIndexList(ballType, index, i);
             var score = calculateScore(globalBallIndexList, splitBall.getBlueBall().getDataList().size(), period, ballType);
-            if (score >= period * 0.7) {
+//            if (score >= period * 0.7) {
                 dataScoreList.add(new DataScore(i, score));
-            }
+//            }
         }
 
         dataScoreList.sort((o1, o2) -> {
@@ -67,8 +75,9 @@ public class AlgorithmUtils {
             }
             return diff > 0 ? 1 : -1;
         });
-        int count = Math.min(1, dataScoreList.size());
-        return dataScoreList.subList(0, count);
+//        int count = Math.min(1, dataScoreList.size());
+//        return dataScoreList.subList(0, count);
+        return dataScoreList;
     }
 
     public static double calculateScore(List<Integer> indexList, int maxSize, int period, BallType ballType) {
@@ -94,9 +103,9 @@ public class AlgorithmUtils {
             lastIndex = index;
         }
 
-        if(ballType == BallType.RED && hitCount < 2) {
-            return 0;
-        }
+//        if(ballType == BallType.RED && hitCount < 2) {
+//            return 0;
+//        }
         return sumScore;
     }
 
