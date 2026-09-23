@@ -3,7 +3,6 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import cqwang.doubleball.detection.algorithm.AlgorithmRegistry;
-import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.*;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegistry;
@@ -75,11 +74,20 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
     public DoubleColorBall predict(int targetIndex, PredictOption originOption) {
         var option = originOption.clone();
         // 获取样本数据
-//        var splitBall = new SplitBall(targetIndex);
         var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
 
         // 预测结果
         var predictResult = new DoubleColorBall();
+        predictResult.getRedValueList().addAll(predictRedList(splitBall, option));
+        predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
+
+        var blueValue = blueInstance.predict(splitBall.getBlueBall(), option).getResult();
+        predictResult.setBlueValue(blueValue);
+        return predictResult;
+    }
+
+    private List<Integer> predictRedList(SplitBall splitBall, PredictOption option) {
+        var redValueList = new ArrayList<Integer>(6);
         // 红色
         for (int redIndex = 0; redIndex < 6; redIndex++) {
             var singleBall = splitBall.getRedBall(redIndex);
@@ -89,22 +97,17 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
                 option.addBlocks(BallType.RED, redIndex, nextAllow, 33);
             }
 
-
             var predictRedResult = redInstance.predict(singleBall, option);
-            predictResult.getRedValueList().add(predictRedResult.getResult());
+            redValueList.add(predictRedResult.getResult());
 
             for (int j = 0; j <= redIndex; j++) {
-                option.addBlock(BallType.RED, redIndex + 1, predictResult.getRedValueList().get(j));
+                option.addBlock(BallType.RED, redIndex + 1, redValueList.get(j));
                 if (option.hasRedAllow(j)) {
-                    option.addBlocks(BallType.RED, redIndex + 1, 1, predictResult.getRedValueList().get(j));
+                    option.addBlocks(BallType.RED, redIndex + 1, 1, redValueList.get(j));
                 }
             }
         }
-        predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
-
-        var blueValue = blueInstance.predict(splitBall.getBlueBall(), option).getResult();
-        predictResult.setBlueValue(blueValue);
-        return predictResult;
+        return redValueList;
     }
 
     @Override
