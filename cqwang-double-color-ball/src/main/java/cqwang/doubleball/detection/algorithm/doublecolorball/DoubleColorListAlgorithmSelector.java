@@ -1,7 +1,7 @@
 package cqwang.doubleball.detection.algorithm.doublecolorball;
 
 import cqwang.doubleball.detection.model.option.PredictOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 import cqwang.doubleball.detection.utils.ValueCalculator;
 
 public class DoubleColorListAlgorithmSelector extends DoubleColorAlgorithmSelector {

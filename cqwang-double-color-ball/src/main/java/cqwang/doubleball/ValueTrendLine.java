@@ -3,7 +3,7 @@ package cqwang.doubleball;
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorithmRegistry;
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorListAlgorithmSelector;
 import cqwang.doubleball.detection.model.option.RunOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

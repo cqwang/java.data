@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.preload;
+package cqwang.doubleball.detection.cache.preload;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
@@ -19,11 +19,11 @@ public class DoubleColorBallPreload {
     @Getter
     private static List<DoubleColorBall> allData;
 
-    /**
-     * 原始数据
-     */
-    @Getter
-    private static SplitBall splitAllData;
+//    /**
+//     * 原始数据
+//     */
+//    @Getter
+//    private static SplitBall splitAllData;
 
 
     public static void execute() {
@@ -35,7 +35,7 @@ public class DoubleColorBallPreload {
         Collections.reverse(allData);
 
 
-        splitAllData = new SplitBall(allData.size());
+//        splitAllData = new SplitBall(allData.size());
     }
 
 }

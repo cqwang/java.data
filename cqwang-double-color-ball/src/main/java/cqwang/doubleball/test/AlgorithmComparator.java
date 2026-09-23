@@ -1,13 +1,9 @@
 package cqwang.doubleball.test;
 
-import cqwang.data.serializer.JSON;
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorithmRegistry;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.model.option.PredictOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
-
-import java.util.ArrayList;
-import java.util.List;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 
 public class AlgorithmComparator {
     public static void main(String[] args) {

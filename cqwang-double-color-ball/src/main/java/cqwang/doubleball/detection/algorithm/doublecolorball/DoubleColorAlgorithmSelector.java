@@ -8,11 +8,10 @@ import cqwang.doubleball.detection.utils.CompareUtils;
 import cqwang.doubleball.detection.utils.ValueCalculator;
 import cqwang.doubleball.detection.algorithm.AlgorithmSelector;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
 
 public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleColorAlgorithmRegistry> {
     int MIN_PROFIT = 0;

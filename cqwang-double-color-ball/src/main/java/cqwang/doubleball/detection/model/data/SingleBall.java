@@ -17,6 +17,8 @@ import java.util.Map;
 @NoArgsConstructor
 public class SingleBall {
 
+    private Map<Integer, SingleBall> cache = new HashMap<>();
+
     @Getter
     private BallType ballType;
 
@@ -162,6 +164,12 @@ public class SingleBall {
      * @return
      */
     public SingleBall sub(int sampleSize) {
+        var subBall = cache.get(sampleSize);
+        if (subBall != null) {
+            return subBall;
+        }
+
+
         if (sampleSize > this.dataList.size()) {
             sampleSize = this.dataList.size();
         }
@@ -173,6 +181,7 @@ public class SingleBall {
         }
 
         sub.completeFill();
+        cache.put(sampleSize, sub);
         return sub;
     }
 

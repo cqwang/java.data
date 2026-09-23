@@ -1,10 +1,12 @@
 package cqwang.doubleball.detection.algorithm;
 
+import com.google.common.base.Stopwatch;
 import cqwang.data.serializer.JSON;
 import cqwang.doubleball.detection.model.option.RunOption;
 import cqwang.doubleball.detection.utils.CompareUtils;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
     /**
@@ -14,30 +16,37 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
 
 
     default List<TRegistry> execute(RunOption runOption) {
-        List<TRegistry> algorithmList = null;
+        var stopWatch = Stopwatch.createStarted();
+        try {
 
-        if(runOption == RunOption.RE_CALCULATE_SINGLE_BALL){
-            return reCalculateJustForSingle();
-        }
+            List<TRegistry> algorithmList = null;
+
+            if (runOption == RunOption.RE_CALCULATE_SINGLE_BALL) {
+                return reCalculateJustForSingle();
+            }
 
 
-        if (runOption == RunOption.RE_CALCULATE) {
-            algorithmList = reCalculate();
-        } else if (runOption == RunOption.RE_CALCULATE_VALUE_FROM_FILE) {
-            algorithmList = reCalculateValueFromFile();
-        } else if (runOption == RunOption.FROM_FILE) {
-            algorithmList = readFromFile(false);
-        }
+            if (runOption == RunOption.RE_CALCULATE) {
+                algorithmList = reCalculate();
+            } else if (runOption == RunOption.RE_CALCULATE_VALUE_FROM_FILE) {
+                algorithmList = reCalculateValueFromFile();
+            } else if (runOption == RunOption.FROM_FILE) {
+                algorithmList = readFromFile(false);
+            }
 
-        if (algorithmList == null) {
+            if (algorithmList == null) {
+                return algorithmList;
+            }
+
+            algorithmList.sort(CompareUtils.PREDICT_RESULT_COMPARE);
+            var actualCount = Math.min(getMaxCount(), algorithmList.size());
+            algorithmList = algorithmList.subList(0, actualCount);
+            System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
             return algorithmList;
+        } finally {
+            stopWatch.stop();
+            System.out.println("history predict time : " + stopWatch.elapsed(TimeUnit.SECONDS));
         }
-
-        algorithmList.sort(CompareUtils.PREDICT_RESULT_COMPARE);
-        var actualCount = Math.min(getMaxCount(), algorithmList.size());
-        algorithmList = algorithmList.subList(0, actualCount);
-        System.out.println(JSON.toJSONString(algorithmList)); // 保存到文件  手动保存到resource目录下
-        return algorithmList;
     }
 
     List<TRegistry> reCalculateJustForSingle();

@@ -1,9 +1,8 @@
 package cqwang.doubleball.detection.model.data;
 
 import cqwang.doubleball.detection.model.data.features.BallType;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 import lombok.Getter;
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

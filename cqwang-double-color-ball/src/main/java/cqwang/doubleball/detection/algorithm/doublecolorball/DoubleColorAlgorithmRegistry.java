@@ -7,6 +7,7 @@ import cqwang.doubleball.detection.algorithm.doublecolorball.strategy.*;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegistry;
+import cqwang.doubleball.detection.cache.SplitBallCacheManager;
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
@@ -74,7 +75,8 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
     public DoubleColorBall predict(int targetIndex, PredictOption originOption) {
         var option = originOption.clone();
         // 获取样本数据
-        var splitBall = new SplitBall(targetIndex);
+//        var splitBall = new SplitBall(targetIndex);
+        var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
 
         // 预测结果
         var predictResult = new DoubleColorBall();

@@ -5,7 +5,6 @@ import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
 import cqwang.doubleball.detection.utils.model.DataScore;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.Range;

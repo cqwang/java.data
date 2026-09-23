@@ -5,7 +5,7 @@ import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorListAlgo
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.option.RunOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 
 import java.util.List;
 

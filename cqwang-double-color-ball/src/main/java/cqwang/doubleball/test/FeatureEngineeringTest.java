@@ -1,6 +1,6 @@
 package cqwang.doubleball.test;
 
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 import cqwang.doubleball.detection.model.data.SingleBall;
 import cqwang.doubleball.detection.model.data.SplitBall;
 

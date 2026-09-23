@@ -4,7 +4,7 @@ import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorith
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorListAlgorithmSelector;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.option.RunOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 
 import java.util.*;
 
@@ -25,7 +25,7 @@ public class FuturePredict {
 
     public static void predictList() {
         DoubleColorBallPreload.execute();
-        var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE_VALUE_FROM_FILE);
+        var algorithmList = new DoubleColorListAlgorithmSelector().execute(RunOption.RE_CALCULATE);
         var targetIndex = DoubleColorBallPreload.getAllData().size();
         Map<String, Integer> result = new HashMap<>();
         for (var algorithm : algorithmList) {

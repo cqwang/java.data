@@ -8,7 +8,7 @@ import java.util.Map;
 public class SplitBallCacheManager {
     private static Map<Integer, SplitBall> cache = new HashMap<>();
 
-    private static SplitBall computeIfAbsent(int targetIndex) {
+    public static SplitBall computeIfAbsent(int targetIndex) {
         return cache.computeIfAbsent(targetIndex, integer -> new SplitBall(targetIndex));
     }
 }

@@ -2,7 +2,7 @@ package cqwang.doubleball.detection.model.result;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 import cqwang.doubleball.detection.utils.ValueCalculator;
 import cqwang.doubleball.detection.model.result.features.ValueFlag;
 import lombok.Data;

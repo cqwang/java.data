@@ -3,9 +3,7 @@ package cqwang.doubleball.test;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.model.data.SingleBall;
 import cqwang.doubleball.detection.model.option.PredictOption;
-import cqwang.doubleball.detection.preload.DoubleColorBallPreload;
-import cqwang.doubleball.detection.utils.ValueCalculator;
-import cqwang.doubleball.detection.model.result.SingleResult;
+import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
 
 import java.util.*;
 
