@@ -1,12 +1,7 @@
 package cqwang.doubleball.detection.model.data;
 
 import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
-import cqwang.doubleball.detection.model.data.features.BallType;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class SplitBatchBall {
     @Getter
