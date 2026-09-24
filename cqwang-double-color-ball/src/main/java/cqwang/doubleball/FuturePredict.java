@@ -1,7 +1,10 @@
 package cqwang.doubleball;
 
+import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithmFactory;
+import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorithmRegistry;
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorAlgorithmSelector;
 import cqwang.doubleball.detection.algorithm.doublecolorball.DoubleColorListAlgorithmSelector;
+import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.option.RunOption;
 import cqwang.doubleball.detection.cache.preload.DoubleColorBallPreload;
@@ -51,4 +54,11 @@ public class FuturePredict {
         }
     }
 
+    public static int getProfit(String batchRedAlgorithm, String blueAlgorithm){
+        var red = BatchBallAlgorithmFactory.getAlgorithm(batchRedAlgorithm);
+        var blue = SingleBallAlgorithmFactory.getAlgorithm(blueAlgorithm);
+        var registry= new DoubleColorAlgorithmRegistry(blue, red);
+        new DoubleColorListAlgorithmSelector().historyPredict(registry);
+        return registry.getPredictResult().getProfit();
+    }
 }

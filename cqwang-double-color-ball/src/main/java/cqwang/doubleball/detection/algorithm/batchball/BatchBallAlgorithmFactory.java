@@ -17,6 +17,9 @@ public class BatchBallAlgorithmFactory {
             new BatchBallAlgorithmRegistry("BatchDistributionFrequency", BatchDistributionFrequency.class),
             new BatchBallAlgorithmRegistry("BatchMaxDistributionCumulativeWeightFrequency", BatchMaxDistributionCumulativeWeightFrequency.class),
             new BatchBallAlgorithmRegistry("BatchMaxDistributionSplitWeightFrequency", BatchMaxDistributionSplitWeightFrequency.class),
+            new BatchBallAlgorithmRegistry("BatchRedRecommendOptimized", BatchRedRecommendOptimized.class),
+            new BatchBallAlgorithmRegistry("BatchEnsembleOptimized", BatchEnsembleOptimized.class),
+            new BatchBallAlgorithmRegistry("BatchHotColdTransition", BatchHotColdTransition.class),
     };
 
     public static List<BatchBallAlgorithmRegistry> getAlgorithmPool() {
