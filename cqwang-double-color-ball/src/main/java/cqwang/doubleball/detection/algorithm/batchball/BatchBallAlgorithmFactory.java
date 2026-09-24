@@ -11,6 +11,12 @@ public class BatchBallAlgorithmFactory {
             new BatchBallAlgorithmRegistry("BatchContinuityWeight", BatchContinuityWeight.class),
             new BatchBallAlgorithmRegistry("BatchSurgeFrequency", BatchSurgeFrequency.class),
             new BatchBallAlgorithmRegistry("BatchNeighborhoodCluster", BatchNeighborhoodCluster.class),
+            new BatchBallAlgorithmRegistry("BatchRecentMaxFrequency", BatchRecentMaxFrequency.class),
+            new BatchBallAlgorithmRegistry("BatchRecentMaxWeightFrequency", BatchRecentMaxWeightFrequency.class),
+            new BatchBallAlgorithmRegistry("BatchSimilarityFrequency", BatchSimilarityFrequency.class),
+            new BatchBallAlgorithmRegistry("BatchDistributionFrequency", BatchDistributionFrequency.class),
+            new BatchBallAlgorithmRegistry("BatchMaxDistributionCumulativeWeightFrequency", BatchMaxDistributionCumulativeWeightFrequency.class),
+            new BatchBallAlgorithmRegistry("BatchMaxDistributionSplitWeightFrequency", BatchMaxDistributionSplitWeightFrequency.class),
     };
 
     public static List<BatchBallAlgorithmRegistry> getAlgorithmPool() {
