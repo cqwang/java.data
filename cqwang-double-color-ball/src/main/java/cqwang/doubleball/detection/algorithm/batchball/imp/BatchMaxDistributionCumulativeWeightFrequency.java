@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;
@@ -9,47 +9,39 @@ import org.apache.commons.lang3.Range;
 import java.util.*;
 
 /**
- * 批量红球预测 - 多维度相似度
- * 综合考虑：频率、邻近性、全局频率
+ * 批量红球预测 - 累积加权频率
+ * 多窗口累积频率：freq[12]*7 + freq[20]*3 + freq[40]*1
  */
-public class BatchSimilarityFrequency implements BatchBallAlgorithm {
+public class BatchMaxDistributionCumulativeWeightFrequency implements BatchBallAlgorithm {
 
     @Override
     public BatchResult predict(BatchBall batchBall, BatchPredictOption option) {
         Range<Integer> range = Range.between(batchBall.getMinData(), batchBall.getMaxData());
-        return batchSimilarity(batchBall, range, option);
+        return batchDistributionWeightCumulative(batchBall, range, option);
     }
 
-    private static BatchResult batchSimilarity(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
-        var sub40 = batchBall.sub(40);
+    private static BatchResult batchDistributionWeightCumulative(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
+        var subList = new BatchBall[3];
+        subList[0] = batchBall.sub(12);
+        subList[1] = batchBall.sub(20);
+        subList[2] = batchBall.sub(40);
+
+        var weightList = new double[]{7, 3, 1};
+
         List<Map.Entry<Integer, Double>> scoreList = new ArrayList<>();
 
-        for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
-            if (option.isBlock(candidate)) {
+        for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+            if (option.isBlock(data)) {
                 continue;
             }
 
-            double score = 0;
-
-            // 频率得分
-            score += sub40.getFrequency(candidate) * 10;
-
-            // 邻近性得分
-            for (var data : sub40.getDataList()) {
-                int diff = Math.abs(data - candidate);
-                if (diff <= 2) {
-                    score += 5;
-                } else if (diff <= 5) {
-                    score += 2;
-                }
+            double score = 0.0;
+            for (int index = 0; index < subList.length; index++) {
+                score += subList[index].getFrequency(data) * weightList[index];
             }
 
-            // 全局频率补充
-            int globalFreq = batchBall.getFrequency(candidate);
-            score += globalFreq * 0.5;
-
             if (score > 0) {
-                scoreList.add(new AbstractMap.SimpleEntry<>(candidate, score));
+                scoreList.add(new AbstractMap.SimpleEntry<>(data, score));
             }
         }
 

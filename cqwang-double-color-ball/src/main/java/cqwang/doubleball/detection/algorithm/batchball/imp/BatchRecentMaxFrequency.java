@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;
@@ -9,51 +9,37 @@ import org.apache.commons.lang3.Range;
 import java.util.*;
 
 /**
- * 批量红球预测 - 最近45期加权众数
- * 最近出现的频率最高值权重更高
- * score = sum(1.0 + j/dataList.size()) for each occurrence
+ * 批量红球预测 - 最近15期最高频率
+ * 选择最近15期中频率最高的6个号码
  */
-public class BatchRecentMaxWeightFrequency implements BatchBallAlgorithm {
+public class BatchRecentMaxFrequency implements BatchBallAlgorithm {
 
     @Override
     public BatchResult predict(BatchBall batchBall, BatchPredictOption option) {
-        var sub = batchBall.sub(45);
+        var sub = batchBall.sub(15);
         Range<Integer> range = Range.between(batchBall.getMinData(), batchBall.getMaxData());
-        return batchSquareWeight(sub, range, option);
+        return batchRecentMaxFrequency(sub, range, option);
     }
 
-    private static BatchResult batchSquareWeight(BatchBall sub, Range<Integer> range, BatchPredictOption option) {
-        List<Map.Entry<Integer, Double>> scoreList = new ArrayList<>();
+    private static BatchResult batchRecentMaxFrequency(BatchBall sub, Range<Integer> range, BatchPredictOption option) {
+        List<Map.Entry<Integer, Integer>> frequencyList = new ArrayList<>();
 
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
             if (option.isBlock(data)) {
                 continue;
             }
-
-            double weightedFreq = 0;
-            int occurrenceCount = 0;
-
-            for (int j = 0; j < sub.getDataList().size(); j++) {
-                if (sub.getDataList().get(j) == data) {
-                    double weight = 1.0 + (double) j / sub.getDataList().size();
-                    weightedFreq += weight;
-                    occurrenceCount++;
-                }
-            }
-
-            if (occurrenceCount > 0) {
-                weightedFreq /= occurrenceCount;
-                weightedFreq *= occurrenceCount;
-                scoreList.add(new AbstractMap.SimpleEntry<>(data, weightedFreq));
+            int freq = sub.getFrequency(data);
+            if (freq > 0) {
+                frequencyList.add(new AbstractMap.SimpleEntry<>(data, freq));
             }
         }
 
-        scoreList.sort((a, b) -> {
-            double diff = b.getValue() - a.getValue();
-            if (Math.abs(diff) < 1e-6) {
+        frequencyList.sort((a, b) -> {
+            int freqDiff = b.getValue() - a.getValue();
+            if (freqDiff == 0) {
                 return b.getKey() - a.getKey();
             }
-            return diff > 0 ? 1 : -1;
+            return freqDiff;
         });
 
         List<Integer> result = new ArrayList<>();
@@ -67,7 +53,7 @@ public class BatchRecentMaxWeightFrequency implements BatchBallAlgorithm {
             }
         }
 
-        for (Map.Entry<Integer, Double> entry : scoreList) {
+        for (Map.Entry<Integer, Integer> entry : frequencyList) {
             if (result.size() >= 6) {
                 break;
             }

@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;

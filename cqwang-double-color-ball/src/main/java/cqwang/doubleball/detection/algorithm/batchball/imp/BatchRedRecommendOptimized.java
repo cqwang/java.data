@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;
@@ -9,25 +9,26 @@ import org.apache.commons.lang3.Range;
 import java.util.*;
 
 /**
- * 批量红球预测 - 差分加权频率
- * 多窗口差分频率：freq[12]*10 + (freq[20]-freq[12])*4 + (freq[40]-freq[20])*1
- * 只考虑每个窗口新增的频率
+ * 批量红球预测 - 改进的多窗口加权频率 v2
+ * 基于 RedRecommend 的优化版本
+ * 优化了权重系数和特征融合
  */
-public class BatchMaxDistributionSplitWeightFrequency implements BatchBallAlgorithm {
+public class BatchRedRecommendOptimized implements BatchBallAlgorithm {
 
     @Override
     public BatchResult predict(BatchBall batchBall, BatchPredictOption option) {
         Range<Integer> range = Range.between(batchBall.getMinData(), batchBall.getMaxData());
-        return batchDistributionWeightSplit(batchBall, range, option);
+        return batchDistributionWeightOptimized(batchBall, range, option);
     }
 
-    private static BatchResult batchDistributionWeightSplit(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
-        var subList = new BatchBall[3];
-        subList[0] = batchBall.sub(12);
-        subList[1] = batchBall.sub(20);
-        subList[2] = batchBall.sub(40);
-
-        var weightList = new double[]{10, 4, 1};
+    private static BatchResult batchDistributionWeightOptimized(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
+        var subList = new BatchBall[]{
+                batchBall.sub(5),
+                batchBall.sub(12),
+                batchBall.sub(20),
+                batchBall.sub(40)
+        };
+        var weightList = new double[]{-2, 11, 3.5, 1};  // 调整权重
 
         List<Map.Entry<Integer, Double>> scoreList = new ArrayList<>();
 
@@ -37,17 +38,24 @@ public class BatchMaxDistributionSplitWeightFrequency implements BatchBallAlgori
             }
 
             double score = 0.0;
-            // 第一个窗口直接计算
-            score += subList[0].getFrequency(data) * weightList[0];
-            // 后续窗口计算差分
-            for (int index = 1; index < subList.length; index++) {
-                int diff = subList[index].getFrequency(data) - subList[index - 1].getFrequency(data);
-                score += diff * weightList[index];
+            for (int index = 0; index < subList.length; index++) {
+                score += subList[index].getFrequency(data) * weightList[index];
             }
 
-            if (score > 0) {
-                scoreList.add(new AbstractMap.SimpleEntry<>(data, score));
+            // 特征1: 连续性加分
+            int maxContinuous = batchBall.getMaxContinuousFrequency(data);
+            if (maxContinuous > 1) {
+                score += Math.min(2.0, maxContinuous * 0.4);
             }
+
+            // 特征2: 全局频率比
+            int globalFreq = batchBall.getFrequency(data);
+            double avgFreq = batchBall.getAvgFrequency();
+            if (globalFreq > avgFreq * 1.2) {
+                score += 1.5;
+            }
+
+            scoreList.add(new AbstractMap.SimpleEntry<>(data, score));
         }
 
         scoreList.sort((a, b) -> {

@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;
@@ -9,41 +9,36 @@ import org.apache.commons.lang3.Range;
 import java.util.*;
 
 /**
- * 批量红球预测 - 连续性加权
- * 参考 SingleBall 的 ContinuityWeightFrequency 算法
- * score = frequency + maxContinuousFrequency * 3
+ * 批量红球预测 - 频率最高
+ * 选择历史总体频率最高的6个号码
  */
-public class BatchContinuityWeight implements BatchBallAlgorithm {
+public class BatchMaxFrequency implements BatchBallAlgorithm {
 
     @Override
     public BatchResult predict(BatchBall batchBall, BatchPredictOption option) {
         Range<Integer> range = Range.between(batchBall.getMinData(), batchBall.getMaxData());
-        return batchContinuityWeight(batchBall, range, option);
+        return batchMaxFrequency(batchBall, range, option);
     }
 
-    private static BatchResult batchContinuityWeight(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
-        // 计算所有号码的连续性加权分数
-        List<Map.Entry<Integer, Double>> scoreList = new ArrayList<>();
+    private static BatchResult batchMaxFrequency(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
+        // 计算所有号码的频率
+        List<Map.Entry<Integer, Integer>> frequencyList = new ArrayList<>();
 
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
             if (option.isBlock(data)) {
                 continue;
             }
-
             int freq = batchBall.getFrequency(data);
-            int maxContinuous = batchBall.getMaxContinuousFrequency(data);
-            double score = freq * 1.0 + maxContinuous * 3.0;
-
-            scoreList.add(new AbstractMap.SimpleEntry<>(data, score));
+            frequencyList.add(new AbstractMap.SimpleEntry<>(data, freq));
         }
 
-        // 按分数降序排序
-        scoreList.sort((a, b) -> {
-            double scoreDiff = b.getValue() - a.getValue();
-            if (Math.abs(scoreDiff) < 1e-6) {
+        // 按频率降序排序
+        frequencyList.sort((a, b) -> {
+            int freqDiff = b.getValue() - a.getValue();
+            if (freqDiff == 0) {
                 return b.getKey() - a.getKey();
             }
-            return scoreDiff > 0 ? 1 : -1;
+            return freqDiff;
         });
 
         // 选出前6个
@@ -60,7 +55,7 @@ public class BatchContinuityWeight implements BatchBallAlgorithm {
         }
 
         // 补充其他号码
-        for (Map.Entry<Integer, Double> entry : scoreList) {
+        for (Map.Entry<Integer, Integer> entry : frequencyList) {
             if (result.size() >= 6) {
                 break;
             }

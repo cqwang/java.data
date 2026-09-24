@@ -5,10 +5,10 @@
   },
   {
     "blueAlgorithm": "BlueRecommend",
-    "redAlgorithm": "RecentMaxWeightFrequency"
+    "redBatchAlgorithm": "BatchRedRecommend"
   },
   {
-    "blueAlgorithm": "RecentMaxWeightFrequency",
-    "redAlgorithm": "BlueRecommend"
+    "blueAlgorithm": "BlueRecommend",
+    "redBatchAlgorithm": "BatchBlueRecommend"
   }
 ]

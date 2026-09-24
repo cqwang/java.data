@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;
@@ -9,53 +9,48 @@ import org.apache.commons.lang3.Range;
 import java.util.*;
 
 /**
- * 批量红球预测 - 改进的多窗口加权频率 v2
- * 基于 RedRecommend 的优化版本
- * 优化了权重系数和特征融合
+ * 批量红球预测 - 多维度相似度
+ * 综合考虑：频率、邻近性、全局频率
  */
-public class BatchRedRecommendOptimized implements BatchBallAlgorithm {
+public class BatchSimilarityFrequency implements BatchBallAlgorithm {
 
     @Override
     public BatchResult predict(BatchBall batchBall, BatchPredictOption option) {
         Range<Integer> range = Range.between(batchBall.getMinData(), batchBall.getMaxData());
-        return batchDistributionWeightOptimized(batchBall, range, option);
+        return batchSimilarity(batchBall, range, option);
     }
 
-    private static BatchResult batchDistributionWeightOptimized(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
-        var subList = new BatchBall[]{
-                batchBall.sub(5),
-                batchBall.sub(12),
-                batchBall.sub(20),
-                batchBall.sub(40)
-        };
-        var weightList = new double[]{-2, 11, 3.5, 1};  // 调整权重
-
+    private static BatchResult batchSimilarity(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
+        var sub40 = batchBall.sub(40);
         List<Map.Entry<Integer, Double>> scoreList = new ArrayList<>();
 
-        for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
-            if (option.isBlock(data)) {
+        for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
+            if (option.isBlock(candidate)) {
                 continue;
             }
 
-            double score = 0.0;
-            for (int index = 0; index < subList.length; index++) {
-                score += subList[index].getFrequency(data) * weightList[index];
+            double score = 0;
+
+            // 频率得分
+            score += sub40.getFrequency(candidate) * 10;
+
+            // 邻近性得分
+            for (var data : sub40.getDataList()) {
+                int diff = Math.abs(data - candidate);
+                if (diff <= 2) {
+                    score += 5;
+                } else if (diff <= 5) {
+                    score += 2;
+                }
             }
 
-            // 特征1: 连续性加分
-            int maxContinuous = batchBall.getMaxContinuousFrequency(data);
-            if (maxContinuous > 1) {
-                score += Math.min(2.0, maxContinuous * 0.4);
-            }
+            // 全局频率补充
+            int globalFreq = batchBall.getFrequency(candidate);
+            score += globalFreq * 0.5;
 
-            // 特征2: 全局频率比
-            int globalFreq = batchBall.getFrequency(data);
-            double avgFreq = batchBall.getAvgFrequency();
-            if (globalFreq > avgFreq * 1.2) {
-                score += 1.5;
+            if (score > 0) {
+                scoreList.add(new AbstractMap.SimpleEntry<>(candidate, score));
             }
-
-            scoreList.add(new AbstractMap.SimpleEntry<>(data, score));
         }
 
         scoreList.sort((a, b) -> {

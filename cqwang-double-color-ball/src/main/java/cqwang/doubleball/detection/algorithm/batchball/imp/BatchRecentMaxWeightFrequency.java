@@ -1,4 +1,4 @@
-package cqwang.doubleball.detection.algorithm.batchball.impl;
+package cqwang.doubleball.detection.algorithm.batchball.imp;
 
 import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
 import cqwang.doubleball.detection.model.data.BatchBall;
@@ -9,25 +9,20 @@ import org.apache.commons.lang3.Range;
 import java.util.*;
 
 /**
- * 批量红球预测 - 累积加权频率
- * 多窗口累积频率：freq[12]*7 + freq[20]*3 + freq[40]*1
+ * 批量红球预测 - 最近45期加权众数
+ * 最近出现的频率最高值权重更高
+ * score = sum(1.0 + j/dataList.size()) for each occurrence
  */
-public class BatchMaxDistributionCumulativeWeightFrequency implements BatchBallAlgorithm {
+public class BatchRecentMaxWeightFrequency implements BatchBallAlgorithm {
 
     @Override
     public BatchResult predict(BatchBall batchBall, BatchPredictOption option) {
+        var sub = batchBall.sub(45);
         Range<Integer> range = Range.between(batchBall.getMinData(), batchBall.getMaxData());
-        return batchDistributionWeightCumulative(batchBall, range, option);
+        return batchSquareWeight(sub, range, option);
     }
 
-    private static BatchResult batchDistributionWeightCumulative(BatchBall batchBall, Range<Integer> range, BatchPredictOption option) {
-        var subList = new BatchBall[3];
-        subList[0] = batchBall.sub(12);
-        subList[1] = batchBall.sub(20);
-        subList[2] = batchBall.sub(40);
-
-        var weightList = new double[]{7, 3, 1};
-
+    private static BatchResult batchSquareWeight(BatchBall sub, Range<Integer> range, BatchPredictOption option) {
         List<Map.Entry<Integer, Double>> scoreList = new ArrayList<>();
 
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
@@ -35,13 +30,21 @@ public class BatchMaxDistributionCumulativeWeightFrequency implements BatchBallA
                 continue;
             }
 
-            double score = 0.0;
-            for (int index = 0; index < subList.length; index++) {
-                score += subList[index].getFrequency(data) * weightList[index];
+            double weightedFreq = 0;
+            int occurrenceCount = 0;
+
+            for (int j = 0; j < sub.getDataList().size(); j++) {
+                if (sub.getDataList().get(j) == data) {
+                    double weight = 1.0 + (double) j / sub.getDataList().size();
+                    weightedFreq += weight;
+                    occurrenceCount++;
+                }
             }
 
-            if (score > 0) {
-                scoreList.add(new AbstractMap.SimpleEntry<>(data, score));
+            if (occurrenceCount > 0) {
+                weightedFreq /= occurrenceCount;
+                weightedFreq *= occurrenceCount;
+                scoreList.add(new AbstractMap.SimpleEntry<>(data, weightedFreq));
             }
         }
 
