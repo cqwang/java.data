@@ -39,10 +39,10 @@ public class RedRecommend implements SingleBallAlgorithm {
         int result = range.getMinimum();
         boolean success = false;
         for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
-            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(),data)) {
+            if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 return new SingleResult(data, true);
             }
 
@@ -58,6 +58,16 @@ public class RedRecommend implements SingleBallAlgorithm {
                 success = true;
             }
         }
+
+        if (!success) {
+            for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
+                    continue;
+                }
+                return new SingleResult(data, true);
+            }
+        }
+
         return new SingleResult(result, success);
     }
 }

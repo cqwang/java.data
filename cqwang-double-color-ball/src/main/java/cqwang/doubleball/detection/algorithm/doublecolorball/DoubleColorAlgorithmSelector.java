@@ -22,23 +22,22 @@ public class DoubleColorAlgorithmSelector implements AlgorithmSelector<DoubleCol
         var singleBallAlgorithmList = SingleBallAlgorithmFactory.getAlgorithmPool();
         var resultList = new ArrayList<DoubleColorAlgorithmRegistry>();
 
-//        for (var blue : singleBallAlgorithmList) {
-//            for (var red : singleBallAlgorithmList) {
-//                var advancedAlgorithm = new DoubleColorAlgorithmRegistry(blue, red);
-//                historyPredict(advancedAlgorithm);
-//                var predictResult = advancedAlgorithm.getPredictResult();
-//                if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getProfit() < MIN_PROFIT) {
-//                    continue;
-//                }
-//
-//                resultList.add(advancedAlgorithm);
-//            }
-//        }
+        for (var blue : singleBallAlgorithmList) {
+            for (var red : singleBallAlgorithmList) {
+                var advancedAlgorithm = new DoubleColorAlgorithmRegistry(blue, red);
+                historyPredict(advancedAlgorithm);
+                var predictResult = advancedAlgorithm.getPredictResult();
+                if (ValueCalculator.hasNoValue(predictResult.getSumValue()) || predictResult.getProfit() < MIN_PROFIT) {
+                    continue;
+                }
+
+                resultList.add(advancedAlgorithm);
+            }
+        }
 
         var batchBallAlgorithmList = BatchBallAlgorithmFactory.getAlgorithmPool();
         for (var blue : singleBallAlgorithmList) {
             for (var red : batchBallAlgorithmList) {
-                System.out.println("red: "+ red.getAlgorithmName());
                 var advancedAlgorithm = new DoubleColorAlgorithmRegistry(blue, red);
                 historyPredict(advancedAlgorithm);
                 var predictResult = advancedAlgorithm.getPredictResult();

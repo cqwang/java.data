@@ -19,7 +19,7 @@ public class SingleBallAlgorithmFactory {
             new SingleBallAlgorithmRegistry("RecentMaxWeightFrequency", RecentMaxWeightFrequency.class),
             new SingleBallAlgorithmRegistry("SimilarityFrequency", SimilarityFrequency.class),
             new SingleBallAlgorithmRegistry("SurgeFrequency", SurgeFrequency.class),
-            new SingleBallAlgorithmRegistry("SvmSimulation", SvmSimulation.class),
+//            new SingleBallAlgorithmRegistry("SvmSimulation", SvmSimulation.class),
             new SingleBallAlgorithmRegistry("BlueRecommend", BlueRecommend.class),
             new SingleBallAlgorithmRegistry("RedRecommend", RedRecommend.class),
 //            new SingleBallAlgorithmRegistry("AdvancedEnsemblePredictor", AdvancedEnsemblePredictor.class),

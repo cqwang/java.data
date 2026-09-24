@@ -38,8 +38,8 @@ public class BatchBlueRecommend implements BatchBallAlgorithm {
             BatchBall batchBall,
             Range<Integer> range,
             BatchPredictOption option) {
-        var sub30 = batchBall.sub(30);
-        var sub15 = batchBall.sub(15);
+        var sub30 = batchBall.sub(50);
+        var sub15 = batchBall.sub(25);
 
         double maxScore = 0;
         boolean success = false;
@@ -48,7 +48,7 @@ public class BatchBlueRecommend implements BatchBallAlgorithm {
             if (option.isBlock(i)) {
                 continue;
             }
-            if(option.isAllow(i)) {
+            if (option.isAllow(i)) {
                 return new SingleResult(i, true);
             }
 
@@ -56,7 +56,7 @@ public class BatchBlueRecommend implements BatchBallAlgorithm {
                 continue;
             }
 
-            if(!becomeHot(batchBall, sub30, i, 1.5)){
+            if (!becomeHot(batchBall, sub30, i, 1.5)) {
                 continue;
             }
 
@@ -70,11 +70,20 @@ public class BatchBlueRecommend implements BatchBallAlgorithm {
             }
         }
 
+        if (!success) {
+            for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+                if (option.isBlock(i)) {
+                    continue;
+                }
+                return new SingleResult(i, true);
+            }
+        }
+
         return new SingleResult(result, success);
     }
 
     public static boolean becomeHot(BatchBall longBall, BatchBall recentBall, int data, double factor) {
-        return scale(longBall, recentBall, data,1.0) > longBall.getFrequency(data) * factor;
+        return scale(longBall, recentBall, data, 1.0) > longBall.getFrequency(data) * factor;
     }
 
 

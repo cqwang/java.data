@@ -1,6 +1,5 @@
 package cqwang.doubleball.detection.algorithm.batchball;
 
-import cqwang.doubleball.detection.algorithm.batchball.imp.*;
 import cqwang.doubleball.detection.algorithm.batchball.impl.*;
 
 import java.util.Arrays;
@@ -8,20 +7,6 @@ import java.util.List;
 
 public class BatchBallAlgorithmFactory {
     private static final BatchBallAlgorithmRegistry[] ALGORITHMS = {
-            new BatchBallAlgorithmRegistry("BatchMaxFrequency", BatchMaxFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchContinuityWeight", BatchContinuityWeight.class),
-            new BatchBallAlgorithmRegistry("BatchSurgeFrequency", BatchSurgeFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchNeighborhoodCluster", BatchNeighborhoodCluster.class),
-            new BatchBallAlgorithmRegistry("BatchRecentMaxFrequency", BatchRecentMaxFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchRecentMaxWeightFrequency", BatchRecentMaxWeightFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchSimilarityFrequency", BatchSimilarityFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchDistributionFrequency", BatchDistributionFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchMaxDistributionCumulativeWeightFrequency", BatchMaxDistributionCumulativeWeightFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchMaxDistributionSplitWeightFrequency", BatchMaxDistributionSplitWeightFrequency.class),
-            new BatchBallAlgorithmRegistry("BatchRedRecommendOptimized", BatchRedRecommendOptimized.class),
-            new BatchBallAlgorithmRegistry("BatchEnsembleOptimized", BatchEnsembleOptimized.class),
-            new BatchBallAlgorithmRegistry("BatchHotColdTransition", BatchHotColdTransition.class),
-            new BatchBallAlgorithmRegistry("BatchIntervalProximityHeatOptimized", BatchIntervalProximityHeatOptimized.class),
             new BatchBallAlgorithmRegistry("BatchRedRecommend", BatchRedRecommend.class),
             new BatchBallAlgorithmRegistry("BatchBlueRecommend", BatchBlueRecommend.class),
     };

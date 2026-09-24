@@ -16,7 +16,6 @@ public class AlgorithmUtils {
 
 
     /**
-     *
      * @param longBall
      * @param recentBall
      * @param data
@@ -24,7 +23,7 @@ public class AlgorithmUtils {
      * @return
      */
     public static boolean becomeHot(SingleBall longBall, SingleBall recentBall, int data, double factor) {
-        return scale(longBall, recentBall, data,1.0) > longBall.getFrequency(data) * factor;
+        return scale(longBall, recentBall, data, 1.0) > longBall.getFrequency(data) * factor;
     }
 
     public static boolean becomeCold(SingleBall longBall, SingleBall recentBall, int data) {
@@ -50,6 +49,7 @@ public class AlgorithmUtils {
 
     /**
      * 得分越大，越冷
+     *
      * @param splitBall
      * @param ballType
      * @param index
@@ -63,7 +63,7 @@ public class AlgorithmUtils {
             var globalBallIndexList = splitBall.getIndexList(ballType, index, i);
             var score = calculateScore(globalBallIndexList, splitBall.getBlueBall().getDataList().size(), period, ballType);
 //            if (score >= period * 0.7) {
-                dataScoreList.add(new DataScore(i, score));
+            dataScoreList.add(new DataScore(i, score));
 //            }
         }
 
@@ -270,7 +270,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 return new SingleResult(data, true);
             }
 
@@ -302,12 +302,20 @@ public class AlgorithmUtils {
             }
         }
 
+        if (!success) {
+            for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
+                    continue;
+                }
+                return new SingleResult(data, true);
+            }
+        }
+
         return new SingleResult(result, success);
     }
 
     /**
      * 邻域聚集算法 - 优先选择与其他高频数相邻的值
-     *
      */
     public static SingleResult neighborhoodCluster(
             SingleBall singleBall,
@@ -322,7 +330,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 return new SingleResult(i, true);
             }
 
@@ -346,6 +354,14 @@ public class AlgorithmUtils {
             }
         }
 
+        if (!success) {
+            for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                    continue;
+                }
+                return new SingleResult(i, true);
+            }
+        }
         return new SingleResult(result, success);
     }
 
@@ -366,7 +382,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
                 return new SingleResult(candidate, true);
             }
 
@@ -395,6 +411,15 @@ public class AlgorithmUtils {
             }
         }
 
+        if (!success) {
+            for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
+                    continue;
+                }
+                return new SingleResult(candidate, true);
+            }
+        }
+
         return new SingleResult(result, success);
     }
 
@@ -420,7 +445,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
                 return new SingleResult(candidate, true);
             }
 
@@ -434,6 +459,15 @@ public class AlgorithmUtils {
                 maxScore = score;
                 result = candidate;
                 success = true;
+            }
+        }
+
+        if (!success) {
+            for (int candidate = range.getMinimum(); candidate <= range.getMaximum(); candidate++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), candidate)) {
+                    continue;
+                }
+                return new SingleResult(candidate, true);
             }
         }
 
@@ -463,7 +497,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 return new SingleResult(i, true);
             }
 
@@ -479,6 +513,15 @@ public class AlgorithmUtils {
                 maxScore = score;
                 result = i;
                 success = true;
+            }
+        }
+
+        if (!success) {
+            for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                    continue;
+                }
+                return new SingleResult(i, true);
             }
         }
 
@@ -507,7 +550,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 return new SingleResult(i, true);
             }
 
@@ -534,6 +577,15 @@ public class AlgorithmUtils {
                 maxWeightedFreq = weightedFreq;
                 result = i;
                 success = true;
+            }
+        }
+
+        if (!success) {
+            for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                    continue;
+                }
+                return new SingleResult(i, true);
             }
         }
 
@@ -569,7 +621,7 @@ public class AlgorithmUtils {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), data)) {
                 return new SingleResult(data, true);
             }
 
@@ -584,10 +636,20 @@ public class AlgorithmUtils {
                 success = true;
             }
         }
+
+        if (!success) {
+            for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), data)) {
+                    continue;
+                }
+                return new SingleResult(data, true);
+            }
+        }
         return new SingleResult(result, success);
     }
 
-    public static double calculateScore(SingleBall[] subList, boolean isCumulativeWeight, double[] weightList, int data, int index) {
+    public static double calculateScore(SingleBall[] subList, boolean isCumulativeWeight, double[] weightList,
+                                        int data, int index) {
         if (isCumulativeWeight) {
             return subList[index].getFrequency(data) * weightList[index];
         }

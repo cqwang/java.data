@@ -4,6 +4,9 @@ import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.result.PredictValueModel;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class ValueCalculator {
     private static int defaultValue = 0;
 
@@ -37,13 +40,16 @@ public class ValueCalculator {
     }
 
     private static int calculateIntersectionRedCount(DoubleColorBall predictResult, DoubleColorBall target) {
-        var intersectionRedCount = 0;
+//        var intersectionRedCount = 0;
+        var set = new HashSet<Integer>();
         for (var predictRed : predictResult.getRedValueList()) {
             if (target.getRedValueList().contains(predictRed)) {
-                intersectionRedCount++;
+//                intersectionRedCount++;
+                set.add(predictRed);
             }
         }
-        return intersectionRedCount;
+//        return intersectionRedCount;
+        return set.size();
     }
 
 

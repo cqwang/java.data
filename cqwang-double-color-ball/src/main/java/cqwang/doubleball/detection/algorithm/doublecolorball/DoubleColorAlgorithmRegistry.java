@@ -24,7 +24,7 @@ import java.util.*;
 
 
 @NoArgsConstructor
-@JsonPropertyOrder({"blueAlgorithm", "redAlgorithm", "predictResult"})
+@JsonPropertyOrder({"blueAlgorithm", "redAlgorithm", "redBatchAlgorithm", "predictResult"})
 public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements DoubleColorAlgorithm {
 
     /**
@@ -105,13 +105,17 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
     @Override
     public DoubleColorBall predict(int targetIndex, PredictOption originOption) {
         var option = originOption.clone();
+        // 获取样本数据
+        var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
+        // 将冷门数据加入黑名单
+        option.addColdBlocks(splitBall);
 
         // 预测结果
         var predictResult = new DoubleColorBall();
         predictResult.getRedValueList().addAll(predictRedList(targetIndex, option));
         predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
 
-        var blueValue = predictBlue(targetIndex, option);
+        var blueValue = blueInstance.predict(splitBall.getBlueBall(), option).getResult();
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
@@ -123,13 +127,6 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
         var splitBatchBall = SplitBallCacheManager.computeIfAbsentBatchBall(targetIndex);
         return this.redBatchInstance.predict(splitBatchBall.getRedBall(), option.toBatchOption()).getResultList();
-    }
-
-    private int predictBlue(int targetIndex, PredictOption option) {
-        // 获取样本数据
-        var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
-
-        return blueInstance.predict(splitBall.getBlueBall(), option).getResult();
     }
 
 

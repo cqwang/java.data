@@ -1,14 +1,9 @@
 [
   {
     "blueAlgorithm": "BlueRecommend",
-    "redAlgorithm": "RedRecommend"
-  },
-  {
-    "blueAlgorithm": "BlueRecommend",
     "redBatchAlgorithm": "BatchRedRecommend"
   },
   {
     "blueAlgorithm": "BlueRecommend",
     "redBatchAlgorithm": "BatchBlueRecommend"
-  }
-]
+  }]

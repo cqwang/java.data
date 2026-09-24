@@ -1,5 +1,7 @@
 package cqwang.doubleball.detection.model.option;
 
+import cqwang.doubleball.detection.model.data.SingleBall;
+import cqwang.doubleball.detection.model.data.SplitBall;
 import cqwang.doubleball.detection.model.data.features.BallType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -142,6 +144,22 @@ public class PredictOption {
             }
         }
         return null;
+    }
+
+    public void addColdBlocks(SplitBall splitBall) {
+        doAddColdBlocks(splitBall.getBlueBall(), blueBlocks);
+        for (int i = 0; i < 6; i++) {
+            doAddColdBlocks(splitBall.getRedBall(i), redBlocks.computeIfAbsent(i, t -> new HashSet<>()));
+        }
+    }
+
+    private void doAddColdBlocks(SingleBall singleBall, Set<Integer> blocks) {
+        var min = singleBall.getAvgFrequency() / 2;
+        for (var dataFrequency : singleBall.getSortedList()) {
+            if (dataFrequency.isCold(min)) {
+                blocks.add(dataFrequency.getData());
+            }
+        }
     }
 
 

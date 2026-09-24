@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import cqwang.data.serializer.FileProvider;
 import cqwang.doubleball.detection.model.data.DoubleColorBall;
 import cqwang.doubleball.detection.model.data.SplitBall;
+import cqwang.doubleball.detection.model.data.SplitBatchBall;
 import lombok.Getter;
 
 import java.util.Collections;
@@ -34,8 +35,10 @@ public class DoubleColorBallPreload {
 
         Collections.reverse(allData);
 
-
-//        splitAllData = new SplitBall(allData.size());
+//
+//        var splitAllData = new SplitBall(allData.size());
+//        var splitBatchAllData = new SplitBatchBall(allData.size());
+//        System.out.println();
     }
 
 }

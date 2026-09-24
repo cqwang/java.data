@@ -13,4 +13,9 @@ public class DataFrequency {
         this.frequency = 1;
         this.maxContinuousFrequency = 1;
     }
+
+    public boolean isCold(double comparedValue) {
+        return frequency < comparedValue;
+    }
+
 }

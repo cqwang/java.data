@@ -38,10 +38,10 @@ public class BatchRedRecommend implements BatchBallAlgorithm {
             boolean isCumulativeWeight,
             BatchPredictOption option) {
         var subList = new BatchBall[]{
-                batchBall.sub(5),
                 batchBall.sub(12),
                 batchBall.sub(20),
-                batchBall.sub(40)
+                batchBall.sub(40),
+                batchBall.sub(60)
         };
         var weightList = new double[]{-2, 10, 3, 1};
 
@@ -68,6 +68,16 @@ public class BatchRedRecommend implements BatchBallAlgorithm {
                 success = true;
             }
         }
+
+        if (!success) {
+            for (int data = range.getMinimum(); data <= range.getMaximum(); data++) {
+                if (option.isBlock(data)) {
+                    continue;
+                }
+                return new SingleResult(data, true);
+            }
+        }
+
         return new SingleResult(result, success);
     }
 

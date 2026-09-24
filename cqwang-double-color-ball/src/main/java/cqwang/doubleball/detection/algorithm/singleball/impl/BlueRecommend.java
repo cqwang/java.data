@@ -39,7 +39,7 @@ public class BlueRecommend implements SingleBallAlgorithm {
             if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 continue;
             }
-            if(option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
+            if (option.isAllow(singleBall.getBallType(), singleBall.getIndex(), i)) {
                 return new SingleResult(i, true);
             }
 
@@ -47,7 +47,7 @@ public class BlueRecommend implements SingleBallAlgorithm {
                 continue;
             }
 
-            if(!AlgorithmUtils.becomeHot(singleBall, sub30, i, 1.5)){
+            if (!AlgorithmUtils.becomeHot(singleBall, sub30, i, 1.5)) {
                 continue;
             }
 
@@ -58,6 +58,15 @@ public class BlueRecommend implements SingleBallAlgorithm {
                 maxScore = score;
                 result = i;
                 success = true;
+            }
+        }
+
+        if (!success) {
+            for (int i = range.getMinimum(); i <= range.getMaximum(); i++) {
+                if (option.isBlock(singleBall.getBallType(), singleBall.getIndex(), i)) {
+                    continue;
+                }
+                return new SingleResult(i, true);
             }
         }
 
