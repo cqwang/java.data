@@ -17,8 +17,4 @@ public enum RunOption {
      */
     RE_CALCULATE,
 
-    /**
-     * 单个球
-     */
-    RE_CALCULATE_SINGLE_BALL
 }

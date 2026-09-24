@@ -21,11 +21,6 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
 
             List<TRegistry> algorithmList = null;
 
-            if (runOption == RunOption.RE_CALCULATE_SINGLE_BALL) {
-                return reCalculateJustForSingle();
-            }
-
-
             if (runOption == RunOption.RE_CALCULATE) {
                 algorithmList = reCalculate();
             } else if (runOption == RunOption.RE_CALCULATE_VALUE_FROM_FILE) {
@@ -48,8 +43,6 @@ public interface AlgorithmSelector<TRegistry extends AlgorithmRegistry> {
             System.out.println("history predict time : " + stopWatch.elapsed(TimeUnit.SECONDS));
         }
     }
-
-    List<TRegistry> reCalculateJustForSingle();
 
     List<TRegistry> reCalculate();
 

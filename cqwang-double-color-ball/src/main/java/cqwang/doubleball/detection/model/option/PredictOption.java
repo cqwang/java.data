@@ -144,4 +144,14 @@ public class PredictOption {
         return null;
     }
 
+
+    public BatchPredictOption toBatchOption() {
+        var batchOption = new BatchPredictOption();
+        batchOption.setRedAllows(new HashSet<>(this.redAllows.values()));
+        batchOption.setRedBlocks(new HashSet<>());
+        for (var blocks : this.redBlocks.values()) {
+            batchOption.getRedBlocks().addAll(blocks);
+        }
+        return batchOption;
+    }
 }

@@ -3,6 +3,9 @@ package cqwang.doubleball.detection.algorithm.doublecolorball;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import cqwang.doubleball.detection.algorithm.AlgorithmRegistry;
+import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithm;
+import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithmFactory;
+import cqwang.doubleball.detection.algorithm.batchball.BatchBallAlgorithmRegistry;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithm;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmFactory;
 import cqwang.doubleball.detection.algorithm.singleball.SingleBallAlgorithmRegistry;
@@ -15,6 +18,7 @@ import cqwang.doubleball.detection.model.result.PredictResult;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
@@ -39,6 +43,21 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
 
 
     /**
+     * 红色球预测算法注册表名称列表
+     */
+    @Getter
+    @Setter
+    private String redBatchAlgorithm;
+
+    /**
+     * 红色球预测算法实列列表
+     */
+    @JsonIgnore
+    @Getter
+    private BatchBallAlgorithm redBatchInstance;
+
+
+    /**
      * 蓝色球预测算法注册表名称
      */
     @Getter
@@ -60,9 +79,22 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         this.redAlgorithm = red.getAlgorithmName();
     }
 
+    public DoubleColorAlgorithmRegistry(SingleBallAlgorithmRegistry blue, BatchBallAlgorithmRegistry red) {
+        this.blueInstance = blue.getInstance();
+        this.blueAlgorithm = blue.getAlgorithmName();
+        this.redBatchInstance = red.getInstance();
+        this.redBatchAlgorithm = red.getAlgorithmName();
+    }
+
     public void initInstance(boolean resetHistoryValue) {
         this.blueInstance = SingleBallAlgorithmFactory.getAlgorithm(this.blueAlgorithm).getInstance();
-        this.redInstance = SingleBallAlgorithmFactory.getAlgorithm(this.redAlgorithm).getInstance();
+
+        if (StringUtils.isNotEmpty(this.redAlgorithm)) {
+            this.redInstance = SingleBallAlgorithmFactory.getAlgorithm(this.redAlgorithm).getInstance();
+        }
+        if (StringUtils.isNotEmpty(this.redBatchAlgorithm)) {
+            this.redBatchInstance = BatchBallAlgorithmFactory.getAlgorithm(this.redBatchAlgorithm).getInstance();
+        }
 
         if (resetHistoryValue) {
             this.setPredictResult(new PredictResult());
@@ -73,20 +105,38 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
     @Override
     public DoubleColorBall predict(int targetIndex, PredictOption originOption) {
         var option = originOption.clone();
-        // 获取样本数据
-        var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
 
         // 预测结果
         var predictResult = new DoubleColorBall();
-        predictResult.getRedValueList().addAll(predictRedList(splitBall, option));
+        predictResult.getRedValueList().addAll(predictRedList(targetIndex, option));
         predictResult.getRedValueList().sort(Comparator.comparingInt(o -> o));
 
-        var blueValue = blueInstance.predict(splitBall.getBlueBall(), option).getResult();
+        var blueValue = predictBlue(targetIndex, option);
         predictResult.setBlueValue(blueValue);
         return predictResult;
     }
 
-    private List<Integer> predictRedList(SplitBall splitBall, PredictOption option) {
+    private List<Integer> predictRedList(int targetIndex, PredictOption option){
+        if(StringUtils.isNotEmpty(this.redAlgorithm)){
+            return predictRedOneByOne(targetIndex, option);
+        }
+
+        var splitBatchBall = SplitBallCacheManager.computeIfAbsentBatchBall(targetIndex);
+        return this.redBatchInstance.predict(splitBatchBall.getRedBall(), option.toBatchOption()).getResultList();
+    }
+
+    private int predictBlue(int targetIndex, PredictOption option) {
+        // 获取样本数据
+        var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
+
+        return blueInstance.predict(splitBall.getBlueBall(), option).getResult();
+    }
+
+
+    private List<Integer> predictRedOneByOne(int targetIndex, PredictOption option) {
+        // 获取样本数据
+        var splitBall = SplitBallCacheManager.computeIfAbsent(targetIndex);
+
         var redValueList = new ArrayList<Integer>(6);
         // 红色
         for (int redIndex = 0; redIndex < 6; redIndex++) {
@@ -121,7 +171,6 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         // [{"blueAlgorithm":"BlueRecommend","redAlgorithm":"RedRecommend","predictResult":{"profit":3342,"sumValue":7260,"sumCost":3918,"maxValue":3000,"hitTotalCount":131,"hitBlueTotalCount":125,"hitRedTotalCount":11}}]
 
 
-
 //        PointRemover.execute(list, targetIndex, option.clone(), this);
 
 //        BlockAndAllowMaker.execute(list, targetIndex, option.clone(), this);
@@ -138,15 +187,13 @@ public class DoubleColorAlgorithmRegistry extends AlgorithmRegistry implements D
         return list;
     }
 
-    private void dd() {
-
-        // 用算法本身的次优，替换blue
-//        replaceBlue(list, targetIndex, option.clone(), origin, 2);
-    }
-
 
     @JsonIgnore
     public String getUniqueName() {
-        return redAlgorithm + "_" + blueAlgorithm;
+        var red = this.redAlgorithm;
+        if (StringUtils.isEmpty(red)) {
+            red = this.redBatchAlgorithm;
+        }
+        return red + "_" + blueAlgorithm;
     }
 }

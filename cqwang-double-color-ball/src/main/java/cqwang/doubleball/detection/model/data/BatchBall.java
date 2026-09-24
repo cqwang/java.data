@@ -1,8 +1,6 @@
 package cqwang.doubleball.detection.model.data;
 
-import cqwang.doubleball.detection.model.data.features.BallType;
 import cqwang.doubleball.detection.model.option.BatchPredictOption;
-import cqwang.doubleball.detection.model.option.PredictOption;
 import cqwang.doubleball.detection.model.result.SingleResult;
 import lombok.Getter;
 
